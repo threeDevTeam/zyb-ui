@@ -123,7 +123,6 @@ class Index extends PureComponent {
 
     render() {
         return (
-            <div>
                 <List url='/zybadmin/demo/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
                     <Filter cols={5}>
                         <Filter.Item label="username" name="username"><Input/></Filter.Item>
@@ -157,7 +156,6 @@ class Index extends PureComponent {
                     </Table>
                     <Pagination/>
                 </List>
-            </div>
         )
     }
 }
