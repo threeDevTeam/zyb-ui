@@ -7,7 +7,7 @@ let SelectInlineRepeater = Selectify(InlineRepeater)
 
 const validate = {
     username: {type: "string", required: true, message: 'username不能为空'},
-    age: {type: "number", required: true, message: 'age1不能为空'}
+    age: {type: "number", required: true, message: 'age不能为空'}
 }
 
 class DemoForm extends PureComponent {
