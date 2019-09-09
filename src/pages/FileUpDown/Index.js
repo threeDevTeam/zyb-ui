@@ -37,7 +37,7 @@ export default class Index extends PureComponent {
                         okButtonProps: {disabled: true}
                     })
                     //异步请求
-                    request('/zybadmin/industryOfDic/moreSheetExcel', {method: 'post', data: formData}).then(res => {
+                    request('/zybadmin/tableMapInfo/tableMapInfoExcel', {method: 'post', data: formData}).then(res => {
                         if(res.flag){
                             modal.update({content: '操作成功', okButtonProps: {disabled: false}})
                         }else{

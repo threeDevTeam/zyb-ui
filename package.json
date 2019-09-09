@@ -19,7 +19,8 @@
     "nolist": "^1.2.58",
     "nowrapper": "^1.2.53",
     "react-icons": "^3.7.0",
-    "umi-request": "^1.2.2"
+    "umi-request": "^1.2.2",
+    "antd": "latest"
   },
   "scripts": {
     "start": "umi dev",

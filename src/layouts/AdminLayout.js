@@ -41,6 +41,24 @@ class AdminLayout extends React.Component {
                             <Menu.Item key="5"><Link to="/demo/city">省市县联动</Link></Menu.Item>
                             <Menu.Item key="6"><Link to="/test">Test1</Link></Menu.Item>
                         </SubMenu>
+                        <SubMenu
+                            key="sub2"
+                            title={<span><Icon type="dashboard"/><span>SSQ</span></span>}
+                        >
+                            <Menu.Item key="21"><Link to="/supervise">监管部门信息</Link></Menu.Item>
+                            <Menu.Item key="22"><Link to="/personOfSupervise">监管人员信息</Link></Menu.Item>
+                            <Menu.Item key="23"><Link to="/equipmentOfSupervise">监管装备信息</Link></Menu.Item>
+                            <Menu.Item key="24"><Link to="/lawOfSupervise">法规标准建设信息</Link></Menu.Item>
+                            <Menu.Item key="25"><Link to="/educationOfSupervise">教育培训情况</Link></Menu.Item>
+                            <Menu.Item key="26"><Link to="/propagateOfSupervise">职业健康宣传信息</Link></Menu.Item>
+                            <Menu.Item key="27"><Link to="/serviceOfSupervise">检测机构信息</Link></Menu.Item>
+                            <Menu.Item key="28"><Link to="/serviceSuperviseOfSupervise">检测机构监督信息</Link></Menu.Item>
+                            <Menu.Item key="29"><Link to="/executeLawOfSupervise">监督执法信息</Link></Menu.Item>
+                            <Menu.Item key="30"><Link to="/threeCheckOfSupervise">“三同时”监督检查信息</Link></Menu.Item>
+                            <Menu.Item key="31"><Link to="/accidentOfSupervise">职业病危害事故信息</Link></Menu.Item>
+                            <Menu.Item key="32"><Link to="/index">测试</Link></Menu.Item>
+                            <Menu.Item key="33"><Link to="/index2">测试2</Link></Menu.Item>
+                        </SubMenu>
                     </Menu>
                 </Sider>
                 <Layout>
