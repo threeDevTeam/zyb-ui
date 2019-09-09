@@ -125,15 +125,10 @@ class Supervise extends PureComponent {
         return (
 
                 <List url='/zybadmin/supervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
-                    <Filter cols={5}>
-                        <Filter.Item label="username" name="username"><Input/></Filter.Item>
-                        <Filter.Item label="date" name="date"><DatePicker/></Filter.Item>
-                        <Filter.Item label="创建时间" colSpan="2">
-                            <React.Fragment>
-                                <Filter.Item noLayout name="createStartTime"><DatePicker/></Filter.Item>
-                                <Filter.Item noLayout name="createEndTime"><DatePicker/></Filter.Item>
-                            </React.Fragment>
-                        </Filter.Item>
+                    <Filter cols={3}>
+                        <Filter.Item label="省的名称" name="provinceName"><Input/></Filter.Item>
+                        <Filter.Item label="单位名称" name="name"><Input/></Filter.Item>
+                        <Filter.Item label="是否独立设置职业健康监管部门" name="isSet"><Input/></Filter.Item>
                     </Filter>
                     <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
                         <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>创建</Button>

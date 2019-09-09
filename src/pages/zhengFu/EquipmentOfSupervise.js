@@ -125,16 +125,11 @@ class EquipmentOfSupervise extends PureComponent {
         return (
 
                 <List url='/zybadmin/equipmentOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
-                    <Filter cols={5}>
-                        <Filter.Item label="username" name="username"><Input/></Filter.Item>
-                        <Filter.Item label="age" name="age"><Input/></Filter.Item>
-                        <Filter.Item label="date" name="date"><DatePicker/></Filter.Item>
-                        <Filter.Item label="创建时间" colSpan="2">
-                            <React.Fragment>
-                                <Filter.Item noLayout name="createStartTime"><DatePicker/></Filter.Item>
-                                <Filter.Item noLayout name="createEndTime"><DatePicker/></Filter.Item>
-                            </React.Fragment>
-                        </Filter.Item>
+                    <Filter cols={4}>
+                        <Filter.Item label="装备名称" name="name"><Input/></Filter.Item>
+                        <Filter.Item label="规格型号" name="num"><Input/></Filter.Item>
+                        <Filter.Item label="装备状态" name="status"><Input/></Filter.Item>
+
                     </Filter>
                     <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
                         <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>创建</Button>

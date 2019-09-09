@@ -13,13 +13,7 @@ class Index extends PureComponent {
 }
 
     componentWillMount() {
-        request.get('/zybadmin/areaCopy/TreeSelcetData').then(res =>{
-            if(res.flag){
-                console.log(res.data)
-                this.setState({dataSource:res.data})
-            }
-        })
-        request.get('/zybadmin/areaCopy/TreeSelcetDatasheng').then(res =>{
+        request.get('/zybadmin/areaOfDic/TreeSelcetData').then(res =>{
             if(res.flag){
                 console.log(res.data)
                 this.setState({dataSource:res.data})

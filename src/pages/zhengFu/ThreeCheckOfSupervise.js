@@ -125,16 +125,9 @@ class ThreeCheckOfSupervise extends PureComponent {
         return (
 
                 <List url='/zybadmin/threeCheckOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
-                    <Filter cols={5}>
-                        <Filter.Item label="username" name="username"><Input/></Filter.Item>
-                        <Filter.Item label="age" name="age"><Input/></Filter.Item>
-                        <Filter.Item label="date" name="date"><DatePicker/></Filter.Item>
-                        <Filter.Item label="创建时间" colSpan="2">
-                            <React.Fragment>
-                                <Filter.Item noLayout name="createStartTime"><DatePicker/></Filter.Item>
-                                <Filter.Item noLayout name="createEndTime"><DatePicker/></Filter.Item>
-                            </React.Fragment>
-                        </Filter.Item>
+                    <Filter cols={4}>
+                        <Filter.Item label="年份" name="year"><Input/></Filter.Item>
+                        <Filter.Item label="罚款金额" name="age"><Input/></Filter.Item>
                     </Filter>
                     <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
                         <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>创建</Button>
@@ -161,7 +154,7 @@ class ThreeCheckOfSupervise extends PureComponent {
                         <Table.Column title="责令停止产生职业病危害作业单位数" dataIndex="stopCount"/>
                         <Table.Column title="提请责令停建或关闭单位数" dataIndex="closeCount"/>
                         <Table.Column title="罚款建设单位数" dataIndex="pulishCount"/>
-                        <Table.Column title="罚款金额" dataIndex="pulishMoney"/>
+                        <Table.Column title="罚款金额" dataIndex="罚款金额"/>
 
 
                     </Table>

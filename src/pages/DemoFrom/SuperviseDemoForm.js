@@ -43,7 +43,6 @@ class SuperviseDemoForm extends PureComponent {
             <Form core={this.core} layout={{label:5}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
                 <FormItem label="省的名称" name="provinceName"><Input/></FormItem>
-                <FormItem label="省的名称" name="provinceName"><Input/></FormItem>
                 <FormItem label="申报年份" name="year"><InputNumber/></FormItem>
                 <FormItem label="省的代码" name="provinceCode"><Input/></FormItem>
                 <FormItem label="市的名称" name="cityName"><Input/></FormItem>
