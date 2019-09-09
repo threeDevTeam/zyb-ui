@@ -11,7 +11,7 @@ import "nolist/dist/wrapper/antd.css"
 import classNames from 'classnames'
 import styles from './index.less'
 //
-import PropagateOfSuperviseDemoForm from '../DemoFrom/PropagateOfSuperviseDemoForm'
+import ExecuteLawOfSuperviseDemoForm from '../DemoFrom/ExecuteLawOfSuperviseDemoForm'
 import {connect} from 'dva'
 import request from '../../utils/request'
 
@@ -19,7 +19,7 @@ import request from '../../utils/request'
 let globalList
 
 // @connect(({demo}) => ({demo}))
-class Index extends PureComponent {
+class executeLawOfSupervise extends PureComponent {
     state = {}
 
     handleOperator = (type) => {
@@ -32,9 +32,9 @@ class Index extends PureComponent {
                 width: 650,
                 // style: {width: 1000},
                 enableValidate: true,
-                content: <PropagateOfSuperviseDemoForm option={{type}}/>,
+                content: <ExecuteLawOfSuperviseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    request.post('/zybadmin/propagateOfSupervise/add', {data: {...values}}).then(res => {
+                    request.post('/zybadmin/executeLawOfSupervise/add', {data: {...values}}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")
                             hide()
@@ -52,7 +52,7 @@ class Index extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/propagateOfSupervise/getById?id=' + this.state.record.id).then(res => {
+            request('/zybadmin/executeLawOfSupervise/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -61,9 +61,9 @@ class Index extends PureComponent {
                         width: 650,
                         // style: {width: '1000px'},
                         enableValidate: true,
-                        content: <PropagateOfSuperviseDemoForm option={{type, record: res.data}}/>,
+                        content: <ExecuteLawOfSuperviseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/demo/edit', {data: {...values}}).then(res => {
+                            request.post('/zybadmin/executeLawOfSupervise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -91,7 +91,7 @@ class Index extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除id=${this.state.record.id}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/propagateOfSupervise/delete?id=' + this.state.record.id).then(res => {
+                    request('/zybadmin/executeLawOfSupervise/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -124,46 +124,49 @@ class Index extends PureComponent {
     render() {
         return (
 
-                <List url='/zybadmin/propagateOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
-                    <Filter cols={5}>
-                        <Filter.Item label="username" name="username"><Input/></Filter.Item>
-                        <Filter.Item label="age" name="age"><Input/></Filter.Item>
-                        <Filter.Item label="date" name="date"><DatePicker/></Filter.Item>
-                        <Filter.Item label="创建时间" colSpan="2">
-                            <React.Fragment>
-                                <Filter.Item noLayout name="createStartTime"><DatePicker/></Filter.Item>
-                                <Filter.Item noLayout name="createEndTime"><DatePicker/></Filter.Item>
-                            </React.Fragment>
-                        </Filter.Item>
-                    </Filter>
-                    <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
-                        <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>创建</Button>
-                        <Button icon="edit" type="primary" onClick={() => this.handleOperator('edit')}
-                                className={styles.marginLeft20}>编辑</Button>
-                        <Button icon="search" type="primary" onClick={() => this.handleOperator('view')}
-                                className={styles.marginLeft20}>浏览</Button>
-                        <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
-                                className={styles.marginLeft20}>删除</Button>
-                    </div>
-                    <Table onRow={record => {
-                        return {
-                            onClick: () => this.clickOperation('onClick', record),
-                            onDoubleClick: () => this.clickOperation('onDoubleClick', record)
-                        }
-                    }}>
-                        <Table.Column title="id" dataIndex="id"/>
-                        <Table.Column title="年份" dataIndex="year"/>
-                        <Table.Column title="新闻报道数" dataIndex="newsCount"/>
-                        <Table.Column title="印发宣传材料数" dataIndex="paperCount"/>
-                        <Table.Column title="制作和发放专题宣传片（视频）数" dataIndex="videoCount"/>
-                        <Table.Column title="出动宣传人员数" dataIndex="outCount"/>
-                        <Table.Column title="宣传受众人数" dataIndex="acceptCount"/>
-
-                    </Table>
-                    <Pagination/>
-                </List>
+            <List url='/zybadmin/executeLawOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
+                <Filter cols={5}>
+                    <Filter.Item label="username" name="username"><Input/></Filter.Item>
+                    <Filter.Item label="age" name="age"><Input/></Filter.Item>
+                    <Filter.Item label="date" name="date"><DatePicker/></Filter.Item>
+                    <Filter.Item label="创建时间" colSpan="2">
+                        <React.Fragment>
+                            <Filter.Item noLayout name="createStartTime"><DatePicker/></Filter.Item>
+                            <Filter.Item noLayout name="createEndTime"><DatePicker/></Filter.Item>
+                        </React.Fragment>
+                    </Filter.Item>
+                </Filter>
+                <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
+                    <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>创建</Button>
+                    <Button icon="edit" type="primary" onClick={() => this.handleOperator('edit')}
+                            className={styles.marginLeft20}>编辑</Button>
+                    <Button icon="search" type="primary" onClick={() => this.handleOperator('view')}
+                            className={styles.marginLeft20}>浏览</Button>
+                    <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
+                            className={styles.marginLeft20}>删除</Button>
+                </div>
+                <Table onRow={record => {
+                    return {
+                        onClick: () => this.clickOperation('onClick', record),
+                        onDoubleClick: () => this.clickOperation('onDoubleClick', record)
+                    }
+                }}>
+                    <Table.Column title="id" dataIndex="id"/>
+                    <Table.Column title="年份" dataIndex="year"/>
+                    <Table.Column title="检查用人单位数" dataIndex="personCount"/>
+                    <Table.Column title="下达执法文书数" dataIndex="paperCount"/>
+                    <Table.Column title="发现问题或隐患数" dataIndex="questionCount"/>
+                    <Table.Column title="责令当场改正数" dataIndex="changeCount"/>
+                    <Table.Column title="责令限期改正数" dataIndex="fixCount"/>
+                    <Table.Column title="罚款用人单位数" dataIndex="punishCount"/>
+                    <Table.Column title="罚款金额" dataIndex="punishMoney"/>
+                    <Table.Column title="责令停产整顿用人单位数" dataIndex="stopCount"/>
+                    <Table.Column title="提请关闭用人单位数" dataIndex="closeCount"/>
+                </Table>
+                <Pagination/>
+            </List>
         )
     }
 }
 
-export default Index
+export default executeLawOfSupervise

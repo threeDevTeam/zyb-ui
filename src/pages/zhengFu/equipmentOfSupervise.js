@@ -11,7 +11,7 @@ import "nolist/dist/wrapper/antd.css"
 import classNames from 'classnames'
 import styles from './index.less'
 //
-import PersonOfSuperviseDemoForm from '../DemoFrom/PersonOfSuperviseDemoForm'
+import EquipmentOfSuperviseDemoForm from '../DemoFrom/EquipmentOfSuperviseDemoForm'
 import {connect} from 'dva'
 import request from '../../utils/request'
 
@@ -19,7 +19,7 @@ import request from '../../utils/request'
 let globalList
 
 // @connect(({demo}) => ({demo}))
-class Index extends PureComponent {
+class equipmentOfSupervise extends PureComponent {
     state = {}
 
     handleOperator = (type) => {
@@ -32,9 +32,9 @@ class Index extends PureComponent {
                 width: 650,
                 // style: {width: 1000},
                 enableValidate: true,
-                content: <PersonOfSuperviseDemoForm option={{type}}/>,
+                content: <EquipmentOfSuperviseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    request.post('/zybadmin/personOfSupervise/add', {data: {...values}}).then(res => {
+                    request.post('/zybadmin/equipmentOfSupervise/add', {data: {...values}}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")
                             hide()
@@ -52,8 +52,7 @@ class Index extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/personOfSupervise/getById?id=' + this.state.record.id).then(res => {
-                console.log(res)
+            request('/zybadmin/equipmentOfSupervise/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -62,7 +61,7 @@ class Index extends PureComponent {
                         width: 650,
                         // style: {width: '1000px'},
                         enableValidate: true,
-                        content: <PersonOfSuperviseDemoForm option={{type, record: res.data}}/>,
+                        content: <EquipmentOfSuperviseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             request.post('/zybadmin/demo/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
@@ -92,7 +91,7 @@ class Index extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除id=${this.state.record.id}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/personOfSupervise/delete?id=' + this.state.record.id).then(res => {
+                    request('/zybadmin/equipmentOfSupervise/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -125,7 +124,7 @@ class Index extends PureComponent {
     render() {
         return (
 
-                <List url='/zybadmin/personOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
+                <List url='/zybadmin/equipmentOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
                     <Filter cols={5}>
                         <Filter.Item label="username" name="username"><Input/></Filter.Item>
                         <Filter.Item label="age" name="age"><Input/></Filter.Item>
@@ -153,20 +152,19 @@ class Index extends PureComponent {
                         }
                     }}>
                         <Table.Column title="id" dataIndex="id"/>
-                        <Table.Column title="姓名" dataIndex="name"/>
-                        <Table.Column title="性别" dataIndex="gender"/>
-                        <Table.Column title="身份证号" dataIndex="idNum"/>
-                        <Table.Column title="出生日期" dataIndex="birth"/>
-                        <Table.Column title="职务" dataIndex="job"/>
-                        <Table.Column title="所学专业" dataIndex="major"/>
-                        <Table.Column title="是否取得执法资格证书" dataIndex="isGet"/>
+                        <Table.Column title="装备名称" dataIndex="name"/>
+                        <Table.Column title="规格型号" dataIndex="num"/>
+                        <Table.Column title="数量" dataIndex="amount"/>
+                        <Table.Column title="购置时间" dataIndex="buyDate"/>
+                        <Table.Column title="装备状态" dataIndex="status"/>
 
 
                     </Table>
                     <Pagination/>
                 </List>
+
         )
     }
 }
 
-export default Index
+export default equipmentOfSupervise
