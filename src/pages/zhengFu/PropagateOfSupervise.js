@@ -11,7 +11,7 @@ import "nolist/dist/wrapper/antd.css"
 import classNames from 'classnames'
 import styles from './index.less'
 //
-import ServiceSuperviseOfSuperviseDemoForm from '../DemoFrom/ServiceSuperviseOfSuperviseDemoForm'
+import PropagateOfSuperviseDemoForm from '../DemoFrom/PropagateOfSuperviseDemoForm'
 import {connect} from 'dva'
 import request from '../../utils/request'
 
@@ -19,7 +19,7 @@ import request from '../../utils/request'
 let globalList
 
 // @connect(({demo}) => ({demo}))
-class serviceSuperviseOfSupervise extends PureComponent {
+class PropagateOfSupervise extends PureComponent {
     state = {}
 
     handleOperator = (type) => {
@@ -32,9 +32,9 @@ class serviceSuperviseOfSupervise extends PureComponent {
                 width: 650,
                 // style: {width: 1000},
                 enableValidate: true,
-                content: <ServiceSuperviseOfSuperviseDemoForm option={{type}}/>,
+                content: <PropagateOfSuperviseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    request.post('/zybadmin/serviceSuperviseOfSupervise/add', {data: {...values}}).then(res => {
+                    request.post('/zybadmin/propagateOfSupervise/add', {data: {...values}}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")
                             hide()
@@ -52,7 +52,7 @@ class serviceSuperviseOfSupervise extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/serviceSuperviseOfSupervise/getById?id=' + this.state.record.id).then(res => {
+            request('/zybadmin/propagateOfSupervise/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -61,9 +61,9 @@ class serviceSuperviseOfSupervise extends PureComponent {
                         width: 650,
                         // style: {width: '1000px'},
                         enableValidate: true,
-                        content: <ServiceSuperviseOfSuperviseDemoForm option={{type, record: res.data}}/>,
+                        content: <PropagateOfSuperviseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/serviceSuperviseOfSupervise/edit', {data: {...values}}).then(res => {
+                            request.post('/zybadmin/demo/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -91,7 +91,7 @@ class serviceSuperviseOfSupervise extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除id=${this.state.record.id}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/serviceSuperviseOfSupervise/delete?id=' + this.state.record.id).then(res => {
+                    request('/zybadmin/propagateOfSupervise/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -124,7 +124,7 @@ class serviceSuperviseOfSupervise extends PureComponent {
     render() {
         return (
 
-                <List url='/zybadmin/serviceSuperviseOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
+                <List url='/zybadmin/propagateOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
                     <Filter cols={5}>
                         <Filter.Item label="username" name="username"><Input/></Filter.Item>
                         <Filter.Item label="age" name="age"><Input/></Filter.Item>
@@ -153,25 +153,17 @@ class serviceSuperviseOfSupervise extends PureComponent {
                     }}>
                         <Table.Column title="id" dataIndex="id"/>
                         <Table.Column title="年份" dataIndex="year"/>
-                        <Table.Column title="检测机构的数量" dataIndex="jianceCount"/>
-                        <Table.Column title="体检机构的数量" dataIndex="tijianianceount"/>
-                        <Table.Column title="诊断机构的数量" dataIndex="zhenduanCount"/>
-                        <Table.Column title="检测机构的被处罚数量" dataIndex="jiancePunishCount"/>
-                        <Table.Column title="体检机构的被处罚数量" dataIndex="tijianPunishCount"/>
-                        <Table.Column title="诊断机构的被处罚数量" dataIndex="zhenduanPunishCount"/>
-                        <Table.Column title="检测机构的罚款金额" dataIndex="jianceMoney"/>
-                        <Table.Column title="体检机构的罚款金额" dataIndex="tijianMoney"/>
-                        <Table.Column title="诊断机构的罚款金额" dataIndex="zhenduanMoney"/>
-                        <Table.Column title="检测机构的被吊销资质数量" dataIndex="jianceCancelCount"/>
-                        <Table.Column title="体检机构的被吊销资质数量" dataIndex="tijianianceancelCount"/>
-                        <Table.Column title="诊断机构的被吊销资质数量" dataIndex="zhenduanCancelCount"/>
+                        <Table.Column title="新闻报道数" dataIndex="newsCount"/>
+                        <Table.Column title="印发宣传材料数" dataIndex="paperCount"/>
+                        <Table.Column title="制作和发放专题宣传片（视频）数" dataIndex="videoCount"/>
+                        <Table.Column title="出动宣传人员数" dataIndex="outCount"/>
+                        <Table.Column title="宣传受众人数" dataIndex="acceptCount"/>
 
                     </Table>
                     <Pagination/>
                 </List>
-
         )
     }
 }
 
-export default serviceSuperviseOfSupervise
+export default PropagateOfSupervise

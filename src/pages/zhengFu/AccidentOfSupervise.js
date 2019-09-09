@@ -11,7 +11,7 @@ import "nolist/dist/wrapper/antd.css"
 import classNames from 'classnames'
 import styles from './index.less'
 //
-import PropagateOfSuperviseDemoForm from '../DemoFrom/PropagateOfSuperviseDemoForm'
+import AccidentOfSuperviseDemoForm from '../DemoFrom/AccidentOfSuperviseDemoForm'
 import {connect} from 'dva'
 import request from '../../utils/request'
 
@@ -19,7 +19,7 @@ import request from '../../utils/request'
 let globalList
 
 // @connect(({demo}) => ({demo}))
-class propagateOfSupervise extends PureComponent {
+class AccidentOfSupervise extends PureComponent {
     state = {}
 
     handleOperator = (type) => {
@@ -32,9 +32,9 @@ class propagateOfSupervise extends PureComponent {
                 width: 650,
                 // style: {width: 1000},
                 enableValidate: true,
-                content: <PropagateOfSuperviseDemoForm option={{type}}/>,
+                content: <AccidentOfSuperviseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    request.post('/zybadmin/propagateOfSupervise/add', {data: {...values}}).then(res => {
+                    request.post('/zybadmin/accidentOfSupervise/add', {data: {...values}}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")
                             hide()
@@ -52,7 +52,7 @@ class propagateOfSupervise extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/propagateOfSupervise/getById?id=' + this.state.record.id).then(res => {
+            request('/zybadmin/demo/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -61,9 +61,9 @@ class propagateOfSupervise extends PureComponent {
                         width: 650,
                         // style: {width: '1000px'},
                         enableValidate: true,
-                        content: <PropagateOfSuperviseDemoForm option={{type, record: res.data}}/>,
+                        content: <AccidentOfSuperviseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/demo/edit', {data: {...values}}).then(res => {
+                            request.post('/zybadmin/accidentOfSupervise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -91,7 +91,7 @@ class propagateOfSupervise extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除id=${this.state.record.id}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/propagateOfSupervise/delete?id=' + this.state.record.id).then(res => {
+                    request('/zybadmin/accidentOfSupervise/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -124,7 +124,7 @@ class propagateOfSupervise extends PureComponent {
     render() {
         return (
 
-                <List url='/zybadmin/propagateOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
+                <List url='/zybadmin/accidentOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
                     <Filter cols={5}>
                         <Filter.Item label="username" name="username"><Input/></Filter.Item>
                         <Filter.Item label="age" name="age"><Input/></Filter.Item>
@@ -153,11 +153,16 @@ class propagateOfSupervise extends PureComponent {
                     }}>
                         <Table.Column title="id" dataIndex="id"/>
                         <Table.Column title="年份" dataIndex="year"/>
-                        <Table.Column title="新闻报道数" dataIndex="newsCount"/>
-                        <Table.Column title="印发宣传材料数" dataIndex="paperCount"/>
-                        <Table.Column title="制作和发放专题宣传片（视频）数" dataIndex="videoCount"/>
-                        <Table.Column title="出动宣传人员数" dataIndex="outCount"/>
-                        <Table.Column title="宣传受众人数" dataIndex="acceptCount"/>
+                        <Table.Column title="尘肺病事故数" dataIndex="dustCount"/>
+                        <Table.Column title="中毒事故数" dataIndex="poisonCount"/>
+                        <Table.Column title="其它事故数" dataIndex="otherCount"/>
+                        <Table.Column title="尘肺病事故人数" dataIndex="dustPersonCount"/>
+                        <Table.Column title="中毒事故人数" dataIndex="poisonPersonCount"/>
+                        <Table.Column title="其它事故人数" dataIndex="otherPersonCount"/>
+                        <Table.Column title="尘肺病事故死亡人数" dataIndex="dustDieCount"/>
+                        <Table.Column title="中毒事故死亡人数" dataIndex="poisonDieCount"/>
+                        <Table.Column title="其它事故死亡人数" dataIndex="otherDieCount"/>
+                        <Table.Column title="直接经济损失" dataIndex="loseMoney"/>
 
                     </Table>
                     <Pagination/>
@@ -166,4 +171,4 @@ class propagateOfSupervise extends PureComponent {
     }
 }
 
-export default propagateOfSupervise
+export default AccidentOfSupervise

@@ -11,7 +11,7 @@ import "nolist/dist/wrapper/antd.css"
 import classNames from 'classnames'
 import styles from './index.less'
 //
-import AccidentOfSuperviseDemoForm from '../DemoFrom/AccidentOfSuperviseDemoForm'
+import PersonOfSuperviseDemoForm from '../DemoFrom/PersonOfSuperviseDemoForm'
 import {connect} from 'dva'
 import request from '../../utils/request'
 
@@ -19,7 +19,7 @@ import request from '../../utils/request'
 let globalList
 
 // @connect(({demo}) => ({demo}))
-class accidentOfSupervise extends PureComponent {
+class PersonOfSupervise extends PureComponent {
     state = {}
 
     handleOperator = (type) => {
@@ -32,9 +32,9 @@ class accidentOfSupervise extends PureComponent {
                 width: 650,
                 // style: {width: 1000},
                 enableValidate: true,
-                content: <AccidentOfSuperviseDemoForm option={{type}}/>,
+                content: <PersonOfSuperviseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    request.post('/zybadmin/accidentOfSupervise/add', {data: {...values}}).then(res => {
+                    request.post('/zybadmin/personOfSupervise/add', {data: {...values}}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")
                             hide()
@@ -52,7 +52,8 @@ class accidentOfSupervise extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/demo/getById?id=' + this.state.record.id).then(res => {
+            request('/zybadmin/personOfSupervise/getById?id=' + this.state.record.id).then(res => {
+                console.log(res)
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -61,9 +62,9 @@ class accidentOfSupervise extends PureComponent {
                         width: 650,
                         // style: {width: '1000px'},
                         enableValidate: true,
-                        content: <AccidentOfSuperviseDemoForm option={{type, record: res.data}}/>,
+                        content: <PersonOfSuperviseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/accidentOfSupervise/edit', {data: {...values}}).then(res => {
+                            request.post('/zybadmin/demo/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -91,7 +92,7 @@ class accidentOfSupervise extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除id=${this.state.record.id}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/accidentOfSupervise/delete?id=' + this.state.record.id).then(res => {
+                    request('/zybadmin/personOfSupervise/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -124,7 +125,7 @@ class accidentOfSupervise extends PureComponent {
     render() {
         return (
 
-                <List url='/zybadmin/accidentOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
+                <List url='/zybadmin/personOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
                     <Filter cols={5}>
                         <Filter.Item label="username" name="username"><Input/></Filter.Item>
                         <Filter.Item label="age" name="age"><Input/></Filter.Item>
@@ -152,17 +153,14 @@ class accidentOfSupervise extends PureComponent {
                         }
                     }}>
                         <Table.Column title="id" dataIndex="id"/>
-                        <Table.Column title="年份" dataIndex="year"/>
-                        <Table.Column title="尘肺病事故数" dataIndex="dustCount"/>
-                        <Table.Column title="中毒事故数" dataIndex="poisonCount"/>
-                        <Table.Column title="其它事故数" dataIndex="otherCount"/>
-                        <Table.Column title="尘肺病事故人数" dataIndex="dustPersonCount"/>
-                        <Table.Column title="中毒事故人数" dataIndex="poisonPersonCount"/>
-                        <Table.Column title="其它事故人数" dataIndex="otherPersonCount"/>
-                        <Table.Column title="尘肺病事故死亡人数" dataIndex="dustDieCount"/>
-                        <Table.Column title="中毒事故死亡人数" dataIndex="poisonDieCount"/>
-                        <Table.Column title="其它事故死亡人数" dataIndex="otherDieCount"/>
-                        <Table.Column title="直接经济损失" dataIndex="loseMoney"/>
+                        <Table.Column title="姓名" dataIndex="name"/>
+                        <Table.Column title="性别" dataIndex="gender"/>
+                        <Table.Column title="身份证号" dataIndex="idNum"/>
+                        <Table.Column title="出生日期" dataIndex="birth"/>
+                        <Table.Column title="职务" dataIndex="job"/>
+                        <Table.Column title="所学专业" dataIndex="major"/>
+                        <Table.Column title="是否取得执法资格证书" dataIndex="isGet"/>
+
 
                     </Table>
                     <Pagination/>
@@ -171,4 +169,4 @@ class accidentOfSupervise extends PureComponent {
     }
 }
 
-export default accidentOfSupervise
+export default PersonOfSupervise

@@ -11,7 +11,7 @@ import "nolist/dist/wrapper/antd.css"
 import classNames from 'classnames'
 import styles from './index.less'
 //
-import PersonOfSuperviseDemoForm from '../DemoFrom/PersonOfSuperviseDemoForm'
+import LawOfSuperviseDemoForm from '../DemoFrom/LawOfSuperviseDemoForm'
 import {connect} from 'dva'
 import request from '../../utils/request'
 
@@ -19,7 +19,7 @@ import request from '../../utils/request'
 let globalList
 
 // @connect(({demo}) => ({demo}))
-class personOfSupervise extends PureComponent {
+class LawOfSupervise extends PureComponent {
     state = {}
 
     handleOperator = (type) => {
@@ -32,9 +32,9 @@ class personOfSupervise extends PureComponent {
                 width: 650,
                 // style: {width: 1000},
                 enableValidate: true,
-                content: <PersonOfSuperviseDemoForm option={{type}}/>,
+                content: <LawOfSuperviseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    request.post('/zybadmin/personOfSupervise/add', {data: {...values}}).then(res => {
+                    request.post('/zybadmin/lawOfSupervise/add', {data: {...values}}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")
                             hide()
@@ -52,8 +52,7 @@ class personOfSupervise extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/personOfSupervise/getById?id=' + this.state.record.id).then(res => {
-                console.log(res)
+            request('/zybadmin/lawOfSupervise/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -62,9 +61,9 @@ class personOfSupervise extends PureComponent {
                         width: 650,
                         // style: {width: '1000px'},
                         enableValidate: true,
-                        content: <PersonOfSuperviseDemoForm option={{type, record: res.data}}/>,
+                        content: <LawOfSuperviseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/demo/edit', {data: {...values}}).then(res => {
+                            request.post('/zybadmin/lawOfSupervise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -92,7 +91,7 @@ class personOfSupervise extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除id=${this.state.record.id}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/personOfSupervise/delete?id=' + this.state.record.id).then(res => {
+                    request('/zybadmin/lawOfSupervise/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -125,7 +124,7 @@ class personOfSupervise extends PureComponent {
     render() {
         return (
 
-                <List url='/zybadmin/personOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
+                <List url='/zybadmin/lawOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
                     <Filter cols={5}>
                         <Filter.Item label="username" name="username"><Input/></Filter.Item>
                         <Filter.Item label="age" name="age"><Input/></Filter.Item>
@@ -153,15 +152,13 @@ class personOfSupervise extends PureComponent {
                         }
                     }}>
                         <Table.Column title="id" dataIndex="id"/>
-                        <Table.Column title="姓名" dataIndex="name"/>
-                        <Table.Column title="性别" dataIndex="gender"/>
-                        <Table.Column title="身份证号" dataIndex="idNum"/>
-                        <Table.Column title="出生日期" dataIndex="birth"/>
-                        <Table.Column title="职务" dataIndex="job"/>
-                        <Table.Column title="所学专业" dataIndex="major"/>
-                        <Table.Column title="是否取得执法资格证书" dataIndex="isGet"/>
-
-
+                        <Table.Column title="年份 " dataIndex="year"/>
+                        <Table.Column title="印发法律法规的新增" dataIndex="ruleIncrease"/>
+                        <Table.Column title="印发法律法规的累计" dataIndex="ruleSum"/>
+                        <Table.Column title="印发规范性文件的新增" dataIndex="fileIncrease"/>
+                        <Table.Column title="印发规范性文件的累计" dataIndex="fileSum"/>
+                        <Table.Column title="印发标准的新增" dataIndex="startdardIncrease"/>
+                        <Table.Column title="印发标准的累计" dataIndex="startdardSum"/>
                     </Table>
                     <Pagination/>
                 </List>
@@ -169,4 +166,4 @@ class personOfSupervise extends PureComponent {
     }
 }
 
-export default personOfSupervise
+export default LawOfSupervise

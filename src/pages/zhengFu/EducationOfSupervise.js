@@ -11,7 +11,7 @@ import "nolist/dist/wrapper/antd.css"
 import classNames from 'classnames'
 import styles from './index.less'
 //
-import ThreeCheckOfSuperviseDemoForm from '../DemoFrom/ThreeCheckOfSuperviseDemoForm'
+import EducationOfSuperviseDemoForm from '../DemoFrom/EducationOfSuperviseDemoForm'
 import {connect} from 'dva'
 import request from '../../utils/request'
 
@@ -19,7 +19,7 @@ import request from '../../utils/request'
 let globalList
 
 // @connect(({demo}) => ({demo}))
-class threeCheckOfSupervise extends PureComponent {
+class EducationOfSupervise extends PureComponent {
     state = {}
 
     handleOperator = (type) => {
@@ -32,9 +32,9 @@ class threeCheckOfSupervise extends PureComponent {
                 width: 650,
                 // style: {width: 1000},
                 enableValidate: true,
-                content: <ThreeCheckOfSuperviseDemoForm option={{type}}/>,
+                content: <EducationOfSuperviseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    request.post('/zybadmin/threeCheckOfSupervise/add', {data: {...values}}).then(res => {
+                    request.post('/zybadmin/educationOfSupervise/add', {data: {...values}}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")
                             hide()
@@ -52,7 +52,7 @@ class threeCheckOfSupervise extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/threeCheckOfSupervise/getById?id=' + this.state.record.id).then(res => {
+            request('/zybadmin/educationOfSupervise/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -61,9 +61,9 @@ class threeCheckOfSupervise extends PureComponent {
                         width: 650,
                         // style: {width: '1000px'},
                         enableValidate: true,
-                        content: <ThreeCheckOfSuperviseDemoForm option={{type, record: res.data}}/>,
+                        content: <EducationOfSuperviseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/threeCheckOfSupervise/edit', {data: {...values}}).then(res => {
+                            request.post('/zybadmin/educationOfSupervise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -91,7 +91,7 @@ class threeCheckOfSupervise extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除id=${this.state.record.id}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/threeCheckOfSupervise/delete?id=' + this.state.record.id).then(res => {
+                    request('/zybadmin/educationOfSupervise/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -124,7 +124,7 @@ class threeCheckOfSupervise extends PureComponent {
     render() {
         return (
 
-                <List url='/zybadmin/threeCheckOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
+                <List url='/zybadmin/educationOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
                     <Filter cols={5}>
                         <Filter.Item label="username" name="username"><Input/></Filter.Item>
                         <Filter.Item label="age" name="age"><Input/></Filter.Item>
@@ -152,18 +152,12 @@ class threeCheckOfSupervise extends PureComponent {
                         }
                     }}>
                         <Table.Column title="id" dataIndex="id"/>
-                        <Table.Column title="年份 " dataIndex="year"/>
-                        <Table.Column title="验收方案上报数" dataIndex="upCount"/>
-                        <Table.Column title="职业病危害严重建设项目控制效果评价和防护设施验收工作过程报告数" dataIndex="reportCount"/>
-                        <Table.Column title="检查建设单位数" dataIndex="orgCount"/>
-                        <Table.Column title="下达执法文书数" dataIndex="paperCount"/>
-                        <Table.Column title="给予警告责令限期整改单位数" dataIndex="changeCount"/>
-                        <Table.Column title="责令停止产生职业病危害作业单位数" dataIndex="stopCount"/>
-                        <Table.Column title="提请责令停建或关闭单位数" dataIndex="closeCount"/>
-                        <Table.Column title="罚款建设单位数" dataIndex="pulishCount"/>
-                        <Table.Column title="罚款金额" dataIndex="pulishMoney"/>
-
-
+                        <Table.Column title="年份" dataIndex="year"/>
+                        <Table.Column title="培训监管人员数" dataIndex="markCount"/>
+                        <Table.Column title="培训用人单位数" dataIndex="personCount"/>
+                        <Table.Column title="培训用人单位主要负责人数" dataIndex="mainCount"/>
+                        <Table.Column title="培训用人单位职业健康管理人员数" dataIndex="manageCount"/>
+                        <Table.Column title="培训接触职业病危害的劳动者数" dataIndex="workerCount"/>
                     </Table>
                     <Pagination/>
                 </List>
@@ -171,4 +165,4 @@ class threeCheckOfSupervise extends PureComponent {
     }
 }
 
-export default threeCheckOfSupervise
+export default EducationOfSupervise
