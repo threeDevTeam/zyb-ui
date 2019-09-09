@@ -124,8 +124,8 @@ class AccidentOfSupervise extends PureComponent {
     render() {
         return (
 
-                <List url='/zybadmin/accidentOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
-                    <Filter cols={4}>
+                <List url='/zybadmin/accidentOfSupervise/list'  onError={this.handleError} onMount={this.onMount}>
+                    <Filter cols={2}>
                         <Filter.Item label="年份" name="year"><Input/></Filter.Item>
                         <Filter.Item label="直接经济损失" name="loseMoney"><Input/></Filter.Item>
 

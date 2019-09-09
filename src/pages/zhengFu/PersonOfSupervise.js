@@ -125,8 +125,8 @@ class PersonOfSupervise extends PureComponent {
     render() {
         return (
 
-                <List url='/zybadmin/personOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
-                    <Filter cols={3}>
+                <List url='/zybadmin/personOfSupervise/list'  onError={this.handleError} onMount={this.onMount}>
+                    <Filter cols={2}>
                         <Filter.Item label="姓名" name="name"><Input/></Filter.Item>
                         <Filter.Item label="身份证号" name="idNum"><Input/></Filter.Item>
                     </Filter>

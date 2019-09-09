@@ -124,8 +124,8 @@ class ExecuteLawOfSupervise extends PureComponent {
     render() {
         return (
 
-            <List url='/zybadmin/executeLawOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
-                <Filter cols={4}>
+            <List url='/zybadmin/executeLawOfSupervise/list'  onError={this.handleError} onMount={this.onMount}>
+                <Filter cols={1}>
                     <Filter.Item label="年份" name="year"><Input/></Filter.Item>
                 </Filter>
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>

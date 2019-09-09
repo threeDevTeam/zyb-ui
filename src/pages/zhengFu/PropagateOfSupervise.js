@@ -124,8 +124,8 @@ class PropagateOfSupervise extends PureComponent {
     render() {
         return (
 
-                <List url='/zybadmin/propagateOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
-                    <Filter cols={5}>
+                <List url='/zybadmin/propagateOfSupervise/list'  onError={this.handleError} onMount={this.onMount}>
+                    <Filter cols={2}>
                         <Filter.Item label="年份" name="year"><Input/></Filter.Item>
                         <Filter.Item label="宣传受众人数" name="acceptCount"><Input/></Filter.Item>
                     </Filter>

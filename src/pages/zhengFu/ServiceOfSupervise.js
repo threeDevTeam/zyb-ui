@@ -124,8 +124,8 @@ class ServiceOfSupervise extends PureComponent {
     render() {
         return (
 
-                <List url='/zybadmin/serviceOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
-                    <Filter cols={4}>
+                <List url='/zybadmin/serviceOfSupervise/list'  onError={this.handleError} onMount={this.onMount}>
+                    <Filter cols={2}>
                         <Filter.Item label="年份" name="year"><Input/></Filter.Item>
                         <Filter.Item label="检测机构的资质等级" name="jianceLevel"><Input/></Filter.Item>
                     </Filter>

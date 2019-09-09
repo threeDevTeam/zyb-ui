@@ -124,8 +124,8 @@ class EducationOfSupervise extends PureComponent {
     render() {
         return (
 
-                <List url='/zybadmin/educationOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
-                    <Filter cols={4}>
+                <List url='/zybadmin/educationOfSupervise/list'  onError={this.handleError} onMount={this.onMount}>
+                    <Filter cols={2}>
                         <Filter.Item label="年份" name="year"><Input/></Filter.Item>
                         <Filter.Item label="培训用人单位数" name="personCount"><Input/></Filter.Item>
                     </Filter>

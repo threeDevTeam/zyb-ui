@@ -124,8 +124,8 @@ class ThreeCheckOfSupervise extends PureComponent {
     render() {
         return (
 
-                <List url='/zybadmin/threeCheckOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
-                    <Filter cols={4}>
+                <List url='/zybadmin/threeCheckOfSupervise/list'  onError={this.handleError} onMount={this.onMount}>
+                    <Filter cols={2}>
                         <Filter.Item label="年份" name="year"><Input/></Filter.Item>
                         <Filter.Item label="罚款金额" name="age"><Input/></Filter.Item>
                     </Filter>
