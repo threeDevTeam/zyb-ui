@@ -59,6 +59,12 @@ class AdminLayout extends React.Component {
                             <Menu.Item key="32"><Link to="/index">测试</Link></Menu.Item>
                             <Menu.Item key="33"><Link to="/index2">测试2</Link></Menu.Item>
                         </SubMenu>
+                        <SubMenu
+                            key="sub1"
+                            title={<span><Icon type="dashboard"/><span>技术服务机构</span></span>}
+                        >
+
+                        </SubMenu>
                     </Menu>
                 </Sider>
                 <Layout>
