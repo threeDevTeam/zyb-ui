@@ -52,7 +52,7 @@ class AccidentOfSupervise extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/demo/getById?id=' + this.state.record.id).then(res => {
+            request('/zybadmin/accidentOfSupervise/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,

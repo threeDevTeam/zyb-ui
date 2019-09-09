@@ -63,7 +63,7 @@ class PropagateOfSupervise extends PureComponent {
                         enableValidate: true,
                         content: <PropagateOfSuperviseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/demo/edit', {data: {...values}}).then(res => {
+                            request.post('/zybadmin/propagateOfSupervise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()

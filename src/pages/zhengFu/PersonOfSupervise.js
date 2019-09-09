@@ -64,7 +64,7 @@ class PersonOfSupervise extends PureComponent {
                         enableValidate: true,
                         content: <PersonOfSuperviseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/demo/edit', {data: {...values}}).then(res => {
+                            request.post('/zybadmin/personOfSupervise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -126,7 +126,7 @@ class PersonOfSupervise extends PureComponent {
         return (
 
                 <List url='/zybadmin/personOfSupervise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
-                    <Filter cols={4}>
+                    <Filter cols={3}>
                         <Filter.Item label="姓名" name="name"><Input/></Filter.Item>
                         <Filter.Item label="身份证号" name="idNum"><Input/></Filter.Item>
                         <Filter.Item label="所学专业" name="major"><Input/></Filter.Item>
