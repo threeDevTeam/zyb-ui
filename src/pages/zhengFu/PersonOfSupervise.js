@@ -129,8 +129,6 @@ class PersonOfSupervise extends PureComponent {
                     <Filter cols={3}>
                         <Filter.Item label="姓名" name="name"><Input/></Filter.Item>
                         <Filter.Item label="身份证号" name="idNum"><Input/></Filter.Item>
-                        <Filter.Item label="所学专业" name="major"><Input/></Filter.Item>
-
                     </Filter>
                     <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
                         <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>创建</Button>
