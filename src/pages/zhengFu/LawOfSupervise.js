@@ -125,8 +125,8 @@ class LawOfSupervise extends PureComponent {
         return (
 
                 <List url='/zybadmin/lawOfSupervise/list'  onError={this.handleError} onMount={this.onMount}>
-                    <Filter cols={1}>
-                        <Filter.Item label="年份" name="year"><Input/></Filter.Item>
+                    <Filter cols={2}>
+                        <Filter.Item  label="年份" name="year"><Input/></Filter.Item>
                     </Filter>
                     <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
                         <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>创建</Button>
