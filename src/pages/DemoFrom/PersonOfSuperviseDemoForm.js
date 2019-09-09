@@ -35,7 +35,12 @@ class PersonOfSuperviseDemoForm extends PureComponent {
             <Form core={this.core} layout={{label: 7}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
                 <FormItem label="姓名" name="name"><Input/></FormItem>
-                   <FormItem label="性别" name="gender"><Input/></FormItem>
+                   <FormItem label="性别" name="gender">
+                       <Radio.Group  value={this.state.value} >
+                           <Radio value={"男"}>男</Radio>
+                           <Radio value={"女"}>女</Radio>
+                       </Radio.Group>
+                   </FormItem>
                      <FormItem label="身份证号" name="idNum"><Input/></FormItem>
                     <FormItem label="出生日期" name="birth"><InputNumber/></FormItem>
                    <FormItem label="职务" name="job"><Input/></FormItem>

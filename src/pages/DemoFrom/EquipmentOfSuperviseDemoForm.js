@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Input, InputNumber} from 'nowrapper/lib/antd'
+import {Input, InputNumber,Select} from 'nowrapper/lib/antd'
 import {Col, Row} from "antd";
 
 const validate = {
@@ -37,7 +37,15 @@ class EquipmentOfSuperviseDemoForm extends PureComponent {
                 <FormItem label="数量" name="amount"><InputNumber/></FormItem>
                 <FormItem label="购置时间" name="buyDate"><InputNumber/></FormItem>
 
-                <FormItem label="装备状态" name="status"><Input/></FormItem>
+                <FormItem label="装备状态" name="status">
+                    <Select value={this.state.city} onChange={this.getCity}>
+
+                             <option key={"在用"}>{"在用"}</option>
+                             <option key={"停用"}>{"停用"}</option>
+                            <option key={"报废"}>{"报废"}</option>
+
+                    </Select>
+                </FormItem>
 
 
             </Form>
