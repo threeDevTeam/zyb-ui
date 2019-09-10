@@ -36,13 +36,7 @@ export default {
                 {path: '/threeCheckOfSupervise', component: './zhengFu/ThreeCheckOfSupervise'},
                 {path: '/accidentOfSupervise', component: './zhengFu/AccidentOfSupervise'},
                 {path: '/china', component: './zhengFu/China'},
-                {path: '/jianceBasicOfService', component: './JishujiGou/JianceBasicOfService'},
-                {path: '/jianceTotalOfService', component: './JishujiGou/jianceTotalOfService'},
-                {path: '/jianceDetailOfService', component: './JishujiGou/JianceDetailOfService'},
-                {path: '/tijianBasicOfService', component: './JishujiGou/TijianBasicOfService'},
-                {path: '/tijianTotalOfService', component: './JishujiGou/TijianTotalOfService'},
-                {path: '/tijianDetail1OfService', component: './JishujiGou/TijianDetail1OfService'},
-                // {path: '/ZhenDuanTotalOfService', component: '/JiShuJiGou/ZhenDuanTotalOfService'},
+                {path: '/zhenduanTotalOfService', component: './JishujiGou/ZhenduanTotalOfService'},
 
             ]
         }

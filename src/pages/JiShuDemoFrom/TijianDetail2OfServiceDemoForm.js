@@ -1,10 +1,6 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-<<<<<<< HEAD
 import {Input,InputNumber} from 'nowrapper/lib/antd'
-=======
-import {Input, InputNumber, Radio, Select} from 'nowrapper/lib/antd'
->>>>>>> origin/master
 const validate = {
 checkDate: {type: "number", required: true, message: '体检时间不能为空'},
 checkYear: {type: "number", required: true, message: '体检年份不能为空'},
@@ -33,33 +29,23 @@ idNum: {type: "string", required: true, message: '身份证号不能为空'},
 gender: {type: "string", required: true, message: '性别不能为空'},
 age: {type: "number", required: true, message: '年龄不能为空'},
 workYear: {type: "number", required: true, message: '工龄不能为空'},
-tijianType: {type: "string", required: true, message: '体检类别不能为空'},
-result: {type: "string", required: true, message: '体检结果不能为空'},
+dangerBigName: {type: "string", required: true, message: '职业病危害因素大类名称不能为空'},
+dangerSmallName: {type: "string", required: true, message: '职业病危害因素小类名称不能为空'},
+sickBigName: {type: "string", required: true, message: '疑似职业病大类名称不能为空'},
+sickSmallName: {type: "string", required: true, message: '疑似职业病小类名称不能为空'},
 
 }
-class TijianDetail1OfServiceDemoForm extends PureComponent {
+class TijianDetail2OfServiceDemoForm extends PureComponent {
  state = {}
  constructor(props) {
   super(props);
 this.core = new FormCore({validateConfig: validate});
  }
 componentWillMount() {
-<<<<<<< HEAD
  }
  render() {
   return (
  <Form core={this.core} layout={{label: 4, control: 20}}>
-=======
- let {type, record} = this.props.option
- if ('edit' === type || 'view' === type) {
-  this.core.setValues({...record})
-  this.core.setGlobalStatus('edit' === type ? type : 'preview')
- }
- }
- render() {
-  return (
- <Form core={this.core} layout={{label:7}}>
->>>>>>> origin/master
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem label="体检时间" name="checkDate"><InputNumber/></FormItem>
  <FormItem label="体检年份" name="checkYear"><InputNumber/></FormItem>
@@ -85,43 +71,15 @@ componentWillMount() {
  <FormItem label="岗位的小类名称" name="postSmallName"><Input/></FormItem>
  <FormItem label="姓名" name="name"><Input/></FormItem>
  <FormItem label="身份证号" name="idNum"><Input/></FormItem>
-<<<<<<< HEAD
  <FormItem label="性别" name="gender"><Input/></FormItem>
  <FormItem label="年龄" name="age"><InputNumber/></FormItem>
  <FormItem label="工龄" name="workYear"><InputNumber/></FormItem>
- <FormItem label="体检类别" name="tijianType"><Input/></FormItem>
- <FormItem label="体检结果" name="result"><Input/></FormItem>
-=======
- <FormItem label="性别" name="gender">
-  <Radio.Group  value={this.state.value} >
-   <Radio value={"男"}>男</Radio>
-   <Radio value={"女"}>女</Radio>
-  </Radio.Group>
- </FormItem>
- <FormItem label="年龄" name="age"><InputNumber/></FormItem>
- <FormItem label="工龄" name="workYear"><InputNumber/></FormItem>
- <FormItem label="体检类别" name="tijianType">
-  <Select value={this.state.city}>
-
-   <option key={"上岗前"}>{"上岗前"}</option>
-   <option key={"在岗期间"}>{"在岗期间"}</option>
-   <option key={"离岗时"}>{"离岗时"}</option>
-   <option key={"应急"}>{"应急"}</option>
-  </Select>
-
- </FormItem>
- <FormItem label="体检结果" name="result">
-  <Select value={this.state.city}>
-
-   <option key={"复查"}>{"复查"}</option>
-   <option key={"目前未见异常"}>{"目前未见异常"}</option>
-   <option key={"其他疾病"}>{"其他疾病"}</option>
-   <option key={"职业禁忌证"}>{"职业禁忌证"}</option>
-  </Select>
- </FormItem>
->>>>>>> origin/master
+ <FormItem label="职业病危害因素大类名称" name="dangerBigName"><Input/></FormItem>
+ <FormItem label="职业病危害因素小类名称" name="dangerSmallName"><Input/></FormItem>
+ <FormItem label="疑似职业病大类名称" name="sickBigName"><Input/></FormItem>
+ <FormItem label="疑似职业病小类名称" name="sickSmallName"><Input/></FormItem>
  </Form>
  )
  }
  }
-export default TijianDetail1OfServiceDemoForm
+export default TijianDetail2OfServiceDemoForm
