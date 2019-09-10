@@ -37,7 +37,7 @@ componentWillMount() {
  }
  render() {
   return (
- <Form core={this.core} layout={{label: 4, control: 20}}>
+ <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem label="机构名称" name="name"><Input/></FormItem>
  <FormItem label="社会统一代码" name="code"><Input/></FormItem>

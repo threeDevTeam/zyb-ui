@@ -42,10 +42,15 @@ class TijianDetail2OfServiceDemoForm extends PureComponent {
 this.core = new FormCore({validateConfig: validate});
  }
 componentWillMount() {
+ let {type, record} = this.props.option
+ if ('edit' === type || 'view' === type) {
+  this.core.setValues({...record})
+  this.core.setGlobalStatus('edit' === type ? type : 'preview')
+ }
  }
  render() {
   return (
- <Form core={this.core} layout={{label: 4, control: 20}}>
+ <Form core={this.core} layout={{label:7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem label="体检时间" name="checkDate"><InputNumber/></FormItem>
  <FormItem label="体检年份" name="checkYear"><InputNumber/></FormItem>

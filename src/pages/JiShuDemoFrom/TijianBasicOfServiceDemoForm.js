@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Input,InputNumber} from 'nowrapper/lib/antd'
+import {Input, InputNumber, Select} from 'nowrapper/lib/antd'
 const validate = {
 name: {type: "string", required: true, message: '机构名称不能为空'},
 code: {type: "string", required: true, message: '社会统一代码不能为空'},
@@ -36,7 +36,7 @@ componentWillMount() {
  }
  render() {
   return (
- <Form core={this.core} layout={{label: 4, control: 20}}>
+ <Form core={this.core} layout={{label:7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem label="机构名称" name="name"><Input/></FormItem>
  <FormItem label="社会统一代码" name="code"><Input/></FormItem>
@@ -53,8 +53,25 @@ componentWillMount() {
  <FormItem label="医护人员数量" name="count1"><InputNumber/></FormItem>
  <FormItem label="取证人员数量" name="count2"><InputNumber/></FormItem>
  <FormItem label="检查项目数量" name="projectCount"><InputNumber/></FormItem>
- <FormItem label="体检能力" name="scope"><Input/></FormItem>
- <FormItem label="医院等级" name="hospitalLevel"><Input/></FormItem>
+ <FormItem label="体检能力" name="scope">
+  <Select value={this.state.city}>
+
+   <option key={"粉尘"}>{"粉尘"}</option>
+   <option key={"化学因素"}>{"化学因素"}</option>
+   <option key={"物理因素"}>{"物理因素"}</option>
+   <option key={"放射性因素"}>{"放射性因素"}</option>
+   <option key={"生物因素"}>{"生物因素"}</option>
+  </Select>
+ </FormItem>
+ <FormItem label="医院等级" name="hospitalLevel">
+  <Select value={this.state.city}>
+
+   <option key={"一级"}>{"一级"}</option>
+   <option key={"二级"}>{"二级"}</option>
+   <option key={"三级"}>{"三级"}</option>
+
+  </Select>
+ </FormItem>
  </Form>
  )
  }

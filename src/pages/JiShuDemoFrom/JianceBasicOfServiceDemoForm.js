@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Input,InputNumber} from 'nowrapper/lib/antd'
+import {Input, InputNumber, Select} from 'nowrapper/lib/antd'
 const validate = {
 name: {type: "string", required: true, message: '机构名称不能为空'},
 code: {type: "string", required: true, message: '社会统一代码不能为空'},
@@ -51,7 +51,15 @@ componentWillMount() {
  <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
  <FormItem label="登记注册类型的大类名称" name="registerBigName"><Input/></FormItem>
  <FormItem label="登记注册类型的小类名称" name="registerSmallName"><Input/></FormItem>
- <FormItem label="资质等级" name="level"><Input/></FormItem>
+ <FormItem label="资质等级" name="level">
+  <Select value={this.state.city}>
+
+   <option key={"甲级"}>{"甲级"}</option>
+   <option key={"乙级"}>{"乙级"}</option>
+   <option key={"丙级"}>{"丙级"}</option>
+
+  </Select>
+ </FormItem>
  <FormItem label="资质证书编号" name="num"><Input/></FormItem>
  <FormItem label="专业技术人员数" name="technologyCount"><InputNumber/></FormItem>
  <FormItem label="经培训合格数" name="passCount"><InputNumber/></FormItem>

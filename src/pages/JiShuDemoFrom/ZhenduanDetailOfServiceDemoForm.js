@@ -49,7 +49,7 @@ componentWillMount() {
  }
  render() {
   return (
- <Form core={this.core} layout={{label: 4, control: 20}}>
+ <Form core={this.core} layout={{label:7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem label="诊断时间" name="checkDate"><InputNumber/></FormItem>
  <FormItem label="诊断年份" name="checkYear"><InputNumber/></FormItem>
