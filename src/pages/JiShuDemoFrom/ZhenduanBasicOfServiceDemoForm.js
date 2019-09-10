@@ -29,6 +29,11 @@ class ZhenduanBasicOfServiceDemoForm extends PureComponent {
 this.core = new FormCore({validateConfig: validate});
  }
 componentWillMount() {
+ let {type, record} = this.props.option
+ if ('edit' === type || 'view' === type) {
+  this.core.setValues({...record})
+  this.core.setGlobalStatus('edit' === type ? type : 'preview')
+ }
  }
  render() {
   return (
