@@ -60,10 +60,19 @@ class AdminLayout extends React.Component {
 
                         </SubMenu>
                         <SubMenu
-                            key="sub1"
+                            key="sub3"
                             title={<span><Icon type="dashboard"/><span>技术服务机构</span></span>}
                         >
-                            <Menu.Item key="38"><Link to="/zhenduanTotalOfService">诊断机构的总体信息</Link></Menu.Item>
+                            <Menu.Item key="1"><Link to="/jianceBasicOfService">检测机构的基本信息</Link></Menu.Item>
+                            <Menu.Item key="2"><Link to="/jianceTotalOfService">检测机构的总体信息</Link></Menu.Item>
+                            <Menu.Item key="3"><Link to="/jianceDetailOfService">检测机构的具体报告</Link></Menu.Item>
+                            <Menu.Item key="5"><Link to="/tijianBasicOfService">体检机构的基本信息</Link></Menu.Item>
+                            <Menu.Item key="6"><Link to="/tijianTotalOfService">体检机构的总体信息</Link></Menu.Item>
+                            <Menu.Item key="7"><Link to="/tijianDetail1OfService">体检机构的具体报告1</Link></Menu.Item>
+                            <Menu.Item key="8"><Link to="/tijianDetail2OfService">体检机构的具体报告2</Link></Menu.Item>
+                            <Menu.Item key="9"><Link to="/zhenduanBasicOfService">诊断机构的基本信息</Link></Menu.Item>
+                            <Menu.Item key="10"><Link to="/zhenduanDetailOfService">诊断机构的总体信息</Link></Menu.Item>
+                            <Menu.Item key="11"><Link to="/zhenduanTotalOfService">诊断机构的具体报告</Link></Menu.Item>
 
                         </SubMenu>
                     </Menu>

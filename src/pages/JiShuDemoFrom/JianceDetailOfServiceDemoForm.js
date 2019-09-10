@@ -71,11 +71,13 @@ componentWillMount() {
  <FormItem label="岗位的小类名称" name="postSmallName"><InputNumber/></FormItem>
  <FormItem label="职业病危害因素大类名称" name="dangerBigName"><Input/></FormItem>
  <FormItem label="职业病危害因素小类名称" name="dangerSmallName"><Input/></FormItem>
- <FormItem label="判定结果" name="decideResult"><Input/></FormItem>
+ <FormItem label="判定结果" name="decideResult">
   <Radio.Group  value={this.state.value} >
    <Radio value={"合格"}>合格</Radio>
    <Radio value={"不合格"}>不合格</Radio>
   </Radio.Group>
+ </FormItem>
+
  <FormItem label="超标原因" name="reason"><Input/></FormItem>
 
   <FormItem name="course">
