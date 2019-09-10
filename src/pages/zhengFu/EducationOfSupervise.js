@@ -11,7 +11,7 @@ import "nolist/dist/wrapper/antd.css"
 import classNames from 'classnames'
 import styles from './index.less'
 //
-import EducationOfSuperviseDemoForm from '../DemoFrom/EducationOfSuperviseDemoForm'
+import EducationOfSuperviseDemoForm from '../ZhengfuDemoFrom/EducationOfSuperviseDemoForm'
 import {connect} from 'dva'
 import request from '../../utils/request'
 

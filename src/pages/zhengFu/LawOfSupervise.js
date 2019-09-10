@@ -11,7 +11,7 @@ import "nolist/dist/wrapper/antd.css"
 import classNames from 'classnames'
 import styles from './index.less'
 //
-import LawOfSuperviseDemoForm from '../DemoFrom/LawOfSuperviseDemoForm'
+import LawOfSuperviseDemoForm from '../ZhengfuDemoFrom/LawOfSuperviseDemoForm'
 import {connect} from 'dva'
 import request from '../../utils/request'
 

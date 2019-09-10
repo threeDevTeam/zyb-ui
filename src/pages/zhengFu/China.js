@@ -7,7 +7,7 @@ import request from "../../utils/request";
 function onChange(value) {
     console.log(value);
 }
-class Index extends PureComponent {
+class China extends PureComponent {
     state = {
         dataSource:[]
 }
@@ -29,4 +29,4 @@ class Index extends PureComponent {
     }
 }
 
-export default Index
+export default China

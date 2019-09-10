@@ -35,8 +35,7 @@ export default {
                 {path: '/executeLawOfSupervise', component: './zhengFu/ExecuteLawOfSupervise'},
                 {path: '/threeCheckOfSupervise', component: './zhengFu/ThreeCheckOfSupervise'},
                 {path: '/accidentOfSupervise', component: './zhengFu/AccidentOfSupervise'},
-                {path: '/index', component: './zhengFu/Index'},
-                {path: '/index2', component: './zhengFu/Index2'},
+                {path: '/china', component: './zhengFu/China'},
             ]
         }
     ],

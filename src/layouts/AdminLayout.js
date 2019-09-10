@@ -56,8 +56,8 @@ class AdminLayout extends React.Component {
                             <Menu.Item key="29"><Link to="/executeLawOfSupervise">监督执法信息</Link></Menu.Item>
                             <Menu.Item key="30"><Link to="/threeCheckOfSupervise">“三同时”监督检查信息</Link></Menu.Item>
                             <Menu.Item key="31"><Link to="/accidentOfSupervise">职业病危害事故信息</Link></Menu.Item>
-                            <Menu.Item key="32"><Link to="/index">测试</Link></Menu.Item>
-                            <Menu.Item key="33"><Link to="/index2">测试2</Link></Menu.Item>
+                            <Menu.Item key="32"><Link to="/china">中国</Link></Menu.Item>
+
                         </SubMenu>
                         <SubMenu
                             key="sub1"
