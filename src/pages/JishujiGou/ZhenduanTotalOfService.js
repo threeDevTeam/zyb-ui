@@ -22,6 +22,7 @@ let globalList
 class ZhenduanTotalOfService extends PureComponent {
     state = {}
 
+
     handleOperator = (type) => {
         const {dispatch} = this.props;
         if ('create' === type) {
