@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Input,InputNumber} from 'nowrapper/lib/antd'
+import {Input, InputNumber, Radio} from 'nowrapper/lib/antd'
 const validate = {
 checkDate: {type: "number", required: true, message: '体检时间不能为空'},
 checkYear: {type: "number", required: true, message: '体检年份不能为空'},
@@ -76,7 +76,12 @@ componentWillMount() {
  <FormItem label="岗位的小类名称" name="postSmallName"><Input/></FormItem>
  <FormItem label="姓名" name="name"><Input/></FormItem>
  <FormItem label="身份证号" name="idNum"><Input/></FormItem>
- <FormItem label="性别" name="gender"><Input/></FormItem>
+ <FormItem label="性别" name="gender">
+  <Radio.Group  value={this.state.value} >
+   <Radio value={"男"}>男</Radio>
+   <Radio value={"女"}>女</Radio>
+  </Radio.Group>
+ </FormItem>
  <FormItem label="年龄" name="age"><InputNumber/></FormItem>
  <FormItem label="工龄" name="workYear"><InputNumber/></FormItem>
  <FormItem label="职业病危害因素大类名称" name="dangerBigName"><Input/></FormItem>
