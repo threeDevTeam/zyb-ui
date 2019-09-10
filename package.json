@@ -20,7 +20,8 @@
     "nowrapper": "^1.2.53",
     "react-icons": "^3.7.0",
     "umi-request": "^1.2.2",
-    "antd": "latest"
+    "antd": "latest",
+    "react": "latest"
   },
   "scripts": {
     "start": "umi dev",
