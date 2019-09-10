@@ -63,6 +63,7 @@ class AdminLayout extends React.Component {
                             key="sub1"
                             title={<span><Icon type="dashboard"/><span>技术服务机构</span></span>}
                         >
+                            <Menu.Item key="38"><Link to="/zhenduanTotalOfService">诊断机构的总体信息</Link></Menu.Item>
 
                         </SubMenu>
                     </Menu>

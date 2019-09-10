@@ -36,7 +36,7 @@ export default {
                 {path: '/threeCheckOfSupervise', component: './zhengFu/ThreeCheckOfSupervise'},
                 {path: '/accidentOfSupervise', component: './zhengFu/AccidentOfSupervise'},
                 {path: '/china', component: './zhengFu/China'},
-                // {path: '/ZhenDuanTotalOfService', component: '/JiShuJiGou/ZhenDuanTotalOfService'},
+                {path: '/zhenduanTotalOfService', component: './JishujiGou/ZhenduanTotalOfService'},
 
             ]
         }
