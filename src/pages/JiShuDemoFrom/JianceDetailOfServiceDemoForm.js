@@ -1,6 +1,14 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
+<<<<<<< HEAD
 import {Input,InputNumber} from 'nowrapper/lib/antd'
+=======
+import {Input, InputNumber, Radio, Select} from 'nowrapper/lib/antd'
+import {InlineRepeater, Selectify} from "nowrapper/lib/antd/repeater";
+
+let SelectInlineRepeater = Selectify(InlineRepeater)
+
+>>>>>>> origin/master
 const validate = {
 checkDate: {type: "number", required: true, message: '检测时间不能为空'},
 checkYear: {type: "number", required: true, message: '检测年份不能为空'},
@@ -36,10 +44,22 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
 this.core = new FormCore({validateConfig: validate});
  }
 componentWillMount() {
+<<<<<<< HEAD
  }
  render() {
   return (
  <Form core={this.core} layout={{label: 4, control: 20}}>
+=======
+ let {type, record} = this.props.option
+ if ('edit' === type || 'view' === type) {
+  this.core.setValues({...record})
+  this.core.setGlobalStatus('edit' === type ? type : 'preview')
+ }
+ }
+ render() {
+  return (
+ <Form core={this.core} layout={{label: 7}}>
+>>>>>>> origin/master
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem label="检测时间" name="checkDate"><InputNumber/></FormItem>
  <FormItem label="检测年份" name="checkYear"><InputNumber/></FormItem>
@@ -64,8 +84,32 @@ componentWillMount() {
  <FormItem label="岗位的小类名称" name="postSmallName"><InputNumber/></FormItem>
  <FormItem label="职业病危害因素大类名称" name="dangerBigName"><Input/></FormItem>
  <FormItem label="职业病危害因素小类名称" name="dangerSmallName"><Input/></FormItem>
+<<<<<<< HEAD
  <FormItem label="判定结果" name="decideResult"><Input/></FormItem>
  <FormItem label="超标原因" name="reason"><Input/></FormItem>
+=======
+ <FormItem label="判定结果" name="decideResult">
+  <Radio.Group  value={this.state.value} >
+   <Radio value={"合格"}>合格</Radio>
+   <Radio value={"不合格"}>不合格</Radio>
+  </Radio.Group>
+ </FormItem>
+ <FormItem label="超标原因" name="reason"><Input/></FormItem>
+  <FormItem name="course">
+   <SelectInlineRepeater locale='zh' selectMode="multiple" multiple>
+    <FormItem label='检测结果' name="checkResult"><Input/></FormItem>
+    <FormItem label='类别' name="type"><Select value={this.state.city}>
+
+     <option key={"CMAC"}>{"CMAC"}</option>
+     <option key={"CTWA"}>{"CTWA"}</option>
+     <option key={"CSTEL"}>{"CSTEL"}</option>
+     <option key={"超限倍数"}>{"超限倍数"}</option>
+     <option key={"其他"}>{"其他"}</option>
+    </Select></FormItem>
+    <FormItem label='单位' name="unit"><Input/></FormItem>
+   </SelectInlineRepeater>
+  </FormItem>
+>>>>>>> origin/master
  </Form>
  )
  }
