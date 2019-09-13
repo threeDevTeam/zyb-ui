@@ -46,7 +46,7 @@ export default {
                 {path: '/zhenduanBasicOfService', component: './JishujiGou/ZhenduanBasicOfService'},
                 {path: '/zhenduanDetailOfService', component: './JishujiGou/ZhenduanDetailOfService'},
                 {path: '/zhenduanTotalOfService', component: './JishujiGou/ZhenduanTotalOfService'},
-
+                {path: '/sysUserLogin', component: './Login/SysUserLogin'},
             ]
         }
     ],
