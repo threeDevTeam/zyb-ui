@@ -22,11 +22,13 @@ class Register extends PureComponent {
 
         this.core.validate((err) => {
             if (!err) {
+                console.log(this.core.value);
                 request.post('/zybadmin/sysUser/register', {data: this.core.value}).then(res => {
                     if (res.flag) {
-                        message.success("操作成功")
+                        message.success("登录成功")
+
                     } else {
-                        message.error("操作失败")
+                        message.error("账号或密码错误")
                     }
                 })
             }
@@ -41,7 +43,7 @@ class Register extends PureComponent {
                         <FormItem label="登录名" name="loginName"><Input placeholder="请输入用户名"/></FormItem>
                         <FormItem label="登录密码" name="loginPassword"><Input.Password placeholder="请输入密码"/></FormItem>
                     <FormItem>
-                        <Button type="primary" onClick={this.handleOperator}>注册</Button>
+                        <Button type="primary" onClick={this.handleOperator}>登录</Button>
                     </FormItem>
                 </Form>
             </Card>

@@ -18,8 +18,8 @@ export default {
             component: '../layouts/UserLayout',
             routes: [
                 {path: '/user', redirect: '/user/login'},
-                {path: '/user/login', component: './Login/SysUserLogin'},
-                {path: '/user/register', component: './Login/Register'}
+                {path: '/user/register', component: './Login/SysUserLogin'},
+                {path: '/user/login', component: './Login/Register'}
             ]
         },
         {
