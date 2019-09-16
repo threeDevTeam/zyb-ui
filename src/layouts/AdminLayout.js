@@ -80,6 +80,7 @@ class AdminLayout extends React.Component {
                             title={<span><Icon type="dashboard"/><span>注册</span></span>}
                         >
                             <Menu.Item key="43"><Link to="/sysUserLogin">注册</Link></Menu.Item>
+                            <Menu.Item key="44"><Link to="/register">登录</Link></Menu.Item>
                         </SubMenu>
                     </Menu>
                 </Sider>
