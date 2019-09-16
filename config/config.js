@@ -14,6 +14,15 @@ export default {
     ],
     routes: [
         {
+            path: '/user',
+            component: '../layouts/UserLayout',
+            routes: [
+                {path: '/user', redirect: '/user/login'},
+                {path: '/user/login', component: './Login/SysUserLogin'},
+                {path: '/user/register', component: './Login/Register'}
+            ]
+        },
+        {
             path: '/',
             component: '../layouts/AdminLayout',
             routes: [

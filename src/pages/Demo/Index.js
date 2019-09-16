@@ -35,7 +35,7 @@ class Index extends PureComponent {
                 content: <DemoForm option={{type}}/>,
                 onOk: (values, hide) => {
                     request.post('/zybadmin/demo/add', {data: {...values}}).then(res => {
-                        if (res.flag) {
+                        if (res && res.flag) {
                             message.success("操作成功")
                             hide()
                             globalList.refresh()
