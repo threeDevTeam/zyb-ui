@@ -2,13 +2,7 @@ import React, {PureComponent} from 'react'
 import {Input, Button, Select, Dialog} from 'nowrapper/lib/antd'
 import Form, {FormItem, FormCore} from 'noform'
 import {Card, message} from "antd";
-import EnterpriseOfRegisterDemoForm from "../LoginDemoFrom/EnterpriseOfRegisterDemoForm";
-import SuperviseOfRegisterDemoForm from "../LoginDemoFrom/SuperviseOfRegisterDemoForm";
-import ServiceOfRegisterDemoForm from "../LoginDemoFrom/ServiceOfRegisterDemoForm";
 import request from "../../utils/request";
-import Icon from "antd/es/icon";
-import Col from "antd/es/descriptions/Col";
-import Row from "antd/es/grid/row";
 
 
 const validate = {
