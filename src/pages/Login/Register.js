@@ -25,7 +25,10 @@ class Register extends PureComponent {
                 console.log(this.core.value);
                 request.post('/zybadmin/sysUser/register', {data: this.core.value}).then(res => {
                     if (res.flag) {
-                        message.success("登录成功")
+                        sessionStorage.setItem("loginName", res.data.loginName)
+
+                        window.location.href ='/supervise'
+                        // message.success("登录成功")
 
                     } else {
                         message.error("账号或密码错误")

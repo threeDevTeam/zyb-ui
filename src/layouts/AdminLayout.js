@@ -24,7 +24,7 @@ class AdminLayout extends React.Component {
                 <Sider trigger={null} collapsible collapsed={this.state.collapsed} width={256}
                        style={{minHeight: '100vh', color: 'white'}}>
                     <div className={styles.logo}/>
-                    <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']}>
+                    <Menu theme="dark" mode="inline" defaultSelectedKeys={['21']} defaultOpenKeys={['sub2']}>
                         <Menu.Item key="1">
                             <Link to="/demo/pro">
                                 <Icon type="pie-chart"/>
@@ -122,6 +122,7 @@ class AdminLayout extends React.Component {
                             type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                             onClick={this.toggle}
                         />
+                        <span>欢迎你,{sessionStorage.getItem("loginName")}</span>
                     </Header>
                     <Content
                         style={{
