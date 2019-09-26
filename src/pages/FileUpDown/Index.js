@@ -46,12 +46,21 @@ export default class Index extends PureComponent {
                     })
                 }
             })
+            if ('doExcel' === type) {
+                request.post('/zybadmin/tableMapInfo/exportExcel').then(res => {
+                    if(res.flag){
+                        message.success("成功")
+                    }else{
+                        message.success("失败")
+                    }
+                })
+            }
         }
     }
-
     render() {
         return <div>
             <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('upExcel')}>上传Excel</Button>
+            <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('doExcel')}>下载Excel</Button>
         </div>
     }
 }

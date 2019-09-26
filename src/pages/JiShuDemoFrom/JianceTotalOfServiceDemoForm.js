@@ -7,8 +7,6 @@ count1: {type: "string", required: true, message: '职业病危害预评价报�
 count2: {type: "string", required: true, message: '控制效果评价报告数不能为空'},
 count3: {type: "string", required: true, message: '现状评价报告数不能为空'},
 count4: {type: "string", required: true, message: '检测报告数不能为空'},
-count5: {type: "string", required: true, message: '检测点数不能为空'},
-count6: {type: "string", required: true, message: '达标点数不能为空'},
 
 }
 class JianceTotalOfServiceDemoForm extends PureComponent {
@@ -33,8 +31,6 @@ componentWillMount() {
  <FormItem label="控制效果评价报告数" name="count2"><Input/></FormItem>
  <FormItem label="现状评价报告数" name="count3"><Input/></FormItem>
  <FormItem label="检测报告数" name="count4"><Input/></FormItem>
- <FormItem label="检测点数" name="count5"><Input/></FormItem>
- <FormItem label="达标点数" name="count6"><Input/></FormItem>
  </Form>
  )
  }

@@ -7,11 +7,8 @@ const validate = {
     year: {type: "number", required: true, message: '年份 不能为空'},
     jianceLevel: {type: "string", required: true, message: '检测机构的资质等级不能为空'},
     jianceIncrease: {type: "number", required: true, message: '检测机构的新增不能为空'},
-    jianceSum: {type: "number", required: true, message: '检测机构的累计不能为空'},
     tijianIncrease: {type: "number", required: true, message: '体检机构的新增不能为空'},
-    tijianSum: {type: "number", required: true, message: '体检机构的累计不能为空'},
     zhenduanIncrease: {type: "number", required: true, message: '诊断机构的新增不能为空'},
-    zhenduanSum: {type: "number", required: true, message: '诊断机构的累计不能为空'},
 
 }
 
@@ -46,11 +43,8 @@ class ServiceOfSuperviseDemoForm extends PureComponent {
                     </Select>
                 </FormItem>
                 <FormItem label="检测机构的新增" name="jianceIncrease"><InputNumber/></FormItem>
-                <FormItem label="检测机构的累计" name="jianceSum"><InputNumber/></FormItem>
                 <FormItem label="体检机构的新增" name="tijianIncrease"><InputNumber/></FormItem>
-                <FormItem label="体检机构的累计" name="tijianSum"><InputNumber/></FormItem>
                 <FormItem label="诊断机构的新增" name="zhenduanIncrease"><InputNumber/></FormItem>
-                <FormItem label="诊断机构的累计" name="zhenduanSum"><InputNumber/></FormItem>
 
             </Form>
         )

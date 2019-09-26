@@ -76,11 +76,42 @@ class AdminLayout extends React.Component {
 
                         </SubMenu>
                         <SubMenu
-                            key="sub5"
-                            title={<span><Icon type="dashboard"/><span>注册</span></span>}
+                        key="sub5"
+                        title={<span><Icon type="dashboard"/><span>注册</span></span>}
+                    >
+                        <Menu.Item key="43"><Link to="/sysUserLogin">注册</Link></Menu.Item>
+                        <Menu.Item key="44"><Link to="/register">登录</Link></Menu.Item>
+                            <Menu.Item key="45"><Link to="/email">邮箱</Link></Menu.Item>
+                    </SubMenu>
+                        <SubMenu
+                            key="sub6"
+                            title={<span><Icon type="dashboard"/><span>企业</span></span>}
                         >
-                            <Menu.Item key="43"><Link to="/sysUserLogin">注册</Link></Menu.Item>
-                            <Menu.Item key="44"><Link to="/register">登录</Link></Menu.Item>
+                            <Menu.Item key="50"><Link to="/enterprise">企业基本信息</Link></Menu.Item>
+                            <Menu.Item key="51"><Link to="/procuctionOfEnterprise">生产工艺信息</Link></Menu.Item>
+                            <Menu.Item key="53"><Link to="/workplaceOfEnterprise">工作场所</Link></Menu.Item>
+                            <Menu.Item key="54"><Link to="/postOfEnterprise">岗位</Link></Menu.Item>
+                            <Menu.Item key="55"><Link to="/personOfEnterprise">人员信息</Link></Menu.Item>
+                            <Menu.Item key="56"><Link to="/postDangerOfEnterprise">岗位危害信息</Link></Menu.Item>
+                            <Menu.Item key="57"><Link to="/touchPersonOfEnterprise">接害人员信息</Link></Menu.Item>
+                            <Menu.Item key="58"><Link to="/enterpriseCheckSumOfEnterprise">职业病危害因素检测信息</Link></Menu.Item>
+                            <Menu.Item key="59"><Link to="/fixCheckOfEnterprise">定期检测信息</Link></Menu.Item>
+                           <Menu.Item key="61"><Link to="/monitorOfEnterprise">日常监测信息</Link></Menu.Item>
+                            <Menu.Item key="62"><Link to="/healthOfEnterprise">职业卫生管理信息</Link></Menu.Item>
+                            <Menu.Item key="63"><Link to="/protectOfEnterprise">防护设施信息</Link></Menu.Item>
+                            <Menu.Item key="64"><Link to="/personProtectOfEnterprise">个体防护信息</Link></Menu.Item>
+                            <Menu.Item key="66"><Link to="/testOfEnterprise">岗位职业健康检查信息</Link></Menu.Item>
+                            <Menu.Item key="67"><Link to="/sickOfEnterprise">职业病病人信息</Link></Menu.Item>
+                            <Menu.Item key="68"><Link to="/alikeSickOfEnterprise">疑似职业病病人信息</Link></Menu.Item>
+                            <Menu.Item key="69"><Link to="/accidentSumOfEnterprise">职业病危害事故信息</Link></Menu.Item>
+                            <Menu.Item key="70"><Link to="/accidentPersonOfEnterprise">事故伤亡人员信息</Link></Menu.Item>
+                            <Menu.Item key="71"><Link to="/checkOfEnterprise">监督检查信息</Link></Menu.Item>
+                        </SubMenu>
+                        <SubMenu
+                            key="sub7"
+                            title={<span><Icon type="dashboard"/><span>设置</span></span>}
+                        >
+                            <Menu.Item key="80"><Link to="/otherOfDic">设置选项</Link></Menu.Item>
                         </SubMenu>
                     </Menu>
                 </Sider>

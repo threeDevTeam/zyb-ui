@@ -4,9 +4,6 @@ import List from 'nolist/lib/wrapper/antd'
 import {Cascader} from 'nowrapper/lib/antd'
 import request from "../../utils/request";
 
-function onChange(value) {
-    console.log(value);
-}
 class China extends PureComponent {
     state = {
         dataSource:[]
