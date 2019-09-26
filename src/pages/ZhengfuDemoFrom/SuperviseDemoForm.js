@@ -6,14 +6,7 @@ import {InlineRepeater, Selectify} from "nowrapper/lib/antd/repeater";
 
 const validate = {
     year: {type: "number", required: true, message: '申报年份不能为空'},
-    provinceName: {type: "string", required: true, message: '省的名称不能为空'},
-    provinceCode: {type: "string", required: true, message: '省的代码不能为空'},
-    cityName: {type: "string", required: true, message: '市的名称不能为空'},
-    cityCode: {type: "string", required: true, message: '市的代码不能为空'},
-    districtName: {type: "string", required: true, message: '区的名称不能为空'},
-    districtCode: {type: "string", required: true, message: '区的代码不能为空'},
-    registerAddress: {type: "string", required: true, message: '注册地址不能为空'},
-    name: {type: "string", required: true, message: '单位名称不能为空'},
+
     isSet: {type: "string", required: true, message: '是否独立设置职业健康监管部门不能为空'},
     markCount: {type: "number", required: true, message: '职业健康监管人员编制数不能为空'},
     manageCount: {type: "number", required: true, message: '在岗职业健康监管人员数不能为空'},
