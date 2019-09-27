@@ -26,7 +26,7 @@ export default {
             path: '/',
             component: '../layouts/AdminLayout',
             routes: [
-                {path: '/', redirect: '/demo/index'},
+                {path: '/', redirect: '/user/login'},
                 {path: '/demo/index', component: './Demo/Index'},
                 {path: '/fileUpDown/index', component: './FileUpDown/Index'},
                 {path: '/demo/map', component: './Chart/Map'},
