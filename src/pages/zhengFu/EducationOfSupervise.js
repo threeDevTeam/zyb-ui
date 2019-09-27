@@ -144,7 +144,6 @@ class EducationOfSupervise extends PureComponent {
                             onDoubleClick: () => this.clickOperation('onDoubleClick', record)
                         }
                     }}>
-                        <Table.Column title="id" dataIndex="id"/>
                         <Table.Column title="年份" dataIndex="year"/>
                         <Table.Column title="培训监管人员数" dataIndex="markCount"/>
                         <Table.Column title="培训用人单位数" dataIndex="personCount"/>

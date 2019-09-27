@@ -41,6 +41,7 @@ class ThreeCheckOfSuperviseDemoForm extends PureComponent {
                 <FormItem label="验收方案上报数" name="upCount"><InputNumber/></FormItem>
                 <FormItem label="职业病危害严重建设项目控制效果评价和防护设施验收工作过程报告数" name="reportCount"><InputNumber style={{marginTop: 10}}/></FormItem>
                 <FormItem label="检查建设单位数" name="orgCount"><InputNumber/></FormItem>
+                <FormItem label="下达执法文书数" name="paperCount"><InputNumber/></FormItem>
                 <FormItem label="给予警告责令限期整改单位数" name="changeCount"><InputNumber/></FormItem>
                 <FormItem label="责令停止产生职业病危害作业单位数" name="stopCount"><InputNumber/></FormItem>
                 <FormItem label="提请责令停建或关闭单位数" name="closeCount"><InputNumber/></FormItem>

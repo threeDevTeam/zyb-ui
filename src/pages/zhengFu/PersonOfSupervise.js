@@ -145,7 +145,6 @@ class PersonOfSupervise extends PureComponent {
                             onDoubleClick: () => this.clickOperation('onDoubleClick', record)
                         }
                     }}>
-                        <Table.Column title="id" dataIndex="id"/>
                         <Table.Column title="姓名" dataIndex="name"/>
                         <Table.Column title="性别" dataIndex="gender"/>
                         <Table.Column title="身份证号" dataIndex="idNum"/>

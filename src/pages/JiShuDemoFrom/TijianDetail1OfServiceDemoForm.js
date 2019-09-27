@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
 import {Input, InputNumber, Radio, Select} from 'nowrapper/lib/antd'
 const validate = {
+ enterpriseName:{type: "number", required: true, message: '企业名称不能为空'},
 checkDate: {type: "number", required: true, message: '体检时间不能为空'},
 checkYear: {type: "number", required: true, message: '体检年份不能为空'},
 checkMonth: {type: "number", required: true, message: '体检月份不能为空'},

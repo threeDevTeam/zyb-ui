@@ -20,7 +20,10 @@ outWomenNumber: {type: "number", required: true, message: '劳务派遣的女工
 
 }
 class EnterpriseDemoForm extends PureComponent {
- state = {}
+ state = {
+  Login: 'none',
+  Login1: 'none',
+ }
  constructor(props) {
   super(props);
 this.core = new FormCore({validateConfig: validate});
@@ -28,6 +31,8 @@ this.core = new FormCore({validateConfig: validate});
 componentWillMount() {
  let {type, record} = this.props.option
  if ('edit' === type || 'view' === type) {
+  this.state.Login='block'
+  this.state.Login1='block'
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
  }
@@ -36,8 +41,10 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
+  <div style={{display: this.state.Login1}}>
  <FormItem label="企业名称" name="name"><Input/></FormItem>
  <FormItem label="统一社会信用代码" name="code"><Input/></FormItem>
+  </div>
  <FormItem label="风险等级" name="riskLevel">
   <Select value={this.state.city}>
 
@@ -57,6 +64,7 @@ componentWillMount() {
 
   </Select>
  </FormItem>
+  <div style={{display: this.state.Login}}>
  <FormItem label="省的名称" name="provinceName"><Input/></FormItem>
  <FormItem label="省的代码" name="provinceCode"><Input/></FormItem>
  <FormItem label="市的名称" name="cityName"><Input/></FormItem>
@@ -64,6 +72,7 @@ componentWillMount() {
  <FormItem label="区的名称" name="districtName"><Input/></FormItem>
  <FormItem label="区的代码" name="districtCode"><Input/></FormItem>
  <FormItem label="工作场所地址" name="workAddress"><Input/></FormItem>
+  </div>
  <FormItem label="登记注册类型的大类名称" name="registerBigName"><Input/></FormItem>
  <FormItem label="登记注册类型的小类名称" name="registerSmallName"><Input/></FormItem>
  <FormItem label="所属行业的大类名称" name="industryBigName"><Input/></FormItem>

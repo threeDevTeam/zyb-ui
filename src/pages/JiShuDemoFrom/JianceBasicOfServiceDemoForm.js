@@ -14,7 +14,10 @@ projectCount: {type: "number", required: true, message: '计量认证项目数�
 
 }
 class JianceBasicOfServiceDemoForm extends PureComponent {
- state = {}
+ state = {
+  Login: 'none',
+  Login1: 'none',
+ }
  constructor(props) {
   super(props);
 this.core = new FormCore({validateConfig: validate});
@@ -22,6 +25,8 @@ this.core = new FormCore({validateConfig: validate});
 componentWillMount() {
  let {type, record} = this.props.option
  if ('edit' === type || 'view' === type) {
+  this.state.Login='block'
+  this.state.Login1='block'
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
  }
@@ -30,9 +35,12 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label:7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
+  <div style={{display: this.state.Login}}>
  <FormItem label="机构名称" name="name"><Input/></FormItem>
  <FormItem label="社会统一代码" name="code"><Input/></FormItem>
+  </div>
  <FormItem label="申报年份" name="year"><InputNumber/></FormItem>
+  <div style={{display: this.state.Login1}}>
  <FormItem label="省的名称" name="provinceName"><Input/></FormItem>
  <FormItem label="省的代码" name="provinceCode"><Input/></FormItem>
  <FormItem label="市的名称" name="cityName"><Input/></FormItem>
@@ -40,6 +48,7 @@ componentWillMount() {
  <FormItem label="区的名称" name="districtName"><Input/></FormItem>
  <FormItem label="区的代码" name="districtCode"><Input/></FormItem>
  <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
+  </div>
  <FormItem label="登记注册类型的大类名称" name="registerBigName"><Input/></FormItem>
  <FormItem label="登记注册类型的小类名称" name="registerSmallName"><Input/></FormItem>
  <FormItem label="资质等级" name="level">

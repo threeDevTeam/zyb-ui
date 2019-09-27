@@ -144,7 +144,6 @@ class EquipmentOfSupervise extends PureComponent {
                             onDoubleClick: () => this.clickOperation('onDoubleClick', record)
                         }
                     }}>
-                        <Table.Column title="id" dataIndex="id"/>
                         <Table.Column title="装备名称" dataIndex="name"/>
                         <Table.Column title="规格型号" dataIndex="num"/>
                         <Table.Column title="数量" dataIndex="amount"/>

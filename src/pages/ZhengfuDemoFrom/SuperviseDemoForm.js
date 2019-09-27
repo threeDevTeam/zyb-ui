@@ -1,8 +1,9 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Input, InputNumber, Radio} from 'nowrapper/lib/antd'
-import {Col, Row} from "antd";
+import {Cascader, Input, InputNumber, Radio} from 'nowrapper/lib/antd'
+import {Col, Row, TreeSelect} from "antd";
 import {InlineRepeater, Selectify} from "nowrapper/lib/antd/repeater";
+import request from "../../utils/request";
 
 const validate = {
     year: {type: "number", required: true, message: '申报年份不能为空'},
@@ -15,8 +16,15 @@ const validate = {
 let SelectInlineRepeater = Selectify(InlineRepeater)
 
 class SuperviseDemoForm extends PureComponent {
-    state = {}
+    state = {
+        Login: 'none',
+        value: undefined,
 
+    }
+    onChange = value => {
+        console.log(value);
+        this.setState({ value });
+    };
     constructor(props) {
         super(props);
         this.core = new FormCore({validateConfig: validate});
@@ -26,24 +34,29 @@ class SuperviseDemoForm extends PureComponent {
     componentWillMount() {
         let {type, record} = this.props.option
         if ('edit' === type || 'view' === type) {
+          this.state.Login='block'
             this.core.setValues({...record})
             this.core.setGlobalStatus('edit' === type ? type : 'preview')
         }
+        request.get('/zybadmin/supervise/TreeSelcetData').then(res =>{
+            console.log(res.data)
+            if(res.flag){
+                this.setState({dataSource:res.data})
+            }
+        })
     }
 
     render() {
         return (
             <Form core={this.core} layout={{label:5}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem label="省的名称" name="provinceName"><Input/></FormItem>
+
                 <FormItem label="申报年份" name="year"><InputNumber/></FormItem>
-                <FormItem label="省的代码" name="provinceCode"><Input/></FormItem>
-                <FormItem label="市的名称" name="cityName"><Input/></FormItem>
-                <FormItem label="市的代码" name="cityCode"><Input/></FormItem>
-                <FormItem label="区的名称" name="districtName"><Input/></FormItem>
-                <FormItem label="区的代码" name="districtCode"><Input/></FormItem>
-                <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
+                <div style={{display: this.state.Login,marginTop:10}}>
+                    <FormItem label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
+                    <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
                 <FormItem label="单位名称" name="name"><Input/></FormItem>
+                </div>
                 <FormItem label="是否独立设置职业健康监管" name="isSet">
                     <Radio.Group  value={this.state.value} style={{paddingLeft:40,paddingTop:20}}>
                         <Radio value={"是"}>是</Radio>

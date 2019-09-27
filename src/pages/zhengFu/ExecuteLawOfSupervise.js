@@ -143,7 +143,6 @@ class ExecuteLawOfSupervise extends PureComponent {
                         onDoubleClick: () => this.clickOperation('onDoubleClick', record)
                     }
                 }}>
-                    <Table.Column title="id" dataIndex="id"/>
                     <Table.Column title="年份" dataIndex="year"/>
                     <Table.Column title="检查用人单位数" dataIndex="personCount"/>
                     <Table.Column title="下达执法文书数" dataIndex="paperCount"/>

@@ -145,7 +145,6 @@ class Supervise extends PureComponent {
                             onDoubleClick: () => this.clickOperation('onDoubleClick', record)
                         }
                     }}>
-                        <Table.Column title="id" dataIndex="id"/>
                         <Table.Column title="申报年份" dataIndex="year"/>
                         <Table.Column title="省的名称" dataIndex="provinceName"/>
                         <Table.Column title="市的名称" dataIndex="cityName"/>

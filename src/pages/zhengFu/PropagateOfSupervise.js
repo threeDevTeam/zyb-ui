@@ -144,7 +144,6 @@ class PropagateOfSupervise extends PureComponent {
                             onDoubleClick: () => this.clickOperation('onDoubleClick', record)
                         }
                     }}>
-                        <Table.Column title="id" dataIndex="id"/>
                         <Table.Column title="年份" dataIndex="year"/>
                         <Table.Column title="新闻报道数" dataIndex="newsCount"/>
                         <Table.Column title="印发宣传材料数" dataIndex="paperCount"/>

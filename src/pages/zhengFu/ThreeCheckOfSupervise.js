@@ -144,7 +144,6 @@ class ThreeCheckOfSupervise extends PureComponent {
                             onDoubleClick: () => this.clickOperation('onDoubleClick', record)
                         }
                     }}>
-                        <Table.Column title="id" dataIndex="id"/>
                         <Table.Column title="年份 " dataIndex="year"/>
                         <Table.Column title="验收方案上报数" dataIndex="upCount"/>
                         <Table.Column title="职业病危害严重建设项目控制效果评价和防护设施验收工作过程报告数" dataIndex="reportCount"/>
