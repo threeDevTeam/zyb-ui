@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react'
-import {Input, Button, Select, Dialog} from 'nowrapper/lib/antd'
+import {Input, Button, Select, Dialog, Cascader} from 'nowrapper/lib/antd'
 import Form, {FormItem, FormCore} from 'noform'
 import {Card, message} from "antd";
 import request from "../../utils/request";
@@ -46,6 +46,8 @@ const validate = {
 class SysUserLogin extends PureComponent {
 
     state = {
+        value: undefined,
+        dataSource:[],
         Login: 'block',
         displayEnterprise: 'none',
         displayGov: 'none',
@@ -110,7 +112,7 @@ class SysUserLogin extends PureComponent {
         }
     }
     handleOperator = () => {
-
+        console.log(this.core.value)
         this.core.validate((err) => {
             if (!err) {
                 console.log(this.core.value.type)
@@ -236,8 +238,18 @@ class SysUserLogin extends PureComponent {
             })
         }
     }
-
-
+    componentWillMount() {
+        request.get('/zybadmin/areaOfDic/TreeSelcetData').then(res =>{
+            if(res.flag){
+                console.log(res.data)
+                this.setState({dataSource:res.data})
+            }
+        })
+    }
+    onChange = value => {
+        console.log(value);
+        this.setState({ value });
+    };
     render() {
 
         return (
@@ -267,12 +279,8 @@ class SysUserLogin extends PureComponent {
                         <br/>
                         <FormItem label="企业名称" name="name"><Input/></FormItem>
                         <FormItem label="统一社会信用代码" name="code"><Input/></FormItem>
-                        <FormItem label="省的名称" name="provinceName"><Input/></FormItem>
-                        <FormItem label="省的代码" name="provinceCode"><Input/></FormItem>
-                        <FormItem label="市的名称" name="cityName"><Input/></FormItem>
-                        <FormItem label="市的代码" name="cityCode"><Input/></FormItem>
-                        <FormItem label="区的名称" name="districtName"><Input/></FormItem>
-                        <FormItem label="区的代码" name="districtCode"><Input/></FormItem>
+                        <FormItem label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
+
                         <FormItem label="核定生产能力" name="productionCapacity"><Input/></FormItem>
                         <FormItem label="生产能力单位类型" name="unitType"><Input/></FormItem>
                         <FormItem label="注册资本" name="regiterMoney"><Input/></FormItem>
@@ -283,12 +291,7 @@ class SysUserLogin extends PureComponent {
                     </div>
                     <div style={{display: this.state.displayGov}}>
                         <br/>
-                        <FormItem label="省的名称" name="provinceName"><Input/></FormItem>
-                        <FormItem label="省的代码" name="provinceCode"><Input/></FormItem>
-                        <FormItem label="市的名称" name="cityName"><Input/></FormItem>
-                        <FormItem label="市的代码" name="cityCode"><Input/></FormItem>
-                        <FormItem label="区的名称" name="districtName"><Input/></FormItem>
-                        <FormItem label="区的代码" name="districtCode"><Input/></FormItem>
+                        <FormItem label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
                         <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
                         <FormItem label="单位名称" name="name"><Input/></FormItem>
 
@@ -297,12 +300,7 @@ class SysUserLogin extends PureComponent {
                         <br/>
                         <FormItem label="机构名称" name="name"><Input/></FormItem>
                         <FormItem label="社会统一代码" name="code"><Input/></FormItem>
-                        <FormItem label="省的名称" name="provinceName"><Input/></FormItem>
-                        <FormItem label="省的代码" name="provinceCode"><Input/></FormItem>
-                        <FormItem label="市的名称" name="cityName"><Input/></FormItem>
-                        <FormItem label="市的代码" name="cityCode"><Input/></FormItem>
-                        <FormItem label="区的名称" name="districtName"><Input/></FormItem>
-                        <FormItem label="区的代码" name="districtCode"><Input/></FormItem>
+                        <FormItem label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
                         <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
                         <FormItem label="机构类型" name="type2">
                             <Select placeholder="----请选择机构类型----">
