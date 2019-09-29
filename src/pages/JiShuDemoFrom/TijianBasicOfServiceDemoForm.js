@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Input, InputNumber, Select} from 'nowrapper/lib/antd'
+import {Cascader, Input, InputNumber, Select} from 'nowrapper/lib/antd'
+import request from "../../utils/request";
 const validate = {
 year: {type: "number", required: true, message: '申报年份不能为空'},
 registerBigName: {type: "string", required: true, message: '登记注册类型的大类名称不能为空'},
@@ -16,7 +17,14 @@ class TijianBasicOfServiceDemoForm extends PureComponent {
  state = {
   Login: 'none',
   Login1: 'none',
+  value: undefined,
+
  }
+
+ onChange = value => {
+  console.log(value);
+  this.setState({ value });
+ };
  constructor(props) {
   super(props);
 this.core = new FormCore({validateConfig: validate});
@@ -29,23 +37,27 @@ componentWillMount() {
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
  }
+ request.get('/zybadmin/areaOfDic/cascadeData').then(res =>{
+  console.log(res.data)
+  if(res.flag){
+   this.setState({dataSource:res.data})
+  }
+ })
  }
  render() {
   return (
  <Form core={this.core} layout={{label:7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-  <div style={{display: this.state.Login}}>
+  <div style={{display: this.state.Login,marginBottom:10}}>
  <FormItem label="机构名称" name="name"><Input/></FormItem>
  <FormItem label="社会统一代码" name="code"><Input/></FormItem>
   </div>
- <FormItem label="申报年份" name="year"><InputNumber/></FormItem>
-  <div style={{display: this.state.Login1}}>
- <FormItem label="省的名称" name="provinceName"><Input/></FormItem>
- <FormItem label="省的代码" name="provinceCode"><Input/></FormItem>
- <FormItem label="市的名称" name="cityName"><Input/></FormItem>
- <FormItem label="市的代码" name="cityCode"><Input/></FormItem>
- <FormItem label="区的名称" name="districtName"><Input/></FormItem>
- <FormItem label="区的代码" name="districtCode"><Input/></FormItem>
+     <div style={{marginBottom:10}}>
+         <FormItem label="申报年份" name="year"><InputNumber/></FormItem>
+     </div>
+
+  <div style={{display: this.state.Login1,marginTop:10}}>
+   <FormItem label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
  <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
   </div>
  <FormItem label="登记注册类型的大类名称" name="registerBigName"><Input/></FormItem>

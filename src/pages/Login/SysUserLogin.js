@@ -26,7 +26,7 @@ const validate = {
     email: {type: "string", required: true, message: 'email不能为空或错误'},
     mobile: {type: "string", required: true, message: '手机号码不能为空'},
     type: {type: "string", required: true, message: '用户类型不能为空'},
-    name: {type: "string", required: true, message: '企业名称不能为空'},
+    companyName: {type: "string", required: true, message: '企业名称不能为空'},
     code: {type: "string", required: true, message: '统一社会信用代码不能为空'},
     provinceName: {type: "string", required: true, message: '省的名称不能为空'},
     provinceCode: {type: "string", required: true, message: '省的代码不能为空'},
@@ -239,7 +239,7 @@ class SysUserLogin extends PureComponent {
         }
     }
     componentWillMount() {
-        request.get('/zybadmin/areaOfDic/TreeSelcetData').then(res =>{
+        request.get('/zybadmin/areaOfDic/cascadeData').then(res =>{
             if(res.flag){
                 console.log(res.data)
                 this.setState({dataSource:res.data})
@@ -274,10 +274,10 @@ class SysUserLogin extends PureComponent {
                                 <option key={"普通用户"}>{"普通用户"}</option>
                             </Select>
                         </FormItem>
+                        <FormItem label="企业名称" name="companyName"><Input  placeholder="请选择企业名称"/></FormItem>
                     </div>
                     <div style={{display: this.state.displayEnterprise}}>
                         <br/>
-                        <FormItem label="企业名称" name="name"><Input/></FormItem>
                         <FormItem label="统一社会信用代码" name="code"><Input/></FormItem>
                         <FormItem label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
 
@@ -293,12 +293,9 @@ class SysUserLogin extends PureComponent {
                         <br/>
                         <FormItem label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
                         <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
-                        <FormItem label="单位名称" name="name"><Input/></FormItem>
-
                     </div>
                     <div style={{display: this.state.displayService}}>
                         <br/>
-                        <FormItem label="机构名称" name="name"><Input/></FormItem>
                         <FormItem label="社会统一代码" name="code"><Input/></FormItem>
                         <FormItem label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
                         <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>

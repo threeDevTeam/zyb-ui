@@ -38,7 +38,7 @@ class SuperviseDemoForm extends PureComponent {
             this.core.setValues({...record})
             this.core.setGlobalStatus('edit' === type ? type : 'preview')
         }
-        request.get('/zybadmin/supervise/TreeSelcetData').then(res =>{
+        request.get('/zybadmin/areaOfDic/cascadeData').then(res =>{
             console.log(res.data)
             if(res.flag){
                 this.setState({dataSource:res.data})

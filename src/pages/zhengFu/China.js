@@ -8,17 +8,18 @@ import request from "../../utils/request";
 class China extends PureComponent {
     state = {
         value: undefined,
-        dataSource:[]
-}
+        dataSource: []
+    }
     onChange = value => {
         console.log(value);
-        this.setState({ value });
+        this.setState({value});
     };
+
     componentWillMount() {
-        request.get('/zybadmin/areaOfDic/TreeSelcetData').then(res =>{
-            if(res.flag){
+        request.get('/zybadmin/areaOfDic/cascadeData').then(res => {
+            if (res.flag) {
                 console.log(res.data)
-                this.setState({dataSource:res.data})
+                this.setState({dataSource: res.data})
             }
         })
     }
@@ -27,10 +28,12 @@ class China extends PureComponent {
         console.log(this.core);
 
     }
+
     render() {
         return (
             <Form core={this.core}>
-            <FormItem label="Cascader" name="Cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange}/></FormItem>
+                <FormItem label="Cascader" name="Cascader"><Cascader options={this.state.dataSource}
+                                                                     onChange={this.onChange}/></FormItem>
                 <FormItem>
                     <Button type="primary" onClick={this.handleOperator}>提交</Button>
                 </FormItem>

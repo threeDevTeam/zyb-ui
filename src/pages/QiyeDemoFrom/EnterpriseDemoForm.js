@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Input, InputNumber, Select} from 'nowrapper/lib/antd'
+import {Cascader, Input, InputNumber, Select} from 'nowrapper/lib/antd'
+import request from "../../utils/request";
 const validate = {
 riskLevel: {type: "string", required: true, message: '风险等级不能为空'},
 year: {type: "number", required: true, message: '申报年份不能为空'},
@@ -23,7 +24,15 @@ class EnterpriseDemoForm extends PureComponent {
  state = {
   Login: 'none',
   Login1: 'none',
+  Login2: 'none',
+  value: undefined,
+
  }
+
+ onChange = value => {
+  console.log(value);
+  this.setState({ value });
+ };
  constructor(props) {
   super(props);
 this.core = new FormCore({validateConfig: validate});
@@ -33,15 +42,23 @@ componentWillMount() {
  if ('edit' === type || 'view' === type) {
   this.state.Login='block'
   this.state.Login1='block'
+  this.state.Login2='block'
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
  }
- }
+ request.get('/zybadmin/areaOfDic/cascadeData').then(res =>{
+  console.log(res.data)
+  if(res.flag){
+   this.setState({dataSource:res.data})
+  }
+ })
+
+}
  render() {
   return (
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-  <div style={{display: this.state.Login1}}>
+  <div style={{display: this.state.Login1,marginTop:10,marginBottom:10}}>
  <FormItem label="企业名称" name="name"><Input/></FormItem>
  <FormItem label="统一社会信用代码" name="code"><Input/></FormItem>
   </div>
@@ -64,15 +81,10 @@ componentWillMount() {
 
   </Select>
  </FormItem>
-  <div style={{display: this.state.Login}}>
- <FormItem label="省的名称" name="provinceName"><Input/></FormItem>
- <FormItem label="省的代码" name="provinceCode"><Input/></FormItem>
- <FormItem label="市的名称" name="cityName"><Input/></FormItem>
- <FormItem label="市的代码" name="cityCode"><Input/></FormItem>
- <FormItem label="区的名称" name="districtName"><Input/></FormItem>
- <FormItem label="区的代码" name="districtCode"><Input/></FormItem>
- <FormItem label="工作场所地址" name="workAddress"><Input/></FormItem>
+  <div style={{display: this.state.Login,marginTop:10,marginBottom:10}}>
+   <FormItem label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
   </div>
+  <FormItem label="工作场所地址" name="workAddress"><Input/></FormItem>
  <FormItem label="登记注册类型的大类名称" name="registerBigName"><Input/></FormItem>
  <FormItem label="登记注册类型的小类名称" name="registerSmallName"><Input/></FormItem>
  <FormItem label="所属行业的大类名称" name="industryBigName"><Input/></FormItem>
@@ -87,11 +99,13 @@ componentWillMount() {
 
   </Select>
  </FormItem>
+  <div style={{display: this.state.Login2,marginTop:10,marginBottom:10}}>
  <FormItem label="注册资本" name="regiterMoney"><InputNumber/></FormItem>
  <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
  <FormItem label="注册时间" name="registerDate"><InputNumber/></FormItem>
  <FormItem label="投产时间" name="startDate"><InputNumber/></FormItem>
  <FormItem label="资产总额" name="propertyMoney"><InputNumber/></FormItem>
+  </div>
  <FormItem label="营业收入" name="saleMoney"><InputNumber/></FormItem>
  <FormItem label="从业人数" name="workerNumber"><InputNumber/></FormItem>
  <FormItem label="从业人数中的女工数" name="womenWorkerNumber"><InputNumber/></FormItem>

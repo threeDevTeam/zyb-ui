@@ -34,6 +34,7 @@ class JianceDetailOfService extends PureComponent {
                 enableValidate: true,
                 content: <JianceDetailOfServiceDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
+                    console.log(values)
                     request.post('/zybadmin/jianceDetailOfService/add', {data: {...values}}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")
