@@ -145,7 +145,6 @@ class ZhenduanTotalOfService extends PureComponent {
                         onDoubleClick: () => this.clickOperation('onDoubleClick', record)
                     }
                 }}>
-                    <Table.Column title="id" dataIndex="id"/>
                     <Table.Column title="年份" dataIndex="year"/>
                     <Table.Column title="诊断人数" dataIndex="count1"/>
                     <Table.Column title="诊断职业病企业数" dataIndex="count2"/>

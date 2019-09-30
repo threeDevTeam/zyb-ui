@@ -143,7 +143,6 @@ class TijianTotalOfService extends PureComponent {
                         onDoubleClick: () => this.clickOperation('onDoubleClick', record)
                     }
                 }}>
-                    <Table.Column title="id" dataIndex="id"/>
                     <Table.Column title="年份" dataIndex="year"/>
                     <Table.Column title="体检报告数" dataIndex="count1"/>
                     <Table.Column title="体检人数" dataIndex="count2"/>

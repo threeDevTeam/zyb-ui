@@ -144,18 +144,14 @@ class ZhenduanDetailOfService extends PureComponent {
                         onDoubleClick: () => this.clickOperation('onDoubleClick', record)
                     }
                 }}>
-                    <Table.Column title="id" dataIndex="id"/>
                     <Table.Column title="诊断时间" dataIndex="checkDate"/>
                     <Table.Column title="诊断年份" dataIndex="checkYear"/>
                     <Table.Column title="诊断月份" dataIndex="checkMonth"/>
                     <Table.Column title="企业名称" dataIndex="enterpriseName"/>
                     <Table.Column title="统一社会信用代码" dataIndex="enterpriseCode"/>
                     <Table.Column title="省的名称" dataIndex="provinceName"/>
-                    <Table.Column title="省的代码" dataIndex="provinceCode"/>
                     <Table.Column title="市的名称" dataIndex="cityName"/>
-                    <Table.Column title="市的代码" dataIndex="cityCode"/>
                     <Table.Column title="区的名称" dataIndex="districtName"/>
-                    <Table.Column title="区的代码" dataIndex="districtCode"/>
                     <Table.Column title="注册地址" dataIndex="registerAddress"/>
                     <Table.Column title="登记注册类型的大类名称" dataIndex="registerBigName"/>
                     <Table.Column title="登记注册类型的小类名称" dataIndex="registerSmallName"/>

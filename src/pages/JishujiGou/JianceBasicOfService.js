@@ -143,16 +143,12 @@ class JianceBasicOfService extends PureComponent {
                         onDoubleClick: () => this.clickOperation('onDoubleClick', record)
                     }
                 }}>
-                    <Table.Column title="id" dataIndex="id"/>
                     <Table.Column title="机构名称" dataIndex="name"/>
                     <Table.Column title="社会统一代码" dataIndex="code"/>
                     <Table.Column title="申报年份" dataIndex="year"/>
                     <Table.Column title="省的名称" dataIndex="provinceName"/>
-                    <Table.Column title="省的代码" dataIndex="provinceCode"/>
                     <Table.Column title="市的名称" dataIndex="cityName"/>
-                    <Table.Column title="市的代码" dataIndex="cityCode"/>
                     <Table.Column title="区的名称" dataIndex="districtName"/>
-                    <Table.Column title="区的代码" dataIndex="districtCode"/>
                     <Table.Column title="登记注册类型的大类名称" dataIndex="registerAddress"/>
                     <Table.Column title="登记注册类型的小类名称" dataIndex="registerBigName"/>
                     <Table.Column title="资质等级" dataIndex="level"/>
