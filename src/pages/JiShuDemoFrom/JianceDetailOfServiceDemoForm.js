@@ -56,6 +56,31 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
                 this.setState({dataSource: res.data})
             }
         })
+        request.get('/zybadmin/jianceDetailOfService/cascadeData1').then(res => {
+            console.log(res.data)
+            if (res.flag) {
+                this.setState({dataSource1: res.data})
+            }
+        })
+        request.get('/zybadmin/jianceDetailOfService/cascadeData2').then(res => {
+            console.log(res.data)
+            if (res.flag) {
+                this.setState({dataSource2: res.data})
+            }
+        })
+        request.get('/zybadmin/jianceDetailOfService/cascadeData3').then(res => {
+            console.log(res.data)
+            if (res.flag) {
+                this.setState({dataSource3: res.data})
+            }
+        })
+
+        request.get('/zybadmin/jianceDetailOfService/cascadeData4').then(res => {
+            console.log(res.data)
+            if (res.flag) {
+                this.setState({dataSource4: res.data})
+            }
+        })
     }
 
     render() {
@@ -72,16 +97,16 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
                                                                   onChange={this.onChange}
                                                                   placeholder="请选择省/市/区"/></FormItem>
                 <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
-                <FormItem label="登记注册类型的小类名称" name="registerSmallName"><Input/></FormItem>
-                <FormItem label="所属行业的大类名称" name="industryBigName"><Input/></FormItem>
-                <FormItem label="所属行业的小类名称" name="industrySmallName"><Input/></FormItem>
-                <FormItem label="工作场所地址" name="workAddress"><Input/></FormItem>
+
+                <FormItem label="登记注册类型小类名" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange} placeholder="登记注册类型"/></FormItem>
+
+                <FormItem label="所属行业名称" name="cascaded2"><Cascader options={this.state.dataSource2}  onChange={this.onChange} placeholder="所属行业名称"/></FormItem>
+
+               <FormItem label="工作场所地址" name="workAddress"><Input/></FormItem>
                 <FormItem label="工作场所名称" name="workplaceName"><Input/></FormItem>
                 <FormItem label="工作场所编码" name="workplaceCode"><InputNumber/></FormItem>
-                <FormItem label="岗位的大类名称" name="postBigName"><Input/></FormItem>
-                <FormItem label="岗位的小类名称" name="postSmallName"><InputNumber/></FormItem>
-                <FormItem label="职业病危害因素大类名称" name="dangerBigName"><Input/></FormItem>
-                <FormItem label="职业病危害因素小类名称" name="dangerSmallName"><Input/></FormItem>
+                <FormItem label="岗位名称" name="cascaded3"><Cascader options={this.state.dataSource3}  onChange={this.onChange} placeholder="岗位名称"/></FormItem>
+                <FormItem label="职业病危害因素名称" name="cascaded4"><Cascader options={this.state.dataSource4}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
                 <FormItem label="判定结果" name="decideResult">
                     <Radio.Group value={this.state.value}>
                         <Radio value={"合格"}>合格</Radio>

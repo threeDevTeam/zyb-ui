@@ -26,6 +26,10 @@ class JianceBasicOfServiceDemoForm extends PureComponent {
   console.log(value);
   this.setState({ value });
  };
+ onChange1 = value => {
+  console.log(value);
+  this.setState({ value });
+ };
  constructor(props) {
   super(props);
 this.core = new FormCore({validateConfig: validate});
@@ -44,6 +48,12 @@ componentWillMount() {
    this.setState({dataSource:res.data})
   }
  })
+ request.get('/zybadmin/jianceBasicOfService/cascadeData').then(res =>{
+  console.log(res.data)
+  if(res.flag){
+   this.setState({dataSource1:res.data})
+  }
+ })
  }
  render() {
   return (
@@ -60,9 +70,9 @@ componentWillMount() {
    <FormItem label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
  <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
   </div>
- <FormItem label="登记注册类型的大类名称" name="registerBigName"><Input/></FormItem>
- <FormItem label="登记注册类型的小类名称" name="registerSmallName"><Input/></FormItem>
- <FormItem label="资质等级" name="level">
+  <FormItem label="登记注册类型" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange1} placeholder="登记注册类型"/></FormItem>
+
+  <FormItem label="资质等级" name="level">
   <Select value={this.state.city}>
 
    <option key={"甲级"}>{"甲级"}</option>

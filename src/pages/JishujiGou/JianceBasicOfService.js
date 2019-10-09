@@ -34,6 +34,7 @@ class JianceBasicOfService extends PureComponent {
                 enableValidate: true,
                 content: <JianceBasicOfServiceDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
+                    console.log(values)
                     request.post('/zybadmin/jianceBasicOfService/add', {data: {...values}}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")
@@ -149,8 +150,9 @@ class JianceBasicOfService extends PureComponent {
                     <Table.Column title="省的名称" dataIndex="provinceName"/>
                     <Table.Column title="市的名称" dataIndex="cityName"/>
                     <Table.Column title="区的名称" dataIndex="districtName"/>
-                    <Table.Column title="登记注册类型的大类名称" dataIndex="registerAddress"/>
-                    <Table.Column title="登记注册类型的小类名称" dataIndex="registerBigName"/>
+                    <Table.Column title="注册地址" dataIndex="registerAddress"/>
+                    <Table.Column title="登记注册类型的大类名称" dataIndex="registerBigName"/>
+                    <Table.Column title="登记注册类型的小类名称" dataIndex="registerSmallName"/>
                     <Table.Column title="资质等级" dataIndex="level"/>
                     <Table.Column title="资质证书编号" dataIndex="num"/>
                     <Table.Column title="专业技术人员数" dataIndex="technologyCount"/>

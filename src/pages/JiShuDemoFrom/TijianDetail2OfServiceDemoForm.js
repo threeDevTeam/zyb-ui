@@ -56,6 +56,37 @@ componentWillMount() {
    this.setState({dataSource: res.data})
   }
  })
+
+ request.get('/zybadmin/jianceBasicOfService/cascadeData').then(res =>{
+  console.log(res.data)
+  if(res.flag){
+   this.setState({dataSource1:res.data})
+  }
+ })
+ request.get('/zybadmin/jianceDetailOfService/cascadeData2').then(res => {
+  console.log(res.data)
+  if (res.flag) {
+   this.setState({dataSource2: res.data})
+  }
+ })
+ request.get('/zybadmin/jianceDetailOfService/cascadeData3').then(res => {
+  console.log(res.data)
+  if (res.flag) {
+   this.setState({dataSource3: res.data})
+  }
+ })
+ request.get('/zybadmin/jianceDetailOfService/cascadeData4').then(res => {
+  console.log(res.data)
+  if (res.flag) {
+   this.setState({dataSource4: res.data})
+  }
+ })
+ request.get('/zybadmin/zhenduanDetailOfService/cascadeData5').then(res => {
+  console.log(res.data)
+  if (res.flag) {
+   this.setState({dataSource5: res.data})
+  }
+ })
  }
  render() {
   return (
@@ -71,16 +102,16 @@ componentWillMount() {
                                                     onChange={this.onChange}
                                                     placeholder="请选择省/市/区"/></FormItem>
   <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
- <FormItem label="登记注册类型的大类名称" name="registerBigName"><Input/></FormItem>
- <FormItem label="登记注册类型的小类名称" name="registerSmallName"><Input/></FormItem>
- <FormItem label="所属行业的大类名称" name="industryBigName"><Input/></FormItem>
- <FormItem label="所属行业的小类名称" name="industrySmallName"><Input/></FormItem>
- <FormItem label="工作场所地址" name="workAddress"><Input/></FormItem>
+  <FormItem label="登记注册类型" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange1} placeholder="登记注册类型"/></FormItem>
+
+  <FormItem label="所属行业名称" name="cascaded2"><Cascader options={this.state.dataSource2}  onChange={this.onChange} placeholder="所属行业名称"/></FormItem>
+
+  <FormItem label="工作场所地址" name="workAddress"><Input/></FormItem>
  <FormItem label="工作场所名称" name="workplaceName"><Input/></FormItem>
  <FormItem label="工作场所编码" name="workplaceCode"><InputNumber/></FormItem>
- <FormItem label="岗位的大类名称" name="postBigName"><Input/></FormItem>
- <FormItem label="岗位的小类名称" name="postSmallName"><Input/></FormItem>
- <FormItem label="姓名" name="name"><Input/></FormItem>
+  <FormItem label="岗位名称" name="cascaded3"><Cascader options={this.state.dataSource3}  onChange={this.onChange} placeholder="岗位名称"/></FormItem>
+
+  <FormItem label="姓名" name="name"><Input/></FormItem>
  <FormItem label="身份证号" name="idNum"><Input/></FormItem>
  <FormItem label="性别" name="gender">
   <Radio.Group  value={this.state.value} >
@@ -90,10 +121,10 @@ componentWillMount() {
  </FormItem>
  <FormItem label="年龄" name="age"><InputNumber/></FormItem>
  <FormItem label="工龄" name="workYear"><InputNumber/></FormItem>
- <FormItem label="职业病危害因素大类名称" name="dangerBigName"><Input/></FormItem>
- <FormItem label="职业病危害因素小类名称" name="dangerSmallName"><Input/></FormItem>
- <FormItem label="疑似职业病大类名称" name="sickBigName"><Input/></FormItem>
- <FormItem label="疑似职业病小类名称" name="sickSmallName"><Input/></FormItem>
+  <FormItem label="职业病危害因素名称" name="cascaded4"><Cascader options={this.state.dataSource4}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
+
+  <FormItem label="可能导致的职业病名称" name="cascaded5"><Cascader options={this.state.dataSource5}  onChange={this.onChange} placeholder="可能导致的职业病名称"/></FormItem>
+
  </Form>
  )
  }

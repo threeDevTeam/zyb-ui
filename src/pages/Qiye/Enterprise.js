@@ -149,11 +149,8 @@ class Enterprise extends PureComponent {
                     <Table.Column title="申报年份" dataIndex="year"/>
                     <Table.Column title="企业规模" dataIndex="size"/>
                     <Table.Column title="省的名称" dataIndex="provinceName"/>
-                    <Table.Column title="省的代码" dataIndex="provinceCode"/>
                     <Table.Column title="市的名称" dataIndex="cityName"/>
-                    <Table.Column title="市的代码" dataIndex="cityCode"/>
                     <Table.Column title="区的名称" dataIndex="districtName"/>
-                    <Table.Column title="区的代码" dataIndex="districtCode"/>
                     <Table.Column title="注册地址" dataIndex="registerAddress"/>
                     <Table.Column title="工作场所地址" dataIndex="workAddress"/>
                     <Table.Column title="登记注册类型的大类名称" dataIndex="registerBigName"/>

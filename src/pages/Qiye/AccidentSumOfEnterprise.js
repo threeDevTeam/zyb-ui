@@ -123,8 +123,8 @@ class AccidentSumOfEnterprise extends PureComponent {
 
     render() {
         return (
-            <List url='/zybadmin/accidentSumOfEnterprise/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
-                <Filter cols={5}>
+            <List url='/zybadmin/accidentSumOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
+                <Filter cols={2}>
                     <Filter.Item label="职业病危害事故编号" name="accidentNum"><Input/></Filter.Item>
 
                 </Filter>

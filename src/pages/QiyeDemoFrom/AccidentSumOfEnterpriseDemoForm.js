@@ -1,12 +1,11 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Input, InputNumber, Radio} from 'nowrapper/lib/antd'
+import {Cascader, Input, InputNumber, Radio} from 'nowrapper/lib/antd'
+import request from "../../utils/request";
 const validate = {
 accidentNum: {type: "string", required: true, message: '职业病危害事故编号不能为空'},
 startTime: {type: "number", required: true, message: '事故发生时间不能为空'},
 place: {type: "string", required: true, message: '事故发生地点不能为空'},
-dangerBigName: {type: "string", required: true, message: '导致事故的职业病危害因素大类名称不能为空'},
-dangerSmallName: {type: "string", required: true, message: '导致事故的职业病危害因素小类名称不能为空'},
 sickCount: {type: "number", required: true, message: '发病人数不能为空'},
 treatCount: {type: "number", required: true, message: '送医院治疗人数不能为空'},
 dieCount: {type: "number", required: true, message: '死亡人数不能为空'},
@@ -29,6 +28,12 @@ componentWillMount() {
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
  }
+ request.get('/zybadmin/jianceDetailOfService/cascadeData4').then(res => {
+  console.log(res.data)
+  if (res.flag) {
+   this.setState({dataSource1: res.data})
+  }
+ })
  }
  render() {
   return (
@@ -37,8 +42,8 @@ componentWillMount() {
  <FormItem label="职业病危害事故编号" name="accidentNum"><Input/></FormItem>
  <FormItem label="事故发生时间" name="startTime"><InputNumber/></FormItem>
  <FormItem label="事故发生地点" name="place"><Input/></FormItem>
- <FormItem label="导致事故的职业病危害因素大类名称" name="dangerBigName"><Input/></FormItem>
- <FormItem label="导致事故的职业病危害因素小类名称" name="dangerSmallName"><Input/></FormItem>
+  <FormItem label="导致事故的职业病危害因素名称" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
+
  <FormItem label="发病人数" name="sickCount"><InputNumber/></FormItem>
  <FormItem label="送医院治疗人数" name="treatCount"><InputNumber/></FormItem>
  <FormItem label="直接经济损失" name="directLose"><InputNumber/></FormItem>
