@@ -138,6 +138,8 @@ class Supervise extends PureComponent {
                                 className={styles.marginLeft20}>浏览</Button>
                         <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                                 className={styles.marginLeft20}>删除</Button>
+                        <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('download')}
+                                className={styles.marginLeft20} href={'/zybadmin/excelTemplate/download'+window.location.pathname.replace("/zybadmin","")}>下载模板</Button>
                     </div>
                     <Table onRow={record => {
                         return {

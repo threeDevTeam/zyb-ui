@@ -102,6 +102,8 @@ class Index extends PureComponent {
                     })
                 }
             })
+        } else if ('download' === type) {
+
         }
     }
 
@@ -123,39 +125,41 @@ class Index extends PureComponent {
 
     render() {
         return (
-                <List url='/zybadmin/demo/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
-                    <Filter cols={5}>
-                        <Filter.Item label="username" name="username"><Input/></Filter.Item>
-                        <Filter.Item label="age" name="age"><Input/></Filter.Item>
-                        <Filter.Item label="date" name="date"><DatePicker/></Filter.Item>
-                        <Filter.Item label="创建时间" colSpan="2">
-                            <React.Fragment>
-                                <Filter.Item noLayout name="createStartTime"><DatePicker/></Filter.Item>
-                                <Filter.Item noLayout name="createEndTime"><DatePicker/></Filter.Item>
-                            </React.Fragment>
-                        </Filter.Item>
-                    </Filter>
-                    <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
-                        <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>创建</Button>
-                        <Button icon="edit" type="primary" onClick={() => this.handleOperator('edit')}
-                                className={styles.marginLeft20}>编辑</Button>
-                        <Button icon="search" type="primary" onClick={() => this.handleOperator('view')}
-                                className={styles.marginLeft20}>浏览</Button>
-                        <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
-                                className={styles.marginLeft20}>删除</Button>
-                    </div>
-                    <Table onRow={record => {
-                        return {
-                            onClick: () => this.clickOperation('onClick', record),
-                            onDoubleClick: () => this.clickOperation('onDoubleClick', record)
-                        }
-                    }}>
-                        <Table.Column title="id" dataIndex="id"/>
-                        <Table.Column title="username" dataIndex="username"/>
-                        <Table.Column title="age" dataIndex="age"/>
-                    </Table>
-                    <Pagination/>
-                </List>
+            <List url='/zybadmin/demo/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
+                <Filter cols={5}>
+                    <Filter.Item label="username" name="username"><Input/></Filter.Item>
+                    <Filter.Item label="age" name="age"><Input/></Filter.Item>
+                    <Filter.Item label="date" name="date"><DatePicker/></Filter.Item>
+                    <Filter.Item label="创建时间" colSpan="2">
+                        <React.Fragment>
+                            <Filter.Item noLayout name="createStartTime"><DatePicker/></Filter.Item>
+                            <Filter.Item noLayout name="createEndTime"><DatePicker/></Filter.Item>
+                        </React.Fragment>
+                    </Filter.Item>
+                </Filter>
+                <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
+                    <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>创建</Button>
+                    <Button icon="edit" type="primary" onClick={() => this.handleOperator('edit')}
+                            className={styles.marginLeft20}>编辑</Button>
+                    <Button icon="search" type="primary" onClick={() => this.handleOperator('view')}
+                            className={styles.marginLeft20}>浏览</Button>
+                    <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
+                            className={styles.marginLeft20}>删除</Button>
+                    <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('download')}
+                            className={styles.marginLeft20} href={'/zybadmin/excelTemplate/download?flag='+window.location.pathname}>下载模板</Button>
+                </div>
+                <Table onRow={record => {
+                    return {
+                        onClick: () => this.clickOperation('onClick', record),
+                        onDoubleClick: () => this.clickOperation('onDoubleClick', record)
+                    }
+                }}>
+                    <Table.Column title="id" dataIndex="id"/>
+                    <Table.Column title="username" dataIndex="username"/>
+                    <Table.Column title="age" dataIndex="age"/>
+                </Table>
+                <Pagination/>
+            </List>
         )
     }
 }
