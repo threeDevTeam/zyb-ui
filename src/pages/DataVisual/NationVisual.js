@@ -8,6 +8,14 @@ import request from "../../utils/request"
 export default class NationVisual extends Component {
     state = {}
 
+    componentWillMount() {
+        request('/zybadmin/nationVisual/get').then(res => {
+            if (res && res.flag) {
+                this.setState({provinceData: res.data})
+            }
+        })
+    }
+
     render() {
         let option = {
             tooltip: {},
@@ -16,14 +24,14 @@ export default class NationVisual extends Component {
                 data: ['暂无风险', '轻微风险(Ⅰ级)', '低度风险(Ⅱ级)', '中度风险(Ⅲ级)', '高度风险(Ⅳ级)']
             },
             visualMap: {
-                min: 1,
-                max: 5,
+                min: 0,
+                max: 4,
                 left: 'left',
                 top: 'bottom',
                 text: ['高', '低'],
-                seriesIndex: [1, 2, 3, 4, 5],
+                seriesIndex: [0, 1, 2, 3, 4],
                 inRange: {
-                    color: ['green', 'blue', 'yellow', 'orange', 'red']
+                    color: ['#CCFFCC', 'blue', 'yellow', 'orange', 'red']
                 },
                 calculable: true
             },
@@ -55,35 +63,35 @@ export default class NationVisual extends Component {
             },
             series: [
                 {
-                    name: 'aaaaaaaaaaa',
-                    type: 'scatter',
-                    coordinateSystem: 'geo',
-                    symbolSize: 0
-                }, {
                     name: '暂无风险',
                     type: 'map',
                     geoIndex: 0,
-                    data: [{name: '黑龙江', value: 1}]
+                    data: this.state.provinceData && this.state.provinceData.zero
                 }, {
                     name: '轻微风险(Ⅰ级)',
                     type: 'map',
                     geoIndex: 0,
-                    data: [{name: '吉林', value: 2}]
+                    data: this.state.provinceData && this.state.provinceData.one
                 }, {
                     name: '低度风险(Ⅱ级)',
                     type: 'map',
                     geoIndex: 0,
-                    data: [{name: '辽宁', value: 3}]
+                    data: this.state.provinceData && this.state.provinceData.two
                 }, {
                     name: '中度风险(Ⅲ级)',
                     type: 'map',
                     geoIndex: 0,
-                    data: [{name: '内蒙古', value: 4}]
+                    data: this.state.provinceData && this.state.provinceData.three
                 }, {
                     name: '高度风险(Ⅳ级)',
                     type: 'map',
                     geoIndex: 0,
-                    data: [{name: '新疆', value: 5}]
+                    data: this.state.provinceData && this.state.provinceData.four
+                },
+                {
+                    type: 'scatter',
+                    coordinateSystem: 'geo',
+                    symbolSize: 0
                 }
             ]
         }
