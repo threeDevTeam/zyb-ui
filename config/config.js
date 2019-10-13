@@ -14,6 +14,18 @@ export default {
     ],
     routes: [
         {
+            path: 'visual',
+            component: '../layouts/VisualLayout',
+            routes: [
+                {path: '/visual', redirect: '/visual/NationVisual'},
+                {path: '/visual/NationVisual', component: './DataVisual/NationVisual'},
+                {path: '/visual/ProvinceOrCityVisual', component: './DataVisual/ProvinceOrCityVisual'},
+                {path: '/visual/CityVisual', component: './DataVisual/CityVisual'},
+                {path: '/visual/CountryOrDistrictVisual', component: './DataVisual/CountryOrDistrictVisual'},
+                {path: '/visual/EnterpriseVisual', component: './DataVisual/EnterpriseVisual'}
+            ]
+        },
+        {
             path: '/user',
             component: '../layouts/UserLayout',
             routes: [
@@ -67,7 +79,7 @@ export default {
                 {path: '/touchPersonOfEnterprise', component: './Qiye/TouchPersonOfEnterprise'},
                 {path: '/enterpriseCheckSumOfEnterprise', component: './Qiye/EnterpriseCheckSumOfEnterprise'},
                 {path: '/fixCheckOfEnterprise', component: './Qiye/FixCheckOfEnterprise'},
-               {path: '/monitorOfEnterprise', component: './Qiye/MonitorOfEnterprise'},
+                {path: '/monitorOfEnterprise', component: './Qiye/MonitorOfEnterprise'},
                 {path: '/healthOfEnterprise', component: './Qiye/HealthOfEnterprise'},
                 {path: '/protectOfEnterprise', component: './Qiye/ProtectOfEnterprise'},
                 {path: '/personProtectOfEnterprise', component: './Qiye/PersonProtectOfEnterprise'},
