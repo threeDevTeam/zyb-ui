@@ -46,21 +46,21 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-  <FormItem label="工作场所" name="treeSelect"><TreeSelect placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
-  <FormItem label="检测时间" name="checkDate"><InputNumber/></FormItem>
- <FormItem label="检测年份" name="checkYear"><InputNumber/></FormItem>
- <FormItem label="检测月份" name="checkMonth"><InputNumber/></FormItem>
- <FormItem label="检测机构" name="org"><Input/></FormItem>
- <FormItem label="检测机构的社会统一代码" name="code"><Input/></FormItem>
- <FormItem label="检测报告编号" name="num"><Input/></FormItem>
- <FormItem label="判定结果" name="decideResult">
+  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
+  <FormItem required={true} label="检测时间" name="checkDate"><InputNumber/></FormItem>
+ <FormItem required={true} label="检测年份" name="checkYear"><InputNumber/></FormItem>
+ <FormItem required={true} label="检测月份" name="checkMonth"><InputNumber/></FormItem>
+ <FormItem required={true} label="检测机构" name="org"><Input/></FormItem>
+ <FormItem required={true} label="检测机构的社会统一代码" name="code"><Input/></FormItem>
+ <FormItem required={true} label="检测报告编号" name="num"><Input/></FormItem>
+ <FormItem required={true} label="判定结果" name="decideResult">
   <Radio.Group  value={this.state.value} >
    <Radio value={"合格"}>合格</Radio>
    <Radio value={"不合格"}>不合格</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem label="超标原因" name="reason"><Input/></FormItem>
- <FormItem label="危害程度级别" name="dangerLevel">
+ <FormItem required={true} label="超标原因" name="reason"><Input/></FormItem>
+ <FormItem required={true} label="危害程度级别" name="dangerLevel">
   <Radio.Group  value={this.state.value} >
    <Radio value={"轻度"}>轻度</Radio>
    <Radio value={"中度"}>中度</Radio>
@@ -70,8 +70,8 @@ componentWillMount() {
  </FormItem>
   <FormItem name="course">
    <SelectInlineRepeater locale='zh' selectMode="multiple" multiple>
-    <FormItem label='检测结果' name="checkResult"><Input/></FormItem>
-    <FormItem label='类别' name="type">
+    <FormItem required={true} label='检测结果' name="checkResult"><Input/></FormItem>
+    <FormItem required={true} label='类别' name="type">
      <Select value={this.state.city}>
       <option key={"CMAC"}>{"CMAC"}</option>
       <option key={"CTWA"}>{"CTWA"}</option>
@@ -80,7 +80,7 @@ componentWillMount() {
       <option key={"其他"}>{"其他"}</option>
      </Select>
     </FormItem>
-    <FormItem label='单位' name="unit"><Input/></FormItem>
+    <FormItem required={true} label='单位' name="unit"><Input/></FormItem>
    </SelectInlineRepeater>
   </FormItem>
  </Form>

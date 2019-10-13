@@ -31,10 +31,10 @@ class LawOfSuperviseDemoForm extends PureComponent {
         return (
             <Form core={this.core} layout={{label: 8}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-               <FormItem label="年份 " name="year"><InputNumber/></FormItem>
-                    <FormItem label="印发法律法规的新增" name="ruleIncrease"><InputNumber/></FormItem>
-                <FormItem label="印发规范性文件的新增" name="fileIncrease"><InputNumber/></FormItem>
-                <FormItem label="印发标准的新增" name="startdardIncrease"><InputNumber/></FormItem>
+               <FormItem required={true} label="年份 " name="year"><InputNumber/></FormItem>
+                    <FormItem required={true} label="印发法律法规的新增" name="ruleIncrease"><InputNumber/></FormItem>
+                <FormItem required={true} label="印发规范性文件的新增" name="fileIncrease"><InputNumber/></FormItem>
+                <FormItem required={true} label="印发标准的新增" name="startdardIncrease"><InputNumber/></FormItem>
 
             </Form>
         )

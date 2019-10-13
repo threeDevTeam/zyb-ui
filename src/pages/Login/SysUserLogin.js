@@ -260,13 +260,13 @@ class SysUserLogin extends PureComponent {
                 </div>
                 <Form core={this.core} layout={{label: 7}}>
                     <div style={{display: this.state.Login}}>
-                        <FormItem label="登录名" name="loginName"><Input placeholder="请输入用户名"/></FormItem>
-                        <FormItem label="登录密码" name="loginPassword"><Input.Password placeholder="请输入密码"/></FormItem>
-                        <FormItem label="确认密码" name="ConfirmPassword"><Input.Password placeholder="请输入密码"/></FormItem>
-                        <FormItem label="电子邮箱" name="email"><Input placeholder="email"/></FormItem>
-                        <FormItem label="手机号码" name="mobile"><Input style={{width: '100%'}}
+                        <FormItem label="登录名" name="loginName" required={true}><Input placeholder="请输入用户名"/></FormItem>
+                        <FormItem label="登录密码" name="loginPassword" required={true}><Input.Password placeholder="请输入密码"/></FormItem>
+                        <FormItem label="确认密码" name="ConfirmPassword" required={true}><Input.Password placeholder="请输入密码"/></FormItem>
+                        <FormItem label="电子邮箱" name="email" required={true}><Input placeholder="email"/></FormItem>
+                        <FormItem label="手机号码" name="mobile" required={true}><Input style={{width: '100%'}}
                                                                     placeholder="请输入电话号码"/></FormItem>
-                        <FormItem label="用户类型" name="type">
+                        <FormItem label="用户类型" name="type" required={true}>
                             <Select onSelect={this.onSelect} placeholder="----请选择用户类型----">
                                 <option key={"企业"}>{"企业"}</option>
                                 <option key={"政府监管部门"}>{"政府监管部门"}</option>
@@ -274,32 +274,32 @@ class SysUserLogin extends PureComponent {
                                 <option key={"普通用户"}>{"普通用户"}</option>
                             </Select>
                         </FormItem>
-                        <FormItem label="企业名称" name="companyName"><Input  placeholder="请选择企业名称"/></FormItem>
+                        <FormItem label="企业名称" name="companyName" required={true}><Input  placeholder="请选择企业名称"/></FormItem>
                     </div>
                     <div style={{display: this.state.displayEnterprise}}>
                         <br/>
-                        <FormItem label="统一社会信用代码" name="code"><Input/></FormItem>
-                        <FormItem label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
+                        <FormItem label="统一社会信用代码" name="code" required={true}><Input/></FormItem>
+                        <FormItem label="省/市/区" name="cascader" required={true}><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
 
-                        <FormItem label="核定生产能力" name="productionCapacity"><Input/></FormItem>
-                        <FormItem label="生产能力单位类型" name="unitType"><Input/></FormItem>
-                        <FormItem label="注册资本" name="regiterMoney"><Input/></FormItem>
-                        <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
-                        <FormItem label="注册时间" name="registerDate"><Input/></FormItem>
-                        <FormItem label="投产时间" name="startDate"><Input/></FormItem>
-                        <FormItem label="资产总额" name="propertyMoney"><Input/></FormItem>
+                        <FormItem label="核定生产能力" name="productionCapacity" required={true}><Input/></FormItem>
+                        <FormItem label="生产能力单位类型" name="unitType" required={true}><Input/></FormItem>
+                        <FormItem label="注册资本" name="regiterMoney" required={true}><Input/></FormItem>
+                        <FormItem label="注册地址" name="registerAddress" required={true}><Input/></FormItem>
+                        <FormItem label="注册时间" name="registerDate" required={true}><Input/></FormItem>
+                        <FormItem label="投产时间" name="startDate" required={true}><Input/></FormItem>
+                        <FormItem label="资产总额" name="propertyMoney" required={true}><Input/></FormItem>
                     </div>
                     <div style={{display: this.state.displayGov}}>
                         <br/>
-                        <FormItem label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
-                        <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
+                        <FormItem label="省/市/区" name="cascader" required={true}><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
+                        <FormItem label="注册地址" name="registerAddress" required={true}><Input/></FormItem>
                     </div>
                     <div style={{display: this.state.displayService}}>
                         <br/>
-                        <FormItem label="社会统一代码" name="code"><Input/></FormItem>
-                        <FormItem label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
-                        <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
-                        <FormItem label="机构类型" name="type2">
+                        <FormItem label="社会统一代码" name="code" required={true}><Input/></FormItem>
+                        <FormItem label="省/市/区" name="cascader" required={true}><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
+                        <FormItem label="注册地址" name="registerAddress" required={true}><Input/></FormItem>
+                        <FormItem label="机构类型" name="type2" required={true}>
                             <Select placeholder="----请选择机构类型----">
                                 <option key={"检测机构"}>{"检测机构"}</option>
                                 <option key={"体检机构"}>{"体检机构"}</option>

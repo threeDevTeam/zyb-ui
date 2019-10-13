@@ -38,25 +38,25 @@ class ExecuteLawOfSuperviseDemoForm extends PureComponent {
             <Form core={this.core} layout={{label: 7}}>
                 <FormItem style={{display: 'none'}} name="id"><InputNumber/></FormItem>
 
-                <FormItem label="年份" name="year"><InputNumber/></FormItem>
+                <FormItem required={true} label="年份" name="year"><InputNumber/></FormItem>
 
-                <FormItem label="检查用人单位数" name="personCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="检查用人单位数" name="personCount"><InputNumber/></FormItem>
 
-                <FormItem label="下达执法文书数" name="paperCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="下达执法文书数" name="paperCount"><InputNumber/></FormItem>
 
-                <FormItem label="发现问题或隐患数" name="questionCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="发现问题或隐患数" name="questionCount"><InputNumber/></FormItem>
 
-                <FormItem label="责令当场改正数" name="changeCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="责令当场改正数" name="changeCount"><InputNumber/></FormItem>
 
-                <FormItem label="责令限期改正数" name="fixCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="责令限期改正数" name="fixCount"><InputNumber/></FormItem>
 
-                <FormItem label="罚款用人单位数" name="punishCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="罚款用人单位数" name="punishCount"><InputNumber/></FormItem>
 
-                <FormItem label="罚款金额" name="punishMoney"><InputNumber/></FormItem>
+                <FormItem required={true} label="罚款金额" name="punishMoney"><InputNumber/></FormItem>
 
-                <FormItem label="责令停产整顿用人单位数" name="stopCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="责令停产整顿用人单位数" name="stopCount"><InputNumber/></FormItem>
 
-                <FormItem label="提请关闭用人单位数" name="closeCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="提请关闭用人单位数" name="closeCount"><InputNumber/></FormItem>
 
 
             </Form>

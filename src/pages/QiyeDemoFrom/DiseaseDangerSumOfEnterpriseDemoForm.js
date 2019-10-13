@@ -29,14 +29,14 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
- <FormItem label="接触职业病危害总人数" name="total"><InputNumber/></FormItem>
- <FormItem label="接触粉尘人数" name="dust"><InputNumber/></FormItem>
- <FormItem label="接触化学因素人数" name="chemistry "><InputNumber/></FormItem>
- <FormItem label="接触物理因素人数" name="physical "><InputNumber/></FormItem>
- <FormItem label="接触放射性因素人数" name="radioactivity"><InputNumber/></FormItem>
- <FormItem label="接触生物因素人数" name="biology"><InputNumber/></FormItem>
- <FormItem label="年份" name="year"><InputNumber/></FormItem>
- <FormItem label="月份" name="month"><InputNumber/></FormItem>
+ <FormItem required={true} label="接触职业病危害总人数" name="total"><InputNumber/></FormItem>
+ <FormItem required={true} label="接触粉尘人数" name="dust"><InputNumber/></FormItem>
+ <FormItem required={true} label="接触化学因素人数" name="chemistry "><InputNumber/></FormItem>
+ <FormItem required={true} label="接触物理因素人数" name="physical "><InputNumber/></FormItem>
+ <FormItem required={true} label="接触放射性因素人数" name="radioactivity"><InputNumber/></FormItem>
+ <FormItem required={true} label="接触生物因素人数" name="biology"><InputNumber/></FormItem>
+ <FormItem required={true} label="年份" name="year"><InputNumber/></FormItem>
+ <FormItem required={true} label="月份" name="month"><InputNumber/></FormItem>
  </Form>
  )
  }

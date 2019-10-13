@@ -32,8 +32,8 @@ class ServiceOfSuperviseDemoForm extends PureComponent {
         return (
             <Form core={this.core} layout={{label: 9}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem label="年份 " name="year"><InputNumber/></FormItem>
-                <FormItem label="检测机构的资质等级" name="jianceLevel">
+                <FormItem required={true} label="年份 " name="year"><InputNumber/></FormItem>
+                <FormItem required={true} label="检测机构的资质等级" name="jianceLevel">
                     <Select value={this.state.city}  onChange={this.getCity}>
 
                         <option key={"甲级"}>{"甲级"}</option>
@@ -42,9 +42,9 @@ class ServiceOfSuperviseDemoForm extends PureComponent {
 
                     </Select>
                 </FormItem>
-                <FormItem label="检测机构的新增" name="jianceIncrease"><InputNumber/></FormItem>
-                <FormItem label="体检机构的新增" name="tijianIncrease"><InputNumber/></FormItem>
-                <FormItem label="诊断机构的新增" name="zhenduanIncrease"><InputNumber/></FormItem>
+                <FormItem required={true} label="检测机构的新增" name="jianceIncrease"><InputNumber/></FormItem>
+                <FormItem required={true} label="体检机构的新增" name="tijianIncrease"><InputNumber/></FormItem>
+                <FormItem required={true} label="诊断机构的新增" name="zhenduanIncrease"><InputNumber/></FormItem>
 
             </Form>
         )

@@ -27,12 +27,12 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
- <FormItem label="体检年份" name="year"><InputNumber/></FormItem>
- <FormItem label="体检月份" name="month"><InputNumber/></FormItem>
- <FormItem label="应检人数" name="shouldNum"><InputNumber/></FormItem>
- <FormItem label="实检人数" name="realNum"><InputNumber/></FormItem>
- <FormItem label="体检率" name="testRate"><InputNumber/></FormItem>
- <FormItem label="职业禁忌证人数" name="stopNum"><InputNumber/></FormItem>
+ <FormItem required={true} label="体检年份" name="year"><InputNumber/></FormItem>
+ <FormItem required={true} label="体检月份" name="month"><InputNumber/></FormItem>
+ <FormItem required={true} label="应检人数" name="shouldNum"><InputNumber/></FormItem>
+ <FormItem required={true} label="实检人数" name="realNum"><InputNumber/></FormItem>
+ <FormItem required={true} label="体检率" name="testRate"><InputNumber/></FormItem>
+ <FormItem required={true} label="职业禁忌证人数" name="stopNum"><InputNumber/></FormItem>
  </Form>
  )
  }

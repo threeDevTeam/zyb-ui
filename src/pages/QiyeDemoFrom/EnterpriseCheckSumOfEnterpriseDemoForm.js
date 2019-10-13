@@ -38,10 +38,10 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-  <FormItem label="工作场所" name="treeSelect"><TreeSelect placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
- <FormItem label="检测年份" name="year"><InputNumber/></FormItem>
- <FormItem label="检测月份" name="month"><InputNumber/></FormItem>
- <FormItem label="应检点数" name="shouldNum"><InputNumber/></FormItem>
+  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
+ <FormItem required={true} label="检测年份" name="year"><InputNumber/></FormItem>
+ <FormItem required={true} label="检测月份" name="month"><InputNumber/></FormItem>
+ <FormItem required={true} label="应检点数" name="shouldNum"><InputNumber/></FormItem>
  </Form>
  )
  }

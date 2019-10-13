@@ -32,12 +32,12 @@ class EquipmentOfSuperviseDemoForm extends PureComponent {
         return (
             <Form core={this.core} layout={{label: 6}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem label="装备名称" name="name"><Input/></FormItem>
-                <FormItem label="规格型号" name="num"><Input/></FormItem>
-                <FormItem label="数量" name="amount"><InputNumber/></FormItem>
-                <FormItem label="购置时间" name="buyDate"><InputNumber/></FormItem>
+                <FormItem required={true} label="装备名称" name="name"><Input/></FormItem>
+                <FormItem required={true} label="规格型号" name="num"><Input/></FormItem>
+                <FormItem required={true} label="数量" name="amount"><InputNumber/></FormItem>
+                <FormItem required={true} label="购置时间" name="buyDate"><InputNumber/></FormItem>
 
-                <FormItem label="装备状态" name="status">
+                <FormItem required={true} label="装备状态" name="status">
                     <Select value={this.state.city}>
 
                              <option key={"在用"}>{"在用"}</option>

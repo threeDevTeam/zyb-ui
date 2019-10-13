@@ -26,10 +26,8 @@ class FileForm extends PureComponent {
     render() {
         return (
             <div>
-                <Form core={this.core} layout={{label: 8, control: 16}}>
-                    <FormItem label="username" name="username"><Input/></FormItem>
-                    <FormItem label="age" name="age"><Input/></FormItem>
-                    <div style={{paddingLeft: 95, marginTop: 10}}>
+                <Form core={this.core} layout={{label:7}}>
+                    <div style={{paddingLeft:5, marginTop: 10}}>
                         <Upload.Dragger listType='text ' beforeUpload={this.beforeUpload} className={styles.upload}>
                             <p className="ant-upload-drag-icon">
                                 <Icon type="inbox"/>

@@ -60,19 +60,19 @@ componentWillMount() {
  <Form core={this.core} layout={{label:7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
   <div style={{display: this.state.Login,marginBottom:10}}>
-  <FormItem label="机构名称" name="name"><Input/></FormItem>
-  <FormItem label="社会统一代码" name="code"><Input/></FormItem>
+  <FormItem required={true} label="机构名称" name="name"><Input/></FormItem>
+  <FormItem required={true} label="社会统一代码" name="code"><Input/></FormItem>
  </div>
   <div style={{marginBottom:10}}>
-   <FormItem label="申报年份" name="year"><InputNumber/></FormItem>
+   <FormItem required={true} label="申报年份" name="year"><InputNumber/></FormItem>
   </div>
   <div style={{display: this.state.Login1,marginTop:10,marginBottom:10}}>
-   <FormItem label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
- <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
+   <FormItem required={true} label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
+ <FormItem required={true} label="注册地址" name="registerAddress"><Input/></FormItem>
   </div>
-  <FormItem label="登记注册类型" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange1} placeholder="登记注册类型"/></FormItem>
+  <FormItem required={true} label="登记注册类型" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange1} placeholder="登记注册类型"/></FormItem>
 
-  <FormItem label="资质等级" name="level">
+  <FormItem required={true} label="资质等级" name="level">
   <Select value={this.state.city}>
 
    <option key={"甲级"}>{"甲级"}</option>
@@ -81,11 +81,11 @@ componentWillMount() {
 
   </Select>
  </FormItem>
- <FormItem label="资质证书编号" name="num"><Input/></FormItem>
- <FormItem label="专业技术人员数" name="technologyCount"><InputNumber/></FormItem>
- <FormItem label="经培训合格数" name="passCount"><InputNumber/></FormItem>
- <FormItem label="检测仪器台套数" name="equipmentCount"><InputNumber/></FormItem>
- <FormItem label="计量认证项目数" name="projectCount"><InputNumber/></FormItem>
+ <FormItem required={true} label="资质证书编号" name="num"><Input/></FormItem>
+ <FormItem required={true} label="专业技术人员数" name="technologyCount"><InputNumber/></FormItem>
+ <FormItem required={true} label="经培训合格数" name="passCount"><InputNumber/></FormItem>
+ <FormItem required={true} label="检测仪器台套数" name="equipmentCount"><InputNumber/></FormItem>
+ <FormItem required={true} label="计量认证项目数" name="projectCount"><InputNumber/></FormItem>
  </Form>
  )
  }

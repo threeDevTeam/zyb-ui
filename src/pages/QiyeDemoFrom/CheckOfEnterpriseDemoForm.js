@@ -31,26 +31,26 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
- <FormItem label="年份" name="year"><InputNumber/></FormItem>
- <FormItem label="是否接受过相关部门检查" name="isAccept">
+ <FormItem required={true} label="年份" name="year"><InputNumber/></FormItem>
+ <FormItem required={true} label="是否接受过相关部门检查" name="isAccept">
   <Radio.Group  >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem label="检查时间" name="checkDate"><InputNumber/></FormItem>
- <FormItem label="检查部门" name="org"><Input/></FormItem>
- <FormItem label="检查内容" name="content"><Input/></FormItem>
- <FormItem label="发现问题" name="question"><Input/></FormItem>
- <FormItem label="是否被行政处罚" name="isPunish">
+ <FormItem required={true} label="检查时间" name="checkDate"><InputNumber/></FormItem>
+ <FormItem required={true} label="检查部门" name="org"><Input/></FormItem>
+ <FormItem required={true} label="检查内容" name="content"><Input/></FormItem>
+ <FormItem required={true} label="发现问题" name="question"><Input/></FormItem>
+ <FormItem required={true} label="是否被行政处罚" name="isPunish">
   <Radio.Group  >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem label="行政处罚类别" name="type"><Input/></FormItem>
- <FormItem label="罚款金额" name="money"><InputNumber/></FormItem>
- <FormItem label="是否落实整改" name="isChange">
+ <FormItem required={true} label="行政处罚类别" name="type"><Input/></FormItem>
+ <FormItem required={true} label="罚款金额" name="money"><InputNumber/></FormItem>
+ <FormItem required={true} label="是否落实整改" name="isChange">
   <Radio.Group  >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>

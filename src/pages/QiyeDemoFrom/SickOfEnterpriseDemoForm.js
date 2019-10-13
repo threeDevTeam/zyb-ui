@@ -46,45 +46,52 @@ componentWillMount() {
    this.setState({dataSource1: res.data})
   }
  })
+ request.get('/zybadmin/sickOfEnterprise/TreeSelcetData').then(res =>{
+  console.log(res.data)
+  if(res.flag){
+   this.setState({dataSource:res.data})
+  }
+ })
  }
  render() {
   return (
  <Form core={this.core} layout={{label: 7}}>
+  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-  <FormItem label="姓名" name="name"><Input/></FormItem>
- <FormItem label="身份证号" name="idNum"><Input/></FormItem>
-  <FormItem label="职业病名称" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange} placeholder="职业病名称"/></FormItem>
+  <FormItem required={true} label="姓名" name="name"><Input/></FormItem>
+ <FormItem required={true} label="身份证号" name="idNum"><Input/></FormItem>
+  <FormItem required={true} label="职业病名称" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange} placeholder="职业病名称"/></FormItem>
 
-  <FormItem label="病人类别" name="type">
+  <FormItem required={true} label="病人类别" name="type">
   <Select >
    <option key={"新病例"}>{"新病例"}</option>
    <option key={"首次晋期"}>{"首次晋期"}</option>
    <option key={"再次晋期"}>{"再次晋期"}</option>
   </Select>
  </FormItem>
- <FormItem label="诊断机构" name="org"><Input/></FormItem>
- <FormItem label="诊断日期" name="checkDate"><InputNumber/></FormItem>
- <FormItem label="诊断年份" name="checkYear"><InputNumber/></FormItem>
- <FormItem label="诊断月份" name="checkMonth"><InputNumber/></FormItem>
- <FormItem label="发病工龄" name="sickYear"><InputNumber/></FormItem>
- <FormItem label="是否进行了职业病病人报告" name="isReport">
+ <FormItem required={true} label="诊断机构" name="org"><Input/></FormItem>
+ <FormItem required={true} label="诊断日期" name="checkDate"><InputNumber/></FormItem>
+ <FormItem required={true} label="诊断年份" name="checkYear"><InputNumber/></FormItem>
+ <FormItem required={true} label="诊断月份" name="checkMonth"><InputNumber/></FormItem>
+ <FormItem required={true} label="发病工龄" name="sickYear"><InputNumber/></FormItem>
+ <FormItem required={true} label="是否进行了职业病病人报告" name="isReport">
   <Radio.Group  >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem label="职业病损失工作日" name="workDay"><InputNumber/></FormItem>
- <FormItem label="新增" name="increase"><Input/></FormItem>
- <FormItem label="转归情况" name="transform">
+ <FormItem required={true} label="职业病损失工作日" name="workDay"><InputNumber/></FormItem>
+ <FormItem required={true} label="新增" name="increase"><Input/></FormItem>
+ <FormItem required={true} label="转归情况" name="transform">
   <Select >
    <option key={"治愈中"}>{"治愈中"}</option>
    <option key={"康复"}>{"康复"}</option>
    <option key={"死亡"}>{"死亡"}</option>
   </Select>
  </FormItem>
- <FormItem label="死亡日期" name="dieDate"><InputNumber/></FormItem>
- <FormItem label="死亡年份" name="dieYear"><InputNumber/></FormItem>
- <FormItem label="死亡月份" name="dieMonth"><InputNumber/></FormItem>
+ <FormItem required={true} label="死亡日期" name="dieDate"><InputNumber/></FormItem>
+ <FormItem required={true} label="死亡年份" name="dieYear"><InputNumber/></FormItem>
+ <FormItem required={true} label="死亡月份" name="dieMonth"><InputNumber/></FormItem>
  </Form>
  )
  }

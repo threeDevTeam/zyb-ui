@@ -39,16 +39,16 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-  <FormItem label="工作场所" name="treeSelect"><TreeSelect placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
- <FormItem label="姓名" name="name"><Input/></FormItem>
- <FormItem label="身份证号" name="idNum"><Input/></FormItem>
- <FormItem label="性别" name="gender">
+  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
+ <FormItem required={true} label="姓名" name="name"><Input/></FormItem>
+ <FormItem required={true} label="身份证号" name="idNum"><Input/></FormItem>
+ <FormItem required={true} label="性别" name="gender">
   <Radio.Group  value={this.state.value} >
    <Radio value={"男"}>男</Radio>
    <Radio value={"女"}>女</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem label="年龄" name="age"><InputNumber/></FormItem>
+ <FormItem required={true} label="年龄" name="age"><InputNumber/></FormItem>
  </Form>
  )
  }
