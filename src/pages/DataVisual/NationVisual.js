@@ -10,14 +10,9 @@ export default class NationVisual extends Component {
 
     render() {
         let option = {
-            aria: {
-                show: true
-            },
             tooltip: {},
-            color: ['red','green', 'blue', 'yellow', 'orange'],
             legend: {
-                // orient: 'vertical',
-                // left: 'left',
+                show: false,
                 data: ['暂无风险', '轻微风险(Ⅰ级)', '低度风险(Ⅱ级)', '中度风险(Ⅲ级)', '高度风险(Ⅳ级)']
             },
             visualMap: {
