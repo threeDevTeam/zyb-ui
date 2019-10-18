@@ -41,17 +41,17 @@ componentWillMount() {
   return (
  <Form core={this.core}layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-  <FormItem label="工作场所" name="treeSelect"><TreeSelect placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
-  <FormItem label="姓名" name="name"><Input/></FormItem>
- <FormItem label="身份证号" name="idNum"><Input/></FormItem>
- <FormItem label="体检类别" name="type">
+  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
+  <FormItem required={true} label="姓名" name="name"><Input/></FormItem>
+ <FormItem required={true} label="身份证号" name="idNum"><Input/></FormItem>
+ <FormItem required={true} label="体检类别" name="type">
   <Select >
    <option key={"上岗前"}>{"上岗前"}</option>
    <option key={"在岗期间"}>{"在岗期间"}</option>
    <option key={"离岗时"}>{"离岗时"}</option>
   </Select>
  </FormItem>
- <FormItem label="体检结果" name="result">
+ <FormItem required={true} label="体检结果" name="result">
   <Select >
    <option key={"正常"}>{"正常"}</option>
    <option key={"异常"}>{"异常"}</option>
@@ -59,8 +59,8 @@ componentWillMount() {
    <option key={"疑似职业病"}>{"疑似职业病"}</option>
   </Select>
  </FormItem>
- <FormItem label="处理意见" name="note"><Input/></FormItem>
- <FormItem label="落实情况" name="implement"><Input/></FormItem>
+ <FormItem required={true} label="处理意见" name="note"><Input/></FormItem>
+ <FormItem required={true} label="落实情况" name="implement"><Input/></FormItem>
  </Form>
  )
  }

@@ -40,12 +40,12 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-  <FormItem label="工作场所" name="treeSelect"><TreeSelect placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
- <FormItem label="监测周期" name="cycle"><Input/></FormItem>
- <FormItem label="监测时间" name="monitorTime"><InputNumber/></FormItem>
- <FormItem label="监测结果" name="monitorResult"><InputNumber/></FormItem>
- <FormItem label="单位" name="unit"><Input/></FormItem>
- <FormItem label="判定结果" name="decideResult">
+  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
+ <FormItem required={true} label="监测周期" name="cycle"><Input/></FormItem>
+ <FormItem required={true} label="监测时间" name="monitorTime"><InputNumber/></FormItem>
+ <FormItem required={true} label="监测结果" name="monitorResult"><InputNumber/></FormItem>
+ <FormItem required={true} label="单位" name="unit"><Input/></FormItem>
+ <FormItem required={true} label="判定结果" name="decideResult">
   <Radio.Group  value={this.state.value} >
    <Radio value={"合格"}>合格</Radio>
    <Radio value={"不合格"}>不合格</Radio>

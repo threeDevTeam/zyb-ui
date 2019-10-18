@@ -38,17 +38,17 @@ class AccidentOfSuperviseDemoForm extends PureComponent {
         return (
             <Form core={this.core} layout={{label:8}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem label="年份" name="year"><InputNumber/></FormItem>
-                <FormItem label="尘肺病事故数" name="dustCount"><InputNumber/></FormItem>
-                <FormItem label="中毒事故数" name="poisonCount"><InputNumber/></FormItem>
-                <FormItem label="其它事故数" name="otherCount"><InputNumber/></FormItem>
-                <FormItem label="尘肺病事故人数" name="dustPersonCount"><InputNumber/></FormItem>
-                <FormItem label="中毒事故人数" name="poisonPersonCount"><InputNumber/></FormItem>
-                <FormItem label="其它事故人数" name="otherPersonCount"><InputNumber/></FormItem>
-                <FormItem label="尘肺病事故死亡人数" name="dustDieCount"><Input/></FormItem>
-                <FormItem label="中毒事故死亡人数" name="poisonDieCount"><Input/></FormItem>
-                <FormItem label="其它事故死亡人数" name="otherDieCount"><InputNumber/></FormItem>
-                <FormItem label="直接经济损失" name="loseMoney"><InputNumber/></FormItem>
+                <FormItem required={true} label="年份" name="year"><InputNumber/></FormItem>
+                <FormItem required={true} label="尘肺病事故数" name="dustCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="中毒事故数" name="poisonCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="其它事故数" name="otherCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="尘肺病事故人数" name="dustPersonCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="中毒事故人数" name="poisonPersonCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="其它事故人数" name="otherPersonCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="尘肺病事故死亡人数" name="dustDieCount"><Input/></FormItem>
+                <FormItem required={true} label="中毒事故死亡人数" name="poisonDieCount"><Input/></FormItem>
+                <FormItem required={true} label="其它事故死亡人数" name="otherDieCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="直接经济损失" name="loseMoney"><InputNumber/></FormItem>
 
             </Form>
         )

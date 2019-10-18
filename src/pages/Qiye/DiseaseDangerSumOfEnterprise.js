@@ -26,7 +26,7 @@ class DiseaseDangerSumOfEnterprise extends PureComponent {
         const {dispatch} = this.props;
         if ('create' === type) {
             Dialog.show({
-                title: '创建',
+                title: '新增',
                 footerAlign: 'label',
                 locale: 'zh',
                 width: 650,
@@ -130,13 +130,16 @@ class DiseaseDangerSumOfEnterprise extends PureComponent {
 
                 </Filter>
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
-                    <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>创建</Button>
+                    <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>新增</Button>
                     <Button icon="edit" type="primary" onClick={() => this.handleOperator('edit')}
                             className={styles.marginLeft20}>编辑</Button>
                     <Button icon="search" type="primary" onClick={() => this.handleOperator('view')}
                             className={styles.marginLeft20}>浏览</Button>
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                             className={styles.marginLeft20}>删除</Button>
+                    <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('download')}
+                            className={styles.marginLeft20} href={'/zybadmin/excelTemplate/download'+window.location.pathname.replace("/zybadmin","")}>下载模板</Button>
+
                 </div>
                 <Table onRow={record => {
                     return {
@@ -144,7 +147,6 @@ class DiseaseDangerSumOfEnterprise extends PureComponent {
                         onDoubleClick: () => this.clickOperation('onDoubleClick', record)
                     }
                 }}>
-                    <Table.Column title="id" dataIndex="id"/>
                     <Table.Column title="接触职业病危害总人数" dataIndex="total"/>
                     <Table.Column title="接触粉尘人数" dataIndex="dust"/>
                     <Table.Column title="接触化学因素人数" dataIndex="chemistry "/>

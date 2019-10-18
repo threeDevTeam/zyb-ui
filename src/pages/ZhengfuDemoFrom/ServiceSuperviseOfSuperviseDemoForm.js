@@ -40,17 +40,17 @@ class ServiceSuperviseOfSuperviseDemoForm extends PureComponent {
         return (
             <Form core={this.core} layout={{label:8}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem label="年份" name="year"><InputNumber/></FormItem>
-                <FormItem label="检测机构的数量" name="jianceCount"><InputNumber/></FormItem>
-                <FormItem label="体检机构的数量" name="tijianianceount"><InputNumber/></FormItem>
-                <FormItem label="诊断机构的数量" name="zhenduanCount"><InputNumber/></FormItem>
-                <FormItem label="检测机构的被处罚数量" name="jiancePunishCount"><InputNumber/></FormItem>
-                <FormItem label="诊断机构的被处罚数量" name="zhenduanPunishCount"><InputNumber/></FormItem>
-                <FormItem label="检测机构的罚款金额" name="jianceMoney"><InputNumber/></FormItem>
-                <FormItem label="体检机构的罚款金额" name="tijianMoney"><InputNumber/></FormItem>
-                <FormItem label="检测机构的被吊销资质数量" name="jianceCancelCount"><InputNumber/></FormItem>
-                <FormItem label="体检机构的被吊销资质数量" name="tijianianceancelCount"><InputNumber/></FormItem>
-                <FormItem label="诊断机构的被吊销资质数量" name="zhenduanCancelCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="年份" name="year"><InputNumber/></FormItem>
+                <FormItem required={true} label="检测机构的数量" name="jianceCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="体检机构的数量" name="tijianianceount"><InputNumber/></FormItem>
+                <FormItem required={true} label="诊断机构的数量" name="zhenduanCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="检测机构的被处罚数量" name="jiancePunishCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="诊断机构的被处罚数量" name="zhenduanPunishCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="检测机构的罚款金额" name="jianceMoney"><InputNumber/></FormItem>
+                <FormItem required={true} label="体检机构的罚款金额" name="tijianMoney"><InputNumber/></FormItem>
+                <FormItem required={true} label="检测机构的被吊销资质数量" name="jianceCancelCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="体检机构的被吊销资质数量" name="tijianianceancelCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="诊断机构的被吊销资质数量" name="zhenduanCancelCount"><InputNumber/></FormItem>
 
             </Form>
         )

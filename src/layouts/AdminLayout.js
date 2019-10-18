@@ -91,8 +91,8 @@ class AdminLayout extends React.Component {
                             <Menu.Item key="38"><Link to="/tijianDetail1OfService">体检机构的具体报告1</Link></Menu.Item>
                             <Menu.Item key="39"><Link to="/tijianDetail2OfService">体检机构的具体报告2</Link></Menu.Item>
                             <Menu.Item key="40"><Link to="/zhenduanBasicOfService">诊断机构的基本信息</Link></Menu.Item>
-                            <Menu.Item key="41"><Link to="/zhenduanDetailOfService">诊断机构的总体信息</Link></Menu.Item>
-                            <Menu.Item key="42"><Link to="/zhenduanTotalOfService">诊断机构的具体报告</Link></Menu.Item>
+                            <Menu.Item key="41"><Link to="/zhenduanDetailOfService">诊断机构的具体报告</Link></Menu.Item>
+                            <Menu.Item key="42"><Link to="/zhenduanTotalOfService">诊断机构的总体信息</Link></Menu.Item>
 
                         </SubMenu>
                         <SubMenu

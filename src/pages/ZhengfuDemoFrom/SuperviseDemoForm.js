@@ -51,20 +51,20 @@ class SuperviseDemoForm extends PureComponent {
             <Form core={this.core} layout={{label:5}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
 
-                <FormItem label="申报年份" name="year"><InputNumber/></FormItem>
+                <FormItem required={true} label="申报年份" name="year"><InputNumber/></FormItem>
                 <div style={{display: this.state.Login,marginTop:10}}>
-                    <FormItem label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
-                    <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
-                <FormItem label="单位名称" name="name"><Input/></FormItem>
+                    <FormItem required={true} label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
+                    <FormItem required={true} label="注册地址" name="registerAddress"><Input/></FormItem>
+                <FormItem required={true} label="单位名称" name="name"><Input/></FormItem>
                 </div>
-                <FormItem label="是否独立设置职业健康监管" name="isSet">
+                <FormItem required={true} label="是否独立设置职业健康监管" name="isSet">
                     <Radio.Group  value={this.state.value} style={{paddingLeft:40,paddingTop:20}}>
                         <Radio value={"是"}>是</Radio>
                         <Radio value={"否"}>否</Radio>
                     </Radio.Group>
                 </FormItem>
-                <FormItem label="职业健康监管人员编制数" name="markCount"><InputNumber/></FormItem>
-                <FormItem label="在岗职业健康监管人员数" name="manageCount"><InputNumber/></FormItem></Form>
+                <FormItem required={true} label="职业健康监管人员编制数" name="markCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="在岗职业健康监管人员数" name="manageCount"><InputNumber/></FormItem></Form>
         )
     }
 }

@@ -76,35 +76,35 @@ componentWillMount() {  let {type, record} = this.props.option
   return (
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
- <FormItem label="体检时间" name="checkDate"><InputNumber/></FormItem>
- <FormItem label="体检年份" name="checkYear"><InputNumber/></FormItem>
- <FormItem label="体检月份" name="checkMonth"><InputNumber/></FormItem>
- <FormItem label="体检报告编号" name="num"><Input/></FormItem>
- <FormItem label="企业名称" name="enterpriseName"><Input/></FormItem>
- <FormItem label="统一社会信用代码" name="enterpriseCode"><Input/></FormItem>
-  <FormItem label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}
+ <FormItem required={true} label="体检时间" name="checkDate"><InputNumber/></FormItem>
+ <FormItem required={true} label="体检年份" name="checkYear"><InputNumber/></FormItem>
+ <FormItem required={true} label="体检月份" name="checkMonth"><InputNumber/></FormItem>
+ <FormItem required={true} label="体检报告编号" name="num"><Input/></FormItem>
+ <FormItem required={true} label="企业名称" name="enterpriseName"><Input/></FormItem>
+ <FormItem required={true} label="统一社会信用代码" name="enterpriseCode"><Input/></FormItem>
+  <FormItem required={true} label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}
                                                     onChange={this.onChange}
                                                     placeholder="请选择省/市/区"/></FormItem>
-  <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
-  <FormItem label="登记注册类型" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange1} placeholder="登记注册类型"/></FormItem>
-  <FormItem label="所属行业名称" name="cascaded2"><Cascader options={this.state.dataSource2}  onChange={this.onChange} placeholder="所属行业名称"/></FormItem>
+  <FormItem required={true} label="注册地址" name="registerAddress"><Input/></FormItem>
+  <FormItem required={true} label="登记注册类型" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange1} placeholder="登记注册类型"/></FormItem>
+  <FormItem required={true} label="所属行业名称" name="cascaded2"><Cascader options={this.state.dataSource2}  onChange={this.onChange} placeholder="所属行业名称"/></FormItem>
 
-  <FormItem label="工作场所地址" name="workAddress"><Input/></FormItem>
- <FormItem label="工作场所名称" name="workplaceName"><Input/></FormItem>
- <FormItem label="工作场所编码" name="workplaceCode"><InputNumber/></FormItem>
-  <FormItem label="岗位名称" name="cascaded3"><Cascader options={this.state.dataSource3}  onChange={this.onChange} placeholder="岗位名称"/></FormItem>
+  <FormItem required={true} label="工作场所地址" name="workAddress"><Input/></FormItem>
+ <FormItem required={true} label="工作场所名称" name="workplaceName"><Input/></FormItem>
+ <FormItem required={true} label="工作场所编码" name="workplaceCode"><InputNumber/></FormItem>
+  <FormItem required={true} label="岗位名称" name="cascaded3"><Cascader options={this.state.dataSource3}  onChange={this.onChange} placeholder="岗位名称"/></FormItem>
 
-  <FormItem label="姓名" name="name"><Input/></FormItem>
- <FormItem label="身份证号" name="idNum"><Input/></FormItem>
- <FormItem label="性别" name="gender">
+  <FormItem required={true} label="姓名" name="name"><Input/></FormItem>
+ <FormItem required={true} label="身份证号" name="idNum"><Input/></FormItem>
+ <FormItem required={true} label="性别" name="gender">
   <Radio.Group  value={this.state.value} >
    <Radio value={"男"}>男</Radio>
    <Radio value={"女"}>女</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem label="年龄" name="age"><InputNumber/></FormItem>
- <FormItem label="工龄" name="workYear"><InputNumber/></FormItem>
- <FormItem label="体检类别" name="tijianType">
+ <FormItem required={true} label="年龄" name="age"><InputNumber/></FormItem>
+ <FormItem required={true} label="工龄" name="workYear"><InputNumber/></FormItem>
+ <FormItem required={true} label="体检类别" name="tijianType">
   <Select value={this.state.city}>
 
    <option key={"上岗前"}>{"上岗前"}</option>
@@ -113,7 +113,7 @@ componentWillMount() {  let {type, record} = this.props.option
    <option key={"应急"}>{"应急"}</option>
   </Select>
  </FormItem>
- <FormItem label="体检结果" name="result">
+ <FormItem required={true} label="体检结果" name="result">
   <Select value={this.state.city}>
 
    <option key={"复查"}>{"复查"}</option>

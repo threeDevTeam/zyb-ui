@@ -39,18 +39,18 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
- <FormItem label="职业病危害事故编号" name="accidentNum"><Input/></FormItem>
- <FormItem label="事故发生时间" name="startTime"><InputNumber/></FormItem>
- <FormItem label="事故发生地点" name="place"><Input/></FormItem>
-  <FormItem label="导致事故的职业病危害因素名称" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
+ <FormItem required={true} label="职业病危害事故编号" name="accidentNum"><Input/></FormItem>
+ <FormItem required={true} label="事故发生时间" name="startTime"><InputNumber/></FormItem>
+ <FormItem required={true} label="事故发生地点" name="place"><Input/></FormItem>
+  <FormItem required={true} label="导致事故的职业病危害因素名称" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
 
- <FormItem label="发病人数" name="sickCount"><InputNumber/></FormItem>
- <FormItem label="送医院治疗人数" name="treatCount"><InputNumber/></FormItem>
- <FormItem label="直接经济损失" name="directLose"><InputNumber/></FormItem>
- <FormItem label="间接经济损失" name="indirectLose"><InputNumber/></FormItem>
- <FormItem label="事故原因" name="reason"><Input/></FormItem>
- <FormItem label="事故经过" name="process"><Input/></FormItem>
- <FormItem label="是否向有关部门报告" name="isReport">
+ <FormItem required={true} label="发病人数" name="sickCount"><InputNumber/></FormItem>
+ <FormItem required={true} label="送医院治疗人数" name="treatCount"><InputNumber/></FormItem>
+ <FormItem required={true} label="直接经济损失" name="directLose"><InputNumber/></FormItem>
+ <FormItem required={true} label="间接经济损失" name="indirectLose"><InputNumber/></FormItem>
+ <FormItem required={true} label="事故原因" name="reason"><Input/></FormItem>
+ <FormItem required={true} label="事故经过" name="process"><Input/></FormItem>
+ <FormItem required={true} label="是否向有关部门报告" name="isReport">
   <Radio.Group  >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>

@@ -33,12 +33,12 @@ class EducationOfSuperviseDemoForm extends PureComponent {
         return (
             <Form core={this.core} layout={{label: 9}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem label="年份 " name="year"><InputNumber/></FormItem>
-                <FormItem label="培训监管人员数" name="markCount"><InputNumber/></FormItem>
-                <FormItem label="培训用人单位数" name="personCount"><InputNumber/></FormItem>
-                <FormItem label="培训用人单位主要负责人数" name="mainCount"><InputNumber/></FormItem>
-                <FormItem label="培训用人单位职业健康管理人员数" name="manageCount"><InputNumber/></FormItem>
-                <FormItem label="培训接触职业病危害的劳动者数" name="workerCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="年份 " name="year"><InputNumber/></FormItem>
+                <FormItem required={true} label="培训监管人员数" name="markCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="培训用人单位数" name="personCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="培训用人单位主要负责人数" name="mainCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="培训用人单位职业健康管理人员数" name="manageCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="培训接触职业病危害的劳动者数" name="workerCount"><InputNumber/></FormItem>
 
 
             </Form>

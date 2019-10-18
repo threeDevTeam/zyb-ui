@@ -8,7 +8,6 @@ const validate = {
     loginName: {type: "string", required: true, message: '登录名不能为空'},
     loginPassword: {type: "string", required: true, message: '登录密码不能为空'},
 }
-
 class Register extends PureComponent {
     constructor(props) {
         super(props);
@@ -26,9 +25,9 @@ class Register extends PureComponent {
                 console.log(this.core.value);
                 request.post('/zybadmin/sysUser/register', {data: this.core.value}).then(res => {
                     if (res.flag) {
-                        //登录名
                         sessionStorage.setItem("loginName", res.data.loginName)
-                        window.location.href = '/supervise'
+
+                        window.location.href ='/supervise'
                         // message.success("登录成功")
 
                     } else {
@@ -44,8 +43,8 @@ class Register extends PureComponent {
         return (
             <Card title="登录表单">
                 <Form core={this.core} layout={{label: 7}}>
-                    <FormItem label="登录名" name="loginName"><Input placeholder="请输入用户名"/></FormItem>
-                    <FormItem label="登录密码" name="loginPassword"><Input.Password placeholder="请输入密码"/></FormItem>
+                        <FormItem label="登录名" name="loginName"><Input placeholder="请输入用户名"/></FormItem>
+                        <FormItem label="登录密码" name="loginPassword"><Input.Password placeholder="请输入密码"/></FormItem>
                     <FormItem>
                         <Button type="primary" onClick={this.handleOperator}>登录</Button>
                     </FormItem>

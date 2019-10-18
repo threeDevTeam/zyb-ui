@@ -26,11 +26,11 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label:7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
- <FormItem label="年份" name="year"><InputNumber/></FormItem>
- <FormItem label="职业病危害预评价报告数" name="count1"><Input/></FormItem>
- <FormItem label="控制效果评价报告数" name="count2"><Input/></FormItem>
- <FormItem label="现状评价报告数" name="count3"><Input/></FormItem>
- <FormItem label="检测报告数" name="count4"><Input/></FormItem>
+ <FormItem required={true} label="年份" name="year"><InputNumber/></FormItem>
+ <FormItem required={true} label="职业病危害预评价报告数" name="count1"><Input/></FormItem>
+ <FormItem required={true} label="控制效果评价报告数" name="count2"><Input/></FormItem>
+ <FormItem required={true} label="现状评价报告数" name="count3"><Input/></FormItem>
+ <FormItem required={true} label="检测报告数" name="count4"><Input/></FormItem>
  </Form>
  )
  }

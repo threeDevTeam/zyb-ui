@@ -65,10 +65,10 @@ componentWillMount() {
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
   <div style={{display: this.state.Login1,marginTop:10,marginBottom:10}}>
- <FormItem label="企业名称" name="name"><Input/></FormItem>
- <FormItem label="统一社会信用代码" name="code"><Input/></FormItem>
+ <FormItem required={true} label="企业名称" name="name"><Input/></FormItem>
+ <FormItem required={true} label="统一社会信用代码" name="code"><Input/></FormItem>
   </div>
- <FormItem label="风险等级" name="riskLevel">
+ <FormItem required={true} label="风险等级" name="riskLevel">
   <Select value={this.state.city}>
 
    <option key={"I级"}>{"I级"}</option>
@@ -77,8 +77,8 @@ componentWillMount() {
 
   </Select>
  </FormItem>
- <FormItem label="申报年份" name="year"><InputNumber/></FormItem>
- <FormItem label="企业规模" name="size">
+ <FormItem required={true} label="申报年份" name="year"><InputNumber/></FormItem>
+ <FormItem required={true} label="企业规模" name="size">
   <Select value={this.state.city}>
    <option key={"微型"}>{"微型"}</option>
    <option key={"小型"}>{"小型"}</option>
@@ -88,15 +88,15 @@ componentWillMount() {
   </Select>
  </FormItem>
   <div style={{display: this.state.Login,marginTop:10,marginBottom:10}}>
-   <FormItem label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
+   <FormItem required={true} label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
   </div>
-  <FormItem label="工作场所地址" name="workAddress"><Input/></FormItem>
-  <FormItem label="登记注册类型" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange1} placeholder="登记注册类型"/></FormItem>
+  <FormItem required={true} label="工作场所地址" name="workAddress"><Input/></FormItem>
+  <FormItem required={true} label="登记注册类型" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange1} placeholder="登记注册类型"/></FormItem>
 
-  <FormItem label="所属行业名称" name="cascaded2"><Cascader options={this.state.dataSource2}  onChange={this.onChange} placeholder="所属行业名称"/></FormItem>
+  <FormItem required={true} label="所属行业名称" name="cascaded2"><Cascader options={this.state.dataSource2}  onChange={this.onChange} placeholder="所属行业名称"/></FormItem>
 
-  <FormItem label="核定生产能力" name="productionCapacity"><InputNumber/></FormItem>
- <FormItem label="生产能力单位类型" name="unitType">
+  <FormItem required={true} label="核定生产能力" name="productionCapacity"><InputNumber/></FormItem>
+ <FormItem required={true} label="生产能力单位类型" name="unitType">
   <Select value={this.state.city}>
    <option key={"万件"}>{"万件"}</option>
    <option key={"万吨"}>{"万吨"}</option>
@@ -106,17 +106,17 @@ componentWillMount() {
   </Select>
  </FormItem>
   <div style={{display: this.state.Login2,marginTop:10,marginBottom:10}}>
- <FormItem label="注册资本" name="regiterMoney"><InputNumber/></FormItem>
- <FormItem label="注册地址" name="registerAddress"><Input/></FormItem>
- <FormItem label="注册时间" name="registerDate"><InputNumber/></FormItem>
- <FormItem label="投产时间" name="startDate"><InputNumber/></FormItem>
- <FormItem label="资产总额" name="propertyMoney"><InputNumber/></FormItem>
+ <FormItem required={true} label="注册资本" name="regiterMoney"><InputNumber/></FormItem>
+ <FormItem required={true} label="注册地址" name="registerAddress"><Input/></FormItem>
+ <FormItem required={true} label="注册时间" name="registerDate"><InputNumber/></FormItem>
+ <FormItem required={true} label="投产时间" name="startDate"><InputNumber/></FormItem>
+ <FormItem required={true} label="资产总额" name="propertyMoney"><InputNumber/></FormItem>
   </div>
- <FormItem label="营业收入" name="saleMoney"><InputNumber/></FormItem>
- <FormItem label="从业人数" name="workerNumber"><InputNumber/></FormItem>
- <FormItem label="从业人数中的女工数" name="womenWorkerNumber"><InputNumber/></FormItem>
- <FormItem label="劳务派遣用工人数" name="outNumber"><InputNumber/></FormItem>
- <FormItem label="劳务派遣的女工数" name="outWomenNumber"><InputNumber/></FormItem>
+ <FormItem required={true} label="营业收入" name="saleMoney"><InputNumber/></FormItem>
+ <FormItem required={true} label="从业人数" name="workerNumber"><InputNumber/></FormItem>
+ <FormItem required={true} label="从业人数中的女工数" name="womenWorkerNumber"><InputNumber/></FormItem>
+ <FormItem required={true} label="劳务派遣用工人数" name="outNumber"><InputNumber/></FormItem>
+ <FormItem required={true} label="劳务派遣的女工数" name="outWomenNumber"><InputNumber/></FormItem>
  </Form>
  )
  }

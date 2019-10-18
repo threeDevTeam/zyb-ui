@@ -24,9 +24,9 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label:7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
- <FormItem label="年份" name="year"><InputNumber/></FormItem>
- <FormItem label="诊断人数" name="count1"><InputNumber/></FormItem>
- <FormItem label="诊断职业病企业数" name="count2"><InputNumber/></FormItem>
+ <FormItem required={true} label="年份" name="year"><InputNumber/></FormItem>
+ <FormItem required={true} label="诊断人数" name="count1"><InputNumber/></FormItem>
+ <FormItem required={true} label="诊断职业病企业数" name="count2"><InputNumber/></FormItem>
 
  </Form>
  )

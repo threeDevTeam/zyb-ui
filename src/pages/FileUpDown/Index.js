@@ -17,10 +17,10 @@ export default class Index extends PureComponent {
     handleOperator = (type) => {
         if ('upExcel' === type) {
             Dialog.show({
-                title: '创建',
+                title: '',
                 footerAlign: 'label',
                 locale: 'zh',
-                width: 350,
+                width: 300,
                 // style: {},
                 enableValidate: true,
                 content: <FileForm putFileToState={this.putFileToState}/>,

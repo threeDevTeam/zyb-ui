@@ -23,8 +23,8 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
- <FormItem label="工作场所名称" name="name"><Input/></FormItem>
- <FormItem label="工作场所编码" name="code"><InputNumber/></FormItem>
+ <FormItem required={true} label="工作场所名称" name="name"><Input/></FormItem>
+ <FormItem required={true} label="工作场所编码" name="code"><InputNumber/></FormItem>
  </Form>
  )
  }
