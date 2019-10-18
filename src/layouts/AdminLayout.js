@@ -10,6 +10,7 @@ const {SubMenu} = Menu
 class AdminLayout extends React.Component {
     state = {
         collapsed: false,
+        menus: []
     };
 
     toggle = () => {
@@ -18,6 +19,24 @@ class AdminLayout extends React.Component {
         });
     };
 
+    renderMenu = data => data.map((item) => {
+        if (item.children.length > 0) {
+            return (
+                <Menu.SubMenu key={item.key} title={<span><Icon type={item.icon}/><span>{item.name}</span></span>}>
+                    {this.renderMenu(item.children)}
+                </Menu.SubMenu>
+            )
+        }
+        return <Menu.Item key={item.key} title={item.name}><NavLink to={'/zybadmin'+item.url}>{item.name}</NavLink></Menu.Item>
+    })
+
+    componentWillMount() {
+        //获取用户拥有的菜单
+        let loginName=sessionStorage.setItem("loginName")
+        //ajax,用户名-->角色-->菜单
+        // this.setState({menus: res.data.menus})
+    }
+
     render() {
         return (
             <Layout>
@@ -25,7 +44,8 @@ class AdminLayout extends React.Component {
                        style={{minHeight: '100vh', color: 'white'}}>
                     <div className={styles.logo}/>
                     <Menu theme="dark" mode="inline" defaultSelectedKeys={['21']} defaultOpenKeys={['sub2']}>
-                        <Menu.Item key="1">
+                        {this.renderMenu(this.state.menus)}
+                       {/* <Menu.Item key="1">
                             <Link to="/demo/pro">
                                 <Icon type="pie-chart"/>
                                 <span>pro</span>
@@ -112,7 +132,7 @@ class AdminLayout extends React.Component {
                             title={<span><Icon type="dashboard"/><span>设置</span></span>}
                         >
                             <Menu.Item key="80"><Link to="/otherOfDic">设置选项</Link></Menu.Item>
-                        </SubMenu>
+                        </SubMenu>*/}
                     </Menu>
                 </Sider>
                 <Layout>

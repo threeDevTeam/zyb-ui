@@ -4,6 +4,7 @@ import echarts from 'echarts'
 import ReactEcharts from 'echarts-for-react'
 import 'echarts/map/js/china'
 import request from "../../utils/request"
+import lbx from '../../assets/lbx.png'
 //国家
 export default class NationVisual extends Component {
     state = {}
@@ -24,10 +25,11 @@ export default class NationVisual extends Component {
                 data: ['暂无风险', '轻微风险(Ⅰ级)', '低度风险(Ⅱ级)', '中度风险(Ⅲ级)', '高度风险(Ⅳ级)']
             },
             visualMap: {
+                // show: false,
                 min: 0,
                 max: 4,
-                left: 'left',
-                top: 'bottom',
+                left: 'right',
+                // top: 'bottom',
                 text: ['高', '低'],
                 seriesIndex: [0, 1, 2, 3, 4],
                 inRange: {
