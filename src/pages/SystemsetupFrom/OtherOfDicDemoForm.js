@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
 import {Input,InputNumber} from 'nowrapper/lib/antd'
 import {InlineRepeater, Selectify} from 'nowrapper/lib/antd/repeater'
+import {Table} from "nolist/lib/wrapper/antd";
 
 let SelectInlineRepeater = Selectify(InlineRepeater)
 
@@ -42,3 +43,4 @@ class OtherOfDicDemoForm extends PureComponent {
 }
 
 export default OtherOfDicDemoForm
+

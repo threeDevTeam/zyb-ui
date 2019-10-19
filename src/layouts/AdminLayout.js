@@ -1,11 +1,32 @@
 import React from 'react'
 import 'antd/dist/antd.css'
 import styles from './AdminLayout.less'
-import {Layout, Menu, Icon} from 'antd'
+import {Layout, Menu, Icon,Dropdown} from 'antd'
 import Link from 'umi/link'
+import request from "../utils/request";
 
 const {Header, Sider, Content} = Layout;
 const {SubMenu} = Menu
+const menu = (
+    <Menu>
+        <Menu.Item>
+            <div style={{float:"left",width:20}}>
+            <Icon type="edit"/>
+            </div>
+            <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+                修改密码
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <div style={{float:"left",width:20}}>
+            <Icon type="left-square"/>
+            </div>
+            <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+                退出登录
+            </a>
+        </Menu.Item>
+    </Menu>
+);
 
 class AdminLayout extends React.Component {
     state = {
@@ -20,21 +41,28 @@ class AdminLayout extends React.Component {
     };
 
     renderMenu = data => data.map((item) => {
-        if (item.children.length > 0) {
+        if (item.children && item.children.length > 0) {
             return (
                 <Menu.SubMenu key={item.key} title={<span><Icon type={item.icon}/><span>{item.name}</span></span>}>
                     {this.renderMenu(item.children)}
                 </Menu.SubMenu>
             )
         }
-        return <Menu.Item key={item.key} title={item.name}><NavLink to={'/zybadmin'+item.url}>{item.name}</NavLink></Menu.Item>
+        return <Menu.Item key={item.key} title={item.name}><Link
+            to={ item.url}>{item.name}</Link></Menu.Item>
     })
 
     componentWillMount() {
         //获取用户拥有的菜单
-        let loginName=sessionStorage.setItem("loginName")
+        let loginName = sessionStorage.getItem("loginName")
         //ajax,用户名-->角色-->菜单
         // this.setState({menus: res.data.menus})
+        request.get('/zybadmin/sysMenu/sysMenulogin?loginName=' + loginName).then(res => {
+            console.log(res.data)
+            if (res && res.flag) {
+                this.setState({menus: res.data})
+            }
+        })
     }
 
     render() {
@@ -45,7 +73,7 @@ class AdminLayout extends React.Component {
                     <div className={styles.logo}/>
                     <Menu theme="dark" mode="inline" defaultSelectedKeys={['21']} defaultOpenKeys={['sub2']}>
                         {this.renderMenu(this.state.menus)}
-                       {/* <Menu.Item key="1">
+                        {/* <Menu.Item key="1">
                             <Link to="/demo/pro">
                                 <Icon type="pie-chart"/>
                                 <span>pro</span>
@@ -142,7 +170,9 @@ class AdminLayout extends React.Component {
                             type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                             onClick={this.toggle}
                         />
-                        <span>欢迎你,{sessionStorage.getItem("loginName")}</span>
+                        <Dropdown overlay={menu}>
+                        <span style={{paddingRight: 70,float:"right"}}><Icon type="user" style={{ marginRight: 15}}/>欢迎你,{sessionStorage.getItem("loginName")}</span>
+                        </Dropdown>
                     </Header>
                     <Content
                         style={{
@@ -152,7 +182,7 @@ class AdminLayout extends React.Component {
                             minHeight: 280,
                         }}
                     >
-                            {this.props.children}
+                        {this.props.children}
 
                     </Content>
                 </Layout>

@@ -11,7 +11,7 @@ import "nolist/dist/wrapper/antd.css"
 import classNames from 'classnames'
 import styles from './index.less'
 //
-import OtherOfDicDemoForm from './OtherOfDicDemoForm'
+import OtherOfDicDemoForm from '../SystemsetupFrom/OtherOfDicDemoForm'
 import {connect} from 'dva'
 import request from '../../utils/request'
 
@@ -124,16 +124,9 @@ class OtherOfDic extends PureComponent {
     render() {
         return (
             <List url='/zybadmin/otherOfDic/list' onError={this.handleError} onMount={this.onMount}>
-                <Filter cols={5}>
+                <Filter cols={2}>
                     <Filter.Item label="username" name="username"><Input/></Filter.Item>
-                    <Filter.Item label="age" name="age"><Input/></Filter.Item>
-                    <Filter.Item label="date" name="date"><DatePicker/></Filter.Item>
-                    <Filter.Item label="创建时间" colSpan="2">
-                        <React.Fragment>
-                            <Filter.Item noLayout name="createStartTime"><DatePicker/></Filter.Item>
-                            <Filter.Item noLayout name="createEndTime"><DatePicker/></Filter.Item>
-                        </React.Fragment>
-                    </Filter.Item>
+
                 </Filter>
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
                     <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>创建</Button>

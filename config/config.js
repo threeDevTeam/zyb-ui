@@ -89,7 +89,10 @@ export default {
                 {path: '/accidentSumOfEnterprise', component: './Qiye/AccidentSumOfEnterprise'},
                 {path: '/accidentPersonOfEnterprise', component: './Qiye/AccidentPersonOfEnterprise'},
                 {path: '/checkOfEnterprise', component: './Qiye/CheckOfEnterprise'},
-                {path: '/otherOfDic', component: './OtherOfDic/OtherOfDic'},
+                {path: '/otherOfDic', component: './Systemsetup/OtherOfDic'},
+                {path: '/userManagement', component: './Systemsetup/UserManagement'},
+                {path: '/menuManagement', component: './Systemsetup/MenuManagement'},
+                {path: '/roleManagement', component: './Systemsetup/RoleManagement'},
             ]
         }
     ],
