@@ -27,25 +27,25 @@ class AuthorizationFrom extends PureComponent {
         }
         request.get('/zybadmin/sysRole/sysRoleTree').then(res => {
             console.log(res.data)
-            if (res.flag) {
+            if (res && res.flag) {
                 this.setState({dataSource: res.data})
             }
         })
         request.get('/zybadmin/sysRole/sysRoleTree2').then(res => {
             console.log(res.data)
-            if (res.flag) {
+            if (res && res.flag) {
                 this.setState({dataSource2: res.data})
             }
         })
         request.get('/zybadmin/sysRole/sysRoleTree3').then(res => {
             console.log(res.data)
-            if (res.flag) {
+            if (res && res.flag) {
                 this.setState({dataSource3: res.data})
             }
         })
         request.get('/zybadmin/sysRole/sysRoleTree4').then(res => {
             console.log(res.data)
-            if (res.flag) {
+            if (res && res.flag) {
                 this.setState({dataSource4: res.data})
             }
         })

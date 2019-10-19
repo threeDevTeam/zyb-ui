@@ -36,7 +36,7 @@ componentWillMount() {
  }
  request.get('/zybadmin/touchPersonOfEnterprise/TreeSelcetData').then(res =>{
   console.log(res.data)
-  if(res.flag){
+  if(res && res.flag){
    this.setState({dataSource:res.data})
   }
  })

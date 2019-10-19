@@ -1,9 +1,11 @@
 import React from 'react'
 import 'antd/dist/antd.css'
 import styles from './AdminLayout.less'
-import {Layout, Menu, Icon,Dropdown} from 'antd'
+import {Layout, Menu, Icon, Dropdown, message} from 'antd'
 import Link from 'umi/link'
 import request from "../utils/request";
+import {Button, Dialog} from "nowrapper/lib/antd";
+import AccidentPersonOfEnterpriseDemoForm from "../pages/QiyeDemoFrom/AccidentPersonOfEnterpriseDemoForm";
 
 const {Header, Sider, Content} = Layout;
 const {SubMenu} = Menu
@@ -13,7 +15,7 @@ const menu = (
             <div style={{float:"left",width:20}}>
             <Icon type="edit"/>
             </div>
-            <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+            <a target="_blank" rel="noopener noreferrer" onClick={() => this.handleOperator('upped')}>
                 修改密码
             </a>
         </Menu.Item>
@@ -21,7 +23,7 @@ const menu = (
             <div style={{float:"left",width:20}}>
             <Icon type="left-square"/>
             </div>
-            <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+            <a target="_blank" rel="noopener noreferrer" onClick={() => this.handleOperator('out')}>
                 退出登录
             </a>
         </Menu.Item>
@@ -33,6 +35,26 @@ class AdminLayout extends React.Component {
         collapsed: false,
         menus: []
     };
+    handleOperator = (type) => {
+        if ('upped' === type) {
+                    request.post('/zybadmin/accidentPersonOfEnterprise/add', {data: {...values}}).then(res => {
+                        if (res && res.flag) {
+                            message.success("操作成功")
+                        } else {
+                            message.error("操作失败")
+                        }
+                    })
+                } else if ('out' === type) {
+                    request.post('/zybadmin/sysUser/out', {data: {...values}}).then(res => {
+                        if (res && res.flag) {
+                            message.success("退出成功")
+                            window.location.href ='/user/login'
+                        } else {
+                            message.error("操作失败")
+                        }
+                    })
+                }
+    }
 
     toggle = () => {
         this.setState({

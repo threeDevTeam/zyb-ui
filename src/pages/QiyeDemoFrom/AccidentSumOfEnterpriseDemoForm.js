@@ -30,7 +30,7 @@ componentWillMount() {
  }
  request.get('/zybadmin/jianceDetailOfService/cascadeData4').then(res => {
   console.log(res.data)
-  if (res.flag) {
+  if (res && res.flag) {
    this.setState({dataSource1: res.data})
   }
  })

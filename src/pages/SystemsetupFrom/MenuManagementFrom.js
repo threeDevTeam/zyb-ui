@@ -27,7 +27,7 @@ class MenuManagementFrom extends PureComponent {
         }
         request.get('/zybadmin/sysMenu/sysMenutree').then(res =>{
             console.log(res.data)
-            if(res.flag){
+            if(res && res.flag){
                 this.setState({dataSource:res.data})
             }
         })

@@ -51,37 +51,37 @@ componentWillMount() {
  }
  request.get('/zybadmin/areaOfDic/cascadeData').then(res =>{
   console.log(res.data)
-  if(res.flag){
+  if(res && res.flag){
    this.setState({dataSource:res.data})
   }
  })
  request.get('/zybadmin/jianceBasicOfService/cascadeData').then(res =>{
   console.log(res.data)
-  if(res.flag){
+  if(res && res.flag){
    this.setState({dataSource1:res.data})
   }
  })
  request.get('/zybadmin/jianceDetailOfService/cascadeData2').then(res => {
   console.log(res.data)
-  if (res.flag) {
+  if (res && res.flag) {
    this.setState({dataSource2: res.data})
   }
  })
  request.get('/zybadmin/jianceDetailOfService/cascadeData3').then(res => {
   console.log(res.data)
-  if (res.flag) {
+  if (res && res.flag) {
    this.setState({dataSource3: res.data})
   }
  })
  request.get('/zybadmin/jianceDetailOfService/cascadeData4').then(res => {
   console.log(res.data)
-  if (res.flag) {
+  if (res && res.flag) {
    this.setState({dataSource4: res.data})
   }
  })
  request.get('/zybadmin/zhenduanDetailOfService/cascadeData5').then(res => {
   console.log(res.data)
-  if (res.flag) {
+  if (res && res.flag) {
    this.setState({dataSource5: res.data})
   }
  })
