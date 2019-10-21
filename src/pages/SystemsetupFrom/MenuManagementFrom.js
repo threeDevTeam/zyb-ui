@@ -40,7 +40,7 @@ class MenuManagementFrom extends PureComponent {
         return (
             <Form core={this.core} layout={{label: 7}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem required={true} label="栏位" name="cascader" defaultMinWidth={false} ><Cascader style={{width: 212}} options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择栏位"/></FormItem>
+                <FormItem required={true} label="上级菜单" name="cascader" defaultMinWidth={false} ><Cascader style={{width: 212}} options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择"/></FormItem>
                 <FormItem label="名称" name="name"><Input/></FormItem>
                 <FormItem label="地址" name="url"><Input/></FormItem>
             </Form>
