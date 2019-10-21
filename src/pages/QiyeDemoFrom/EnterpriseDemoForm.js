@@ -78,16 +78,11 @@ componentWillMount() {
   </Select>
  </FormItem>
  <FormItem required={true} label="申报年份" name="year"><InputNumber/></FormItem>
- <FormItem required={true} label="企业规模" name="size">
-  <Select value={this.state.city}style={{width: 212}}>
-   <option key={"微型"}>{"微型"}</option>
-   <option key={"小型"}>{"小型"}</option>
-   <option key={"中型"}>{"中型"}</option>
-   <option key={"大型"}>{"大型"}</option>
 
-  </Select>
- </FormItem>
   <div style={{display: this.state.Login,marginTop:10,marginBottom:10}}>
+   <FormItem required={true} label="企业规模" name="size">
+    <Input disabled/>
+   </FormItem>
    <FormItem required={true} label="省/市/区" name="cascader"><Cascader style={{width: 212}} options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
   </div>
   <div style={{marginTop:10,marginBottom:10}}>
