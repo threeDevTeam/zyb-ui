@@ -42,7 +42,7 @@ componentWillMount() {
  <FormItem required={true} label="职业病危害事故编号" name="accidentNum"><Input/></FormItem>
  <FormItem required={true} label="事故发生时间" name="startTime"><InputNumber/></FormItem>
  <FormItem required={true} label="事故发生地点" name="place"><Input/></FormItem>
-  <FormItem required={true} label="导致事故的职业病危害因素名称" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
+  <FormItem required={true} label="导致事故的职业病危害因素名称" name="cascaded1"><Cascader style={{width: 212}} options={this.state.dataSource1}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
 
  <FormItem required={true} label="发病人数" name="sickCount"><InputNumber/></FormItem>
  <FormItem required={true} label="送医院治疗人数" name="treatCount"><InputNumber/></FormItem>

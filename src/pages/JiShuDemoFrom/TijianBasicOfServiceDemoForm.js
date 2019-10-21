@@ -63,15 +63,15 @@ componentWillMount() {
      </div>
 
   <div style={{display: this.state.Login1,marginTop:10}}>
-   <FormItem required={true} label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
+   <FormItem required={true} label="省/市/区" name="cascader"><Cascader style={{width: 212}} options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
  <FormItem required={true} label="注册地址" name="registerAddress"><Input/></FormItem>
   </div>
-  <FormItem required={true} label="登记注册类型" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange1} placeholder="登记注册类型"/></FormItem>
+  <FormItem required={true} label="登记注册类型" name="cascaded1"><Cascader style={{width: 212}} options={this.state.dataSource1}  onChange={this.onChange1} placeholder="登记注册类型"/></FormItem>
   <FormItem required={true} label="医护人员数量" name="count1"><InputNumber/></FormItem>
  <FormItem required={true} label="取证人员数量" name="count2"><InputNumber/></FormItem>
  <FormItem required={true} label="检查项目数量" name="projectCount"><InputNumber/></FormItem>
  <FormItem required={true} label="体检能力" name="scope">
-  <Select value={this.state.city}>
+  <Select value={this.state.city} style={{width: 212}}>
 
    <option key={"粉尘"}>{"粉尘"}</option>
    <option key={"化学因素"}>{"化学因素"}</option>
@@ -81,7 +81,7 @@ componentWillMount() {
   </Select>
  </FormItem>
  <FormItem required={true} label="医院等级" name="hospitalLevel">
-  <Select value={this.state.city}>
+  <Select value={this.state.city} style={{width: 212}}>
 
    <option key={"一级"}>{"一级"}</option>
    <option key={"二级"}>{"二级"}</option>

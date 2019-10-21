@@ -61,13 +61,14 @@ componentWillMount() {
      </div>
  <FormItem required={true} label="申报年份" name="year"><InputNumber/></FormItem>
    <div style={{display: this.state.Login1,marginTop:10}}>
-       <FormItem required={true} label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
+       <FormItem required={true} label="省/市/区" name="cascader"><Cascader style={{width: 212}} options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
        <FormItem required={true} label="注册地址" name="registerAddress"><Input/></FormItem>
    </div>
-     <FormItem required={true} label="登记注册类型" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange1} placeholder="登记注册类型"/></FormItem>
-
+     <div style={{marginTop:10,marginBottom:10}}>
+     <FormItem required={true} label="登记注册类型" name="cascaded1"><Cascader style={{width: 212}} options={this.state.dataSource1}  onChange={this.onChange1} placeholder="登记注册类型"/></FormItem>
+     </div>
      <FormItem required={true} label="资质等级" name="level">
-     <Select value={this.state.city}>
+     <Select value={this.state.city} style={{width: 212}} >
 
          <option key={"甲级"}>{"甲级"}</option>
          <option key={"乙级"}>{"乙级"}</option>
@@ -79,7 +80,7 @@ componentWillMount() {
  <FormItem required={true} label="诊断医师数量" name="doctorNum"><InputNumber/></FormItem>
  <FormItem required={true} label="诊断项目数量" name="projectCount"><InputNumber/></FormItem>
  <FormItem required={true} label="诊断能力" name="scope">
-     <Select value={this.state.city}>
+     <Select value={this.state.city} style={{width: 212}}>
 
          <option key={"粉尘"}>{"粉尘"}</option>
          <option key={"化学因素"}>{"化学因素"}</option>
@@ -89,7 +90,7 @@ componentWillMount() {
      </Select>
  </FormItem>
  <FormItem required={true} label="医院等级" name="hospitalLevel">
-     <Select value={this.state.city}>
+     <Select value={this.state.city} style={{width: 212}}>
 
          <option key={"一级"}>{"一级"}</option>
          <option key={"二级"}>{"二级"}</option>

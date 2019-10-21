@@ -39,7 +39,7 @@ componentWillMount() {
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem required={true} label="产品名称" name="name"><Input/></FormItem>
  <FormItem required={true} label="产品状态" name="status">
-  <Select>
+  <Select style={{width: 212}}>
    <option key={"固态"}>{"固态"}</option>
    <option key={"液态"}>{"液态"}</option>
    <option key={"气态"}>{"气态"}</option>

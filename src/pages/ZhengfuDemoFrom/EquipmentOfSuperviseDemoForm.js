@@ -38,7 +38,7 @@ class EquipmentOfSuperviseDemoForm extends PureComponent {
                 <FormItem required={true} label="购置时间" name="buyDate"><InputNumber/></FormItem>
 
                 <FormItem required={true} label="装备状态" name="status">
-                    <Select value={this.state.city}>
+                    <Select value={this.state.city} style={{width: 212}}>
 
                              <option key={"在用"}>{"在用"}</option>
                              <option key={"停用"}>{"停用"}</option>

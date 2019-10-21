@@ -93,20 +93,20 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
                 <FormItem required={true} label="检测报告编号" name="num"><Input/></FormItem>
                 <FormItem required={true} label="企业名称" name="enterpriseName"><Input/></FormItem>
                 <FormItem required={true} label="统一社会信用代码" name="enterpriseCode"><Input/></FormItem>
-                <FormItem required={true} label="省/市/区" name="cascader"><Cascader options={this.state.dataSource}
+                <FormItem required={true} label="省/市/区" name="cascader"><Cascader style={{width: 212}} options={this.state.dataSource}
                                                                   onChange={this.onChange}
                                                                   placeholder="请选择省/市/区"/></FormItem>
                 <FormItem required={true} label="注册地址" name="registerAddress"><Input/></FormItem>
 
-                <FormItem required={true} label="登记注册类型小类名" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange} placeholder="登记注册类型"/></FormItem>
+                <FormItem required={true} label="登记注册类型小类名" name="cascaded1"><Cascader style={{width: 212}} options={this.state.dataSource1}  onChange={this.onChange} placeholder="登记注册类型"/></FormItem>
 
-                <FormItem required={true} label="所属行业名称" name="cascaded2"><Cascader options={this.state.dataSource2}  onChange={this.onChange} placeholder="所属行业名称"/></FormItem>
+                <FormItem required={true} label="所属行业名称" name="cascaded2"><Cascader style={{width: 212}} options={this.state.dataSource2}  onChange={this.onChange} placeholder="所属行业名称"/></FormItem>
 
                <FormItem required={true} label="工作场所地址" name="workAddress"><Input/></FormItem>
                 <FormItem required={true} label="工作场所名称" name="workplaceName"><Input/></FormItem>
                 <FormItem required={true} label="工作场所编码" name="workplaceCode"><InputNumber/></FormItem>
-                <FormItem required={true} label="岗位名称" name="cascaded3"><Cascader options={this.state.dataSource3}  onChange={this.onChange} placeholder="岗位名称"/></FormItem>
-                <FormItem required={true} label="职业病危害因素名称" name="cascaded4"><Cascader options={this.state.dataSource4}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
+                <FormItem required={true} label="岗位名称" name="cascaded3"><Cascader style={{width: 212}} options={this.state.dataSource3}  onChange={this.onChange} placeholder="岗位名称"/></FormItem>
+                <FormItem required={true} label="职业病危害因素名称" name="cascaded4"><Cascader style={{width: 212}} options={this.state.dataSource4}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
                 <FormItem required={true} label="判定结果" name="decideResult">
                     <Radio.Group value={this.state.value}>
                         <Radio value={"合格"}>合格</Radio>
@@ -118,9 +118,9 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
 
                 <FormItem name="course">
                     <SelectInlineRepeater locale='zh' selectMode="multiple" multiple>
-                        <FormItem required={true} label='检测结果' name="checkResult"><Input/></FormItem>
-                        <FormItem required={true} label='类别' name="type">
-                            <Select value={this.state.city}>
+                        <FormItem  label='检测结果' name="checkResult"><Input/></FormItem>
+                        <FormItem label='类别' name="type">
+                            <Select value={this.state.city} style={{width: 212}}>
 
                                 <option key={"CMAC"}>{"CMAC"}</option>
                                 <option key={"CTWA"}>{"CTWA"}</option>
@@ -129,7 +129,7 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
                                 <option key={"其他"}>{"其他"}</option>
                             </Select>
                         </FormItem>
-                        <FormItem required={true} label='单位' name="unit"><Input/></FormItem>
+                        <FormItem label='单位' name="unit"><Input/></FormItem>
                     </SelectInlineRepeater>
                 </FormItem>
             </Form>

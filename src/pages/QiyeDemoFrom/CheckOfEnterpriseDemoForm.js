@@ -32,7 +32,7 @@ componentWillMount() {
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem required={true} label="年份" name="year"><InputNumber/></FormItem>
- <FormItem required={true} label="是否接受过相关部门检查" name="isAccept">
+ <FormItem required={true} label="是否受过相关部门检查" name="isAccept">
   <Radio.Group  >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>

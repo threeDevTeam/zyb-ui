@@ -56,14 +56,14 @@ componentWillMount() {
  render() {
   return (
  <Form core={this.core} layout={{label: 7}}>
-  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
+  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
   <FormItem required={true} label="姓名" name="name"><Input/></FormItem>
  <FormItem required={true} label="身份证号" name="idNum"><Input/></FormItem>
-  <FormItem required={true} label="职业病名称" name="cascaded1"><Cascader options={this.state.dataSource1}  onChange={this.onChange} placeholder="职业病名称"/></FormItem>
+  <FormItem required={true} label="职业病名称" name="cascaded1"><Cascader style={{width: 212}} options={this.state.dataSource1}  onChange={this.onChange} placeholder="职业病名称"/></FormItem>
 
   <FormItem required={true} label="病人类别" name="type">
-  <Select >
+  <Select style={{width: 212}} >
    <option key={"新病例"}>{"新病例"}</option>
    <option key={"首次晋期"}>{"首次晋期"}</option>
    <option key={"再次晋期"}>{"再次晋期"}</option>
@@ -83,7 +83,7 @@ componentWillMount() {
  <FormItem required={true} label="职业病损失工作日" name="workDay"><InputNumber/></FormItem>
  <FormItem required={true} label="新增" name="increase"><Input/></FormItem>
  <FormItem required={true} label="转归情况" name="transform">
-  <Select >
+  <Select style={{width: 212}}>
    <option key={"治愈中"}>{"治愈中"}</option>
    <option key={"康复"}>{"康复"}</option>
    <option key={"死亡"}>{"死亡"}</option>

@@ -34,7 +34,7 @@ class ServiceOfSuperviseDemoForm extends PureComponent {
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
                 <FormItem required={true} label="年份 " name="year"><InputNumber/></FormItem>
                 <FormItem required={true} label="检测机构的资质等级" name="jianceLevel">
-                    <Select value={this.state.city}  onChange={this.getCity}>
+                    <Select value={this.state.city} style={{width: 212}}  onChange={this.getCity}>
 
                         <option key={"甲级"}>{"甲级"}</option>
                         <option key={"乙级"}>{"乙级"}</option>
