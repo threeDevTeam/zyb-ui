@@ -121,6 +121,7 @@ class SysUserLogin extends PureComponent {
                     request.post('/zybadmin/enterpriseOfRegister/add', {data: this.core.value}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")
+                            window.location.href ='/user/login'
                         } else {
                             message.error("操作失败")
                         }
@@ -132,6 +133,7 @@ class SysUserLogin extends PureComponent {
                     console.log(res)
                     if (res.flag) {
                         message.success("操作成功")
+                        window.location.href ='/user/login'
                     } else {
                         message.error("操作失败")
                     }
@@ -141,6 +143,7 @@ class SysUserLogin extends PureComponent {
                     console.log(res)
                     if (res.flag) {
                         message.success("操作成功")
+                        window.location.href ='/user/login'
                     } else {
                         message.error("操作失败")
                     }
@@ -150,6 +153,7 @@ class SysUserLogin extends PureComponent {
                     console.log(res)
                     if (res.flag) {
                         message.success("操作成功")
+                        window.location.href ='/user/login'
                     } else {
                         message.error("操作失败")
                     }

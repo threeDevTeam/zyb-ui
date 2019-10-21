@@ -12,20 +12,16 @@ const {SubMenu} = Menu
 const menu = (
     <Menu>
         <Menu.Item>
-            <div style={{float:"left",width:20}}>
-            <Icon type="edit"/>
+            <div style={{float: "left", width: 20}}>
+                <Icon type="edit"/>
             </div>
-            <a target="_blank" rel="noopener noreferrer" onClick={() => this.handleOperator('upped')}>
-                修改密码
-            </a>
+            <Link to='/changePassword'>修改密码</Link>
         </Menu.Item>
         <Menu.Item>
-            <div style={{float:"left",width:20}}>
-            <Icon type="left-square"/>
+            <div style={{float: "left", width: 20}}>
+                <Icon type="left-square"/>
             </div>
-            <a target="_blank" rel="noopener noreferrer" onClick={() => this.handleOperator('out')}>
-                退出登录
-            </a>
+            <Link to='/user/login'>退出登录</Link>
         </Menu.Item>
     </Menu>
 );
@@ -35,26 +31,6 @@ class AdminLayout extends React.Component {
         collapsed: false,
         menus: []
     };
-    handleOperator = (type) => {
-        if ('upped' === type) {
-                    request.post('/zybadmin/accidentPersonOfEnterprise/add', {data: {...values}}).then(res => {
-                        if (res && res.flag) {
-                            message.success("操作成功")
-                        } else {
-                            message.error("操作失败")
-                        }
-                    })
-                } else if ('out' === type) {
-                    request.post('/zybadmin/sysUser/out', {data: {...values}}).then(res => {
-                        if (res && res.flag) {
-                            message.success("退出成功")
-                            window.location.href ='/user/login'
-                        } else {
-                            message.error("操作失败")
-                        }
-                    })
-                }
-    }
 
     toggle = () => {
         this.setState({
@@ -71,7 +47,7 @@ class AdminLayout extends React.Component {
             )
         }
         return <Menu.Item key={item.key} title={item.name}><Link
-            to={ item.url}>{item.name}</Link></Menu.Item>
+            to={item.url}>{item.name}</Link></Menu.Item>
     })
 
     componentWillMount() {
@@ -193,7 +169,8 @@ class AdminLayout extends React.Component {
                             onClick={this.toggle}
                         />
                         <Dropdown overlay={menu}>
-                        <span style={{paddingRight: 70,float:"right"}}><Icon type="user" style={{ marginRight: 15}}/>欢迎你,{sessionStorage.getItem("loginName")}</span>
+                            <span style={{paddingRight: 70, float: "right"}}><Icon type="user"
+                                                                                   style={{marginRight: 15}}/>欢迎你,{sessionStorage.getItem("loginName")}</span>
                         </Dropdown>
                     </Header>
                     <Content

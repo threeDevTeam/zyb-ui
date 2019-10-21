@@ -13,26 +13,24 @@ const validate = {}
 class BindUserFrom extends PureComponent {
     state = {
         value: undefined,
+        records:[]
     }
 
     constructor(props) {
         super(props);
-        console.log(this.core)
     }
 
     onChange = value => {
-        console.log(value);
         this.setState({value});
     };
 
     componentWillMount() {
         let {type, record} = this.props.option
-        if ('edit' === type || 'view' === type) {
-            this.core.setValues({...record})
-            this.core.setGlobalStatus('edit' === type ? type : 'preview')
+        if ('BindUser' === type || 'view' === type) {
+            this.setState({records:record})
+            console.log(record)
         }
         request.get('/zybadmin/sysRole/bindUser').then(res => {
-            console.log(res.data)
             if (res && res.flag) {
                 this.setState({dataSource: res.data})
             }
@@ -44,7 +42,7 @@ class BindUserFrom extends PureComponent {
         return (
             <Form core={this.core} layout={{label: 7}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem label="绑定" name="checkbox" className={styles.newLine}>
+                <FormItem label="绑定" name="checkbox" value={this.state.records} className={styles.newLine}>
                     <Checkbox.Group options={this.state.dataSource} onChange={this.onChange}/>
                 </FormItem>
 

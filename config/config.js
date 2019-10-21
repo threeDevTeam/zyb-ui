@@ -31,7 +31,8 @@ export default {
             routes: [
                 {path: '/user', redirect: '/user/login'},
                 {path: '/user/register', component: './Login/SysUserLogin'},
-                {path: '/user/login', component: './Login/Register'}
+                {path: '/user/login', component: './Login/Register'},
+                {path: '/changePassword', component: './Login/ChangePassword'},
             ]
         },
         {
@@ -70,6 +71,7 @@ export default {
                 {path: '/sysUserLogin', component: './Login/SysUserLogin'},
                 {path: '/email', component: './Login/Email'},
                 {path: '/register', component: './Login/Register'},
+                {path: '/changePassword', component: './Login/ChangePassword'},
                 {path: '/enterprise', component: './Qiye/Enterprise'},
                 {path: '/procuctionOfEnterprise', component: './Qiye/ProcuctionOfEnterprise.js'},
                 {path: '/workplaceOfEnterprise', component: './Qiye/WorkplaceOfEnterprise'},

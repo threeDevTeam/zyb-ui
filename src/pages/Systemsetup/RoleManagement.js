@@ -48,61 +48,70 @@ class RoleManagement extends PureComponent {
                     })
                 }
             })
-        } if (!this.state.record) {
+        }
+        if (!this.state.record) {
             message.warning('请先单击一条数据!')
             return
         }
-       else if ('authorization' === type) {
-            Dialog.show({
-                title: '授权',
-                footerAlign: 'label',
-                locale: 'zh',
-                width: 650,
-                // style: {width: 1000},
-                enableValidate: true,
-                content: <AuthorizationFrom option={{type}}/>,
-                onOk: (values, hide) => {
-                    console.log(values)
-                    request.post('/zybadmin/sysRoleMenu/add?id=' + this.state.record.id, {data: {...values}}).then(res => {
-                        if (res && res.flag) {
-                            message.success("操作成功")
-                            hide()
-                            globalList.refresh()
-                        } else {
-                            message.error("操作失败")
-                            hide()
-                        }
-                    })
-                }
-            })
-        }  if (!this.state.record) {
+        request('/zybadmin/sysRoleMenu/getById?id=' + this.state.record.id).then(res => {
+            if ('authorization' === type) {
+                Dialog.show({
+                    title: '授权',
+                    footerAlign: 'label',
+                    locale: 'zh',
+                    width: 650,
+                    // style: {width: 1000},
+                    enableValidate: true,
+                    content: <AuthorizationFrom option={{type, record: res.data}}/>,
+                    onOk: (values, hide) => {
+                        console.log(values)
+                        request.post('/zybadmin/sysRoleMenu/add?id=' + this.state.record.id, {data: {...values}}).then(res => {
+                            if (res && res.flag) {
+                                message.success("操作成功")
+                                hide()
+                                globalList.refresh()
+                            } else {
+                                message.error("操作失败")
+                                hide()
+                            }
+                        })
+                    }
+                })
+            }
+        })
+        if (!this.state.record) {
             message.warning('请先单击一条数据!')
             return
         }
-       else if ('BindUser' === type) {
-            Dialog.show({
-                title: '绑定用户',
-                footerAlign: 'label',
-                locale: 'zh',
-                width: 650,
-                // style: {width: 1000},
-                enableValidate: true,
-                content: <BindUserFrom option={{type}}/>,
-                onOk: (values, hide) => {
-                    console.log(values)
-                    request.post('/zybadmin/sysRoleUser/add?id=' + this.state.record.id, {data: {...values}}).then(res => {
-                        if (res && res.flag) {
-                            message.success("操作成功")
-                            hide()
-                            globalList.refresh()
-                        } else {
-                            message.error("操作失败")
-                            hide()
-                        }
-                    })
-                }
-            })
-        }else if ('edit' === type || 'view' === type) {
+
+        request('/zybadmin/sysRoleUser/getById?id=' + this.state.record.id).then(res => {
+            if ('BindUser' === type) {
+                Dialog.show({
+                    title: '绑定用户',
+                    footerAlign: 'label',
+                    locale: 'zh',
+                    width: 650,
+                    // style: {width: 1000},
+                    enableValidate: true,
+                    content: <BindUserFrom option={{type, record: res.data}}/>,
+                    onOk: (values, hide) => {
+                        console.log(values)
+                        request.post('/zybadmin/sysRoleUser/add?id=' + this.state.record.id, {data: {...values}}).then(res => {
+                            if (res && res.flag) {
+                                message.success("操作成功")
+                                hide()
+                                globalList.refresh()
+                            } else {
+                                message.error("操作失败")
+                                hide()
+                            }
+                        })
+                    }
+                })
+
+            }
+        })
+             if ('edit' === type || 'view' === type) {
             if (!this.state.record) {
                 message.warning('请先单击一条数据!')
                 return
