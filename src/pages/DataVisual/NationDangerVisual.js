@@ -56,7 +56,7 @@ export default class NationDangerVisual extends Component {
             }
         })
         //option5
-        request('/zybadmin/nationDangerVisual/option3').then(res => {
+        request('/zybadmin/nationDangerVisual/option5').then(res => {
             if (res && res.flag) {
                 this.setState({option5Data: res.data})
             }
@@ -525,7 +525,7 @@ export default class NationDangerVisual extends Component {
                             </TabPane>
                             <TabPane tab="登记注册类型(企业)" key="registerTypeOfEnterprise">
                                 <ReactEcharts
-                                    option={option3}
+                                    option={option5}
                                     onEvents={onEvents1} style={{height: '50vh'}}/>
                             </TabPane>
                             <TabPane tab="行政区划(区域)" key="areaOfArea">
