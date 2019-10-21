@@ -20,7 +20,8 @@ export default class NationDangerVisual extends Component {
         option4Data: [],
         option5Data: [],
         option6Data: [],
-        scrollData: []
+        scrollData: [],
+        tabKey: 'areaOfEnterprise'
     }
 
     componentWillMount() {
@@ -49,7 +50,7 @@ export default class NationDangerVisual extends Component {
             }
         })
         //option4
-        request('/zybadmin/nationDangerVisual/option3').then(res => {
+        request('/zybadmin/nationDangerVisual/option4').then(res => {
             if (res && res.flag) {
                 this.setState({option4Data: res.data})
             }
@@ -66,6 +67,10 @@ export default class NationDangerVisual extends Component {
                 this.setState({option6Data: res.data})
             }
         })
+    }
+
+    onChange = tabKey => {
+        this.setState({tabKey})
     }
 
     render() {
@@ -281,7 +286,7 @@ export default class NationDangerVisual extends Component {
             xAxis: {
                 type: 'category',
                 boundaryGap: false,
-                data: this.state.option3Data.areaNameList
+                data: this.state.option3Data.flagList
             },
             yAxis: {
                 type: 'value'
@@ -309,7 +314,7 @@ export default class NationDangerVisual extends Component {
                 }
             ]
         }
-/*        let option4 = {
+        let option4 = {
             color: ['#CCFFCC', 'blue', 'yellow', 'red'],
             tooltip: {
                 trigger: 'axis'
@@ -326,7 +331,7 @@ export default class NationDangerVisual extends Component {
             xAxis: {
                 type: 'category',
                 boundaryGap: false,
-                data: this.state.option4Data.industryList
+                data: this.state.option4Data.flagList
             },
             yAxis: {
                 type: 'value'
@@ -371,7 +376,7 @@ export default class NationDangerVisual extends Component {
             xAxis: {
                 type: 'category',
                 boundaryGap: false,
-                data: this.state.option5Data.registerTypeList
+                data: this.state.option5Data.flagList
             },
             yAxis: {
                 type: 'value'
@@ -399,51 +404,51 @@ export default class NationDangerVisual extends Component {
                 }
             ]
         }
-        let option6 = {
-            color: ['#CCFFCC', 'blue', 'yellow', 'red'],
-            tooltip: {
-                trigger: 'axis'
-            },
-            legend: {
-                data: ['暂无风险', '低度风险(Ⅰ级)', '中度风险(Ⅱ级)', '高度风险(Ⅲ级)'],
-            },
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
-                containLabel: true
-            },
-            xAxis: {
-                type: 'category',
-                boundaryGap: false,
-                data: this.state.option6Data.areaNameList
-            },
-            yAxis: {
-                type: 'value'
-            },
-            series: [
-                {
-                    name: '暂无风险',
-                    type: 'line',
-                    data: this.state.option6Data.zero
-                },
-                {
-                    name: '低度风险(Ⅰ级)',
-                    type: 'line',
-                    data: this.state.option6Data.one
-                },
-                {
-                    name: '中度风险(Ⅱ级)',
-                    type: 'line',
-                    data: this.state.option6Data.two
-                },
-                {
-                    name: '高度风险(Ⅲ级)',
-                    type: 'line',
-                    data: this.state.option6Data.three
-                }
-            ]
-        }*/
+        /*    let option6 = {
+               color: ['#CCFFCC', 'blue', 'yellow', 'red'],
+               tooltip: {
+                   trigger: 'axis'
+               },
+               legend: {
+                   data: ['暂无风险', '低度风险(Ⅰ级)', '中度风险(Ⅱ级)', '高度风险(Ⅲ级)'],
+               },
+               grid: {
+                   left: '3%',
+                   right: '4%',
+                   bottom: '3%',
+                   containLabel: true
+               },
+               xAxis: {
+                   type: 'category',
+                   boundaryGap: false,
+                   data: this.state.option6Data.areaNameList
+               },
+               yAxis: {
+                   type: 'value'
+               },
+               series: [
+                   {
+                       name: '暂无风险',
+                       type: 'line',
+                       data: this.state.option6Data.zero
+                   },
+                   {
+                       name: '低度风险(Ⅰ级)',
+                       type: 'line',
+                       data: this.state.option6Data.one
+                   },
+                   {
+                       name: '中度风险(Ⅱ级)',
+                       type: 'line',
+                       data: this.state.option6Data.two
+                   },
+                   {
+                       name: '高度风险(Ⅲ级)',
+                       type: 'line',
+                       data: this.state.option6Data.three
+                   }
+               ]
+           }*/
 
         return <div>
             <Row gutter={16}>
@@ -507,23 +512,23 @@ export default class NationDangerVisual extends Component {
                     <Card
                         bordered={false}
                     >
-                        <Tabs defaultActiveKey="1">
-                            <TabPane tab="行政区划(企业)" key="1">
+                        <Tabs defaultActiveKey="1" onChange={this.onChange}>
+                            <TabPane tab="行政区划(企业)" key="areaOfEnterprise">
                                 <ReactEcharts
                                     option={option3}
                                     onEvents={onEvents1} style={{height: '50vh'}}/>
                             </TabPane>
-                            <TabPane tab="行业(企业)" key="2">
+                            <TabPane tab="行业(企业)" key="industryOfEnterprise">
+                                <ReactEcharts
+                                    option={option4}
+                                    onEvents={onEvents1} style={{height: '50vh'}}/>
+                            </TabPane>
+                            <TabPane tab="登记注册类型(企业)" key="registerTypeOfEnterprise">
                                 <ReactEcharts
                                     option={option3}
                                     onEvents={onEvents1} style={{height: '50vh'}}/>
                             </TabPane>
-                            <TabPane tab="登记注册类型(企业)" key="3">
-                                <ReactEcharts
-                                    option={option3}
-                                    onEvents={onEvents1} style={{height: '50vh'}}/>
-                            </TabPane>
-                            <TabPane tab="行政区划(区域)" key="4">
+                            <TabPane tab="行政区划(区域)" key="areaOfArea">
                                 <ReactEcharts
                                     option={option3}
                                     onEvents={onEvents1} style={{height: '50vh'}}/>
