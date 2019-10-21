@@ -56,7 +56,6 @@ class AdminLayout extends React.Component {
         //ajax,用户名-->角色-->菜单
         // this.setState({menus: res.data.menus})
         request.get('/zybadmin/sysMenu/sysMenulogin?loginName=' + loginName).then(res => {
-            console.log(res.data)
             if (res && res.flag) {
                 this.setState({menus: res.data})
             }
