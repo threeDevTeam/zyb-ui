@@ -186,12 +186,9 @@ class ThreeCheckOfSupervise extends PureComponent {
                     }}>
                         <Table.Column title="年份 " dataIndex="year"/>
                         <Table.Column title="验收方案上报数" dataIndex="upCount"/>
-                        <Table.Column title="职业病危害严重建设项目控制效果评价和防护设施验收工作过程报告数" dataIndex="reportCount"/>
-                        <Table.Column title="检查建设单位数" dataIndex="orgCount"/>
+                       <Table.Column title="检查建设单位数" dataIndex="orgCount"/>
                         <Table.Column title="下达执法文书数" dataIndex="paperCount"/>
-                        <Table.Column title="给予警告责令限期整改单位数" dataIndex="changeCount"/>
-                        <Table.Column title="责令停止产生职业病危害作业单位数" dataIndex="stopCount"/>
-                        <Table.Column title="提请责令停建或关闭单位数" dataIndex="closeCount"/>
+
                         <Table.Column title="罚款建设单位数" dataIndex="pulishCount"/>
                         <Table.Column title="罚款金额" dataIndex="pulishMoney"/>
 

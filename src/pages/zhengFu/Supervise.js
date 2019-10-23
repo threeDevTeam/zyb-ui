@@ -192,8 +192,7 @@ class Supervise extends PureComponent {
                         <Table.Column title="注册地址" dataIndex="registerAddress"/>
                         <Table.Column title="单位名称" dataIndex="name"/>
                         <Table.Column title="是否独立设置职业健康监管部门" dataIndex="isSet"/>
-                        <Table.Column title="职业健康监管人员编制数" dataIndex="markCount"/>
-                        <Table.Column title="在岗职业健康监管人员数" dataIndex="manageCount"/>
+
                     </Table>
                     <Pagination/>
                 </List>

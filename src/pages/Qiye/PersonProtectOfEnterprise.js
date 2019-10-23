@@ -162,7 +162,7 @@ class PersonProtectOfEnterprise extends PureComponent {
         return (
             <List url='/zybadmin/personProtectOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
-                    <Filter.Item label="name" name="name"><Input/></Filter.Item>
+                    <Filter.Item label="个人防护用品名称" name="name"><Input/></Filter.Item>
 
                 </Filter>
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
@@ -187,8 +187,7 @@ class PersonProtectOfEnterprise extends PureComponent {
                     <Table.Column title="是否配备个人防护用品" dataIndex="isSet"/>
                     <Table.Column title="个人防护用品名称" dataIndex="name"/>
                     <Table.Column title="防护用品型号" dataIndex="modelNum"/>
-                    <Table.Column title="发放数量" dataIndex="count"/>
-                    <Table.Column title="发放周期" dataIndex="cycle"/>
+
                     <Table.Column title="劳动者是否正确佩戴使用防护用品" dataIndex="isCorrect"/>
                     <Table.Column title="是否定期更换个人防护用品" dataIndex="isReplace"/>
                 </Table>

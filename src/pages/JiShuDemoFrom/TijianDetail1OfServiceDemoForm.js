@@ -62,6 +62,7 @@ componentWillMount() {  let {type, record} = this.props.option
   }
  })
  request.get('/zybadmin/jianceDetailOfService/cascadeData3').then(res => {
+
   if (res.flag) {
    this.setState({dataSource3: res.data})
   }

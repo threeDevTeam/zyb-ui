@@ -186,19 +186,12 @@ class ZhenduanBasicOfService extends PureComponent {
                     }
                 }}>
                     <Table.Column title="机构名称" dataIndex="name"/>
-                    <Table.Column title="社会统一代码" dataIndex="code"/>
                     <Table.Column title="申报年份" dataIndex="year"/>
                     <Table.Column title="省的名称" dataIndex="provinceName"/>
                     <Table.Column title="市的名称" dataIndex="cityName"/>
                     <Table.Column title="区的名称" dataIndex="districtName"/>
                     <Table.Column title="注册地址" dataIndex="registerAddress"/>
-                    <Table.Column title="登记注册类型的大类名称" dataIndex="registerBigName"/>
                     <Table.Column title="登记注册类型的小类名称" dataIndex="registerSmallName"/>
-                    <Table.Column title="资质等级" dataIndex="level"/>
-                    <Table.Column title="资质证书编号" dataIndex="num"/>
-                    <Table.Column title="诊断医师数量" dataIndex="doctorNum"/>
-                    <Table.Column title="诊断项目数量" dataIndex="projectCount"/>
-                    <Table.Column title="诊断能力" dataIndex="scope"/>
                     <Table.Column title="医院等级" dataIndex="hospitalLevel"/>
 
                 </Table>

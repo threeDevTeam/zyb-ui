@@ -194,10 +194,8 @@ class Enterprise extends PureComponent {
                     <Table.Column title="区的名称" dataIndex="districtName"/>
                     <Table.Column title="注册地址" dataIndex="registerAddress"/>
                     <Table.Column title="工作场所地址" dataIndex="workAddress"/>
-                    <Table.Column title="登记注册类型的大类名称" dataIndex="registerBigName"/>
                     <Table.Column title="登记注册类型的小类名称" dataIndex="registerSmallName"/>
-                    <Table.Column title="所属行业的大类名称" dataIndex="industryBigName"/>
-                    <Table.Column title="所属行业的小类名称" dataIndex="industrySmallName"/>
+                   <Table.Column title="所属行业的小类名称" dataIndex="industrySmallName"/>
                     <Table.Column title="核定生产能力" dataIndex="productionCapacity"/>
                     <Table.Column title="生产能力单位类型" dataIndex="unitType"/>
                     <Table.Column title="注册资本" dataIndex="regiterMoney"/>
@@ -207,9 +205,6 @@ class Enterprise extends PureComponent {
                     <Table.Column title="资产总额" dataIndex="propertyMoney"/>
                     <Table.Column title="营业收入" dataIndex="saleMoney"/>
                     <Table.Column title="从业人数" dataIndex="workerNumber"/>
-                    <Table.Column title="从业人数中的女工数" dataIndex="womenWorkerNumber"/>
-                    <Table.Column title="劳务派遣用工人数" dataIndex="outNumber"/>
-                    <Table.Column title="劳务派遣的女工数" dataIndex="outWomenNumber"/>
 
                 </Table>
                 <Pagination/>

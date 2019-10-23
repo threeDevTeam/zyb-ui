@@ -184,28 +184,13 @@ class JianceDetailOfService extends PureComponent {
                         onDoubleClick: () => this.clickOperation('onDoubleClick', record)
                     }
                 }}>
-                    <Table.Column title="检测时间" dataIndex="checkDate"/>
                     <Table.Column title="检测年份" dataIndex="checkYear"/>
-                    <Table.Column title="检测月份" dataIndex="checkMonth"/>
-                    <Table.Column title="检测报告编号" dataIndex="num"/>
                     <Table.Column title="企业名称" dataIndex="enterpriseName"/>
-                    <Table.Column title="统一社会信用代码" dataIndex="enterpriseCode"/>
-                    <Table.Column title="省的名称" dataIndex="provinceName"/>
-                    <Table.Column title="市的名称" dataIndex="cityName"/>
-                    <Table.Column title="区的名称" dataIndex="districtName"/>
-                    <Table.Column title="注册地址" dataIndex="registerAddress"/>
                     <Table.Column title="登记注册类型的小类名称" dataIndex="registerSmallName"/>
-                    <Table.Column title="所属行业的大类名称" dataIndex="industryBigName"/>
                     <Table.Column title="所属行业的小类名称" dataIndex="industrySmallName"/>
-                    <Table.Column title="工作场所地址" dataIndex="workAddress"/>
                     <Table.Column title="工作场所名称" dataIndex="workplaceName"/>
-                    <Table.Column title="工作场所编码" dataIndex="workplaceCode"/>
-                    <Table.Column title="岗位的大类名称" dataIndex="postBigName"/>
                     <Table.Column title="岗位的小类名称" dataIndex="postSmallName"/>
-                    <Table.Column title="职业病危害因素大类名称" dataIndex="dangerBigName"/>
-                    <Table.Column title="职业病危害因素小类名称" dataIndex="dangerSmallName"/>
                     <Table.Column title="判定结果" dataIndex="decideResult"/>
-                    <Table.Column title="超标原因" dataIndex="reason"/>
                 </Table>
                 <Pagination/>
             </List>

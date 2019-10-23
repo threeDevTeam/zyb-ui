@@ -188,28 +188,8 @@ class HealthOfEnterprise extends PureComponent {
                     <Table.Column title="是否建立职业病防治责任制度" dataIndex="isB"/>
                     <Table.Column title="是否建立职业病危害警示与告知制度" dataIndex="isC"/>
                     <Table.Column title="是否建立职业病危害项目申报制度" dataIndex="isD"/>
-                    <Table.Column title="是否建立职业病防治宣传教育培训制度" dataIndex="isE"/>
-                    <Table.Column title="是否建立职业病防护设施维护检修制度" dataIndex="isF"/>
-                    <Table.Column title="是否建立职业病防护用品管理制度" dataIndex="isG"/>
-                    <Table.Column title="是否建立职业病危害监测及评价管理制度" dataIndex="isH"/>
-                    <Table.Column title="是否建立建设项目职业病防护设施“三同时”管理制度" dataIndex="isI"/>
-                    <Table.Column title="是否建立劳动者职业健康监护及其档案管理制度" dataIndex="isJ"/>
-                    <Table.Column title="是否建立职业病危害事故处置与报告制度" dataIndex="isK"/>
-                    <Table.Column title="是否建立职业病危害应急救援与管理制度" dataIndex="isL"/>
-                    <Table.Column title="是否建立岗位职业卫生操作规程" dataIndex="isM"/>
-                    <Table.Column title="是否设置或指定职业卫生管理机构" dataIndex="isN"/>
-                    <Table.Column title="是否配备了专职或兼职职业卫生管理人员" dataIndex="isO"/>
-                    <Table.Column title="单位负责人是否培训合格" dataIndex="isP"/>
-                    <Table.Column title="职业卫生管理人员是否培训合格" dataIndex="isQ"/>
-                    <Table.Column title="接触职业病危害员工是否培训合格" dataIndex="isR"/>
-                    <Table.Column title="是否建立健全职业卫生档案" dataIndex="isS"/>
-                    <Table.Column title="是否进行了职业病危害项目申报" dataIndex="isT"/>
-                    <Table.Column title="是否落实了建设项目职业病防护设施“三同时”" dataIndex="isU"/>
-                    <Table.Column title="是否在醒目位置设置公告栏公布职业病防治相关信息" dataIndex="isV"/>
-                    <Table.Column title="是否在存在职业病危害作业场所、岗位、设备的醒目位置设置了警示标识" dataIndex="isW"/>
-                    <Table.Column title="是否实施了职业病危害因素日常监测" dataIndex="isX"/>
-                    <Table.Column title="是否实施工作场所职业病危害因素定期检测" dataIndex="isY"/>
-                    <Table.Column title="是否与劳动者签订合同并进行危害告知" dataIndex="isZ"/>
+
+
                 </Table>
                 <Pagination/>
             </List>

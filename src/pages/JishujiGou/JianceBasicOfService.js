@@ -164,7 +164,7 @@ class JianceBasicOfService extends PureComponent {
             <List url='/zybadmin/jianceBasicOfService/list'onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
                     <Filter.Item label="机构名称" name="name"><Input/></Filter.Item>
-                    <Filter.Item label="社会统一代码" name="code"><Input/></Filter.Item>
+                    <Filter.Item label="申报年份" name="year"><Input/></Filter.Item>
                 </Filter>
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
                     <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>新增</Button>
@@ -185,20 +185,13 @@ class JianceBasicOfService extends PureComponent {
                     }
                 }}>
                     <Table.Column title="机构名称" dataIndex="name"/>
-                    <Table.Column title="社会统一代码" dataIndex="code"/>
                     <Table.Column title="申报年份" dataIndex="year"/>
                     <Table.Column title="省的名称" dataIndex="provinceName"/>
                     <Table.Column title="市的名称" dataIndex="cityName"/>
                     <Table.Column title="区的名称" dataIndex="districtName"/>
                     <Table.Column title="注册地址" dataIndex="registerAddress"/>
-                    <Table.Column title="登记注册类型的大类名称" dataIndex="registerBigName"/>
                     <Table.Column title="登记注册类型的小类名称" dataIndex="registerSmallName"/>
-                    <Table.Column title="资质等级" dataIndex="level"/>
-                    <Table.Column title="资质证书编号" dataIndex="num"/>
                     <Table.Column title="专业技术人员数" dataIndex="technologyCount"/>
-                    <Table.Column title="经培训合格数" dataIndex="passCount"/>
-                    <Table.Column title="检测仪器台套数" dataIndex="equipmentCount"/>
-                    <Table.Column title="计量认证项目数" dataIndex="projectCount"/>
                 </Table>
                 <Pagination/>
             </List>

@@ -188,16 +188,9 @@ class AccidentSumOfEnterprise extends PureComponent {
                     <Table.Column title="职业病危害事故编号" dataIndex="accidentNum"/>
                     <Table.Column title="事故发生时间" dataIndex="startTime"/>
                     <Table.Column title="事故发生地点" dataIndex="place"/>
-                    <Table.Column title="导致事故的职业病危害因素大类名称" dataIndex="dangerBigName"/>
-                    <Table.Column title="导致事故的职业病危害因素小类名称" dataIndex="dangerSmallName"/>
+                  <Table.Column title="导致事故的职业病危害因素小类名称" dataIndex="dangerSmallName"/>
                     <Table.Column title="发病人数" dataIndex="sickCount"/>
-                    <Table.Column title="送医院治疗人数" dataIndex="treatCount"/>
-                    <Table.Column title="死亡人数" dataIndex="dieCount"/>
-                    <Table.Column title="直接经济损失" dataIndex="directLose"/>
-                    <Table.Column title="间接经济损失" dataIndex="indirectLose"/>
-                    <Table.Column title="事故原因" dataIndex="reason"/>
-                    <Table.Column title="事故经过" dataIndex="process"/>
-                    <Table.Column title="是否向有关部门报告" dataIndex="isReport"/>
+                <Table.Column title="是否向有关部门报告" dataIndex="isReport"/>
                 </Table>
                 <Pagination/>
             </List>

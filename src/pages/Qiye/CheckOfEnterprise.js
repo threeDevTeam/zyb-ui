@@ -191,8 +191,6 @@ class CheckOfEnterprise extends PureComponent {
                     <Table.Column title="检查内容" dataIndex="content"/>
                     <Table.Column title="发现问题" dataIndex="question"/>
                     <Table.Column title="是否被行政处罚" dataIndex="isPunish"/>
-                    <Table.Column title="行政处罚类别" dataIndex="type"/>
-                    <Table.Column title="罚款金额" dataIndex="money"/>
                     <Table.Column title="是否落实整改" dataIndex="isChange"/>
 
                 </Table>

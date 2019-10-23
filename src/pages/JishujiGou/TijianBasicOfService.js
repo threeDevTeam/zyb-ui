@@ -191,11 +191,7 @@ class TijianBasicOfService extends PureComponent {
                     <Table.Column title="市的名称" dataIndex="cityName"/>
                     <Table.Column title="区的名称" dataIndex="districtName"/>
                     <Table.Column title="注册地址" dataIndex="registerAddress"/>
-                    <Table.Column title="登记注册类型的大类名称" dataIndex="registerBigName"/>
-                    <Table.Column title="登记注册类型的小类名称" dataIndex="registerSmallName"/>
-                    <Table.Column title="医护人员数量" dataIndex="count1"/>
-                    <Table.Column title="取证人员数量" dataIndex="count2"/>
-                    <Table.Column title="检查项目数量" dataIndex="projectCount"/>
+                   <Table.Column title="登记注册类型的小类名称" dataIndex="registerSmallName"/>
                     <Table.Column title="体检能力" dataIndex="scope"/>
                     <Table.Column title="医院等级" dataIndex="hospitalLevel"/>
 

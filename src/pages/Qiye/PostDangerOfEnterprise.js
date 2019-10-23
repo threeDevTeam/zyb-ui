@@ -187,15 +187,9 @@ class PostDangerOfEnterprise extends PureComponent {
                     <Table.Column title="申报时间" dataIndex="upDatee"/>
                     <Table.Column title="申报年份" dataIndex="upYear"/>
                     <Table.Column title="申报月份" dataIndex="upMonth"/>
-                    <Table.Column title="职业病危害因素大类名称" dataIndex="dangerBigName"/>
                     <Table.Column title="职业病危害因素小类名称" dataIndex="dangerSmallName"/>
-                    <Table.Column title="可能导致的职业病大类名称" dataIndex="sickBigName"/>
                     <Table.Column title="可能导致的职业病小类名称" dataIndex="sickSmallName"/>
                     <Table.Column title="可能引起的急性职业伤害" dataIndex="hurt"/>
-                    <Table.Column title="接害人数" dataIndex="touchNum"/>
-                    <Table.Column title="工作时间" dataIndex="workTime"/>
-                    <Table.Column title="接触时间" dataIndex="touchTime"/>
-                    <Table.Column title="接触频次" dataIndex="touchFrequency"/>
                     <Table.Column title="作业方式" dataIndex="touchMode"/>
 
                 </Table>

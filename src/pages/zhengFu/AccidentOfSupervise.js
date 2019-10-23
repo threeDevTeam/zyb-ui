@@ -191,9 +191,7 @@ class AccidentOfSupervise extends PureComponent {
                         <Table.Column title="尘肺病事故人数" dataIndex="dustPersonCount"/>
                         <Table.Column title="中毒事故人数" dataIndex="poisonPersonCount"/>
                         <Table.Column title="其它事故人数" dataIndex="otherPersonCount"/>
-                        <Table.Column title="尘肺病事故死亡人数" dataIndex="dustDieCount"/>
-                        <Table.Column title="中毒事故死亡人数" dataIndex="poisonDieCount"/>
-                        <Table.Column title="其它事故死亡人数" dataIndex="otherDieCount"/>
+
                         <Table.Column title="直接经济损失" dataIndex="loseMoney"/>
 
                     </Table>

@@ -191,8 +191,7 @@ class ExecuteLawOfSupervise extends PureComponent {
                     <Table.Column title="责令限期改正数" dataIndex="fixCount"/>
                     <Table.Column title="罚款用人单位数" dataIndex="punishCount"/>
                     <Table.Column title="罚款金额" dataIndex="punishMoney"/>
-                    <Table.Column title="责令停产整顿用人单位数" dataIndex="stopCount"/>
-                    <Table.Column title="提请关闭用人单位数" dataIndex="closeCount"/>
+
                 </Table>
                 <Pagination/>
             </List>

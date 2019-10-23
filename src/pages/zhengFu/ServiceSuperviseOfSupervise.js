@@ -191,12 +191,6 @@ class ServiceSuperviseOfSupervise extends PureComponent {
                         <Table.Column title="检测机构的被处罚数量" dataIndex="jiancePunishCount"/>
                         <Table.Column title="体检机构的被处罚数量" dataIndex="tijianPunishCount"/>
                         <Table.Column title="诊断机构的被处罚数量" dataIndex="zhenduanPunishCount"/>
-                        <Table.Column title="检测机构的罚款金额" dataIndex="jianceMoney"/>
-                        <Table.Column title="体检机构的罚款金额" dataIndex="tijianMoney"/>
-                        <Table.Column title="诊断机构的罚款金额" dataIndex="zhenduanMoney"/>
-                        <Table.Column title="检测机构的被吊销资质数量" dataIndex="jianceCancelCount"/>
-                        <Table.Column title="体检机构的被吊销资质数量" dataIndex="tijianianceancelCount"/>
-                        <Table.Column title="诊断机构的被吊销资质数量" dataIndex="zhenduanCancelCount"/>
 
                     </Table>
                     <Pagination/>

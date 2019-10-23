@@ -191,15 +191,9 @@ class ProcuctionOfEnterprise extends PureComponent {
                     <Table.Column title="中间品名称" dataIndex="middleName"/>
                     <Table.Column title="中间品状态" dataIndex="middleStatus"/>
                     <Table.Column title="中间品年产量" dataIndex="middleYearNumber"/>
-                    <Table.Column title="原辅料名称" dataIndex="materialName"/>
-                    <Table.Column title="原辅料状态" dataIndex="materialStatus"/>
-                    <Table.Column title="原辅料年用量" dataIndex="materialYearNumber"/>
+
                     <Table.Column title="用量类型" dataIndex="materialType"/>
                     <Table.Column title="主要生产工艺描述" dataIndex="describee"/>
-                    <Table.Column title="是否存在职业病危害工艺岗位" dataIndex="isExist"/>
-                    <Table.Column title="是否优先采用有利于职业病防治和保护劳动者健康的新技术、新工艺和新材料" dataIndex="isFisrt"/>
-                    <Table.Column title="是否使用国家明令禁止的可能产生职业病危害的设备和材料" dataIndex="isUse"/>
-                    <Table.Column title="可能产生职业病危害的设备、化学品是否有中文说明书" dataIndex="isHave"/>
 
                 </Table>
                 <Pagination/>

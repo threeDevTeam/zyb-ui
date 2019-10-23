@@ -21,7 +21,8 @@ let globalList
 
 // @connect(({demo}) => ({demo}))
 class SickOfEnterprise extends PureComponent {
-    state = {fileList: []
+    state = {
+        fileList: []
     }
     putFileToState = file => {
         this.setState({fileList: [...this.state.fileList, file]})
@@ -108,17 +109,17 @@ class SickOfEnterprise extends PureComponent {
                     //将表单数据放入formData
                     formData.append("form", JSON.stringify(values))
                     //异步请求
-                    request.post('/zybadmin/sickOfEnterprise/exceladd',{method: 'post', data: formData}).then(res => {
-                        if(res.flag){
+                    request.post('/zybadmin/sickOfEnterprise/exceladd', {method: 'post', data: formData}).then(res => {
+                        if (res.flag) {
                             modal.update({content: '操作成功', okButtonProps: {disabled: false}})
                             globalList.refresh()
-                        }else{
+                        } else {
                             modal.update({content: '操作失败,请联系管理员!', okButtonProps: {disabled: false}})
                         }
                     })
                 }
             })
-        }else if ('delete' === type) {
+        } else if ('delete' === type) {
             if (!this.state.record) {
                 message.warning('请先单击一条数据!')
                 return
@@ -160,7 +161,7 @@ class SickOfEnterprise extends PureComponent {
 
     render() {
         return (
-            <List url='/zybadmin/sickOfEnterprise/list'  onError={this.handleError} onMount={this.onMount}>
+            <List url='/zybadmin/sickOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
                     <Filter.Item label="姓名" name="name"><Input/></Filter.Item>
 
@@ -174,8 +175,10 @@ class SickOfEnterprise extends PureComponent {
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                             className={styles.marginLeft20}>删除</Button>
                     <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('download')}
-                            className={styles.marginLeft20} href={'/zybadmin/excelTemplate/download'+window.location.pathname.replace("/zybadmin","")}>下载模板</Button>
-                    <Button icon="upload" type="primary" className={styles.marginLeft20} onClick={() => this.handleOperator('upExcel')}>上传Excel</Button>
+                            className={styles.marginLeft20}
+                            href={'/zybadmin/excelTemplate/download' + window.location.pathname.replace("/zybadmin", "")}>下载模板</Button>
+                    <Button icon="upload" type="primary" className={styles.marginLeft20}
+                            onClick={() => this.handleOperator('upExcel')}>上传Excel</Button>
 
                 </div>
                 <Table onRow={record => {
@@ -186,22 +189,15 @@ class SickOfEnterprise extends PureComponent {
                 }}>
                     <Table.Column title="姓名" dataIndex="name"/>
                     <Table.Column title="身份证号" dataIndex="idNum"/>
-                    <Table.Column title="职业病大类名称" dataIndex="sickBigName"/>
                     <Table.Column title="职业病小类名称" dataIndex="sickSmallName"/>
                     <Table.Column title="病人类别" dataIndex="type"/>
                     <Table.Column title="诊断机构" dataIndex="org"/>
-                    <Table.Column title="诊断日期" dataIndex="checkDate"/>
-                    <Table.Column title="诊断年份" dataIndex="checkYear"/>
-                    <Table.Column title="诊断月份" dataIndex="checkMonth"/>
-                    <Table.Column title="发病工龄" dataIndex="sickYear"/>
                     <Table.Column title="是否进行了职业病病人报告" dataIndex="isReport"/>
                     <Table.Column title="职业病损失工作日" dataIndex="workDay"/>
                     <Table.Column title="新增" dataIndex="increase"/>
                     <Table.Column title="累计" dataIndex="total"/>
                     <Table.Column title="转归情况" dataIndex="transform"/>
-                    <Table.Column title="死亡日期" dataIndex="dieDate"/>
-                    <Table.Column title="死亡年份" dataIndex="dieYear"/>
-                    <Table.Column title="死亡月份" dataIndex="dieMonth"/>
+
 
                 </Table>
                 <Pagination/>
