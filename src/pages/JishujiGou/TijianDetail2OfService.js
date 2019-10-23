@@ -162,8 +162,8 @@ class TijianDetail2OfService extends PureComponent {
 
     render() {
         return (
-            <List url='/zybadmin/tijianDetail2OfService/list' pageSize={2} onError={this.handleError} onMount={this.onMount}>
-                <Filter cols={5}>
+            <List url='/zybadmin/tijianDetail2OfService/list'onError={this.handleError} onMount={this.onMount}>
+                <Filter cols={2}>
                     <Filter.Item label="企业名称" name="enterpriseName"><Input/></Filter.Item>
                     <Filter.Item label="姓名" name="name"><Input/></Filter.Item>
 

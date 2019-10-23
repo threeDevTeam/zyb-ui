@@ -162,7 +162,7 @@ class FixCheckOfEnterprise extends PureComponent {
         return (
             <List url='/zybadmin/fixCheckOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
-                    <Filter.Item label="decideResult" name="decideResult"><Input/></Filter.Item>
+                    <Filter.Item label="检测机构" name="org"><Input/></Filter.Item>
 
                 </Filter>
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
