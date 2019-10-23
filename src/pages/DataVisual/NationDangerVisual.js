@@ -1,13 +1,12 @@
 import React, {Component} from 'react'
-import {message, Row, Col, Carousel, Table, Card, Tabs, Button} from 'antd'
+import {Button, Card, Carousel, Col, message, Row, Table, Tabs} from 'antd'
 import {Modal} from 'nowrapper/lib/antd'
 import echarts from 'echarts'
 import ReactEcharts from 'echarts-for-react'
 import 'echarts/map/js/china'
 import request from "../../utils/request"
 import 'ant-design-pro/dist/ant-design-pro.css'
-import {TagCloud, WaterWave} from 'ant-design-pro/lib/Charts'
-import ScrollList from './ScrollList'
+import {WaterWave} from 'ant-design-pro/lib/Charts'
 import bj from '../../assets/map_bg.png'
 
 const {TabPane} = Tabs
