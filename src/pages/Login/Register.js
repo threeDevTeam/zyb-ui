@@ -17,7 +17,6 @@ class Register extends PureComponent {
     componentWillMount() {
 
     }
-
     handleOperator = () => {
 
         this.core.validate((err) => {
@@ -36,16 +35,27 @@ class Register extends PureComponent {
             }
         })
     }
-
+    handleEnterKey = (e) => {
+        if(e.keyCode === 13){
+            //do somethings
+            this.handleOperator()
+        }
+    }
+    componentDidMount(){
+        document.addEventListener("keydown",this.handleEnterKey);
+    }
+    componentWillUmount(){
+        document.removeEventListener("keydown",this.handleEenterKey);
+    }
     render() {
 
         return (
             <Card title="登录表单">
-                <Form core={this.core} layout={{label: 7}}>
+                <Form core={this.core}  layout={{label: 7}}>
                         <FormItem label="登录名" name="loginName" defaultMinWidth={false} ><Input style={{width: 230}} placeholder="请输入用户名"/></FormItem>
                         <FormItem label="登录密码" name="loginPassword" defaultMinWidth={false}><Input.Password style={{width: 230}} placeholder="请输入密码"/></FormItem>
-                    <FormItem>
-                        <Button type="primary" onClick={this.handleOperator}>登录</Button>
+                    <FormItem   onKeydown={this.handleEnterKey}>
+                        <Button type="primary"  onClick={this.handleOperator}>登录</Button>
                     </FormItem>
                 </Form>
             </Card>

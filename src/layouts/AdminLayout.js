@@ -41,8 +41,9 @@ class AdminLayout extends React.Component {
 
     renderMenu = data => data.map((item) => {
         if (item.children && item.children.length > 0) {
+            console.log(item.key)
             return (
-                <Menu.SubMenu key={item.key} title={<span><Icon type={item.icon}/><span>{item.name}</span></span>}>
+                <Menu.SubMenu key={item.key} title={<span><span>{item.name}</span></span>}>
                     {this.renderMenu(item.children)}
                 </Menu.SubMenu>
             )
@@ -57,6 +58,7 @@ class AdminLayout extends React.Component {
         //ajax,用户名-->角色-->菜单
         // this.setState({menus: res.data.menus})
         request.get('/zybadmin/sysMenu/sysMenulogin?loginName=' + loginName).then(res => {
+
             if (res && res.flag) {
                 this.setState({menus: res.data})
             }
