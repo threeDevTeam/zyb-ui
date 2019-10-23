@@ -6,6 +6,6 @@ export default class EnterpriseVisual extends Component {
     state = {}
 
     render() {
-        return (<div>EnterpriseVisual</div>)
+        return <div>EnterpriseVisual</div>
     }
 }
