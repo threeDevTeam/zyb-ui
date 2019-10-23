@@ -1,7 +1,8 @@
 import React from 'react'
 import 'antd/dist/antd.css'
 import styles from './AdminLayout.less'
-import {Layout, Menu, Icon, Dropdown, message} from 'antd'
+import {Layout, Menu, Icon, Dropdown, ConfigProvider} from 'antd'
+import zhCN from 'antd/es/locale/zh_CN'
 import Link from 'umi/link'
 import request from "../utils/request";
 import {Button, Dialog} from "nowrapper/lib/antd";
@@ -64,13 +65,14 @@ class AdminLayout extends React.Component {
 
     render() {
         return (
-            <Layout>
-                <Sider trigger={null} collapsible collapsed={this.state.collapsed} width={256}
-                       style={{minHeight: '100vh', color: 'white'}}>
-                    <div className={styles.logo}/>
-                    <Menu theme="dark" mode="inline" defaultSelectedKeys={['21']} defaultOpenKeys={['sub2']}>
-                        {this.renderMenu(this.state.menus)}
-                        {/* <Menu.Item key="1">
+            <ConfigProvider locale={zhCN}>
+                <Layout>
+                    <Sider trigger={null} collapsible collapsed={this.state.collapsed} width={256}
+                           style={{minHeight: '100vh', color: 'white'}}>
+                        <div className={styles.logo}/>
+                        <Menu theme="dark" mode="inline" defaultSelectedKeys={['21']} defaultOpenKeys={['sub2']}>
+                            {this.renderMenu(this.state.menus)}
+                            {/* <Menu.Item key="1">
                             <Link to="/demo/pro">
                                 <Icon type="pie-chart"/>
                                 <span>pro</span>
@@ -158,33 +160,34 @@ class AdminLayout extends React.Component {
                         >
                             <Menu.Item key="80"><Link to="/otherOfDic">设置选项</Link></Menu.Item>
                         </SubMenu>*/}
-                    </Menu>
-                </Sider>
-                <Layout>
-                    <Header style={{background: '#fff', padding: 0}}>
-                        <Icon
-                            className={styles.trigger}
-                            type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                            onClick={this.toggle}
-                        />
-                        <Dropdown overlay={menu}>
+                        </Menu>
+                    </Sider>
+                    <Layout>
+                        <Header style={{background: '#fff', padding: 0}}>
+                            <Icon
+                                className={styles.trigger}
+                                type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+                                onClick={this.toggle}
+                            />
+                            <Dropdown overlay={menu}>
                             <span style={{paddingRight: 70, float: "right"}}><Icon type="user"
                                                                                    style={{marginRight: 15}}/>欢迎你,{sessionStorage.getItem("loginName")}</span>
-                        </Dropdown>
-                    </Header>
-                    <Content
-                        style={{
-                            margin: '24px 16px',
-                            padding: 24,
-                            background: '#fff',
-                            minHeight: 280,
-                        }}
-                    >
-                        {this.props.children}
+                            </Dropdown>
+                        </Header>
+                        <Content
+                            style={{
+                                margin: '24px 16px',
+                                padding: 24,
+                                background: '#fff',
+                                minHeight: 280,
+                            }}
+                        >
+                            {this.props.children}
 
-                    </Content>
+                        </Content>
+                    </Layout>
                 </Layout>
-            </Layout>
+            </ConfigProvider>
         );
     }
 }
