@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
-import {message, Row, Col, Carousel, Table, Card, Tabs} from 'antd'
+import {Button, Card, Carousel, Col, message, Row, Table, Tabs} from 'antd'
+import {Modal} from 'nowrapper/lib/antd'
 import echarts from 'echarts'
 import ReactEcharts from 'echarts-for-react'
 import 'echarts/map/js/china'
 import request from "../../utils/request"
 import 'ant-design-pro/dist/ant-design-pro.css'
-import {TagCloud, WaterWave} from 'ant-design-pro/lib/Charts'
-import ScrollList from './ScrollList'
-import bj from '../../assets/bg01.png'
+import {WaterWave} from 'ant-design-pro/lib/Charts'
+import bj from '../../assets/map_bg.jpg'
 
 const {TabPane} = Tabs
 
@@ -49,28 +49,102 @@ export default class NationDangerVisual extends Component {
                 this.setState({option3Data: res.data})
             }
         })
-        //option4
-        request('/zybadmin/nationDangerVisual/option4').then(res => {
-            if (res && res.flag) {
-                this.setState({option4Data: res.data})
-            }
-        })
-        //option5
-        request('/zybadmin/nationDangerVisual/option5').then(res => {
-            if (res && res.flag) {
-                this.setState({option5Data: res.data})
-            }
-        })
-        //option6
-        request('/zybadmin/nationDangerVisual/option3').then(res => {
-            if (res && res.flag) {
-                this.setState({option6Data: res.data})
-            }
-        })
+
+        //随机数
+        this.setState({random: Math.round(Math.random() * 80)})
     }
 
     onChange = tabKey => {
         this.setState({tabKey})
+        if (tabKey === 'areaOfEnterprise') {
+            //option3
+            request('/zybadmin/nationDangerVisual/option3').then(res => {
+                if (res && res.flag) {
+                    this.setState({option3Data: res.data})
+                }
+            })
+        } else if (tabKey === 'industryOfEnterprise') {
+            //option4
+            request('/zybadmin/nationDangerVisual/option4').then(res => {
+                if (res && res.flag) {
+                    this.setState({option4Data: res.data})
+                }
+            })
+        } else if (tabKey === 'registerTypeOfEnterprise') {
+            //option5
+            request('/zybadmin/nationDangerVisual/option5').then(res => {
+                if (res && res.flag) {
+                    this.setState({option5Data: res.data})
+                }
+            })
+        } else if (tabKey === 'areaOfArea') {
+            //option6
+            request('/zybadmin/nationDangerVisual/option6').then(res => {
+                if (res && res.flag) {
+                    console.log(res.data);
+                    this.setState({option6Data: res.data})
+                }
+            })
+        }
+    }
+
+    detailData = (type) => {
+        if ("one" === type) {
+            const dataSource = [
+                {
+                    key: '1',
+                    name: 'aa',
+                    age: 32,
+                    address1: 'aa',
+                    address2: 'aaaa',
+                    address3: 'aaaaa',
+                },
+                {
+                    key: '2',
+                    name: 'bb',
+                    age: 42,
+                    address1: 'bbb',
+                    address2: 'bbbb',
+                    address3: 'bbbbbb',
+                },
+            ];
+
+            const columns = [
+                {
+                    title: '行政区划',
+                    dataIndex: 'name',
+                    key: 'name',
+                },
+                {
+                    title: '区域职业病危害风险值',
+                    dataIndex: 'age',
+                    key: 'age',
+                },
+                {
+                    title: '风险等级',
+                    dataIndex: 'address1',
+                    key: 'address1',
+                },
+                {
+                    title: '应配备监管人员（人）',
+                    dataIndex: 'address2',
+                    key: 'address2',
+                },
+                {
+                    title: '应配备技术服务人员（人）',
+                    dataIndex: 'address3',
+                    key: 'address3',
+                }
+            ];
+            Modal.info({
+                title: '区域职业病危害风险分级及管控措施',
+                okText: '关闭',
+                content: <Table columns={columns} dataSource={dataSource}/>,
+                width: '70vw'
+            })
+        } else if ("two" === type) {
+
+        }
     }
 
     render() {
@@ -252,7 +326,7 @@ export default class NationDangerVisual extends Component {
                 }
             ]
         }
-        // let backgroundImage = 'url(' + bj + ')'
+        let backgroundImage = 'url(' + bj + ')'
         const columns = [
             {
                 title: '名称',
@@ -404,53 +478,53 @@ export default class NationDangerVisual extends Component {
                 }
             ]
         }
-        /*    let option6 = {
-               color: ['#CCFFCC', 'blue', 'yellow', 'red'],
-               tooltip: {
-                   trigger: 'axis'
-               },
-               legend: {
-                   data: ['暂无风险', '低度风险(Ⅰ级)', '中度风险(Ⅱ级)', '高度风险(Ⅲ级)'],
-               },
-               grid: {
-                   left: '3%',
-                   right: '4%',
-                   bottom: '3%',
-                   containLabel: true
-               },
-               xAxis: {
-                   type: 'category',
-                   boundaryGap: false,
-                   data: this.state.option6Data.areaNameList
-               },
-               yAxis: {
-                   type: 'value'
-               },
-               series: [
-                   {
-                       name: '暂无风险',
-                       type: 'line',
-                       data: this.state.option6Data.zero
-                   },
-                   {
-                       name: '低度风险(Ⅰ级)',
-                       type: 'line',
-                       data: this.state.option6Data.one
-                   },
-                   {
-                       name: '中度风险(Ⅱ级)',
-                       type: 'line',
-                       data: this.state.option6Data.two
-                   },
-                   {
-                       name: '高度风险(Ⅲ级)',
-                       type: 'line',
-                       data: this.state.option6Data.three
-                   }
-               ]
-           }*/
+        let option6 = {
+            color: ['#CCFFCC', 'blue', 'yellow', 'red'],
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['暂无风险', '低度风险(Ⅰ级)', '中度风险(Ⅱ级)', '高度风险(Ⅲ级)'],
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: this.state.option6Data.flagList
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name: '暂无风险',
+                    type: 'line',
+                    data: this.state.option6Data.zero
+                },
+                {
+                    name: '低度风险(Ⅰ级)',
+                    type: 'line',
+                    data: this.state.option6Data.one
+                },
+                {
+                    name: '中度风险(Ⅱ级)',
+                    type: 'line',
+                    data: this.state.option6Data.two
+                },
+                {
+                    name: '高度风险(Ⅲ级)',
+                    type: 'line',
+                    data: this.state.option6Data.three
+                }
+            ]
+        }
 
-        return <div>
+        return <div style={{padding:10,background:'#f2f4f5'}}>
             <Row gutter={16}>
                 <Col span={5}>
                     {/*表2-40 企业职业病危害风险分级及管控措施*/}
@@ -480,6 +554,8 @@ export default class NationDangerVisual extends Component {
                     <Card
                         title={'区域职业病危害风险分级'}
                         bordered={false}
+                        headStyle={{height: 57}}
+                        extra={<Button type="dashed" onClick={() => this.detailData('one')}>详细数据</Button>}
                     >
                         <ReactEcharts
                             option={option1}
@@ -489,7 +565,7 @@ export default class NationDangerVisual extends Component {
                 <Col span={7}>
                     {/*表2-44 企业职业病危害风险分布情况*/}
                     <Card
-                        title={'企业风险分布情况'}
+                        title={'企业风险数量'}
                         bordered={false}
                     >
                         <ReactEcharts
@@ -502,7 +578,7 @@ export default class NationDangerVisual extends Component {
                         bordered={false}
                         style={{marginTop: 10, height: '38vh'}}
                     >
-                        <WaterWave height={120} title="高度风险(Ⅳ级)" percent={34} color={'red'}/>
+                        <WaterWave height={140} title="高度风险(Ⅳ级)" percent={this.state.random} color={'red'}/>
                     </Card>
                 </Col>
             </Row>
@@ -511,6 +587,9 @@ export default class NationDangerVisual extends Component {
                     {/*表2-41 企业职业病危害风险分布情况（按行政区划统计）*/}
                     <Card
                         bordered={false}
+                        title={'企业及区域的职业病危害风险分布情况'}
+                        headStyle={{height: 57}}
+                        extra={<Button type="dashed" onClick={() => this.detailData('one')}>详细数据</Button>}
                     >
                         <Tabs defaultActiveKey="1" onChange={this.onChange}>
                             <TabPane tab="行政区划(企业)" key="areaOfEnterprise">
@@ -530,7 +609,7 @@ export default class NationDangerVisual extends Component {
                             </TabPane>
                             <TabPane tab="行政区划(区域)" key="areaOfArea">
                                 <ReactEcharts
-                                    option={option3}
+                                    option={option6}
                                     onEvents={onEvents1} style={{height: '50vh'}}/>
                             </TabPane>
                         </Tabs>
