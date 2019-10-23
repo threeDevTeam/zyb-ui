@@ -43,7 +43,7 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
+  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'} style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
  <FormItem required={true} label="姓名" name="name"><Input/></FormItem>
  <FormItem required={true} label="身份证号" name="idNum"><Input/></FormItem>
  <FormItem required={true} label="性别" name="gender">
@@ -56,19 +56,19 @@ componentWillMount() {
  <FormItem required={true} label="上岗时间" name="startDate"><InputNumber/></FormItem>
  <FormItem required={true} label="离岗时间" name="leaveDate"><InputNumber/></FormItem>
  <FormItem required={true} label="接害工龄" name="touchYear"><InputNumber/></FormItem>
- <FormItem required={true} label="是否缴纳工伤保险" name="isBuy">
+ <FormItem required={true} value={"是"}  label="是否缴纳工伤保险" name="isBuy">
   <Radio.Group  value={this.state.value} >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem required={true} label="是否签订劳动合同" name="isSign">
+ <FormItem required={true} value={"是"}  label="是否签订劳动合同" name="isSign">
   <Radio.Group  value={this.state.value} >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem required={true} label="是否参加职业卫生培训" name="isPractice">
+ <FormItem required={true} value={"是"}  label="是否参加职业卫生培训" name="isPractice">
   <Radio.Group  value={this.state.value} >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>

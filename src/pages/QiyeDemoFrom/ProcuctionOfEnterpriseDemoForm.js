@@ -57,25 +57,25 @@ componentWillMount() {
  <FormItem required={true} label="原辅料年用量" name="materialYearNumber"><InputNumber/></FormItem>
  <FormItem required={true} label="用量类型" name="materialType"><Input/></FormItem>
  <FormItem required={true} label="主要生产工艺描述" name="describee"><Input/></FormItem>
- <FormItem required={true} label="是否存在职业病危害工艺岗位" name="isExist">
+ <FormItem required={true} value={"是"} label="是否存在职业病危害工艺岗位" name="isExist">
   <Radio.Group>
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem required={true} label="是否优先采用有利于职业病防治和保护劳动者健康的新技术、新工艺和新材料" name="isFisrt">
+ <FormItem required={true} value={"是"} label="是否优先采用有利于职业病防治和保护劳动者健康的新技术、新工艺和新材料" name="isFisrt">
   <Radio.Group>
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem required={true} label="是否使用国家明令禁止的可能产生职业病危害的设备和材料" name="isUse">
+ <FormItem required={true}  value={"是"} label="是否使用国家明令禁止的可能产生职业病危害的设备和材料" name="isUse">
   <Radio.Group>
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem required={true} label="可能产生职业病危害的设备、化学品是否有中文说明书" name="isHave">
+ <FormItem value={"是"} required={true} label="可能产生职业病危害的设备、化学品是否有中文说明书" name="isHave">
   <Radio.Group >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>

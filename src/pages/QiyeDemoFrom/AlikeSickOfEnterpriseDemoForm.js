@@ -41,7 +41,7 @@ componentWillMount() {
   return (
  <Form core={this.core}layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
+  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'} style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
   <FormItem required={true} label="姓名" name="name"><Input/></FormItem>
  <FormItem required={true} label="身份证号" name="idNum"><Input/></FormItem>
  <FormItem required={true} label="检查机构" name="org"><Input/></FormItem>
@@ -49,7 +49,7 @@ componentWillMount() {
  <FormItem required={true} label="检查年份" name="checkYear"><InputNumber/></FormItem>
  <FormItem required={true} label="检查月份" name="checkMonth"><InputNumber/></FormItem>
  <FormItem required={true} label="发病工龄" name="sickYear"><InputNumber/></FormItem>
- <FormItem required={true} label="是否进行了疑似职业病病人报告" name="isReport">
+ <FormItem required={true}  value={"是"} label="是否进行了疑似职业病病人报告" name="isReport">
   <Radio.Group  >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>

@@ -68,7 +68,7 @@ componentWillMount() {
  <FormItem required={true} label="统一社会信用代码" name="code"><Input/></FormItem>
   </div>
  <FormItem required={true} label="风险等级" name="riskLevel">
-  <Select value={this.state.city}style={{width: 212}}>
+  <Select value={this.state.city} style={{width: 212}}>
 
    <option key={"I级"}>{"I级"}</option>
    <option key={"Ⅱ级"}>{"Ⅱ级"}</option>

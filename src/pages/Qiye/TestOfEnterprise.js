@@ -162,7 +162,7 @@ class TestOfEnterprise extends PureComponent {
         return (
             <List url='/zybadmin/testOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
-                    <Filter.Item label="name" name="name"><Input/></Filter.Item>
+                    <Filter.Item label="姓名" name="name"><Input/></Filter.Item>
 
                 </Filter>
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>

@@ -49,7 +49,7 @@ componentWillMount() {
  <FormItem required={true} label="间接经济损失" name="indirectLose"><InputNumber/></FormItem>
  <FormItem required={true} label="事故原因" name="reason"><Input/></FormItem>
  <FormItem required={true} label="事故经过" name="process"><Input/></FormItem>
- <FormItem required={true} label="是否向有关部门报告" name="isReport">
+ <FormItem required={true} value={"是"} label="是否向有关部门报告" name="isReport">
   <Radio.Group  >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>

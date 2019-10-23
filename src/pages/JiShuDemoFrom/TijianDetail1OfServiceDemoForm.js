@@ -92,7 +92,7 @@ componentWillMount() {  let {type, record} = this.props.option
 
   <FormItem required={true} label="姓名" name="name"><Input/></FormItem>
  <FormItem required={true} label="身份证号" name="idNum"><Input/></FormItem>
- <FormItem required={true} label="性别" name="gender">
+ <FormItem value={"男"} required={true} label="性别" name="gender">
   <Radio.Group  value={this.state.value} >
    <Radio value={"男"}>男</Radio>
    <Radio value={"女"}>女</Radio>

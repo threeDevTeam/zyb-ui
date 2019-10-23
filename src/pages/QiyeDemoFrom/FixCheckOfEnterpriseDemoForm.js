@@ -44,14 +44,14 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
+  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'}  style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
   <FormItem required={true} label="检测时间" name="checkDate"><InputNumber/></FormItem>
  <FormItem required={true} label="检测年份" name="checkYear"><InputNumber/></FormItem>
  <FormItem required={true} label="检测月份" name="checkMonth"><InputNumber/></FormItem>
  <FormItem required={true} label="检测机构" name="org"><Input/></FormItem>
  <FormItem required={true} label="检测机构的社会统一代码" name="code"><Input/></FormItem>
  <FormItem required={true} label="检测报告编号" name="num"><Input/></FormItem>
- <FormItem required={true} label="判定结果" name="decideResult">
+ <FormItem required={true}  value={"合格"} label="判定结果" name="decideResult">
   <Radio.Group  value={this.state.value} >
    <Radio value={"合格"}>合格</Radio>
    <Radio value={"不合格"}>不合格</Radio>
