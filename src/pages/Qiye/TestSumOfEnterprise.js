@@ -106,7 +106,6 @@ class TestSumOfEnterprise extends PureComponent {
     }
 
     handleError = (err) => {
-        console.log('err', err);
     }
 
     onMount = (list) => {
@@ -114,7 +113,6 @@ class TestSumOfEnterprise extends PureComponent {
     }
 
     clickOperation = (type, record) => {
-        // console.log(type, record)
         this.setState({record})
         if ('onDoubleClick' === type) {
             this.handleOperator('edit')

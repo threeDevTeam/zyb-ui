@@ -11,21 +11,18 @@ class China extends PureComponent {
         dataSource: []
     }
     onChange = value => {
-        console.log(value);
         this.setState({value});
     };
 
     componentWillMount() {
         request.get('/zybadmin/areaOfDic/cascadeData').then(res => {
             if (res.flag) {
-                console.log(res.data)
                 this.setState({dataSource: res.data})
             }
         })
     }
 
     handleOperator = () => {
-        console.log(this.core);
 
     }
 

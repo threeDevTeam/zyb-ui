@@ -145,7 +145,6 @@ class LawOfSupervise extends PureComponent {
     }
 
     handleError = (err) => {
-        console.log('err', err);
     }
 
     onMount = (list) => {
@@ -153,7 +152,6 @@ class LawOfSupervise extends PureComponent {
     }
 
     clickOperation = (type, record) => {
-        // console.log(type, record)
         this.setState({record})
         if ('onDoubleClick' === type) {
             this.handleOperator('edit')

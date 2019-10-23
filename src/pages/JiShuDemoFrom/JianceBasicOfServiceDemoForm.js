@@ -23,11 +23,9 @@ class JianceBasicOfServiceDemoForm extends PureComponent {
  }
 
  onChange = value => {
-  console.log(value);
   this.setState({ value });
  };
  onChange1 = value => {
-  console.log(value);
   this.setState({ value });
  };
  constructor(props) {
@@ -43,13 +41,11 @@ componentWillMount() {
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
  }
  request.get('/zybadmin/areaOfDic/cascadeData').then(res =>{
-  console.log(res.data)
   if(res && res.flag){
    this.setState({dataSource:res.data})
   }
  })
  request.get('/zybadmin/jianceBasicOfService/cascadeData').then(res =>{
-  console.log(res.data)
   if(res && res.flag){
    this.setState({dataSource1:res.data})
   }

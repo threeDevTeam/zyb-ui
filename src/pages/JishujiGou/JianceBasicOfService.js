@@ -40,7 +40,6 @@ class JianceBasicOfService extends PureComponent {
                 enableValidate: true,
                 content: <JianceBasicOfServiceDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    console.log(values)
                     request.post('/zybadmin/jianceBasicOfService/add', {data: {...values}}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")
@@ -147,7 +146,6 @@ class JianceBasicOfService extends PureComponent {
     }
 
     handleError = (err) => {
-        console.log('err', err);
     }
 
     onMount = (list) => {
@@ -155,7 +153,6 @@ class JianceBasicOfService extends PureComponent {
     }
 
     clickOperation = (type, record) => {
-        // console.log(type, record)
         this.setState({record})
         if ('onDoubleClick' === type) {
             this.handleOperator('edit')

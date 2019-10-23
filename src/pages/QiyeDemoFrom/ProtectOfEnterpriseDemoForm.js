@@ -17,7 +17,6 @@ class ProtectOfEnterpriseDemoForm extends PureComponent {
   value: undefined,
  };
  onChange = value => {
-  console.log(value);
   this.setState({ value });
  };
  constructor(props) {
@@ -31,7 +30,6 @@ componentWillMount() {
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
  }
  request.get('/zybadmin/protectOfEnterprise/TreeSelcetData').then(res =>{
-  console.log(res.data)
   if(res && res.flag){
    this.setState({dataSource:res.data})
   }

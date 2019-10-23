@@ -40,7 +40,6 @@ class JianceDetailOfService extends PureComponent {
                 enableValidate: true,
                 content: <JianceDetailOfServiceDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    console.log(values)
                     request.post('/zybadmin/jianceDetailOfService/add', {data: {...values}}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")
@@ -147,7 +146,6 @@ class JianceDetailOfService extends PureComponent {
     }
 
     handleError = (err) => {
-        console.log('err', err);
     }
 
     onMount = (list) => {
@@ -155,7 +153,6 @@ class JianceDetailOfService extends PureComponent {
     }
 
     clickOperation = (type, record) => {
-        // console.log(type, record)
         this.setState({record})
         if ('onDoubleClick' === type) {
             this.handleOperator('edit')

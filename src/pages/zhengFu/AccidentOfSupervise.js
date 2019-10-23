@@ -144,7 +144,6 @@ class AccidentOfSupervise extends PureComponent {
     }
 
     handleError = (err) => {
-        console.log('err', err);
     }
 
     onMount = (list) => {
@@ -152,7 +151,6 @@ class AccidentOfSupervise extends PureComponent {
     }
 
     clickOperation = (type, record) => {
-        // console.log(type, record)
         this.setState({record})
         if ('onDoubleClick' === type) {
             this.handleOperator('edit')

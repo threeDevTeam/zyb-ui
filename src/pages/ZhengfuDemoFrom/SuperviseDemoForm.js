@@ -22,13 +22,11 @@ class SuperviseDemoForm extends PureComponent {
 
     }
     onChange = value => {
-        console.log(value);
         this.setState({ value });
     };
     constructor(props) {
         super(props);
         this.core = new FormCore({validateConfig: validate});
-        console.log(this.core)
     }
 
     componentWillMount() {
@@ -39,7 +37,6 @@ class SuperviseDemoForm extends PureComponent {
             this.core.setGlobalStatus('edit' === type ? type : 'preview')
         }
         request.get('/zybadmin/areaOfDic/cascadeData').then(res =>{
-            console.log(res.data)
             if(res && res.flag){
                 this.setState({dataSource:res.data})
             }

@@ -59,7 +59,6 @@ class PersonOfSupervise extends PureComponent {
             }
             let title = 'edit' === type ? '编辑' : '浏览'
             request('/zybadmin/personOfSupervise/getById?id=' + this.state.record.id).then(res => {
-                console.log(res)
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -146,7 +145,6 @@ class PersonOfSupervise extends PureComponent {
     }
 
     handleError = (err) => {
-        console.log('err', err);
     }
 
     onMount = (list) => {
@@ -154,7 +152,6 @@ class PersonOfSupervise extends PureComponent {
     }
 
     clickOperation = (type, record) => {
-        // console.log(type, record)
         this.setState({record})
         if ('onDoubleClick' === type) {
             this.handleOperator('edit')

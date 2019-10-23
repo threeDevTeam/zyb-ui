@@ -41,7 +41,7 @@ class PersonOfEnterprise extends PureComponent {
                 enableValidate: true,
                 content: <PersonOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    console.log(values)
+
                     request.post('/zybadmin/personOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
@@ -147,7 +147,6 @@ class PersonOfEnterprise extends PureComponent {
     }
 
     handleError = (err) => {
-        console.log('err', err);
     }
 
     onMount = (list) => {
@@ -155,7 +154,6 @@ class PersonOfEnterprise extends PureComponent {
     }
 
     clickOperation = (type, record) => {
-        // console.log(type, record)
         this.setState({record})
         if ('onDoubleClick' === type) {
             this.handleOperator('edit')

@@ -13,7 +13,6 @@ class PostOfEnterpriseDemoForm extends PureComponent {
   value: undefined,
  };
  onChange = value => {
-  console.log(value);
   this.setState({ value });
  };
 
@@ -29,13 +28,11 @@ componentWillMount() {
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
  }
  request.get('/zybadmin/postOfEnterprise/TreeSelcetData').then(res =>{
-  console.log(res.data)
   if(res && res.flag){
    this.setState({dataSource:res.data})
   }
  })
  request.get('/zybadmin/jianceDetailOfService/cascadeData3').then(res => {
-  console.log(res.data)
   if (res && res.flag) {
    this.setState({dataSource1: res.data})
   }

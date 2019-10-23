@@ -146,7 +146,6 @@ class MonitorOfEnterprise extends PureComponent {
     }
 
     handleError = (err) => {
-        console.log('err', err);
     }
 
     onMount = (list) => {
