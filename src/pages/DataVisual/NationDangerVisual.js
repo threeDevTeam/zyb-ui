@@ -524,7 +524,7 @@ export default class NationDangerVisual extends Component {
             ]
         }
 
-        return <div style={{padding:10,background:'#f2f4f5'}}>
+        return <div>
             <Row gutter={16}>
                 <Col span={5}>
                     {/*表2-40 企业职业病危害风险分级及管控措施*/}

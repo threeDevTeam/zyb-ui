@@ -11,7 +11,7 @@ export default class NationVisual extends Component {
 
     render() {
         return <div>
-            <NationDangerVisual></NationDangerVisual>
+            <EnterpriseVisual></EnterpriseVisual>
         </div>
     }
 }
