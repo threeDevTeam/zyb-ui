@@ -359,7 +359,7 @@ export default class NationDangerVisual extends Component {
             },
             xAxis: {
                 type: 'category',
-                boundaryGap: false,
+                boundaryGap: true,
                 data: this.state.option3Data.flagList
             },
             yAxis: {
@@ -404,7 +404,7 @@ export default class NationDangerVisual extends Component {
             },
             xAxis: {
                 type: 'category',
-                boundaryGap: false,
+                boundaryGap: true,
                 data: this.state.option4Data.flagList
             },
             yAxis: {
@@ -449,7 +449,7 @@ export default class NationDangerVisual extends Component {
             },
             xAxis: {
                 type: 'category',
-                boundaryGap: false,
+                boundaryGap: true,
                 data: this.state.option5Data.flagList
             },
             yAxis: {
@@ -494,7 +494,7 @@ export default class NationDangerVisual extends Component {
             },
             xAxis: {
                 type: 'category',
-                boundaryGap: false,
+                boundaryGap: true,
                 data: this.state.option6Data.flagList
             },
             yAxis: {
