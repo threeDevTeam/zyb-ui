@@ -4,10 +4,10 @@ import {Modal} from 'nowrapper/lib/antd'
 import echarts from 'echarts'
 import ReactEcharts from 'echarts-for-react'
 import 'echarts/map/js/china'
-import request from "../../utils/request"
+import request from "../../../utils/request"
 import 'ant-design-pro/dist/ant-design-pro.css'
 import {WaterWave} from 'ant-design-pro/lib/Charts'
-import bj from '../../assets/map_bg.jpg'
+import bj from '../../../assets/map_bg.jpg'
 
 const {TabPane} = Tabs
 

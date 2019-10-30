@@ -18,11 +18,10 @@ export default {
             component: '../layouts/VisualLayout',
             routes: [
                 {path: '/visual', redirect: '/visual/NationVisual'},
-                {path: '/visual/NationVisual', component: './DataVisual/NationVisual'},
+                {path: '/visual/NationVisual', component: './DataVisual/Nation/NationVisual'},
                 {path: '/visual/ProvinceOrCityVisual', component: './DataVisual/ProvinceOrCityVisual'},
                 {path: '/visual/CityVisual', component: './DataVisual/CityVisual'},
                 {path: '/visual/CountryOrDistrictVisual', component: './DataVisual/CountryOrDistrictVisual'},
-                {path: '/visual/EnterpriseVisual', component: './DataVisual/EnterpriseVisual'}
             ]
         },
         {
