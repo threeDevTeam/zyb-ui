@@ -3,7 +3,7 @@ import {Button, Card, Carousel, Col, message, Row, Table, Tabs, Select, Radio} f
 import echarts from 'echarts'
 import ReactEcharts from 'echarts-for-react'
 //企业
-export default class EnterpriseVisual extends Component {
+export default class NationEnterpriseVisual extends Component {
     state = {
         year: '2019',
         type: '危害因素'

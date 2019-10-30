@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Row, Col} from 'antd'
 import NationDangerVisual from './NationDangerVisual'
-import EnterpriseVisual from './EnterpriseVisual'
+import NationEnterpriseVisual from './NationEnterpriseVisual'
 //国家
 export default class NationVisual extends Component {
     state = {}
@@ -11,7 +11,7 @@ export default class NationVisual extends Component {
 
     render() {
         return <div>
-            <EnterpriseVisual></EnterpriseVisual>
+            <NationEnterpriseVisual></NationEnterpriseVisual>
         </div>
     }
 }
