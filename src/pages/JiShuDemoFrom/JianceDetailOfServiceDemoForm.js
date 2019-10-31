@@ -1,8 +1,9 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Cascader, Input, InputNumber, Radio, Select} from 'nowrapper/lib/antd'
+import {Cascader, DatePicker, Input, InputNumber, Radio, Select} from 'nowrapper/lib/antd'
 import {InlineRepeater, Selectify} from "nowrapper/lib/antd/repeater";
 import request from "../../utils/request";
+import moment from "moment";
 
 let SelectInlineRepeater = Selectify(InlineRepeater)
 const validate = {
@@ -48,6 +49,9 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
         if ('edit' === type || 'view' === type) {
             this.core.setValues({...record})
             this.core.setGlobalStatus('edit' === type ? type : 'preview')
+            let checkDateStr = record.checkDateStr
+            delete record.checkDateStr
+            this.core.setValue('checkDateStr', moment(checkDateStr, 'YYYY-MM-DD'))
         }
         request.get('/zybadmin/areaOfDic/cascadeData').then(res => {
             if (res && res.flag) {
@@ -81,7 +85,7 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
         return (
             <Form core={this.core} layout={{label: 7}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem required={true} label="检测时间" name="checkDate"><InputNumber/></FormItem>
+                <FormItem required={true} label="检测时间" name="checkDateStr"><DatePicker placeholder="请选择检测时间"/></FormItem>
                 <FormItem required={true} label="检测年份" name="checkYear"><InputNumber/></FormItem>
                 <FormItem required={true} label="检测月份" name="checkMonth"><InputNumber/></FormItem>
                 <FormItem required={true} label="检测报告编号" name="num"><Input/></FormItem>

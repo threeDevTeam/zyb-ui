@@ -40,6 +40,9 @@ class JianceDetailOfService extends PureComponent {
                 enableValidate: true,
                 content: <JianceDetailOfServiceDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
+                    if (values.checkDateStr) {
+                        values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')
+                    }
                     request.post('/zybadmin/jianceDetailOfService/add', {data: {...values}}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")

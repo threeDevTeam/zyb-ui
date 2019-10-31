@@ -1,7 +1,8 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Input, InputNumber, Radio} from 'nowrapper/lib/antd'
+import {DatePicker, Input, InputNumber, Radio} from 'nowrapper/lib/antd'
 import {Col, Row} from "antd";
+import moment from "moment";
 
 const validate = {
     name: {type: "string", required: true, message: '姓名不能为空'},
@@ -27,6 +28,9 @@ class PersonOfSuperviseDemoForm extends PureComponent {
         if ('edit' === type || 'view' === type) {
             this.core.setValues({...record})
             this.core.setGlobalStatus('edit' === type ? type : 'preview')
+            let birthStr = record.birthStr
+            delete record.birthStr
+            this.core.setValue('birthStr', moment(birthStr, 'YYYY-MM-DD'))
         }
     }
 
@@ -42,7 +46,7 @@ class PersonOfSuperviseDemoForm extends PureComponent {
                        </Radio.Group>
                    </FormItem>
                      <FormItem required={true} label="身份证号" name="idNum"><Input/></FormItem>
-                    <FormItem required={true} label="出生日期" name="birth"><InputNumber/></FormItem>
+                    <FormItem required={true} label="出生日期" name="birthStr"><DatePicker placeholder="请选择出生日期"/></FormItem>
                    <FormItem required={true} label="职务" name="job"><Input/></FormItem>
                     <FormItem required={true} label="所学专业" name="major"><Input/></FormItem>
 

@@ -40,6 +40,9 @@ class TijianDetail2OfService extends PureComponent {
                 enableValidate: true,
                 content: <TijianDetail2OfServiceDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
+                    if (values.checkDateStr) {
+                        values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')
+                    }
                     request.post('/zybadmin/tijianDetail2OfService/add', {data: {...values}}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")

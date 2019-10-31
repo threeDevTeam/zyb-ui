@@ -1,7 +1,8 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Input, InputNumber,Select} from 'nowrapper/lib/antd'
+import {DatePicker, Input, InputNumber, Select} from 'nowrapper/lib/antd'
 import {Col, Row} from "antd";
+import moment from "moment";
 
 const validate = {
     name: {type: "string", required: true, message: '装备名称不能为空'},
@@ -25,6 +26,9 @@ class EquipmentOfSuperviseDemoForm extends PureComponent {
         if ('edit' === type || 'view' === type) {
             this.core.setValues({...record})
             this.core.setGlobalStatus('edit' === type ? type : 'preview')
+            let buyDateStr = record.buyDateStr
+            delete record.buyDateStr
+            this.core.setValue('buyDateStr', moment(buyDateStr, 'YYYY-MM-DD'))
         }
     }
 
@@ -35,7 +39,7 @@ class EquipmentOfSuperviseDemoForm extends PureComponent {
                 <FormItem required={true} label="装备名称" name="name"><Input/></FormItem>
                 <FormItem required={true} label="规格型号" name="num"><Input/></FormItem>
                 <FormItem required={true} label="数量" name="amount"><InputNumber/></FormItem>
-                <FormItem required={true} label="购置时间" name="buyDate"><InputNumber/></FormItem>
+                <FormItem required={true} label="购置时间" name="buyDateStr"><DatePicker placeholder="请选择购置时间"/></FormItem>
 
                 <FormItem required={true} label="装备状态" name="status">
                     <Select value={this.state.city} style={{width: 212}}>

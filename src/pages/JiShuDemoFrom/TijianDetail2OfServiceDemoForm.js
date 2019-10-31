@@ -1,7 +1,8 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Cascader, Input, InputNumber, Radio} from 'nowrapper/lib/antd'
+import {Cascader, DatePicker, Input, InputNumber, Radio} from 'nowrapper/lib/antd'
 import request from "../../utils/request";
+import moment from "moment";
 const validate = {
  checkDate: {type: "number", required: true, message: '体检时间不能为空'},
  checkYear: {type: "number", required: true, message: '体检年份不能为空'},
@@ -48,6 +49,9 @@ componentWillMount() {
  if ('edit' === type || 'view' === type) {
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
+  let checkDateStr = record.checkDateStr
+  delete record.checkDateStr
+  this.core.setValue('checkDateStr', moment(checkDateStr, 'YYYY-MM-DD'))
  }
  request.get('/zybadmin/areaOfDic/cascadeData').then(res => {
 
@@ -86,7 +90,7 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label:7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
- <FormItem required={true} label="体检时间" name="checkDate"><InputNumber/></FormItem>
+ <FormItem required={true} label="体检时间" name="checkDateStr"><DatePicker placeholder="请选择体检时间"/></FormItem>
  <FormItem required={true} label="体检年份" name="checkYear"><InputNumber/></FormItem>
  <FormItem required={true} label="体检月份" name="checkMonth"><InputNumber/></FormItem>
  <FormItem required={true} label="体检报告编号" name="num"><Input/></FormItem>

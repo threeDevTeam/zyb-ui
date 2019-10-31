@@ -40,6 +40,9 @@ class PersonOfSupervise extends PureComponent {
                 enableValidate: true,
                 content: <PersonOfSuperviseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
+                    if (values.birthStr) {
+                        values.birthStr = values.birthStr.format('YYYY-MM-DD')
+                    }
                     request.post('/zybadmin/personOfSupervise/add', {data: {...values}}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")

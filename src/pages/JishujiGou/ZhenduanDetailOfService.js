@@ -40,6 +40,9 @@ class ZhenduanDetailOfService extends PureComponent {
                 enableValidate: true,
                 content: <ZhenduanDetailOfServiceDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
+                    if (values.checkDateStr) {
+                        values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')
+                    }
                     request.post('/zybadmin/zhenduanDetailOfService/add', {data: {...values}}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")
