@@ -70,6 +70,14 @@ class Enterprise extends PureComponent {
                         enableValidate: true,
                         content: <EnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
+
+                            if (values.startDate) {
+                                values.startDate = values.startDate.format('YYYY-MM-DD')
+                            }
+                            if (values.registerDate) {
+                                values.registerDate = values.registerDate.format('YYYY-MM-DD')
+                            }
+                            console.log(values)
                             request.post('/zybadmin/enterprise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")

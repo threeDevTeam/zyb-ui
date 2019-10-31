@@ -41,6 +41,9 @@ class SickOfEnterprise extends PureComponent {
                 enableValidate: true,
                 content: <SickOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
+                    if (values.checkDateStr) {
+                        values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')
+                    }
                     request.post('/zybadmin/sickOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")

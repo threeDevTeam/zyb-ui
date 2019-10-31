@@ -40,6 +40,9 @@ class AlikeSickOfEnterprise extends PureComponent {
                 enableValidate: true,
                 content: <AlikeSickOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
+                    if (values.checkDateStr) {
+                        values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')
+                    }
                     request.post('/zybadmin/alikeSickOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")

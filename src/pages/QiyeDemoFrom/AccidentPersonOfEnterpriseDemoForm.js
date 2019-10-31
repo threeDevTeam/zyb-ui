@@ -1,8 +1,9 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Cascader, Input, InputNumber, Radio} from 'nowrapper/lib/antd'
+import {Cascader, DatePicker, Input, InputNumber, Radio} from 'nowrapper/lib/antd'
 import {TreeSelect} from "antd";
 import request from "../../utils/request";
+import moment from "moment";
 const validate = {
 accidentNum: {type: "string", required: true, message: '职业病危害事故编号不能为空'},
 name: {type: "string", required: true, message: '姓名不能为空'},
@@ -29,6 +30,9 @@ componentWillMount() {
  if ('edit' === type || 'view' === type) {
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
+  let dieDateStr = record.dieDateStr
+  delete record.dieDateStr
+  this.core.setValue('dieDateStr', moment(dieDateStr, 'YYYY-MM-DD'))
  }
  request.get('/zybadmin/accidentPersonOfEnterprise/TreeSelcetData').then(res =>{
   if(res && res.flag){
@@ -57,7 +61,7 @@ componentWillMount() {
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem required={true} value={"是"} label="死亡日期" name="dieDate"><InputNumber/></FormItem>
+ <FormItem required={true}  label="死亡日期" name="dieDateStr"><DatePicker placeholder="请选择死亡日期"/></FormItem>
  </Form>
  )
  }

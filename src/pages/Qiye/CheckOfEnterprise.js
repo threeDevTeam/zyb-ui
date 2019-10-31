@@ -40,6 +40,9 @@ class CheckOfEnterprise extends PureComponent {
                 enableValidate: true,
                 content: <CheckOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
+                    if (values.checkDateStr) {
+                        values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')
+                    }
                     request.post('/zybadmin/checkOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")

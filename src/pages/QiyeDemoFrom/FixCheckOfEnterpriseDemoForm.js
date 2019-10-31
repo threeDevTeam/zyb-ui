@@ -1,9 +1,10 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Cascader, Input, InputNumber, Radio, Select} from 'nowrapper/lib/antd'
+import {Cascader, DatePicker, Input, InputNumber, Radio, Select} from 'nowrapper/lib/antd'
 import {InlineRepeater, Selectify} from "nowrapper/lib/antd/repeater";
 import {TreeSelect} from "antd";
 import request from "../../utils/request";
+import moment from "moment";
 let SelectInlineRepeater = Selectify(InlineRepeater)
 const validate = {
 checkDate: {type: "number", required: true, message: '检测时间不能为空'},
@@ -33,6 +34,9 @@ componentWillMount() {
  if ('edit' === type || 'view' === type) {
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
+  let checkDateStr = record.checkDateStr
+  delete record.checkDateStr
+  this.core.setValue('checkDateStr', moment(checkDateStr, 'YYYY-MM-DD'))
  }
  request.get('/zybadmin/fixCheckOfEnterprise/TreeSelcetData').then(res =>{
   if(res && res.flag){
@@ -45,7 +49,7 @@ componentWillMount() {
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
   <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'}  style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
-  <FormItem required={true} label="检测时间" name="checkDate"><InputNumber/></FormItem>
+  <FormItem required={true} label="检测时间" name="checkDateStr"><DatePicker placeholder="请选择检测时间"/></FormItem>
  <FormItem required={true} label="检测年份" name="checkYear"><InputNumber/></FormItem>
  <FormItem required={true} label="检测月份" name="checkMonth"><InputNumber/></FormItem>
  <FormItem required={true} label="检测机构" name="org"><Input/></FormItem>

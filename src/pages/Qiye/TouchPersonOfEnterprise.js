@@ -108,6 +108,7 @@ class TouchPersonOfEnterprise extends PureComponent {
             request('/zybadmin/touchPersonOfEnterprise/getById?id=' + this.state.record.id).then(res => {
                 console.log(res)
                 if (res.flag) {
+
                     Dialog.show({
                         title: title,
                         footerAlign: 'label',
@@ -117,6 +118,7 @@ class TouchPersonOfEnterprise extends PureComponent {
                         enableValidate: true,
                         content: <TouchPersonOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
+                           console.log(res)
                             request.post('/zybadmin/touchPersonOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")

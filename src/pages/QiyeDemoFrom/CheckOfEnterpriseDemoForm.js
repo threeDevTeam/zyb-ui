@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Input, InputNumber, Radio} from 'nowrapper/lib/antd'
+import {DatePicker, Input, InputNumber, Radio} from 'nowrapper/lib/antd'
+import moment from "moment";
 const validate = {
 year: {type: "number", required: true, message: '年份不能为空'},
 isAccept: {type: "string", required: true, message: '是否接受过相关部门检查不能为空'},
@@ -25,6 +26,9 @@ componentWillMount() {
  if ('edit' === type || 'view' === type) {
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
+  let checkDateStr = record.checkDateStr
+  delete record.checkDateStr
+  this.core.setValue('checkDateStr', moment(checkDateStr, 'YYYY-MM-DD'))
  }
  }
  render() {
@@ -38,7 +42,7 @@ componentWillMount() {
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem required={true} label="检查时间" name="checkDate"><InputNumber/></FormItem>
+ <FormItem required={true} label="检查时间" name="checkDateStr"><DatePicker placeholder="请选择检查时间"/></FormItem>
  <FormItem required={true} label="检查部门" name="org"><Input/></FormItem>
  <FormItem required={true} label="检查内容" name="content"><Input/></FormItem>
  <FormItem required={true} label="发现问题" name="question"><Input/></FormItem>

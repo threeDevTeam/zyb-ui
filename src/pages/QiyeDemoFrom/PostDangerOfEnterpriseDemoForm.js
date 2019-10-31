@@ -1,10 +1,10 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Cascader, Input, InputNumber, Select} from 'nowrapper/lib/antd'
+import {Cascader, DatePicker, Input, InputNumber, Select} from 'nowrapper/lib/antd'
 import {TreeSelect} from "antd";
 import request from "../../utils/request";
+import moment from "moment";
 const validate = {
-upDatee: {type: "number", required: true, message: '申报时间不能为空'},
 upYear: {type: "number", required: true, message: '申报年份不能为空'},
 upMonth: {type: "number", required: true, message: '申报月份不能为空'},
 hurt: {type: "string", required: true, message: '可能引起的急性职业伤害不能为空'},
@@ -30,6 +30,10 @@ componentWillMount() {
  if ('edit' === type || 'view' === type) {
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
+  let upDateeStr = record.upDateeStr
+  delete record.upDateeStr
+  this.core.setValue('upDateeStr', moment(upDateeStr, 'YYYY-MM-DD'))
+
  }
  request.get('/zybadmin/postDangerOfEnterprise/TreeSelcetData').then(res =>{
   if(res && res.flag){
@@ -52,7 +56,7 @@ componentWillMount() {
  <Form core={this.core} layout={{label: 8}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
   <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'} style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
- <FormItem required={true} label="申报时间" name="upDatee"><InputNumber/></FormItem>
+ <FormItem required={true} label="申报时间" name="upDateeStr"><DatePicker placeholder="请选择申报时间"/></FormItem>
  <FormItem required={true} label="申报年份" name="upYear"><InputNumber/></FormItem>
  <FormItem required={true} label="申报月份" name="upMonth"><InputNumber/></FormItem>
   <FormItem required={true} label="职业病危害因素名称" name="cascaded1"><Cascader style={{width: 212}} options={this.state.dataSource1}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
