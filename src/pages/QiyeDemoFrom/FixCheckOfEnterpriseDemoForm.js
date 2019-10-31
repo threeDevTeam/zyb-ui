@@ -78,7 +78,15 @@ componentWillMount() {
       <option key={"其他"}>{"其他"}</option>
      </Select>
     </FormItem>
-    <FormItem  label='单位' name="unit"><Input/></FormItem>
+    <FormItem  label='单位' name="unit">
+     <Select value={this.state.city} style={{width: 212}}>
+
+      <option key={"mg/m3"}>{"mg/m3"}</option>
+      <option key={"kV"}>{"kV"}</option>
+      <option key={"..."}>{"..."}</option>
+
+     </Select>
+    </FormItem>
    </SelectInlineRepeater>
   </FormItem>
  </Form>

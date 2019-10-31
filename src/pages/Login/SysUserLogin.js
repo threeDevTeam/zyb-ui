@@ -1,8 +1,9 @@
 import React, {PureComponent} from 'react'
-import {Input, Button, Select, Dialog, Cascader} from 'nowrapper/lib/antd'
+import {Input, Button, Select, Dialog, Cascader,DatePicker} from 'nowrapper/lib/antd'
 import Form, {FormItem, FormCore} from 'noform'
 import {Card, message} from "antd";
 import request from "../../utils/request";
+import moment from "moment";
 
 
 const validate = {
@@ -36,8 +37,6 @@ const validate = {
     unitType: {type: "string", required: true, message: '生产能力单位类型不能为空'},
     regiterMoney: {type: "string", required: true, message: '注册资本不能为空'},
     registerAddress: {type: "string", required: true, message: '注册地址不能为空'},
-    registerDate: {type: "string", required: true, message: '注册时间不能为空'},
-    startDate: {type: "string", required: true, message: '投产时间不能为空'},
     propertyMoney: {type: "string", required: true, message: '资产总额不能为空'},
 }
 
@@ -113,7 +112,17 @@ class SysUserLogin extends PureComponent {
         this.core.validate((err) => {
             if (!err) {
                 if (this.core.value.type === '企业') {
+                    console.log(this.core.value)
+                    //提取日期
+                    if (this.core.value.registerDate) {
+                        this.core.value.registerDate = this.core.value.registerDate.format('YYYY-MM-DD')
+                    }
+                    //提取日期
+                    if (this.core.value.startDate) {
+                        this.core.value.startDate = this.core.value.startDate.format('YYYY-MM-DD')
+                    }
                     request.post('/zybadmin/enterpriseOfRegister/add', {data: this.core.value}).then(res => {
+                        console.log(res)
                         if (res.flag) {
                             message.success("操作成功")
                             window.location.href ='/user/login'
@@ -235,6 +244,7 @@ class SysUserLogin extends PureComponent {
         }
     }
     componentWillMount() {
+
         request.get('/zybadmin/areaOfDic/cascadeData').then(res =>{
             if(res.flag){
                 this.setState({dataSource:res.data})
@@ -245,7 +255,7 @@ class SysUserLogin extends PureComponent {
         this.setState({ value });
     };
     render() {
-
+        const dateFormat = 'YYYY/MM/DD';
         return (
             <Card title="注册表单">
                 <div>
@@ -279,8 +289,8 @@ class SysUserLogin extends PureComponent {
                         <FormItem label="生产能力单位类型" name="unitType" required={true}><Input/></FormItem>
                         <FormItem label="注册资本" name="regiterMoney" required={true}><Input/></FormItem>
                         <FormItem label="注册地址" name="registerAddress" required={true}><Input/></FormItem>
-                        <FormItem label="注册时间" name="registerDate" required={true}><Input/></FormItem>
-                        <FormItem label="投产时间" name="startDate" required={true}><Input/></FormItem>
+                        <FormItem label="注册时间" name="registerDate" required={true}><DatePicker placeholder="请选择注册时间"/></FormItem>
+                        <FormItem label="投产时间" name="startDate" required={true}><DatePicker placeholder="请选择投产时间"/></FormItem>
                         <FormItem label="资产总额" name="propertyMoney" required={true}><Input/></FormItem>
                     </div>
                     <div style={{display: this.state.displayGov}}>

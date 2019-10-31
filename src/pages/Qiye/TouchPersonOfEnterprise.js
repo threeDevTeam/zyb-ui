@@ -21,7 +21,8 @@ let globalList
 
 // @connect(({demo}) => ({demo}))
 class TouchPersonOfEnterprise extends PureComponent {
-    state = { fileList: []
+    state = {
+        fileList: []
     }
     putFileToState = file => {
         this.setState({fileList: [...this.state.fileList, file]})
@@ -40,6 +41,16 @@ class TouchPersonOfEnterprise extends PureComponent {
                 enableValidate: true,
                 content: <TouchPersonOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
+                    //提取日期
+                    if (values.startDateStr) {
+                        values.startDateStr = values.startDateStr.format('YYYY-MM-DD')
+                    }
+                    if (values.startDateStr) {
+                        values.startDateStr = values.startDateStr.format('YYYY-MM-DD')
+                    }
+                    if (values.leaveDateStr) {
+                        values.leaveDateStr = values.leaveDateStr.format('YYYY-MM-DD')
+                    }
                     request.post('/zybadmin/touchPersonOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
@@ -52,7 +63,7 @@ class TouchPersonOfEnterprise extends PureComponent {
                     })
                 }
             })
-        }else if ('upExcel' === type) {
+        } else if ('upExcel' === type) {
             Dialog.show({
                 title: '',
                 footerAlign: 'label',
@@ -75,11 +86,14 @@ class TouchPersonOfEnterprise extends PureComponent {
                     //将表单数据放入formData
                     formData.append("form", JSON.stringify(values))
                     //异步请求
-                    request.post('/zybadmin/touchPersonOfEnterprise/exceladd',{method: 'post', data: formData}).then(res => {
-                        if(res.flag){
+                    request.post('/zybadmin/touchPersonOfEnterprise/exceladd', {
+                        method: 'post',
+                        data: formData
+                    }).then(res => {
+                        if (res.flag) {
                             modal.update({content: '操作成功', okButtonProps: {disabled: false}})
                             globalList.refresh()
-                        }else{
+                        } else {
                             modal.update({content: '操作失败,请联系管理员!', okButtonProps: {disabled: false}})
                         }
                     })
@@ -92,6 +106,7 @@ class TouchPersonOfEnterprise extends PureComponent {
             }
             let title = 'edit' === type ? '编辑' : '浏览'
             request('/zybadmin/touchPersonOfEnterprise/getById?id=' + this.state.record.id).then(res => {
+                console.log(res)
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -173,8 +188,10 @@ class TouchPersonOfEnterprise extends PureComponent {
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                             className={styles.marginLeft20}>删除</Button>
                     <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('download')}
-                            className={styles.marginLeft20} href={'/zybadmin/excelTemplate/download'+window.location.pathname.replace("/zybadmin","")}>下载模板</Button>
-                    <Button icon="upload" type="primary" className={styles.marginLeft20} onClick={() => this.handleOperator('upExcel')}>上传Excel</Button>
+                            className={styles.marginLeft20}
+                            href={'/zybadmin/excelTemplate/download' + window.location.pathname.replace("/zybadmin", "")}>下载模板</Button>
+                    <Button icon="upload" type="primary" className={styles.marginLeft20}
+                            onClick={() => this.handleOperator('upExcel')}>上传Excel</Button>
 
                 </div>
                 <Table onRow={record => {
