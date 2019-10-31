@@ -42,6 +42,9 @@ componentWillMount() {
   let checkDateStr = record.checkDateStr
   delete record.checkDateStr
   this.core.setValue('checkDateStr', moment(checkDateStr, 'YYYY-MM-DD'))
+  let dieDateStr = record.dieDateStr
+  delete record.dieDateStr
+  this.core.setValue('dieDateStr', moment(dieDateStr, 'YYYY-MM-DD'))
  }
 
  request.get('/zybadmin/zhenduanDetailOfService/cascadeData5').then(res => {
@@ -91,7 +94,7 @@ componentWillMount() {
    <option key={"死亡"}>{"死亡"}</option>
   </Select>
  </FormItem>
- <FormItem required={true} label="死亡日期" name="dieDate"><InputNumber/></FormItem>
+ <FormItem required={true} label="死亡日期" name="dieDateStr"><DatePicker placeholder="请选择死亡日期"/></FormItem>
  <FormItem required={true} label="死亡年份" name="dieYear"><InputNumber/></FormItem>
  <FormItem required={true} label="死亡月份" name="dieMonth"><InputNumber/></FormItem>
  </Form>

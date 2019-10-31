@@ -118,6 +118,15 @@ class TouchPersonOfEnterprise extends PureComponent {
                         enableValidate: true,
                         content: <TouchPersonOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
+                            if (values.startDateStr) {
+                                values.startDateStr = values.startDateStr.format('YYYY-MM-DD')
+                            }
+                            if (values.startDateStr) {
+                                values.startDateStr = values.startDateStr.format('YYYY-MM-DD')
+                            }
+                            if (values.leaveDateStr) {
+                                values.leaveDateStr = values.leaveDateStr.format('YYYY-MM-DD')
+                            }
                            console.log(res)
                             request.post('/zybadmin/touchPersonOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {

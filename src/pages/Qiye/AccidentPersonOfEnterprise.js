@@ -72,6 +72,9 @@ class AccidentPersonOfEnterprise extends PureComponent {
                         enableValidate: true,
                         content: <AccidentPersonOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
+                            if (values.dieDateStr) {
+                                values.dieDateStr = values.dieDateStr.format('YYYY-MM-DD')
+                            }
                             request.post('/zybadmin/accidentPersonOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")

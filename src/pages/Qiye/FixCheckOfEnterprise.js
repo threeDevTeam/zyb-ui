@@ -72,6 +72,9 @@ class FixCheckOfEnterprise extends PureComponent {
                         enableValidate: true,
                         content: <FixCheckOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
+                            if (values.checkDateStr) {
+                                values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')
+                            }
                             request.post('/zybadmin/fixCheckOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")

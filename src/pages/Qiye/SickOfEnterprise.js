@@ -44,6 +44,9 @@ class SickOfEnterprise extends PureComponent {
                     if (values.checkDateStr) {
                         values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')
                     }
+                    if (values.dieDateStr) {
+                        values.dieDateStr = values.dieDateStr.format('YYYY-MM-DD')
+                    }
                     request.post('/zybadmin/sickOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
@@ -73,6 +76,12 @@ class SickOfEnterprise extends PureComponent {
                         enableValidate: true,
                         content: <SickOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
+                            if (values.checkDateStr) {
+                                values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')
+                            }
+                            if (values.dieDateStr) {
+                                values.dieDateStr = values.dieDateStr.format('YYYY-MM-DD')
+                            }
                             request.post('/zybadmin/sickOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")

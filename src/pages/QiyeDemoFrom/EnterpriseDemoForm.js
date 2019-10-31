@@ -39,12 +39,12 @@ componentWillMount() {
   this.state.Login2='block'
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
-  let registerDate = record.registerDate
-  delete record.registerDate
-  this.core.setValue('registerDate', moment(registerDate, 'YYYY-MM-DD'))
-  let startDate = record.startDate
-  delete record.startDate
-  this.core.setValue('startDate', moment(startDate, 'YYYY-MM-DD'))
+  let registerDateStr = record.registerDateStr
+  delete record.registerDateStr
+  this.core.setValue('registerDateStr', moment(registerDateStr, 'YYYY-MM-DD'))
+  let startDateStr = record.startDateStr
+  delete record.startDateStr
+  this.core.setValue('startDateStr', moment(startDateStr, 'YYYY-MM-DD'))
  }
  request.get('/zybadmin/areaOfDic/cascadeData').then(res =>{
 
@@ -111,8 +111,8 @@ componentWillMount() {
   <div style={{display: this.state.Login2,marginTop:10,marginBottom:10}}>
  <FormItem required={true} label="注册资本" name="regiterMoney"><InputNumber/></FormItem>
  <FormItem required={true} label="注册地址" name="registerAddress"><Input/></FormItem>
- <FormItem required={true} disabled label="注册时间" name="registerDate"><DatePicker placeholder="请选择注册时间"/></FormItem>
- <FormItem required={true}  label="投产时间" name="startDate"><DatePicker placeholder="请选择投产时间"/></FormItem>
+ <FormItem required={true} disabled label="注册时间" name="registerDateStr"><DatePicker placeholder="请选择注册时间"/></FormItem>
+ <FormItem required={true}  label="投产时间" name="startDateStr"><DatePicker placeholder="请选择投产时间"/></FormItem>
  <FormItem required={true} label="资产总额" name="propertyMoney"><InputNumber/></FormItem>
   </div>
   <div style={{marginTop:10,marginBottom:10}}>

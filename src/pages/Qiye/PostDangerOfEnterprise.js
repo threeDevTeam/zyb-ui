@@ -73,6 +73,9 @@ class PostDangerOfEnterprise extends PureComponent {
                         enableValidate: true,
                         content: <PostDangerOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
+                            if (values.upDateeStr) {
+                                values.upDateeStr = values.upDateeStr.format('YYYY-MM-DD')
+                            }
                             request.post('/zybadmin/postDangerOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")

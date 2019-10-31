@@ -72,6 +72,9 @@ class EquipmentOfSupervise extends PureComponent {
                         enableValidate: true,
                         content: <EquipmentOfSuperviseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
+                            if (values.buyDateStr) {
+                                values.buyDateStr = values.buyDateStr.format('YYYY-MM-DD')
+                            }
                             request.post('/zybadmin/equipmentOfSupervise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
