@@ -112,14 +112,14 @@ class SysUserLogin extends PureComponent {
         this.core.validate((err) => {
             if (!err) {
                 if (this.core.value.type === '企业') {
-                    console.log(this.core.value)
+
                     //提取日期
-                    if (this.core.value.registerDate) {
-                        this.core.value.registerDate = this.core.value.registerDate.format('YYYY-MM-DD')
+                    if (this.core.value.registerDateStr) {
+                        this.core.value.registerDateStr = this.core.value.registerDateStr.format('YYYY-MM-DD')
                     }
                     //提取日期
-                    if (this.core.value.startDate) {
-                        this.core.value.startDate = this.core.value.startDate.format('YYYY-MM-DD')
+                    if (this.core.value.startDateStr) {
+                        this.core.value.startDateStr = this.core.value.startDateStr.format('YYYY-MM-DD')
                     }
                     request.post('/zybadmin/enterpriseOfRegister/add', {data: this.core.value}).then(res => {
                         console.log(res)
@@ -289,8 +289,8 @@ class SysUserLogin extends PureComponent {
                         <FormItem label="生产能力单位类型" name="unitType" required={true}><Input/></FormItem>
                         <FormItem label="注册资本" name="regiterMoney" required={true}><Input/></FormItem>
                         <FormItem label="注册地址" name="registerAddress" required={true}><Input/></FormItem>
-                        <FormItem label="注册时间" name="registerDate" required={true}><DatePicker placeholder="请选择注册时间"/></FormItem>
-                        <FormItem label="投产时间" name="startDate" required={true}><DatePicker placeholder="请选择投产时间"/></FormItem>
+                        <FormItem label="注册时间" name="registerDateStr" required={true}><DatePicker placeholder="请选择注册时间"/></FormItem>
+                        <FormItem label="投产时间" name="startDateStr" required={true}><DatePicker placeholder="请选择投产时间"/></FormItem>
                         <FormItem label="资产总额" name="propertyMoney" required={true}><Input/></FormItem>
                     </div>
                     <div style={{display: this.state.displayGov}}>

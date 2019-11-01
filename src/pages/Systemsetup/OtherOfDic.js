@@ -125,7 +125,7 @@ class OtherOfDic extends PureComponent {
         return (
             <List url='/zybadmin/otherOfDic/list' onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
-                    <Filter.Item label="username" name="username"><Input/></Filter.Item>
+                    <Filter.Item label="name" name="name"><Input/></Filter.Item>
 
                 </Filter>
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>

@@ -94,6 +94,7 @@ export default {
                 {path: '/userManagement', component: './Systemsetup/UserManagement'},
                 {path: '/menuManagement', component: './Systemsetup/MenuManagement'},
                 {path: '/roleManagement', component: './Systemsetup/RoleManagement'},
+                {path: '/dataVisualSwitchFlag', component: './Systemsetup/dataVisualSwitchFlag'},
             ]
         }
     ],
