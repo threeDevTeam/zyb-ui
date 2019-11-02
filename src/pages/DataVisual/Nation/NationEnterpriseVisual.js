@@ -21,11 +21,12 @@ export default class NationEnterpriseVisual extends Component {
         option11Indicator: [],
         option11Indicator2: [],
         option13Dataset: [['防护配备', '职业病防护设施设置率', '个人防护用品配备率']],
-        option14Category: ['粉尘', '化学因素', '物理因素', '放射性因素', '生物因素']
+        option14Category: ['粉尘', '化学因素', '物理因素', '放射性因素', '生物因素'],
+        option21Category: ['北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '重庆', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '香港']
     }
     data1 = (year, type) => {
         let params = {
-            params: {year: this.state.year, type: type || this.state.type}
+            params: {year: year || this.state.year, type: type || this.state.type}
         }
         //option11
         request('/zybadmin/nationEnterpriseVisual/' + switchFlag + '/option11', params).then(res => {
@@ -75,7 +76,7 @@ export default class NationEnterpriseVisual extends Component {
 
     data2 = (year, type) => {
         let params = {
-            params: {year: this.state.year, type: type || this.state.type}
+            params: {year: year || this.state.year, type: type || this.state.type}
         }
         //option21
         request('/zybadmin/nationEnterpriseVisual/' + switchFlag + '/option21', params).then(res => {
@@ -127,7 +128,9 @@ export default class NationEnterpriseVisual extends Component {
         ]
         let option11Indicator2 = ['生物因素', '放射性因素', '物理因素', '化学因素', '粉尘']
         let option14Category = ['粉尘', '化学因素', '物理因素', '放射性因素', '生物因素']
-        this.setState({option11Indicator, option11Indicator2, option14Category})
+        let option21Category = ['北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '重庆', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '香港']
+        let option22Category = ['香港', '新疆', '宁夏', '青海', '甘肃', '陕西', '西藏', '云南', '贵州', '四川', '重庆', '海南', '广西', '广东', '湖南', '湖北', '河南', '山东', '江西', '福建', '安徽', '浙江', '江苏', '上海', '黑龙江', '吉林', '辽宁', '内蒙古', '山西', '河北', '天津', '北京']
+        this.setState({option11Indicator, option11Indicator2, option14Category, option21Category, option22Category})
         this.data1()
     }
 
@@ -168,6 +171,9 @@ export default class NationEnterpriseVisual extends Component {
                 display5: 'none'
             })
         } else if ("行政区划" === type) {
+            let option21Category = ['北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '重庆', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '香港']
+            let option22Category = ['香港', '新疆', '宁夏', '青海', '甘肃', '陕西', '西藏', '云南', '贵州', '四川', '重庆', '海南', '广西', '广东', '湖南', '湖北', '河南', '山东', '江西', '福建', '安徽', '浙江', '江苏', '上海', '黑龙江', '吉林', '辽宁', '内蒙古', '山西', '河北', '天津', '北京']
+            this.setState({option21Category, option22Category})
             this.data2(year, type)
             this.setState({
                 display1: 'none',
@@ -196,6 +202,9 @@ export default class NationEnterpriseVisual extends Component {
                 display5: 'none'
             })
         } else if ("登记注册类型" === type) {
+            let option21Category = ['国有企业', '集体企业', '股份合作企业', '联营企业', '联营企业', '联营企业', '联营企业', '联营企业', '有限责任公司', '有限责任公司', '有限责任公司', '股份有限公司', '私营企业', '私营企业', '私营企业', '私营企业', '私营企业', '其他企业', '合资经营企业（港或澳、台资）', '合作经营企业（港或澳、台资）', '港、澳、台商独资经营企业', '港、澳、台商投资股份有限公司', '其他港、澳、台商投资企业', '中外合资经营企业', '中外合作经营企业', '外资企业', '外商投资股份有限公司', '其他外商投资企业', '事业单位', '社会团体']
+            let option22Category = ['社会团体', '事业单位', '其他外商投资企业', '外商投资股份有限公司', '外资企业', '中外合作经营企业', '中外合资经营企业', '其他港、澳、台商投资企业', '港、澳、台商投资股份有限公司', '港、澳、台商独资经营企业', '合作经营企业（港或澳、台资）', '合资经营企业（港或澳、台资）', '其他企业', '私营企业', '私营企业', '私营企业', '私营企业', '私营企业', '股份有限公司', '有限责任公司', '有限责任公司', '有限责任公司', '联营企业', '联营企业', '联营企业', '联营企业', '联营企业', '股份合作企业', '集体企业', '国有企业']
+            this.setState({option21Category, option22Category})
             this.data2(year, type)
             this.setState({
                 display1: 'none',
@@ -205,6 +214,9 @@ export default class NationEnterpriseVisual extends Component {
                 display5: 'none'
             })
         } else if ("所属行业" === type) {
+            let option21Category = ['煤炭开采和洗选业', '石油和天然气开采业', '黑色金属矿采选业', '有色金属矿采选业', '非金属矿采选业', '开采辅助活动', '其他采矿业', '农副食品加工业', '食品制造业', '酒、饮料和精制茶制造业', '烟草制品业 ', '纺织业', '纺织服装、服饰业', '皮革、毛皮、羽毛及其制品和制鞋业', '木材加工和木、竹、藤、棕、草制品业', '家具制造业 ', '造纸和纸制品业 ', '印刷和记录媒介复制业', '文教、工美、体育和娱乐用品制造业', '石油加工、炼焦和核燃料加工业 ', '化学原料和化学制品制造业', '医药制造业 ', '化学纤维制造业', '橡胶和塑料制品业', '非金属矿物制品业', '黑色金属冶炼和压延加工业 ', '有色金属冶炼和压延加工业 ', '金属制品业 ', '通用设备制造业', '专用设备制造业 ', '汽车制造业', '铁路、船舶、航空航天和其他运输设备制造业', '电气机械和器材制造业 ', '计算机、通信和其他电子设备制造业', '仪器仪表制造业', '其他制造业', '废弃资源综合利用业', '金属制品、机械和设备修理业', '电力、热力生产和供应业', '燃气生产和供应业', '水的生产和供应业']
+            let option22Category = ['水的生产和供应业', '燃气生产和供应业', '电力、热力生产和供应业', '金属制品、机械和设备修理业', '废弃资源综合利用业', '其他制造业', '仪器仪表制造业', '计算机、通信和其他电子设备制造业', '电气机械和器材制造业 ', '铁路、船舶、航空航天和其他运输设备制造业', '汽车制造业', '专用设备制造业 ', '通用设备制造业', '金属制品业 ', '有色金属冶炼和压延加工业 ', '黑色金属冶炼和压延加工业 ', '非金属矿物制品业', '橡胶和塑料制品业', '化学纤维制造业', '医药制造业 ', '化学原料和化学制品制造业', '石油加工、炼焦和核燃料加工业 ', '文教、工美、体育和娱乐用品制造业', '印刷和记录媒介复制业', '造纸和纸制品业 ', '家具制造业 ', '木材加工和木、竹、藤、棕、草制品业', '皮革、毛皮、羽毛及其制品和制鞋业', '纺织服装、服饰业', '纺织业', '烟草制品业 ', '酒、饮料和精制茶制造业', '食品制造业', '农副食品加工业', '其他采矿业', '开采辅助活动', '非金属矿采选业', '有色金属矿采选业', '黑色金属矿采选业', '石油和天然气开采业', '煤炭开采和洗选业']
+            this.setState({option21Category, option22Category})
             this.data2(year, type)
             this.setState({
                 display1: 'none',
@@ -424,7 +436,7 @@ export default class NationEnterpriseVisual extends Component {
             xAxis: [
                 {
                     type: 'category',
-                    data: ['北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '重庆', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '香港']
+                    data: this.state.option21Category
                 }
             ],
             yAxis: [
@@ -498,7 +510,7 @@ export default class NationEnterpriseVisual extends Component {
                 {
                     type: 'category',
                     axisTick: {show: false},
-                    data: ['香港', '新疆', '宁夏', '青海', '甘肃', '陕西', '西藏', '云南', '贵州', '四川', '重庆', '海南', '广西', '广东', '湖南', '湖北', '河南', '山东', '江西', '福建', '安徽', '浙江', '江苏', '上海', '黑龙江', '吉林', '辽宁', '内蒙古', '山西', '河北', '天津', '北京']
+                    data: this.state.option22Category
                 }
             ],
             series: [
@@ -596,7 +608,7 @@ export default class NationEnterpriseVisual extends Component {
             xAxis: {
                 type: 'category',
                 boundaryGap: true,
-                data: ['北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '重庆', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '香港']
+                data: this.state.option21Category
             },
             yAxis: {
                 type: 'value'
@@ -638,7 +650,7 @@ export default class NationEnterpriseVisual extends Component {
             xAxis: [
                 {
                     type: 'category',
-                    data: ['北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '重庆', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '香港']
+                    data: this.state.option21Category
                 }
             ],
             yAxis: [
@@ -889,9 +901,151 @@ export default class NationEnterpriseVisual extends Component {
             </div>
             {/*登记注册类型*/}
             <div style={{display: this.state.display4}}>
+                <Row gutter={24} style={{marginTop: 10}}>
+                    <Col span={24}>
+                        {/*表2-1 基础信息统计分析表（按危害因素）*/}
+                        <Card
+                            title={'基础信息统计分析表'}
+                            bordered={false}
+                            headStyle={{height: 57}}
+                            extra={<Button type="dashed">详细数据</Button>}
+                        >
+                            <ReactEcharts
+                                option={option21}
+                                onEvents={onEvents} style={{height: '60vh'}}/>
+                        </Card>
+                    </Col>
+                </Row>
+                <Row gutter={24} style={{marginTop: 24}}>
+                    <Col span={12}>
+                        {/*表2-2 基础信息统计分析表（按危害因素续1）*/}
+                        <Card
+                            title={'基础信息统计分析表'}
+                            bordered={false}
+                            headStyle={{height: 57}}
+                            extra={<Button type="dashed">详细数据</Button>}
+                        >
+                            <ReactEcharts
+                                option={option22}
+                                onEvents={onEvents} style={{height: '60vh'}}/>
+                        </Card>
+                    </Col>
+                    <Col span={12}>
+                        {/*表2-3 基础信息统计分析表（按危害因素续2）*/}
+                        <Card
+                            title={'基础信息统计分析表'}
+                            bordered={false}
+                            headStyle={{height: 57}}
+                            extra={<Button type="dashed">详细数据</Button>}
+                        >
+                            <ReactEcharts
+                                option={option23}
+                                onEvents={onEvents} style={{height: '60vh'}}/>
+                        </Card>
+                    </Col>
+                </Row>
+                <Row gutter={24} style={{marginTop: 24}}>
+                    <Col span={12}>
+                        {/*表2-4 基础信息统计分析表（按危害因素续3）*/}
+                        <Card
+                            title={'基础信息统计分析表'}
+                            bordered={false}
+                            headStyle={{height: 57}}
+                            extra={<Button type="dashed">详细数据</Button>}
+                        >
+                            <ReactEcharts
+                                option={option24}
+                                onEvents={onEvents} style={{height: '60vh'}}/>
+                        </Card>
+                    </Col>
+                    <Col span={12}>
+                        {/*表2-9 基础信息统计分析表（按行政区划续4）*/}
+                        <Card
+                            title={'基础信息统计分析表'}
+                            bordered={false}
+                            headStyle={{height: 57}}
+                            extra={<Button type="dashed">详细数据</Button>}
+                        >
+                            <ReactEcharts
+                                option={option25}
+                                onEvents={onEvents} style={{height: '60vh'}}/>
+                        </Card>
+                    </Col>
+                </Row>
             </div>
             {/*所属行业*/}
             <div style={{display: this.state.display5}}>
+                <Row gutter={24} style={{marginTop: 10}}>
+                    <Col span={24}>
+                        {/*表2-1 基础信息统计分析表（按危害因素）*/}
+                        <Card
+                            title={'基础信息统计分析表'}
+                            bordered={false}
+                            headStyle={{height: 57}}
+                            extra={<Button type="dashed">详细数据</Button>}
+                        >
+                            <ReactEcharts
+                                option={option21}
+                                onEvents={onEvents} style={{height: '60vh'}}/>
+                        </Card>
+                    </Col>
+                </Row>
+                <Row gutter={24} style={{marginTop: 24}}>
+                    <Col span={12}>
+                        {/*表2-2 基础信息统计分析表（按危害因素续1）*/}
+                        <Card
+                            title={'基础信息统计分析表'}
+                            bordered={false}
+                            headStyle={{height: 57}}
+                            extra={<Button type="dashed">详细数据</Button>}
+                        >
+                            <ReactEcharts
+                                option={option22}
+                                onEvents={onEvents} style={{height: '60vh'}}/>
+                        </Card>
+                    </Col>
+                    <Col span={12}>
+                        {/*表2-3 基础信息统计分析表（按危害因素续2）*/}
+                        <Card
+                            title={'基础信息统计分析表'}
+                            bordered={false}
+                            headStyle={{height: 57}}
+                            extra={<Button type="dashed">详细数据</Button>}
+                        >
+                            <ReactEcharts
+                                option={option23}
+                                onEvents={onEvents} style={{height: '60vh'}}/>
+                        </Card>
+                    </Col>
+                </Row>
+                <Row gutter={24} style={{marginTop: 24}}>
+                    <Col span={12}>
+                        {/*表2-4 基础信息统计分析表（按危害因素续3）*/}
+                        <Card
+                            title={'基础信息统计分析表'}
+                            bordered={false}
+                            headStyle={{height: 57}}
+                            extra={<Button type="dashed">详细数据</Button>}
+                        >
+                            <ReactEcharts
+                                option={option24}
+                                onEvents={onEvents} style={{height: '60vh'}}/>
+                        </Card>
+                    </Col>
+                    <Col span={12}>
+                        {/*表2-9 基础信息统计分析表（按行政区划续4）*/}
+                        <Card
+                            title={'基础信息统计分析表'}
+                            bordered={false}
+                            headStyle={{height: 57}}
+                            extra={<Button type="dashed">详细数据</Button>}
+                        >
+                            <ReactEcharts
+                                option={option25}
+                                onEvents={onEvents} style={{height: '60vh'}}/>
+                        </Card>
+                    </Col>
+                </Row>
             </div>
         </div>
     }
