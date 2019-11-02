@@ -10,7 +10,7 @@ import {WaterWave} from 'ant-design-pro/lib/Charts'
 import bj from '../../../assets/map_bg.jpg'
 
 const {TabPane} = Tabs
-
+let switchFlag = "no"
 //国家
 export default class NationDangerVisual extends Component {
     state = {
@@ -25,26 +25,28 @@ export default class NationDangerVisual extends Component {
     }
 
     componentWillMount() {
+        //后台取出开关
+        switchFlag = "no"
         //scroll
-        request('/zybadmin/nationDangerVisual/scroll').then(res => {
+        request('/zybadmin/nationDangerVisual/' + switchFlag + '/scroll').then(res => {
             if (res && res.flag) {
                 this.setState({scrollData: res.data})
             }
         })
         //option1
-        request('/zybadmin/nationDangerVisual/option1').then(res => {
+        request('/zybadmin/nationDangerVisual/' + switchFlag + '/option1').then(res => {
             if (res && res.flag) {
                 this.setState({option1Data: res.data})
             }
         })
         //option2
-        request('/zybadmin/nationDangerVisual/option2').then(res => {
+        request('/zybadmin/nationDangerVisual/' + switchFlag + '/option2').then(res => {
             if (res && res.flag) {
                 this.setState({option2Data: res.data})
             }
         })
         //option3
-        request('/zybadmin/nationDangerVisual/option3').then(res => {
+        request('/zybadmin/nationDangerVisual/' + switchFlag + '/option3').then(res => {
             if (res && res.flag) {
                 this.setState({option3Data: res.data})
             }
@@ -58,28 +60,28 @@ export default class NationDangerVisual extends Component {
         this.setState({tabKey})
         if (tabKey === 'areaOfEnterprise') {
             //option3
-            request('/zybadmin/nationDangerVisual/option3').then(res => {
+            request('/zybadmin/nationDangerVisual/' + switchFlag + '/option3').then(res => {
                 if (res && res.flag) {
                     this.setState({option3Data: res.data})
                 }
             })
         } else if (tabKey === 'industryOfEnterprise') {
             //option4
-            request('/zybadmin/nationDangerVisual/option4').then(res => {
+            request('/zybadmin/nationDangerVisual/' + switchFlag + '/option4').then(res => {
                 if (res && res.flag) {
                     this.setState({option4Data: res.data})
                 }
             })
         } else if (tabKey === 'registerTypeOfEnterprise') {
             //option5
-            request('/zybadmin/nationDangerVisual/option5').then(res => {
+            request('/zybadmin/nationDangerVisual/' + switchFlag + '/option5').then(res => {
                 if (res && res.flag) {
                     this.setState({option5Data: res.data})
                 }
             })
         } else if (tabKey === 'areaOfArea') {
             //option6
-            request('/zybadmin/nationDangerVisual/option6').then(res => {
+            request('/zybadmin/nationDangerVisual/' + switchFlag + '/option6').then(res => {
                 if (res && res.flag) {
                     console.log(res.data);
                     this.setState({option6Data: res.data})
