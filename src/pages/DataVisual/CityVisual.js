@@ -6,13 +6,18 @@ import ScrollList from './ScrollList'
 export default class CityVisual extends Component {
     state = {}
 
+    componentDidMount() {
+        console.log(this.props)
+        console.log(this.props.location.query)
+    }
+
     render() {
-        return <div style={{width:500,height:800,background:'red'}}>
+        return <div style={{width: 500, height: 800, background: 'red'}}>
             <ScrollList option={{
-                autoScroll:true,
-                time:5000,
-                width:500,
-                height:100
+                autoScroll: true,
+                time: 5000,
+                width: 500,
+                height: 100
             }}>
                 <ul>
                     <li>aaa</li>

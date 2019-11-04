@@ -1,4 +1,6 @@
 export default {
+    // base: "/zyb/",
+    // publicPath: "/zyb/",
     plugins: [
         ['umi-plugin-react', {
             antd: true,
@@ -9,18 +11,20 @@ export default {
                 loadingComponent: './components/PageLoading/index',
                 webpackChunkName: true,
                 level: 1,
-            }
+            },
+            title: '职业病预测预警平台',
+            metas: [{ charset: 'utf-8' }]
         }]
     ],
     routes: [
         {
-            path: 'visual',
+            path: '/visual',
             component: '../layouts/VisualLayout',
             routes: [
                 {path: '/visual', redirect: '/visual/NationVisual'},
                 {path: '/visual/NationVisual', component: './DataVisual/Nation/NationVisual'},
                 {path: '/visual/ProvinceOrCityVisual', component: './DataVisual/ProvinceOrCityVisual'},
-                {path: '/visual/CityVisual', component: './DataVisual/CityVisual'},
+                {title: '城市视图哦', path: '/visual/CityVisual', component: './DataVisual/CityVisual'},
                 {path: '/visual/CountryOrDistrictVisual', component: './DataVisual/CountryOrDistrictVisual'},
             ]
         },
