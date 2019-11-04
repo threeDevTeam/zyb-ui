@@ -1,7 +1,6 @@
 export default {
-    targets: {
-        ie: 9,
-    },
+    // base: "/zyb/",
+    // publicPath: "/zyb/",
     plugins: [
         ['umi-plugin-react', {
             antd: true,
