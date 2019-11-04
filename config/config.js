@@ -103,7 +103,7 @@ export default {
         }
     ],
     proxy: {
-        '/zybadmin': {
+        '/zyb': {
             target: 'http://localhost:8081',
             changeOrigin: true,
         },

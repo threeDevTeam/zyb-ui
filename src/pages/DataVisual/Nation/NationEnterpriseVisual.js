@@ -29,19 +29,19 @@ export default class NationEnterpriseVisual extends Component {
             params: {year: year || this.state.year, type: type || this.state.type}
         }
         //option11
-        request('/zybadmin/nationEnterpriseVisual/' + switchFlag + '/option11', params).then(res => {
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option11', params).then(res => {
             if (res && res.flag) {
                 this.setState({option11Data: res.data})
             }
         })
         //option12
-        request('/zybadmin/nationEnterpriseVisual/' + switchFlag + '/option12', params).then(res => {
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option12', params).then(res => {
             if (res && res.flag) {
                 this.setState({option12Data: res.data})
             }
         })
         //option13
-        request('/zybadmin/nationEnterpriseVisual/' + switchFlag + '/option13', params).then(res => {
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option13', params).then(res => {
             if (res && res.flag) {
                 let type = this.state.type
                 let arr = []
@@ -61,13 +61,13 @@ export default class NationEnterpriseVisual extends Component {
             }
         })
         //option14
-        request('/zybadmin/nationEnterpriseVisual/' + switchFlag + '/option14', params).then(res => {
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option14', params).then(res => {
             if (res && res.flag) {
                 this.setState({option14Data: res.data})
             }
         })
         //option15
-        request('/zybadmin/nationEnterpriseVisual/' + switchFlag + '/option25', params).then(res => {
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option25', params).then(res => {
             if (res && res.flag) {
                 this.setState({option25Data: res.data})
             }
@@ -79,19 +79,19 @@ export default class NationEnterpriseVisual extends Component {
             params: {year: year || this.state.year, type: type || this.state.type}
         }
         //option21
-        request('/zybadmin/nationEnterpriseVisual/' + switchFlag + '/option21', params).then(res => {
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option21', params).then(res => {
             if (res && res.flag) {
                 this.setState({option21Data: res.data})
             }
         })
         //option22
-        request('/zybadmin/nationEnterpriseVisual/' + switchFlag + '/option22', params).then(res => {
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option22', params).then(res => {
             if (res && res.flag) {
                 this.setState({option22Data: res.data})
             }
         })
         //option23
-        request('/zybadmin/nationEnterpriseVisual/' + switchFlag + '/option23', params).then(res => {
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option23', params).then(res => {
             if (res && res.flag) {
                 let tmp = res.data
                 let data = [['防护配备', '职业病防护设施设置率', '个人防护用品配备率']]
@@ -104,13 +104,13 @@ export default class NationEnterpriseVisual extends Component {
             }
         })
         //option24
-        request('/zybadmin/nationEnterpriseVisual/' + switchFlag + '/option24', params).then(res => {
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option24', params).then(res => {
             if (res && res.flag) {
                 this.setState({option24Data: res.data})
             }
         })
         //option25
-        request('/zybadmin/nationEnterpriseVisual/' + switchFlag + '/option25', params).then(res => {
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option25', params).then(res => {
             if (res && res.flag) {
                 this.setState({option25Data: res.data})
             }

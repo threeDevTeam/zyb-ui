@@ -24,43 +24,43 @@ export default class NationGovVisual extends Component {
             params: {year: year || this.state.year}
         }
         //option1
-        request('/zybadmin/nationGovVisual/' + switchFlag + '/option1', params).then(res => {
+        request('/zyb/nationGovVisual/' + switchFlag + '/option1', params).then(res => {
             if (res && res.flag) {
                 this.setState({option1Data: res.data})
             }
         })
         //option2
-        request('/zybadmin/nationGovVisual/' + switchFlag + '/option2', params).then(res => {
+        request('/zyb/nationGovVisual/' + switchFlag + '/option2', params).then(res => {
             if (res && res.flag) {
                 this.setState({option2Data: res.data})
             }
         })
         //option3
-        request('/zybadmin/nationGovVisual/' + switchFlag + '/option3', params).then(res => {
+        request('/zyb/nationGovVisual/' + switchFlag + '/option3', params).then(res => {
             if (res && res.flag) {
                 this.setState({option3Data: res.data})
             }
         })
         //option4
-        request('/zybadmin/nationGovVisual/' + switchFlag + '/option4', params).then(res => {
+        request('/zyb/nationGovVisual/' + switchFlag + '/option4', params).then(res => {
             if (res && res.flag) {
                 this.setState({option4Data: res.data})
             }
         })
         //option5
-        request('/zybadmin/nationGovVisual/' + switchFlag + '/option5', params).then(res => {
+        request('/zyb/nationGovVisual/' + switchFlag + '/option5', params).then(res => {
             if (res && res.flag) {
                 this.setState({option5Data: res.data})
             }
         })
         //option6
-        request('/zybadmin/nationGovVisual/' + switchFlag + '/option6', params).then(res => {
+        request('/zyb/nationGovVisual/' + switchFlag + '/option6', params).then(res => {
             if (res && res.flag) {
                 this.setState({option6Data: res.data})
             }
         })
         //option7
-        request('/zybadmin/nationGovVisual/' + switchFlag + '/option7', params).then(res => {
+        request('/zyb/nationGovVisual/' + switchFlag + '/option7', params).then(res => {
             if (res && res.flag) {
                 this.setState({option7Data: res.data})
             }
@@ -70,21 +70,21 @@ export default class NationGovVisual extends Component {
     onChange = tabKey => {
         if (tabKey === 'option5') {
             //option5
-            request('/zybadmin/nationGovVisual/' + switchFlag + '/option5').then(res => {
+            request('/zyb/nationGovVisual/' + switchFlag + '/option5').then(res => {
                 if (res && res.flag) {
                     this.setState({option5Data: res.data})
                 }
             })
         } else if (tabKey === 'option6') {
             //option6
-            request('/zybadmin/nationGovVisual/' + switchFlag + '/option6').then(res => {
+            request('/zyb/nationGovVisual/' + switchFlag + '/option6').then(res => {
                 if (res && res.flag) {
                     this.setState({option6Data: res.data})
                 }
             })
         } else if (tabKey === 'option7') {
             //option7
-            request('/zybadmin/nationGovVisual/' + switchFlag + '/option7').then(res => {
+            request('/zyb/nationGovVisual/' + switchFlag + '/option7').then(res => {
                 if (res && res.flag) {
                     this.setState({option7Data: res.data})
                 }
