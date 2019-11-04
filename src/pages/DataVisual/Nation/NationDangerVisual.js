@@ -45,10 +45,10 @@ export default class NationDangerVisual extends Component {
                 this.setState({option2Data: res.data})
             }
         })
-        //option3
-        request('/zybadmin/nationDangerVisual/' + switchFlag + '/option3').then(res => {
+        //option4
+        request('/zybadmin/nationDangerVisual/' + switchFlag + '/option4').then(res => {
             if (res && res.flag) {
-                this.setState({option3Data: res.data})
+                this.setState({option4Data: res.data})
             }
         })
 
@@ -390,13 +390,17 @@ export default class NationDangerVisual extends Component {
                 }
             ]
         }
+
         let option4 = {
             color: ['#CCFFCC', 'blue', 'yellow', 'red'],
             tooltip: {
-                trigger: 'axis'
+                trigger: 'axis',
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
             },
             legend: {
-                data: ['暂无风险', '低度风险(Ⅰ级)', '中度风险(Ⅱ级)', '高度风险(Ⅲ级)'],
+                data: ['暂无风险', '低度风险(Ⅰ级)', '中度风险(Ⅱ级)', '高度风险(Ⅲ级)']
             },
             grid: {
                 left: '3%',
@@ -404,44 +408,54 @@ export default class NationDangerVisual extends Component {
                 bottom: '3%',
                 containLabel: true
             },
-            xAxis: {
-                type: 'category',
-                boundaryGap: true,
-                data: this.state.option4Data.flagList
-            },
-            yAxis: {
-                type: 'value'
-            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: ['煤炭开采和洗选业', '石油和天然气开采业', '黑色金属矿采选业', '有色金属矿采选业', '非金属矿采选业', '开采辅助活动', '其他采矿业', '农副食品加工业', '食品制造业', '酒、饮料和精制茶制造业', '烟草制品业 ', '纺织业', '纺织服装、服饰业', '皮革、毛皮、羽毛及其制品和制鞋业', '木材加工和木、竹、藤、棕、草制品业', '家具制造业 ', '造纸和纸制品业 ', '印刷和记录媒介复制业', '文教、工美、体育和娱乐用品制造业', '石油加工、炼焦和核燃料加工业 ', '化学原料和化学制品制造业', '医药制造业 ', '化学纤维制造业', '橡胶和塑料制品业', '非金属矿物制品业', '黑色金属冶炼和压延加工业 ', '有色金属冶炼和压延加工业 ', '金属制品业 ', '通用设备制造业', '专用设备制造业 ', '汽车制造业', '铁路、船舶、航空航天和其他运输设备制造业', '电气机械和器材制造业 ', '计算机、通信和其他电子设备制造业', '仪器仪表制造业', '其他制造业', '废弃资源综合利用业', '金属制品、机械和设备修理业', '电力、热力生产和供应业', '燃气生产和供应业', '水的生产和供应业']
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
             series: [
                 {
                     name: '暂无风险',
-                    type: 'line',
-                    data: this.state.option4Data.zero
+                    type: 'bar',
+                    stack: '因素',
+                    data: this.state.option4Data && this.state.option4Data.list1
                 },
                 {
                     name: '低度风险(Ⅰ级)',
-                    type: 'line',
-                    data: this.state.option4Data.one
+                    type: 'bar',
+                    stack: '因素',
+                    data: this.state.option4Data && this.state.option4Data.list2
                 },
                 {
                     name: '中度风险(Ⅱ级)',
-                    type: 'line',
-                    data: this.state.option4Data.two
+                    type: 'bar',
+                    stack: '因素2',
+                    data: this.state.option4Data && this.state.option4Data.list3
                 },
                 {
                     name: '高度风险(Ⅲ级)',
-                    type: 'line',
-                    data: this.state.option4Data.three
+                    type: 'bar',
+                    stack: '因素2',
+                    data: this.state.option4Data && this.state.option4Data.list4
                 }
             ]
         }
         let option5 = {
             color: ['#CCFFCC', 'blue', 'yellow', 'red'],
             tooltip: {
-                trigger: 'axis'
+                trigger: 'axis',
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
             },
             legend: {
-                data: ['暂无风险', '低度风险(Ⅰ级)', '中度风险(Ⅱ级)', '高度风险(Ⅲ级)'],
+                data: ['暂无风险', '低度风险(Ⅰ级)', '中度风险(Ⅱ级)', '高度风险(Ⅲ级)']
             },
             grid: {
                 left: '3%',
@@ -449,37 +463,41 @@ export default class NationDangerVisual extends Component {
                 bottom: '3%',
                 containLabel: true
             },
-            xAxis: {
-                type: 'category',
-                boundaryGap: true,
-                data: this.state.option5Data.flagList
-            },
-            yAxis: {
-                type: 'value'
-            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: ['国有企业', '集体企业', '股份合作企业', '联营企业', '联营企业', '联营企业', '联营企业', '联营企业', '有限责任公司', '有限责任公司', '有限责任公司', '股份有限公司', '私营企业', '私营企业', '私营企业', '私营企业', '私营企业', '其他企业', '合资经营企业（港或澳、台资）', '合作经营企业（港或澳、台资）', '港、澳、台商独资经营企业', '港、澳、台商投资股份有限公司', '其他港、澳、台商投资企业', '中外合资经营企业', '中外合作经营企业', '外资企业', '外商投资股份有限公司', '其他外商投资企业', '事业单位', '社会团体']
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
             series: [
                 {
                     name: '暂无风险',
-                    type: 'line',
-                    data: this.state.option5Data.zero
+                    type: 'bar',
+                    data: this.state.option5Data && this.state.option5Data.list1
                 },
                 {
                     name: '低度风险(Ⅰ级)',
-                    type: 'line',
-                    data: this.state.option5Data.one
+                    type: 'bar',
+                    data: this.state.option5Data && this.state.option5Data.list2
                 },
                 {
                     name: '中度风险(Ⅱ级)',
-                    type: 'line',
-                    data: this.state.option5Data.two
+                    type: 'bar',
+                    data: this.state.option5Data && this.state.option5Data.list3
                 },
                 {
                     name: '高度风险(Ⅲ级)',
-                    type: 'line',
-                    data: this.state.option5Data.three
+                    type: 'bar',
+                    data: this.state.option5Data && this.state.option5Data.list4
                 }
             ]
         }
+
         let option6 = {
             color: ['#CCFFCC', 'blue', 'yellow', 'red'],
             tooltip: {
@@ -593,15 +611,15 @@ export default class NationDangerVisual extends Component {
                         headStyle={{height: 57}}
                         extra={<Button type="dashed" onClick={() => this.detailData('one')}>详细数据</Button>}
                     >
-                        <Tabs defaultActiveKey="1" onChange={this.onChange}>
-                            <TabPane tab="行政区划(企业)" key="areaOfEnterprise">
-                                <ReactEcharts
-                                    option={option3}
-                                    onEvents={onEvents1} style={{height: '50vh'}}/>
-                            </TabPane>
+                        <Tabs defaultActiveKey="industryOfEnterprise" onChange={this.onChange}>
                             <TabPane tab="行业(企业)" key="industryOfEnterprise">
                                 <ReactEcharts
                                     option={option4}
+                                    onEvents={onEvents1} style={{height: '50vh'}}/>
+                            </TabPane>
+                            <TabPane tab="行政区划(企业)" key="areaOfEnterprise">
+                                <ReactEcharts
+                                    option={option3}
                                     onEvents={onEvents1} style={{height: '50vh'}}/>
                             </TabPane>
                             <TabPane tab="登记注册类型(企业)" key="registerTypeOfEnterprise">
