@@ -18,7 +18,7 @@ export default {
     ],
     routes: [
         {
-            path: 'visual',
+            path: '/visual',
             component: '../layouts/VisualLayout',
             routes: [
                 {path: '/visual', redirect: '/visual/NationVisual'},
