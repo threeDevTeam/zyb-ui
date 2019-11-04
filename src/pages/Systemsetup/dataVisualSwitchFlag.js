@@ -19,7 +19,7 @@ class dataVisualSwitchFlag extends PureComponent {
         this.core = new FormCore();
     }
     componentWillMount() {
-        request.get('/zybadmin/dataVisualSwitchFlag/list').then(res =>{
+        request.get('/zyb/dataVisualSwitchFlag/list').then(res =>{
             if(res && res.flag){
                 this.core.setValues({...res.data})
             }
@@ -27,7 +27,7 @@ class dataVisualSwitchFlag extends PureComponent {
     }
     handleOperator = () => {
         console.log(this.core.value)
-        request.post('/zybadmin/dataVisualSwitchFlag/up', {data: this.core.value}).then(res => {
+        request.post('/zyb/dataVisualSwitchFlag/up', {data: this.core.value}).then(res => {
             if (res && res.flag) {
                 message.success("修改成功")
                 window.location.href ='/dataVisualSwitchFlag'

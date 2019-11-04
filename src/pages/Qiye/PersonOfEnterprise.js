@@ -42,7 +42,7 @@ class PersonOfEnterprise extends PureComponent {
                 content: <PersonOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
 
-                    request.post('/zybadmin/personOfEnterprise/add', {data: {...values}}).then(res => {
+                    request.post('/zyb/personOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
                             hide()
@@ -60,7 +60,7 @@ class PersonOfEnterprise extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/personOfEnterprise/getById?id=' + this.state.record.id).then(res => {
+            request('/zyb/personOfEnterprise/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -71,7 +71,7 @@ class PersonOfEnterprise extends PureComponent {
                         enableValidate: true,
                         content: <PersonOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/personOfEnterprise/edit', {data: {...values}}).then(res => {
+                            request.post('/zyb/personOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -110,7 +110,7 @@ class PersonOfEnterprise extends PureComponent {
                     //将表单数据放入formData
                     formData.append("form", JSON.stringify(values))
                     //异步请求
-                    request.post('/zybadmin/personOfEnterprise/exceladd',{method: 'post', data: formData}).then(res => {
+                    request.post('/zyb/personOfEnterprise/exceladd',{method: 'post', data: formData}).then(res => {
                         if(res.flag){
                             modal.update({content: '操作成功', okButtonProps: {disabled: false}})
                             globalList.refresh()
@@ -132,7 +132,7 @@ class PersonOfEnterprise extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除姓名=${this.state.record.name}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/personOfEnterprise/delete?id=' + this.state.record.id).then(res => {
+                    request('/zyb/personOfEnterprise/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -162,7 +162,7 @@ class PersonOfEnterprise extends PureComponent {
 
     render() {
         return (
-            <List url='/zybadmin/personOfEnterprise/list'onError={this.handleError} onMount={this.onMount}>
+            <List url='/zyb/personOfEnterprise/list'onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
                     <Filter.Item label="姓名" name="name"><Input/></Filter.Item>
 
@@ -176,7 +176,7 @@ class PersonOfEnterprise extends PureComponent {
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                             className={styles.marginLeft20}>删除</Button>
                     <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('download')}
-                            className={styles.marginLeft20} href={'/zybadmin/excelTemplate/download'+window.location.pathname.replace("/zybadmin","")}>下载模板</Button>
+                            className={styles.marginLeft20} href={'/zyb/excelTemplate/download'+window.location.pathname.replace("/zyb","")}>下载模板</Button>
                     <Button icon="upload" type="primary" className={styles.marginLeft20} onClick={() => this.handleOperator('upExcel')}>上传Excel</Button>
 
                 </div>

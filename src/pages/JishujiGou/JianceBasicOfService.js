@@ -40,7 +40,7 @@ class JianceBasicOfService extends PureComponent {
                 enableValidate: true,
                 content: <JianceBasicOfServiceDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    request.post('/zybadmin/jianceBasicOfService/add', {data: {...values}}).then(res => {
+                    request.post('/zyb/jianceBasicOfService/add', {data: {...values}}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")
                             hide()
@@ -58,7 +58,7 @@ class JianceBasicOfService extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/jianceBasicOfService/getById?id=' + this.state.record.id).then(res => {
+            request('/zyb/jianceBasicOfService/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -69,7 +69,7 @@ class JianceBasicOfService extends PureComponent {
                         enableValidate: true,
                         content: <JianceBasicOfServiceDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/jianceBasicOfService/edit', {data: {...values}}).then(res => {
+                            request.post('/zyb/jianceBasicOfService/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -108,7 +108,7 @@ class JianceBasicOfService extends PureComponent {
                     //将表单数据放入formData
                     formData.append("form", JSON.stringify(values))
                     //异步请求
-                    request.post('/zybadmin/jianceBasicOfService/exceladd',{method: 'post', data: formData}).then(res => {
+                    request.post('/zyb/jianceBasicOfService/exceladd',{method: 'post', data: formData}).then(res => {
                         if(res.flag){
                             modal.update({content: '操作成功', okButtonProps: {disabled: false}})
                             globalList.refresh()
@@ -131,7 +131,7 @@ class JianceBasicOfService extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除机构名称=${this.state.record.name}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/jianceBasicOfService/delete?id=' + this.state.record.id).then(res => {
+                    request('/zyb/jianceBasicOfService/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -161,7 +161,7 @@ class JianceBasicOfService extends PureComponent {
 
     render() {
         return (
-            <List url='/zybadmin/jianceBasicOfService/list'onError={this.handleError} onMount={this.onMount}>
+            <List url='/zyb/jianceBasicOfService/list'onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
                     <Filter.Item label="机构名称" name="name"><Input/></Filter.Item>
                     <Filter.Item label="申报年份" name="year"><Input/></Filter.Item>
@@ -175,7 +175,7 @@ class JianceBasicOfService extends PureComponent {
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                             className={styles.marginLeft20}>删除</Button>
                     <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('download')}
-                            className={styles.marginLeft20} href={'/zybadmin/excelTemplate/download'+window.location.pathname.replace("/zybadmin","")}>下载模板</Button>
+                            className={styles.marginLeft20} href={'/zyb/excelTemplate/download'+window.location.pathname.replace("/zyb","")}>下载模板</Button>
                     <Button icon="upload" type="primary" className={styles.marginLeft20} onClick={() => this.handleOperator('upExcel')}>上传Excel</Button>
                 </div>
                 <Table onRow={record => {

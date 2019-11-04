@@ -50,7 +50,7 @@ class TouchPersonOfEnterpriseDemoForm extends PureComponent {
             this.core.setValue('startDateStr', moment(startDateStr, 'YYYY-MM-DD'))
             this.core.setValue('leaveDateStr', moment(leaveDateStr, 'YYYY-MM-DD'))
         }
-        request.get('/zybadmin/touchPersonOfEnterprise/TreeSelcetData').then(res => {
+        request.get('/zyb/touchPersonOfEnterprise/TreeSelcetData').then(res => {
             if (res && res.flag) {
                 this.setState({dataSource: res.data})
             }

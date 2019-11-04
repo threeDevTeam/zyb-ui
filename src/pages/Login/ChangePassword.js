@@ -20,7 +20,7 @@ class Register extends PureComponent {
 
         this.core.validate((err) => {
             if (!err) {
-                request.post('/zybadmin/sysUser/changePassword', {data: this.core.value}).then(res => {
+                request.post('/zyb/sysUser/changePassword', {data: this.core.value}).then(res => {
                     if (res.flag) {
                         window.location.href ='/user/login'
                        message.success("修改成功")

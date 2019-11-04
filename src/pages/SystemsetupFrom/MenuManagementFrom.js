@@ -25,7 +25,7 @@ class MenuManagementFrom extends PureComponent {
             this.core.setValues({...record})
             this.core.setGlobalStatus('edit' === type ? type : 'preview')
         }
-        request.get('/zybadmin/sysMenu/sysMenutree').then(res =>{
+        request.get('/zyb/sysMenu/sysMenutree').then(res =>{
             console.log(res.data)
             if(res && res.flag){
                 this.setState({dataSource:res.data})

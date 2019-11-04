@@ -41,7 +41,7 @@ class ZhenduanTotalOfService extends PureComponent {
                 enableValidate: true,
                 content: <ZhenduanTotalOfServiceDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    request.post('/zybadmin/zhenduanTotalOfService/add', {data: {...values}}).then(res => {
+                    request.post('/zyb/zhenduanTotalOfService/add', {data: {...values}}).then(res => {
                         if (res.flag) {
                             message.success("操作成功")
                             hide()
@@ -76,7 +76,7 @@ class ZhenduanTotalOfService extends PureComponent {
                     //将表单数据放入formData
                     formData.append("form", JSON.stringify(values))
                     //异步请求
-                    request.post('/zybadmin/zhenduanTotalOfService/exceladd',{method: 'post', data: formData}).then(res => {
+                    request.post('/zyb/zhenduanTotalOfService/exceladd',{method: 'post', data: formData}).then(res => {
                         if(res.flag){
                             modal.update({content: '操作成功', okButtonProps: {disabled: false}})
                             globalList.refresh()
@@ -92,7 +92,7 @@ class ZhenduanTotalOfService extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/zhenduanTotalOfService/getById?id=' + this.state.record.id).then(res => {
+            request('/zyb/zhenduanTotalOfService/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -103,7 +103,7 @@ class ZhenduanTotalOfService extends PureComponent {
                         enableValidate: true,
                         content: <ZhenduanTotalOfServiceDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/zhenduanTotalOfService/edit', {data: {...values}}).then(res => {
+                            request.post('/zyb/zhenduanTotalOfService/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -131,7 +131,7 @@ class ZhenduanTotalOfService extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除id=${this.state.record.id}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/zhenduanTotalOfService/delete?id=' + this.state.record.id).then(res => {
+                    request('/zyb/zhenduanTotalOfService/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -164,7 +164,7 @@ class ZhenduanTotalOfService extends PureComponent {
     render() {
         return (
 
-            <List url='/zybadmin/zhenduanTotalOfService/list'  onError={this.handleError} onMount={this.onMount}>
+            <List url='/zyb/zhenduanTotalOfService/list'  onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
                     <Filter.Item label="年份" name="year"><Input/></Filter.Item>
 
@@ -178,7 +178,7 @@ class ZhenduanTotalOfService extends PureComponent {
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                             className={styles.marginLeft20}>删除</Button>
                     <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('download')}
-                            className={styles.marginLeft20} href={'/zybadmin/excelTemplate/download'+window.location.pathname.replace("/zybadmin","")}>下载模板</Button>
+                            className={styles.marginLeft20} href={'/zyb/excelTemplate/download'+window.location.pathname.replace("/zyb","")}>下载模板</Button>
                     <Button icon="upload" type="primary" className={styles.marginLeft20} onClick={() => this.handleOperator('upExcel')}>上传Excel</Button>
 
                 </div>

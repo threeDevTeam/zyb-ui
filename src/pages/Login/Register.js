@@ -21,7 +21,7 @@ class Register extends PureComponent {
 
         this.core.validate((err) => {
             if (!err) {
-                request.post('/zybadmin/sysUser/register', {data: this.core.value}).then(res => {
+                request.post('/zyb/sysUser/register', {data: this.core.value}).then(res => {
                     if (res.flag) {
                         sessionStorage.setItem("loginName", res.data.loginName)
 

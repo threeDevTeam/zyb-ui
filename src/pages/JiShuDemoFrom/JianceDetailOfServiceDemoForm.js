@@ -53,28 +53,28 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
             delete record.checkDateStr
             this.core.setValue('checkDateStr', moment(checkDateStr, 'YYYY-MM-DD'))
         }
-        request.get('/zybadmin/areaOfDic/cascadeData').then(res => {
+        request.get('/zyb/areaOfDic/cascadeData').then(res => {
             if (res && res.flag) {
                 this.setState({dataSource: res.data})
             }
         })
-        request.get('/zybadmin/jianceDetailOfService/cascadeData1').then(res => {
+        request.get('/zyb/jianceDetailOfService/cascadeData1').then(res => {
             if (res && res.flag) {
                 this.setState({dataSource1: res.data})
             }
         })
-        request.get('/zybadmin/jianceDetailOfService/cascadeData2').then(res => {
+        request.get('/zyb/jianceDetailOfService/cascadeData2').then(res => {
             if (res && res.flag) {
                 this.setState({dataSource2: res.data})
             }
         })
-        request.get('/zybadmin/jianceDetailOfService/cascadeData3').then(res => {
+        request.get('/zyb/jianceDetailOfService/cascadeData3').then(res => {
             if (res && res.flag) {
                 this.setState({dataSource3: res.data})
             }
         })
 
-        request.get('/zybadmin/jianceDetailOfService/cascadeData4').then(res => {
+        request.get('/zyb/jianceDetailOfService/cascadeData4').then(res => {
             if (res && res.flag) {
                 this.setState({dataSource4: res.data})
             }

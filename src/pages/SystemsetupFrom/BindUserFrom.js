@@ -30,7 +30,7 @@ class BindUserFrom extends PureComponent {
             this.setState({records:record})
             console.log(record)
         }
-        request.get('/zybadmin/sysRole/bindUser').then(res => {
+        request.get('/zyb/sysRole/bindUser').then(res => {
             if (res && res.flag) {
                 this.setState({dataSource: res.data})
             }

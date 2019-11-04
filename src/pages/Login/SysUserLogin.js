@@ -121,7 +121,7 @@ class SysUserLogin extends PureComponent {
                     if (this.core.value.startDateStr) {
                         this.core.value.startDateStr = this.core.value.startDateStr.format('YYYY-MM-DD')
                     }
-                    request.post('/zybadmin/enterpriseOfRegister/add', {data: this.core.value}).then(res => {
+                    request.post('/zyb/enterpriseOfRegister/add', {data: this.core.value}).then(res => {
                         console.log(res)
                         if (res.flag) {
                             message.success("操作成功")
@@ -133,7 +133,7 @@ class SysUserLogin extends PureComponent {
                 }
 
             } else if (this.core.value.type === '政府监管部门') {
-                request.post('/zybadmin/superviseOfRegister/add', {data: this.core.value}).then(res => {
+                request.post('/zyb/superviseOfRegister/add', {data: this.core.value}).then(res => {
                     if (res.flag) {
                         message.success("操作成功")
                         window.location.href ='/user/login'
@@ -142,7 +142,7 @@ class SysUserLogin extends PureComponent {
                     }
                 })
             } else if (this.core.value.type === '技术服务机构') {
-                request.post('/zybadmin/serviceOfRegister/add', {data: this.core.value}).then(res => {
+                request.post('/zyb/serviceOfRegister/add', {data: this.core.value}).then(res => {
                     if (res.flag) {
                         message.success("操作成功")
                         window.location.href ='/user/login'
@@ -151,7 +151,7 @@ class SysUserLogin extends PureComponent {
                     }
                 })
             } else if (this.core.value.type === '普通用户') {
-                request.post('/zybadmin/sysUser/add', {data: this.core.value}).then(res => {
+                request.post('/zyb/sysUser/add', {data: this.core.value}).then(res => {
                     if (res.flag) {
                         message.success("操作成功")
                         window.location.href ='/user/login'
@@ -245,7 +245,7 @@ class SysUserLogin extends PureComponent {
     }
     componentWillMount() {
 
-        request.get('/zybadmin/areaOfDic/cascadeData').then(res =>{
+        request.get('/zyb/areaOfDic/cascadeData').then(res =>{
             if(res.flag){
                 this.setState({dataSource:res.data})
             }

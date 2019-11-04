@@ -34,7 +34,7 @@ class FixCheckResultOfEnterprise extends PureComponent {
                 enableValidate: true,
                 content: <FixCheckResultOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    request.post('/zybadmin/fixCheckResultOfEnterprise/add', {data: {...values}}).then(res => {
+                    request.post('/zyb/fixCheckResultOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
                             hide()
@@ -52,7 +52,7 @@ class FixCheckResultOfEnterprise extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/fixCheckResultOfEnterprise/getById?id=' + this.state.record.id).then(res => {
+            request('/zyb/fixCheckResultOfEnterprise/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -63,7 +63,7 @@ class FixCheckResultOfEnterprise extends PureComponent {
                         enableValidate: true,
                         content: <FixCheckResultOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/fixCheckResultOfEnterprise/edit', {data: {...values}}).then(res => {
+                            request.post('/zyb/fixCheckResultOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -91,7 +91,7 @@ class FixCheckResultOfEnterprise extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除username=${this.state.record.username}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/fixCheckResultOfEnterprise/delete?id=' + this.state.record.id).then(res => {
+                    request('/zyb/fixCheckResultOfEnterprise/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -123,7 +123,7 @@ class FixCheckResultOfEnterprise extends PureComponent {
 
     render() {
         return (
-            <List url='/zybadmin/fixCheckResultOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
+            <List url='/zyb/fixCheckResultOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
                     <Filter.Item label="username" name="username"><Input/></Filter.Item>
                     <Filter.Item label="age" name="age"><Input/></Filter.Item>
@@ -144,7 +144,7 @@ class FixCheckResultOfEnterprise extends PureComponent {
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                             className={styles.marginLeft20}>删除</Button>
                     <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('download')}
-                            className={styles.marginLeft20} href={'/zybadmin/excelTemplate/download'+window.location.pathname.replace("/zybadmin","")}>下载模板</Button>
+                            className={styles.marginLeft20} href={'/zyb/excelTemplate/download'+window.location.pathname.replace("/zyb","")}>下载模板</Button>
 
                 </div>
                 <Table onRow={record => {

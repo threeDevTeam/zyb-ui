@@ -35,7 +35,7 @@ class MenuManagement extends PureComponent {
                 content: <MenuManagementFrom option={{type}}/>,
                 onOk: (values, hide) => {
                     console.log(values)
-                    request.post('/zybadmin/sysMenu/add', {data: {...values}}).then(res => {
+                    request.post('/zyb/sysMenu/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
                             hide()
@@ -53,7 +53,7 @@ class MenuManagement extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/sysMenu/getById?id=' + this.state.record.id).then(res => {
+            request('/zyb/sysMenu/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -64,7 +64,7 @@ class MenuManagement extends PureComponent {
                         enableValidate: true,
                         content: <MenuManagementFrom option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/sysMenu/edit', {data: {...values}}).then(res => {
+                            request.post('/zyb/sysMenu/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -92,7 +92,7 @@ class MenuManagement extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除username=${this.state.record.username}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/demo/delete?id=' + this.state.record.id).then(res => {
+                    request('/zyb/demo/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -126,7 +126,7 @@ class MenuManagement extends PureComponent {
 
     render() {
         return (
-            <List url='/zybadmin/sysMenu/list' onError={this.handleError} onMount={this.onMount}>
+            <List url='/zyb/sysMenu/list' onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
                     <Filter.Item label="名称" name="name"><Input/></Filter.Item>
                 </Filter>

@@ -44,7 +44,7 @@ class PostDangerOfEnterprise extends PureComponent {
                     if (values.upDateeStr) {
                         values.upDateeStr = values.upDateeStr.format('YYYY-MM-DD')
                     }
-                    request.post('/zybadmin/postDangerOfEnterprise/add', {data: {...values}}).then(res => {
+                    request.post('/zyb/postDangerOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
                             hide()
@@ -62,7 +62,7 @@ class PostDangerOfEnterprise extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/postDangerOfEnterprise/getById?id=' + this.state.record.id).then(res => {
+            request('/zyb/postDangerOfEnterprise/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -76,7 +76,7 @@ class PostDangerOfEnterprise extends PureComponent {
                             if (values.upDateeStr) {
                                 values.upDateeStr = values.upDateeStr.format('YYYY-MM-DD')
                             }
-                            request.post('/zybadmin/postDangerOfEnterprise/edit', {data: {...values}}).then(res => {
+                            request.post('/zyb/postDangerOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -115,7 +115,7 @@ class PostDangerOfEnterprise extends PureComponent {
                     //将表单数据放入formData
                     formData.append("form", JSON.stringify(values))
                     //异步请求
-                    request.post('/zybadmin/postDangerOfEnterprise/exceladd',{method: 'post', data: formData}).then(res => {
+                    request.post('/zyb/postDangerOfEnterprise/exceladd',{method: 'post', data: formData}).then(res => {
                         if(res.flag){
                             modal.update({content: '操作成功', okButtonProps: {disabled: false}})
                             globalList.refresh()
@@ -137,7 +137,7 @@ class PostDangerOfEnterprise extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除申报时间=${this.state.record.upDatee}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/postDangerOfEnterprise/delete?id=' + this.state.record.id).then(res => {
+                    request('/zyb/postDangerOfEnterprise/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -167,7 +167,7 @@ class PostDangerOfEnterprise extends PureComponent {
 
     render() {
         return (
-            <List url='/zybadmin/postDangerOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
+            <List url='/zyb/postDangerOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
                     <Filter.Item label="申报时间" name="upDatee"><Input/></Filter.Item>
                 </Filter>
@@ -180,7 +180,7 @@ class PostDangerOfEnterprise extends PureComponent {
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                             className={styles.marginLeft20}>删除</Button>
                     <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('download')}
-                            className={styles.marginLeft20} href={'/zybadmin/excelTemplate/download'+window.location.pathname.replace("/zybadmin","")}>下载模板</Button>
+                            className={styles.marginLeft20} href={'/zyb/excelTemplate/download'+window.location.pathname.replace("/zyb","")}>下载模板</Button>
                     <Button icon="upload" type="primary" className={styles.marginLeft20} onClick={() => this.handleOperator('upExcel')}>上传Excel</Button>
 
                 </div>

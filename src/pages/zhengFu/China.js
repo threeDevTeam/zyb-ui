@@ -15,7 +15,7 @@ class China extends PureComponent {
     };
 
     componentWillMount() {
-        request.get('/zybadmin/areaOfDic/cascadeData').then(res => {
+        request.get('/zyb/areaOfDic/cascadeData').then(res => {
             if (res.flag) {
                 this.setState({dataSource: res.data})
             }

@@ -34,7 +34,7 @@ class DiseaseDangerSumOfEnterprise extends PureComponent {
                 enableValidate: true,
                 content: <DiseaseDangerSumOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    request.post('/zybadmin/diseaseDangerSumOfEnterprise/add', {data: {...values}}).then(res => {
+                    request.post('/zyb/diseaseDangerSumOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
                             hide()
@@ -52,7 +52,7 @@ class DiseaseDangerSumOfEnterprise extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/diseaseDangerSumOfEnterprise/getById?id=' + this.state.record.id).then(res => {
+            request('/zyb/diseaseDangerSumOfEnterprise/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -63,7 +63,7 @@ class DiseaseDangerSumOfEnterprise extends PureComponent {
                         enableValidate: true,
                         content: <DiseaseDangerSumOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/diseaseDangerSumOfEnterprise/edit', {data: {...values}}).then(res => {
+                            request.post('/zyb/diseaseDangerSumOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -91,7 +91,7 @@ class DiseaseDangerSumOfEnterprise extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除月份=${this.state.record.month}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/diseaseDangerSumOfEnterprise/delete?id=' + this.state.record.id).then(res => {
+                    request('/zyb/diseaseDangerSumOfEnterprise/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -121,7 +121,7 @@ class DiseaseDangerSumOfEnterprise extends PureComponent {
 
     render() {
         return (
-            <List url='/zybadmin/diseaseDangerSumOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
+            <List url='/zyb/diseaseDangerSumOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
                     <Filter.Item label="月份" name="month"><Input/></Filter.Item>
 
@@ -136,7 +136,7 @@ class DiseaseDangerSumOfEnterprise extends PureComponent {
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                             className={styles.marginLeft20}>删除</Button>
                     <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('download')}
-                            className={styles.marginLeft20} href={'/zybadmin/excelTemplate/download'+window.location.pathname.replace("/zybadmin","")}>下载模板</Button>
+                            className={styles.marginLeft20} href={'/zyb/excelTemplate/download'+window.location.pathname.replace("/zyb","")}>下载模板</Button>
 
                 </div>
                 <Table onRow={record => {

@@ -19,7 +19,7 @@ class Email extends PureComponent {
     handleOperator = () => {
             this.core.validate((err) => {
                 if (!err) {
-                    request.post('/zybadmin/email/sendMail', {data: this.core.value}).then(res => {
+                    request.post('/zyb/email/sendMail', {data: this.core.value}).then(res => {
                         if (res.flag) {
                             message.success("登录成功")
 

@@ -35,17 +35,17 @@ componentWillMount() {
   this.core.setValue('upDateeStr', moment(upDateeStr, 'YYYY-MM-DD'))
 
  }
- request.get('/zybadmin/postDangerOfEnterprise/TreeSelcetData').then(res =>{
+ request.get('/zyb/postDangerOfEnterprise/TreeSelcetData').then(res =>{
   if(res && res.flag){
    this.setState({dataSource:res.data})
   }
  })
- request.get('/zybadmin/jianceDetailOfService/cascadeData4').then(res => {
+ request.get('/zyb/jianceDetailOfService/cascadeData4').then(res => {
   if (res && res.flag) {
    this.setState({dataSource1: res.data})
   }
  })
- request.get('/zybadmin/zhenduanDetailOfService/cascadeData5').then(res => {
+ request.get('/zyb/zhenduanDetailOfService/cascadeData5').then(res => {
   if (res && res.flag) {
    this.setState({dataSource2: res.data})
   }

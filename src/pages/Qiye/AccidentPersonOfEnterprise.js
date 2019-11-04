@@ -43,7 +43,7 @@ class AccidentPersonOfEnterprise extends PureComponent {
                     if (values.dieDateStr) {
                         values.dieDateStr = values.dieDateStr.format('YYYY-MM-DD')
                     }
-                    request.post('/zybadmin/accidentPersonOfEnterprise/add', {data: {...values}}).then(res => {
+                    request.post('/zyb/accidentPersonOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
                             hide()
@@ -61,7 +61,7 @@ class AccidentPersonOfEnterprise extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/accidentPersonOfEnterprise/getById?id=' + this.state.record.id).then(res => {
+            request('/zyb/accidentPersonOfEnterprise/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -75,7 +75,7 @@ class AccidentPersonOfEnterprise extends PureComponent {
                             if (values.dieDateStr) {
                                 values.dieDateStr = values.dieDateStr.format('YYYY-MM-DD')
                             }
-                            request.post('/zybadmin/accidentPersonOfEnterprise/edit', {data: {...values}}).then(res => {
+                            request.post('/zyb/accidentPersonOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -114,7 +114,7 @@ class AccidentPersonOfEnterprise extends PureComponent {
                     //将表单数据放入formData
                     formData.append("form", JSON.stringify(values))
                     //异步请求
-                    request.post('/zybadmin/accidentPersonOfEnterprise/exceladd',{method: 'post', data: formData}).then(res => {
+                    request.post('/zyb/accidentPersonOfEnterprise/exceladd',{method: 'post', data: formData}).then(res => {
                         if(res.flag){
                             modal.update({content: '操作成功', okButtonProps: {disabled: false}})
                             globalList.refresh()
@@ -136,7 +136,7 @@ class AccidentPersonOfEnterprise extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除姓名=${this.state.record.name}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/accidentPersonOfEnterprise/delete?id=' + this.state.record.id).then(res => {
+                    request('/zyb/accidentPersonOfEnterprise/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -166,7 +166,7 @@ class AccidentPersonOfEnterprise extends PureComponent {
 
     render() {
         return (
-            <List url='/zybadmin/accidentPersonOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
+            <List url='/zyb/accidentPersonOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
                     <Filter.Item label="职业病危害事故编号" name="accidentNum"><Input/></Filter.Item>
                     <Filter.Item label="姓名" name="name"><Input/></Filter.Item>
@@ -181,7 +181,7 @@ class AccidentPersonOfEnterprise extends PureComponent {
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                             className={styles.marginLeft20}>删除</Button>
                     <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('download')}
-                            className={styles.marginLeft20} href={'/zybadmin/excelTemplate/download'+window.location.pathname.replace("/zybadmin","")}>下载模板</Button>
+                            className={styles.marginLeft20} href={'/zyb/excelTemplate/download'+window.location.pathname.replace("/zyb","")}>下载模板</Button>
                     <Button icon="upload" type="primary" className={styles.marginLeft20} onClick={() => this.handleOperator('upExcel')}>上传Excel</Button>
 
                 </div>

@@ -37,12 +37,12 @@ componentWillMount() {
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
  }
-    request.get('/zybadmin/areaOfDic/cascadeData').then(res =>{
+    request.get('/zyb/areaOfDic/cascadeData').then(res =>{
         if(res && res.flag){
             this.setState({dataSource:res.data})
         }
     })
-    request.get('/zybadmin/jianceBasicOfService/cascadeData').then(res =>{
+    request.get('/zyb/jianceBasicOfService/cascadeData').then(res =>{
         if(res && res.flag){
             this.setState({dataSource1:res.data})
         }

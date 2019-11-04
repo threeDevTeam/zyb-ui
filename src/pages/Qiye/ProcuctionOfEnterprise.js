@@ -40,7 +40,7 @@ class ProcuctionOfEnterprise extends PureComponent {
                 enableValidate: true,
                 content: <ProcuctionOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    request.post('/zybadmin/procuctionOfEnterprise/add', {data: {...values}}).then(res => {
+                    request.post('/zyb/procuctionOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
                             hide()
@@ -58,7 +58,7 @@ class ProcuctionOfEnterprise extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/procuctionOfEnterprise/getById?id=' + this.state.record.id).then(res => {
+            request('/zyb/procuctionOfEnterprise/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -69,7 +69,7 @@ class ProcuctionOfEnterprise extends PureComponent {
                         enableValidate: true,
                         content: <ProcuctionOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/procuctionOfEnterprise/edit', {data: {...values}}).then(res => {
+                            request.post('/zyb/procuctionOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -108,7 +108,7 @@ class ProcuctionOfEnterprise extends PureComponent {
                     //将表单数据放入formData
                     formData.append("form", JSON.stringify(values))
                     //异步请求
-                    request.post('/zybadmin/procuctionOfEnterprise/exceladd',{method: 'post', data: formData}).then(res => {
+                    request.post('/zyb/procuctionOfEnterprise/exceladd',{method: 'post', data: formData}).then(res => {
                         if(res.flag){
                             modal.update({content: '操作成功', okButtonProps: {disabled: false}})
                             globalList.refresh()
@@ -130,7 +130,7 @@ class ProcuctionOfEnterprise extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除产品名称=${this.state.record.name}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/procuctionOfEnterprise/delete?id=' + this.state.record.id).then(res => {
+                    request('/zyb/procuctionOfEnterprise/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -160,7 +160,7 @@ class ProcuctionOfEnterprise extends PureComponent {
 
     render() {
         return (
-            <List url='/zybadmin/procuctionOfEnterprise/list'onError={this.handleError} onMount={this.onMount}>
+            <List url='/zyb/procuctionOfEnterprise/list'onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
                     <Filter.Item label="产品名称" name="name"><Input/></Filter.Item>
                     <Filter.Item label="产量类型" name="productionType"><Input/></Filter.Item>
@@ -174,7 +174,7 @@ class ProcuctionOfEnterprise extends PureComponent {
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                             className={styles.marginLeft20}>删除</Button>
                     <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('download')}
-                            className={styles.marginLeft20} href={'/zybadmin/excelTemplate/download'+window.location.pathname.replace("/zybadmin","")}>下载模板</Button>
+                            className={styles.marginLeft20} href={'/zyb/excelTemplate/download'+window.location.pathname.replace("/zyb","")}>下载模板</Button>
                     <Button icon="upload" type="primary" className={styles.marginLeft20} onClick={() => this.handleOperator('upExcel')}>上传Excel</Button>
 
                 </div>

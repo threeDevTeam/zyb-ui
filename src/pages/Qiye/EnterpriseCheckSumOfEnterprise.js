@@ -41,7 +41,7 @@ class EnterpriseCheckSumOfEnterprise extends PureComponent {
                 enableValidate: true,
                 content: <EnterpriseCheckSumOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    request.post('/zybadmin/enterpriseCheckSumOfEnterprise/add', {data: {...values}}).then(res => {
+                    request.post('/zyb/enterpriseCheckSumOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
                             hide()
@@ -76,7 +76,7 @@ class EnterpriseCheckSumOfEnterprise extends PureComponent {
                     //将表单数据放入formData
                     formData.append("form", JSON.stringify(values))
                     //异步请求
-                    request.post('/zybadmin/enterpriseCheckSumOfEnterprise/exceladd',{method: 'post', data: formData}).then(res => {
+                    request.post('/zyb/enterpriseCheckSumOfEnterprise/exceladd',{method: 'post', data: formData}).then(res => {
                         if(res.flag){
                             modal.update({content: '操作成功', okButtonProps: {disabled: false}})
                             globalList.refresh()
@@ -92,7 +92,7 @@ class EnterpriseCheckSumOfEnterprise extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/enterpriseCheckSumOfEnterprise/getById?id=' + this.state.record.id).then(res => {
+            request('/zyb/enterpriseCheckSumOfEnterprise/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -103,7 +103,7 @@ class EnterpriseCheckSumOfEnterprise extends PureComponent {
                         enableValidate: true,
                         content: <EnterpriseCheckSumOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/enterpriseCheckSumOfEnterprise/edit', {data: {...values}}).then(res => {
+                            request.post('/zyb/enterpriseCheckSumOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -131,7 +131,7 @@ class EnterpriseCheckSumOfEnterprise extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除检测月份=${this.state.record.month}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/enterpriseCheckSumOfEnterprise/delete?id=' + this.state.record.id).then(res => {
+                    request('/zyb/enterpriseCheckSumOfEnterprise/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -161,7 +161,7 @@ class EnterpriseCheckSumOfEnterprise extends PureComponent {
 
     render() {
         return (
-            <List url='/zybadmin/enterpriseCheckSumOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
+            <List url='/zyb/enterpriseCheckSumOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
                     <Filter.Item label="检测月份" name="month"><Input/></Filter.Item>
                 </Filter>
@@ -174,7 +174,7 @@ class EnterpriseCheckSumOfEnterprise extends PureComponent {
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                             className={styles.marginLeft20}>删除</Button>
                     <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('download')}
-                            className={styles.marginLeft20} href={'/zybadmin/excelTemplate/download'+window.location.pathname.replace("/zybadmin","")}>下载模板</Button>
+                            className={styles.marginLeft20} href={'/zyb/excelTemplate/download'+window.location.pathname.replace("/zyb","")}>下载模板</Button>
                     <Button icon="upload" type="primary" className={styles.marginLeft20} onClick={() => this.handleOperator('upExcel')}>上传Excel</Button>
 
                 </div>

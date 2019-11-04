@@ -40,7 +40,7 @@ class HealthOfEnterprise extends PureComponent {
                 enableValidate: true,
                 content: <HealthOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    request.post('/zybadmin/healthOfEnterprise/add', {data: {...values}}).then(res => {
+                    request.post('/zyb/healthOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
                             hide()
@@ -75,7 +75,7 @@ class HealthOfEnterprise extends PureComponent {
                     //将表单数据放入formData
                     formData.append("form", JSON.stringify(values))
                     //异步请求
-                    request.post('/zybadmin/healthOfEnterprise/exceladd',{method: 'post', data: formData}).then(res => {
+                    request.post('/zyb/healthOfEnterprise/exceladd',{method: 'post', data: formData}).then(res => {
                         if(res.flag){
                             modal.update({content: '操作成功', okButtonProps: {disabled: false}})
                             globalList.refresh()
@@ -91,7 +91,7 @@ class HealthOfEnterprise extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/healthOfEnterprise/getById?id=' + this.state.record.id).then(res => {
+            request('/zyb/healthOfEnterprise/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -102,7 +102,7 @@ class HealthOfEnterprise extends PureComponent {
                         enableValidate: true,
                         content: <HealthOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/healthOfEnterprise/edit', {data: {...values}}).then(res => {
+                            request.post('/zyb/healthOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -130,7 +130,7 @@ class HealthOfEnterprise extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除id=${this.state.record.id}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/healthOfEnterprise/delete?id=' + this.state.record.id).then(res => {
+                    request('/zyb/healthOfEnterprise/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -160,7 +160,7 @@ class HealthOfEnterprise extends PureComponent {
 
     render() {
         return (
-            <List url='/zybadmin/healthOfEnterprise/list'  onError={this.handleError} onMount={this.onMount}>
+            <List url='/zyb/healthOfEnterprise/list'  onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
                     <Filter.Item label="是否制定职业病防治计划和实施方案" name="isA"><Input/></Filter.Item>
 
@@ -174,7 +174,7 @@ class HealthOfEnterprise extends PureComponent {
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                             className={styles.marginLeft20}>删除</Button>
                     <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('download')}
-                            className={styles.marginLeft20} href={'/zybadmin/excelTemplate/download'+window.location.pathname.replace("/zybadmin","")}>下载模板</Button>
+                            className={styles.marginLeft20} href={'/zyb/excelTemplate/download'+window.location.pathname.replace("/zyb","")}>下载模板</Button>
                     <Button icon="upload" type="primary" className={styles.marginLeft20} onClick={() => this.handleOperator('upExcel')}>上传Excel</Button>
 
                 </div>

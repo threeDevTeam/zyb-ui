@@ -47,12 +47,12 @@ componentWillMount() {
   this.core.setValue('dieDateStr', moment(dieDateStr, 'YYYY-MM-DD'))
  }
 
- request.get('/zybadmin/zhenduanDetailOfService/cascadeData5').then(res => {
+ request.get('/zyb/zhenduanDetailOfService/cascadeData5').then(res => {
   if (res && res.flag) {
    this.setState({dataSource1: res.data})
   }
  })
- request.get('/zybadmin/sickOfEnterprise/TreeSelcetData').then(res =>{
+ request.get('/zyb/sickOfEnterprise/TreeSelcetData').then(res =>{
   if(res && res.flag){
    this.setState({dataSource:res.data})
   }

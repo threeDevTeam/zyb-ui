@@ -27,12 +27,12 @@ componentWillMount() {
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
  }
- request.get('/zybadmin/postOfEnterprise/TreeSelcetData').then(res =>{
+ request.get('/zyb/postOfEnterprise/TreeSelcetData').then(res =>{
   if(res && res.flag){
    this.setState({dataSource:res.data})
   }
  })
- request.get('/zybadmin/jianceDetailOfService/cascadeData3').then(res => {
+ request.get('/zyb/jianceDetailOfService/cascadeData3').then(res => {
   if (res && res.flag) {
    this.setState({dataSource1: res.data})
   }

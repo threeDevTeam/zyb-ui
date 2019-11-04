@@ -51,7 +51,7 @@ class TouchPersonOfEnterprise extends PureComponent {
                     if (values.leaveDateStr) {
                         values.leaveDateStr = values.leaveDateStr.format('YYYY-MM-DD')
                     }
-                    request.post('/zybadmin/touchPersonOfEnterprise/add', {data: {...values}}).then(res => {
+                    request.post('/zyb/touchPersonOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
                             hide()
@@ -86,7 +86,7 @@ class TouchPersonOfEnterprise extends PureComponent {
                     //将表单数据放入formData
                     formData.append("form", JSON.stringify(values))
                     //异步请求
-                    request.post('/zybadmin/touchPersonOfEnterprise/exceladd', {
+                    request.post('/zyb/touchPersonOfEnterprise/exceladd', {
                         method: 'post',
                         data: formData
                     }).then(res => {
@@ -105,7 +105,7 @@ class TouchPersonOfEnterprise extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/touchPersonOfEnterprise/getById?id=' + this.state.record.id).then(res => {
+            request('/zyb/touchPersonOfEnterprise/getById?id=' + this.state.record.id).then(res => {
                 console.log(res)
                 if (res.flag) {
 
@@ -128,7 +128,7 @@ class TouchPersonOfEnterprise extends PureComponent {
                                 values.leaveDateStr = values.leaveDateStr.format('YYYY-MM-DD')
                             }
                            console.log(res)
-                            request.post('/zybadmin/touchPersonOfEnterprise/edit', {data: {...values}}).then(res => {
+                            request.post('/zyb/touchPersonOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -156,7 +156,7 @@ class TouchPersonOfEnterprise extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除姓名=${this.state.record.name}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/touchPersonOfEnterprise/delete?id=' + this.state.record.id).then(res => {
+                    request('/zyb/touchPersonOfEnterprise/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -186,7 +186,7 @@ class TouchPersonOfEnterprise extends PureComponent {
 
     render() {
         return (
-            <List url='/zybadmin/touchPersonOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
+            <List url='/zyb/touchPersonOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
                     <Filter.Item label="姓名" name="name"><Input/></Filter.Item>
                 </Filter>
@@ -200,7 +200,7 @@ class TouchPersonOfEnterprise extends PureComponent {
                             className={styles.marginLeft20}>删除</Button>
                     <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('download')}
                             className={styles.marginLeft20}
-                            href={'/zybadmin/excelTemplate/download' + window.location.pathname.replace("/zybadmin", "")}>下载模板</Button>
+                            href={'/zyb/excelTemplate/download' + window.location.pathname.replace("/zyb", "")}>下载模板</Button>
                     <Button icon="upload" type="primary" className={styles.marginLeft20}
                             onClick={() => this.handleOperator('upExcel')}>上传Excel</Button>
 

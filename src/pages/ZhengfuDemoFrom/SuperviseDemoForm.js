@@ -36,7 +36,7 @@ class SuperviseDemoForm extends PureComponent {
             this.core.setValues({...record})
             this.core.setGlobalStatus('edit' === type ? type : 'preview')
         }
-        request.get('/zybadmin/areaOfDic/cascadeData').then(res =>{
+        request.get('/zyb/areaOfDic/cascadeData').then(res =>{
             if(res && res.flag){
                 this.setState({dataSource:res.data})
             }

@@ -28,7 +28,7 @@ componentWillMount() {
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
  }
- request.get('/zybadmin/jianceDetailOfService/cascadeData4').then(res => {
+ request.get('/zyb/jianceDetailOfService/cascadeData4').then(res => {
   if (res && res.flag) {
    this.setState({dataSource1: res.data})
   }

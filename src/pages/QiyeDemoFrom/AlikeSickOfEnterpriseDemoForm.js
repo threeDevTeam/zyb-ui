@@ -36,7 +36,7 @@ componentWillMount() {
   delete record.checkDateStr
   this.core.setValue('checkDateStr', moment(checkDateStr, 'YYYY-MM-DD'))
  }
- request.get('/zybadmin/alikeSickOfEnterprise/TreeSelcetData').then(res =>{
+ request.get('/zyb/alikeSickOfEnterprise/TreeSelcetData').then(res =>{
   if(res && res.flag){
    this.setState({dataSource:res.data})
   }

@@ -34,7 +34,7 @@ componentWillMount() {
   delete record.dieDateStr
   this.core.setValue('dieDateStr', moment(dieDateStr, 'YYYY-MM-DD'))
  }
- request.get('/zybadmin/accidentPersonOfEnterprise/TreeSelcetData').then(res =>{
+ request.get('/zyb/accidentPersonOfEnterprise/TreeSelcetData').then(res =>{
   if(res && res.flag){
    this.setState({dataSource:res.data})
   }

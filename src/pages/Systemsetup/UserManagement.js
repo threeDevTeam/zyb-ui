@@ -34,7 +34,7 @@ class OtherOfDic extends PureComponent {
                 enableValidate: true,
                 content: <UserManagementFrom option={{type}}/>,
                 onOk: (values, hide) => {
-                    request.post('/zybadmin/sysUser/add', {data: {...values}}).then(res => {
+                    request.post('/zyb/sysUser/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
                             hide()
@@ -52,7 +52,7 @@ class OtherOfDic extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/sysUser/getById?id=' + this.state.record.id).then(res => {
+            request('/zyb/sysUser/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -63,7 +63,7 @@ class OtherOfDic extends PureComponent {
                         enableValidate: true,
                         content: <UserManagementFrom option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/sysUser/edit', {data: {...values}}).then(res => {
+                            request.post('/zyb/sysUser/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -91,7 +91,7 @@ class OtherOfDic extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除username=${this.state.record.username}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zybadmin/sysUser/delete?id=' + this.state.record.id).then(res => {
+                    request('/zyb/sysUser/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()
@@ -123,7 +123,7 @@ class OtherOfDic extends PureComponent {
 
     render() {
         return (
-            <List url='/zybadmin/sysUser/list' onError={this.handleError} onMount={this.onMount}>
+            <List url='/zyb/sysUser/list' onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
                     <Filter.Item label="用户名" name="loginName"><Input/></Filter.Item>
 

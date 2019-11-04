@@ -29,7 +29,7 @@ componentWillMount() {
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
  }
- request.get('/zybadmin/testOfEnterprise/TreeSelcetData').then(res =>{
+ request.get('/zyb/testOfEnterprise/TreeSelcetData').then(res =>{
   if(res && res.flag){
    this.setState({dataSource:res.data})
   }

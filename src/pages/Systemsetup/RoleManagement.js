@@ -36,7 +36,7 @@ class RoleManagement extends PureComponent {
                 enableValidate: true,
                 content: <RoleManagementFrom option={{type}}/>,
                 onOk: (values, hide) => {
-                    request.post('/zybadmin/sysRole/add', {data: {...values}}).then(res => {
+                    request.post('/zyb/sysRole/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
                             hide()
@@ -53,7 +53,7 @@ class RoleManagement extends PureComponent {
             message.warning('请先单击一条数据!')
             return
         }
-        request('/zybadmin/sysRoleMenu/getById?id=' + this.state.record.id).then(res => {
+        request('/zyb/sysRoleMenu/getById?id=' + this.state.record.id).then(res => {
             if ('authorization' === type) {
                 Dialog.show({
                     title: '授权',
@@ -65,7 +65,7 @@ class RoleManagement extends PureComponent {
                     content: <AuthorizationFrom option={{type, record: res.data}}/>,
                     onOk: (values, hide) => {
                         console.log(values)
-                        request.post('/zybadmin/sysRoleMenu/add?id=' + this.state.record.id, {data: {...values}}).then(res => {
+                        request.post('/zyb/sysRoleMenu/add?id=' + this.state.record.id, {data: {...values}}).then(res => {
                             if (res && res.flag) {
                                 message.success("操作成功")
                                 hide()
@@ -84,7 +84,7 @@ class RoleManagement extends PureComponent {
             return
         }
 
-        request('/zybadmin/sysRoleUser/getById?id=' + this.state.record.id).then(res => {
+        request('/zyb/sysRoleUser/getById?id=' + this.state.record.id).then(res => {
             if ('BindUser' === type) {
                 Dialog.show({
                     title: '绑定用户',
@@ -96,7 +96,7 @@ class RoleManagement extends PureComponent {
                     content: <BindUserFrom option={{type, record: res.data}}/>,
                     onOk: (values, hide) => {
                         console.log(values)
-                        request.post('/zybadmin/sysRoleUser/add?id=' + this.state.record.id, {data: {...values}}).then(res => {
+                        request.post('/zyb/sysRoleUser/add?id=' + this.state.record.id, {data: {...values}}).then(res => {
                             if (res && res.flag) {
                                 message.success("操作成功")
                                 hide()
@@ -117,7 +117,7 @@ class RoleManagement extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zybadmin/sysRole/getById?id=' + this.state.record.id).then(res => {
+            request('/zyb/sysRole/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -128,7 +128,7 @@ class RoleManagement extends PureComponent {
                         enableValidate: true,
                         content: <RoleManagementFrom option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zybadmin/sysRole/edit', {data: {...values}}).then(res => {
+                            request.post('/zyb/sysRole/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -167,7 +167,7 @@ class RoleManagement extends PureComponent {
 
     render() {
         return (
-            <List url='/zybadmin/sysRole/list' onError={this.handleError} onMount={this.onMount}>
+            <List url='/zyb/sysRole/list' onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
                     <Filter.Item label="角色名称" name="name"><Input/></Filter.Item>
 
