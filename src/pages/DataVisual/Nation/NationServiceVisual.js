@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
-import {Button, Card, Carousel, Col, message, Row, Table, Tabs, Select, Radio} from 'antd'
+import {Button, Card, Carousel, Col, message, Row, Table, Tabs, Select, Radio, ConfigProvider} from 'antd'
 import ReactEcharts from 'echarts-for-react'
 import request from "../../../utils/request"
 import _ from 'lodash'
 import themes from './theme'
+import zhCh from 'antd/es/locale/zh_CN'
 
 let switchFlag = "no"
 //技术服务机构
@@ -11,22 +12,87 @@ export default class NationServiceVisual extends Component {
     state = {
         display1: 'block',
         display2: 'none',
+        display3: 'none',
         year: '2019',
-        type: '行政区划',
+        type: '危害因素',
+        option11Data: [],
+        option21Category: [],
+        option24Columns: [],
+        option25Columns: [],
+        option26Columns: [],
+        option24Data: [],
+        option25Data: [],
+        option26Data: [],
     }
     data1 = (year, type) => {
         let params = {
             params: {year: year || this.state.year, type: type || this.state.type}
         }
+        //option11
+        request('/zyb/nationServiceVisual/' + switchFlag + '/option11', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option11Data: res.data})
+            }
+        })
+        //option12
+        request('/zyb/nationServiceVisual/' + switchFlag + '/option12', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option12Data: res.data})
+            }
+        })
+        //option13
+        request('/zyb/nationServiceVisual/' + switchFlag + '/option13', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option13Data: res.data})
+            }
+        })
     }
 
     data2 = (year, type) => {
         let params = {
             params: {year: year || this.state.year, type: type || this.state.type}
         }
+        //option21
+        request('/zyb/nationServiceVisual/' + switchFlag + '/option21', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option21Data: res.data})
+            }
+        })
+        //option22
+        request('/zyb/nationServiceVisual/' + switchFlag + '/option22', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option22Data: res.data})
+            }
+        })
+        //option23
+        request('/zyb/nationServiceVisual/' + switchFlag + '/option23', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option23Data: res.data})
+            }
+        })
+        //option24
+        request('/zyb/nationServiceVisual/' + switchFlag + '/option24', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option24Data: res.data})
+            }
+        })
+        //option25
+        request('/zyb/nationServiceVisual/' + switchFlag + '/option25', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option25Data: res.data})
+            }
+        })
+        //option26
+        request('/zyb/nationServiceVisual/' + switchFlag + '/option26', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option26Data: res.data})
+            }
+        })
     }
 
     componentWillMount() {
+        let option21Category = ['北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '重庆', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '香港']
+        this.setState({option21Category})
         this.data1()
     }
 
@@ -34,9 +100,9 @@ export default class NationServiceVisual extends Component {
         this.setState({year})
         //
         let type = this.state.type
-        if ("行政区划" === type) {
+        if ("危害因素" === type) {
             this.data1(year, type)
-        } else if ("登记注册类型" === type) {
+        } else if ("行政区划" === type || "登记注册类型" === type) {
             this.data2(year, type)
         }
     }
@@ -46,19 +112,294 @@ export default class NationServiceVisual extends Component {
         this.setState({type})
         //
         let year = this.state.year
-        if ("行政区划" === type) {
-            let option11Category = ['北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '重庆', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '香港']
-            let option12Category = ['香港', '新疆', '宁夏', '青海', '甘肃', '陕西', '西藏', '云南', '贵州', '四川', '重庆', '海南', '广西', '广东', '湖南', '湖北', '河南', '山东', '江西', '福建', '安徽', '浙江', '江苏', '上海', '黑龙江', '吉林', '辽宁', '内蒙古', '山西', '河北', '天津', '北京']
-            this.setState({option11Category, option12Category})
-            this.data1(year, type)
+        if ("危害因素" === type) {
+            let option11Category = ['粉尘', '化学因素', '物理因素', '放射性因素', '生物因素']
+            this.setState({option11Category})
             this.setState({
                 display1: 'block',
                 display2: 'none',
             })
+        } else if ("行政区划" === type) {
+            let option21Category = ['北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '重庆', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '香港']
+            let option24Columns = [
+                {
+                    title: '行政区划',
+                    dataIndex: 'area',
+                    key: 'area',
+                },
+                {
+                    title: '职业卫生技术服务机构数',
+                    dataIndex: 'var1',
+                    key: 'var1',
+                    sorter: (a, b) => a.var1 - b.var1
+                },
+                {
+                    title: '职业卫生技术服务专业技术人员数',
+                    dataIndex: 'var2',
+                    key: 'var2',
+                    sorter: (a, b) => a.var2 - b.var2
+                },
+                {
+                    title: '经培训合格专业技术人员数',
+                    dataIndex: 'var3',
+                    key: 'var3',
+                    sorter: (a, b) => a.var3 - b.var3
+                },
+                {
+                    title: '检测仪器设备台套数',
+                    dataIndex: 'var4',
+                    key: 'var4',
+                    sorter: (a, b) => a.var4 - b.var4
+                },
+                {
+                    title: '平均取得计量认证项目数',
+                    dataIndex: 'var5',
+                    key: 'var5',
+                    sorter: (a, b) => a.var5 - b.var5
+                },
+                {
+                    title: '职业病危害评价报告完成数',
+                    dataIndex: 'var6',
+                    key: 'var6',
+                    sorter: (a, b) => a.var6 - b.var6
+                },
+                {
+                    title: '职业病危害检测报告完成数',
+                    dataIndex: 'var7',
+                    key: 'var7',
+                    sorter: (a, b) => a.var7 - b.var7
+                },
+                {
+                    title: '检测点数',
+                    dataIndex: 'var8',
+                    key: 'var8',
+                    sorter: (a, b) => a.var8 - b.var8
+                }
+            ]
+            let option25Columns = [
+                {
+                    title: '行政区划',
+                    dataIndex: 'area',
+                    key: 'area',
+                },
+                {
+                    title: '职业健康检查机构数',
+                    dataIndex: 'var1',
+                    key: 'var1',
+                    sorter: (a, b) => a.var1 - b.var1
+                },
+                {
+                    title: '职业健康检查机构医护人员数',
+                    dataIndex: 'var2',
+                    key: 'var2',
+                    sorter: (a, b) => a.var2 - b.var2
+                },
+                {
+                    title: '职业健康检查机构取证人员数',
+                    dataIndex: 'var3',
+                    key: 'var3',
+                    sorter: (a, b) => a.var3 - b.var3
+                },
+                {
+                    title: '平均取得职业健康检查项目数',
+                    dataIndex: 'var4',
+                    key: 'var4',
+                    sorter: (a, b) => a.var4 - b.var4
+                },
+                {
+                    title: '完成职业健康检查报告数',
+                    dataIndex: 'var5',
+                    key: 'var5',
+                    sorter: (a, b) => a.var5 - b.var5
+                },
+                {
+                    title: '体检人数',
+                    dataIndex: 'var6',
+                    key: 'var6',
+                    sorter: (a, b) => a.var6 - b.var6
+                }
+            ]
+            let option26Columns = [
+                {
+                    title: '行政区划',
+                    dataIndex: 'area',
+                    key: 'area',
+                },
+                {
+                    title: '职业病诊断机构数',
+                    dataIndex: 'var1',
+                    key: 'var1',
+                    sorter: (a, b) => a.var1 - b.var1
+                },
+                {
+                    title: '诊断医师数',
+                    dataIndex: 'var2',
+                    key: 'var2',
+                    sorter: (a, b) => a.var2 - b.var2
+                },
+                {
+                    title: '平均取得的诊断项目数',
+                    dataIndex: 'var3',
+                    key: 'var3',
+                    sorter: (a, b) => a.var3 - b.var3
+                },
+                {
+                    title: '诊断人数',
+                    dataIndex: 'var4',
+                    key: 'var4',
+                    sorter: (a, b) => a.var4 - b.var4
+                },
+                {
+                    title: '报告职业病病人数',
+                    dataIndex: 'var5',
+                    key: 'var5',
+                    sorter: (a, b) => a.var5 - b.var5
+                }
+            ]
+            this.setState({option21Category, option24Columns, option25Columns, option26Columns})
+            this.data2(year, type)
+            this.setState({
+                display1: 'none',
+                display2: 'block',
+            })
         } else if ("登记注册类型" === type) {
             let option21Category = ['国有企业', '集体企业', '股份合作企业', '联营企业', '联营企业', '联营企业', '联营企业', '联营企业', '有限责任公司', '有限责任公司', '有限责任公司', '股份有限公司', '私营企业', '私营企业', '私营企业', '私营企业', '私营企业', '其他企业', '合资经营企业（港或澳、台资）', '合作经营企业（港或澳、台资）', '港、澳、台商独资经营企业', '港、澳、台商投资股份有限公司', '其他港、澳、台商投资企业', '中外合资经营企业', '中外合作经营企业', '外资企业', '外商投资股份有限公司', '其他外商投资企业', '事业单位', '社会团体']
-            let option22Category = ['社会团体', '事业单位', '其他外商投资企业', '外商投资股份有限公司', '外资企业', '中外合作经营企业', '中外合资经营企业', '其他港、澳、台商投资企业', '港、澳、台商投资股份有限公司', '港、澳、台商独资经营企业', '合作经营企业（港或澳、台资）', '合资经营企业（港或澳、台资）', '其他企业', '私营企业', '私营企业', '私营企业', '私营企业', '私营企业', '股份有限公司', '有限责任公司', '有限责任公司', '有限责任公司', '联营企业', '联营企业', '联营企业', '联营企业', '联营企业', '股份合作企业', '集体企业', '国有企业']
-            this.setState({option21Category, option22Category})
+            let option24Columns = [
+                {
+                    title: '登记注册类型',
+                    dataIndex: 'area',
+                    key: 'area',
+                },
+                {
+                    title: '职业卫生技术服务机构数',
+                    dataIndex: 'var1',
+                    key: 'var1',
+                    sorter: (a, b) => a.var1 - b.var1
+                },
+                {
+                    title: '职业卫生技术服务专业技术人员数',
+                    dataIndex: 'var2',
+                    key: 'var2',
+                    sorter: (a, b) => a.var2 - b.var2
+                },
+                {
+                    title: '经培训合格专业技术人员数',
+                    dataIndex: 'var3',
+                    key: 'var3',
+                    sorter: (a, b) => a.var3 - b.var3
+                },
+                {
+                    title: '检测仪器设备台套数',
+                    dataIndex: 'var4',
+                    key: 'var4',
+                    sorter: (a, b) => a.var4 - b.var4
+                },
+                {
+                    title: '平均取得计量认证项目数',
+                    dataIndex: 'var5',
+                    key: 'var5',
+                    sorter: (a, b) => a.var5 - b.var5
+                },
+                {
+                    title: '职业病危害评价报告完成数',
+                    dataIndex: 'var6',
+                    key: 'var6',
+                    sorter: (a, b) => a.var6 - b.var6
+                },
+                {
+                    title: '职业病危害检测报告完成数',
+                    dataIndex: 'var7',
+                    key: 'var7',
+                    sorter: (a, b) => a.var7 - b.var7
+                },
+                {
+                    title: '检测点数',
+                    dataIndex: 'var8',
+                    key: 'var8',
+                    sorter: (a, b) => a.var8 - b.var8
+                }
+            ]
+            let option25Columns = [
+                {
+                    title: '登记注册类型',
+                    dataIndex: 'area',
+                    key: 'area',
+                },
+                {
+                    title: '职业健康检查机构数',
+                    dataIndex: 'var1',
+                    key: 'var1',
+                    sorter: (a, b) => a.var1 - b.var1
+                },
+                {
+                    title: '职业健康检查机构医护人员数',
+                    dataIndex: 'var2',
+                    key: 'var2',
+                    sorter: (a, b) => a.var2 - b.var2
+                },
+                {
+                    title: '职业健康检查机构取证人员数',
+                    dataIndex: 'var3',
+                    key: 'var3',
+                    sorter: (a, b) => a.var3 - b.var3
+                },
+                {
+                    title: '平均取得职业健康检查项目数',
+                    dataIndex: 'var4',
+                    key: 'var4',
+                    sorter: (a, b) => a.var4 - b.var4
+                },
+                {
+                    title: '完成职业健康检查报告数',
+                    dataIndex: 'var5',
+                    key: 'var5',
+                    sorter: (a, b) => a.var5 - b.var5
+                },
+                {
+                    title: '体检人数',
+                    dataIndex: 'var6',
+                    key: 'var6',
+                    sorter: (a, b) => a.var6 - b.var6
+                }
+            ]
+            let option26Columns = [
+                {
+                    title: '登记注册类型',
+                    dataIndex: 'area',
+                    key: 'area',
+                },
+                {
+                    title: '职业病诊断机构数',
+                    dataIndex: 'var1',
+                    key: 'var1',
+                    sorter: (a, b) => a.var1 - b.var1
+                },
+                {
+                    title: '诊断医师数',
+                    dataIndex: 'var2',
+                    key: 'var2',
+                    sorter: (a, b) => a.var2 - b.var2
+                },
+                {
+                    title: '平均取得的诊断项目数',
+                    dataIndex: 'var3',
+                    key: 'var3',
+                    sorter: (a, b) => a.var3 - b.var3
+                },
+                {
+                    title: '诊断人数',
+                    dataIndex: 'var4',
+                    key: 'var4',
+                    sorter: (a, b) => a.var4 - b.var4
+                },
+                {
+                    title: '报告职业病病人数',
+                    dataIndex: 'var5',
+                    key: 'var5',
+                    sorter: (a, b) => a.var5 - b.var5
+                }
+            ]
+            this.setState({option21Category, option24Columns, option25Columns, option26Columns})
             this.data2(year, type)
             this.setState({
                 display1: 'none',
@@ -74,36 +415,422 @@ export default class NationServiceVisual extends Component {
             }
         }
 
+        let option11 = {
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                left: 'center',
+                data: ['粉尘', '化学因素', '物理因素', '放射性因素', '生物因素']
+            },
+            series: [
+                {
+                    name: '访问来源',
+                    type: 'pie',
+                    radius: '65%',
+                    center: ['50%', '60%'],
+                    data: this.state.option11Data,
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        let option12 = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['职业禁忌证检出率', '疑似职业病检出率', '检出疑似职业病企业率']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: true,
+                data: ['粉尘', '化学因素', '物理因素', '放射性因素', '生物因素']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name: '职业禁忌证检出率',
+                    type: 'line',
+                    data: this.state.option12Data && this.state.option12Data.list1
+                },
+                {
+                    name: '疑似职业病检出率',
+                    type: 'line',
+                    data: this.state.option12Data && this.state.option12Data.list2
+                },
+                {
+                    name: '检出疑似职业病企业率',
+                    type: 'line',
+                    data: this.state.option12Data && this.state.option12Data.list3
+                }
+            ]
+        };
+        let option13 = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            legend: {
+                data: ['职业病诊断率']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: ['粉尘', '化学因素', '物理因素', '放射性因素', '生物因素']
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: '职业病诊断率',
+                    type: 'bar',
+                    data: this.state.option13Data && this.state.option13Data.list1
+                }
+            ]
+        }
+        //行政区划、登记注册类型
+        let option21 = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            legend: {
+                data: ['粉尘', '化学因素', '物理因素', '放射性因素', '生物因素']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: this.state.option21Category
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: '粉尘',
+                    type: 'bar',
+                    data: this.state.option21Data && this.state.option21Data.list1
+                },
+                {
+                    name: '化学因素',
+                    type: 'bar',
+                    stack: '因素',
+                    data: this.state.option21Data && this.state.option21Data.list2
+                },
+                {
+                    name: '物理因素',
+                    type: 'bar',
+                    stack: '因素',
+                    data: this.state.option21Data && this.state.option21Data.list3
+                },
+                {
+                    name: '放射性因素',
+                    type: 'bar',
+                    stack: '因素',
+                    data: this.state.option21Data && this.state.option21Data.list4
+                },
+                {
+                    name: '生物因素',
+                    type: 'bar',
+                    data: this.state.option21Data && this.state.option21Data.list5,
+                    /*                    markLine: {
+                                            lineStyle: {
+                                                normal: {
+                                                    type: 'dashed'
+                                                }
+                                            },
+                                            data: [
+                                                [{type: 'min'}, {type: 'max'}]
+                                            ]
+                                        }*/
+                }
+            ]
+        };
+        let option22 = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            legend: {
+                data: ['职业禁忌证检出率', '疑似职业病检出率', '检出疑似职业病企业率']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: this.state.option21Category
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: '职业禁忌证检出率',
+                    type: 'bar',
+                    data: this.state.option22Data && this.state.option22Data.list1
+                },
+                {
+                    name: '疑似职业病检出率',
+                    type: 'bar',
+                    data: this.state.option22Data && this.state.option22Data.list2
+                },
+                {
+                    name: '检出疑似职业病企业率',
+                    type: 'bar',
+                    data: this.state.option22Data && this.state.option22Data.list3
+                }
+            ],
+            dataZoom: [
+                {
+                    show: true,
+                    realtime: true,
+                    start: 0,
+                    end: 50
+                },
+                {
+                    type: 'inside',
+                    realtime: true,
+                    start: 0,
+                    end: 50
+                }
+            ]
+        }
+        let option23 = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['职业病诊断率']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: true,
+                data: this.state.option21Category
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name: '职业病诊断率',
+                    type: 'line',
+                    data: this.state.option23Data && this.state.option23Data.list1
+                }
+            ],
+            dataZoom: [
+                {
+                    show: true,
+                    realtime: true,
+                    start: 0,
+                    end: 50
+                },
+                {
+                    type: 'inside',
+                    realtime: true,
+                    start: 0,
+                    end: 50
+                }
+            ]
+        };
         return <div>
-            <Row gutter={24}>
-                <Col span={24}>
-                    <div style={{background: '#fff', height: 60}}>
-                        <Select onChange={this.yearOnChange} defaultValue={this.state.year} size={'large'}
-                                style={{width: 120, marginLeft: 18, marginTop: 8, marginRight: 10}}>
-                            <Select.Option value="2019">2019</Select.Option>
-                            <Select.Option value="2018">2018</Select.Option>
-                            <Select.Option value="2017">2017</Select.Option>
-                        </Select>
-                        <Radio.Group onChange={this.typeOnChange} defaultValue={this.state.type} size={'large'}>
-                            <Radio.Button value="危害因素">危害因素</Radio.Button>
-                            <Radio.Button value="行政区划">行政区划</Radio.Button>
-                            <Radio.Button value="登记注册类型">登记注册类型</Radio.Button>
-                        </Radio.Group>
-                    </div>
-                </Col>
-            </Row>
-            {/*行政区划*/}
-            <div style={{display: this.state.display1}}>
-                <Row gutter={24} style={{marginTop: 10}}>
-
+            <ConfigProvider locale={zhCh}>
+                <Row gutter={24}>
+                    <Col span={24}>
+                        <div style={{background: '#fff', height: 60}}>
+                            <Select onChange={this.yearOnChange} defaultValue={this.state.year} size={'large'}
+                                    style={{width: 120, marginLeft: 18, marginTop: 8, marginRight: 10}}>
+                                <Select.Option value="2019">2019</Select.Option>
+                                <Select.Option value="2018">2018</Select.Option>
+                                <Select.Option value="2017">2017</Select.Option>
+                            </Select>
+                            <Radio.Group onChange={this.typeOnChange} defaultValue={this.state.type} size={'large'}>
+                                <Radio.Button value="危害因素">危害因素</Radio.Button>
+                                <Radio.Button value="行政区划">行政区划</Radio.Button>
+                                <Radio.Button value="登记注册类型">登记注册类型</Radio.Button>
+                            </Radio.Group>
+                        </div>
+                    </Col>
                 </Row>
-            </div>
-            {/*登记注册类型*/}
-            <div style={{display: this.state.display2}}>
-                <Row gutter={24} style={{marginTop: 24}}>
-
-                </Row>
-            </div>
+                {/*危害因素*/}
+                <div style={{display: this.state.display1}}>
+                    <Row gutter={24} style={{marginTop: 10}}>
+                        <Col span={8}>
+                            {/*表1  作业场所职业病危害因素检测情况统计分析表*/}
+                            <Card
+                                title={'作业场所职业病危害因素检测情况'}
+                                bordered={false}
+                                headStyle={{height: 57}}
+                                extra={<Button type="dashed">详细数据</Button>}
+                            >
+                                <ReactEcharts
+                                    option={option11}
+                                    onEvents={onEvents} style={{height: '50vh'}}/>
+                            </Card>
+                        </Col>
+                        <Col span={8}>
+                            {/*表2-职业健康检查结果统计分析表*/}
+                            <Card
+                                title={'职业健康检查结果统计'}
+                                bordered={false}
+                                headStyle={{height: 57}}
+                                extra={<Button type="dashed">详细数据</Button>}
+                            >
+                                <ReactEcharts
+                                    option={option12}
+                                    onEvents={onEvents} style={{height: '50vh'}}/>
+                            </Card>
+                        </Col>
+                        <Col span={8}>
+                            {/*表3 职业病诊断情况统计分析表*/}
+                            <Card
+                                title={'职业病诊断情况统计'}
+                                bordered={false}
+                                headStyle={{height: 57}}
+                                extra={<Button type="dashed">详细数据</Button>}
+                            >
+                                <ReactEcharts
+                                    option={option13}
+                                    onEvents={onEvents} style={{height: '50vh'}}/>
+                            </Card>
+                        </Col>
+                    </Row>
+                </div>
+                {/*行政区划、登记注册类型*/}
+                <div style={{display: this.state.display2}}>
+                    <Row gutter={24} style={{marginTop: 10}}>
+                        <Col span={24}>
+                            <Card
+                                title={'作业场所职业病危害因素检测情况'}
+                                bordered={false}
+                                headStyle={{height: 57}}
+                                extra={<Button type="dashed">详细数据</Button>}
+                            >
+                                <ReactEcharts
+                                    option={option21}
+                                    onEvents={onEvents} style={{height: '60vh'}}/>
+                            </Card>
+                        </Col>
+                    </Row>
+                    <Row gutter={24} style={{marginTop: 24}}>
+                        <Col span={12}>
+                            {/*表2-职业健康检查结果统计分析表*/}
+                            <Card
+                                title={'职业健康检查结果统计'}
+                                bordered={false}
+                                headStyle={{height: 57}}
+                                extra={<Button type="dashed">详细数据</Button>}
+                            >
+                                <ReactEcharts
+                                    option={option22}
+                                    onEvents={onEvents} style={{height: '60vh'}}/>
+                            </Card>
+                        </Col>
+                        <Col span={12}>
+                            {/*表3 职业病诊断情况统计分析表*/}
+                            <Card
+                                title={'职业病诊断情况统计'}
+                                bordered={false}
+                                headStyle={{height: 57}}
+                                extra={<Button type="dashed">详细数据</Button>}
+                            >
+                                <ReactEcharts
+                                    option={option23}
+                                    onEvents={onEvents} style={{height: '60vh'}}/>
+                            </Card>
+                        </Col>
+                    </Row>
+                    <Row gutter={24} style={{marginTop: 24}}>
+                        <Col span={24}>
+                            {/*表4-职业卫生技术服务机构统计分析表*/}
+                            <Card
+                                title={'职业卫生技术服务机构统计'}
+                                bordered={false}
+                                headStyle={{height: 57}}
+                            >
+                                <Table columns={this.state.option24Columns} dataSource={this.state.option24Data}
+                                       style={{height: 350, overflowY: 'scroll'}} size={'middle'}/>
+                            </Card>
+                        </Col>
+                    </Row>
+                    <Row gutter={24} style={{marginTop: 24}}>
+                        <Col span={12}>
+                            {/*表5-职业健康检查机构统计分析表*/}
+                            <Card
+                                title={'职业健康检查机构统计'}
+                                bordered={false}
+                                headStyle={{height: 57}}
+                            >
+                                <Table columns={this.state.option25Columns} dataSource={this.state.option25Data}
+                                       style={{height: 350, overflowY: 'scroll'}} size={'middle'}/>
+                            </Card>
+                        </Col>
+                        <Col span={12}>
+                            {/*表6-职业病诊断机构统计分析表*/}
+                            <Card
+                                title={'职业病诊断机构统计'}
+                                bordered={false}
+                                headStyle={{height: 57}}
+                            >
+                                <Table columns={this.state.option26Columns} dataSource={this.state.option26Data}
+                                       style={{height: 350, overflowY: 'scroll'}} size={'middle'}/>
+                            </Card>
+                        </Col>
+                    </Row>
+                </div>
+            </ConfigProvider>
         </div>
     }
 
