@@ -175,7 +175,8 @@ export default class NationDangerVisual extends Component {
                 // text: ['高', '低'],
                 seriesIndex: [0, 1, 2, 3, 4],
                 inRange: {
-                    color: ['#CCFFCC', 'blue', 'yellow', 'orange', 'red']
+                    // color: ['#CCFFCC', 'blue', 'yellow', 'orange', 'red']
+                    color: [ '#00CCCC','#1890FF','rgb(250, 204, 20)','orange','rgb(240, 72, 100)'],
                 },
                 calculable: true
             },
@@ -255,7 +256,7 @@ export default class NationDangerVisual extends Component {
             }
         }
         let option2 = {
-            color: ['#CCFFCC', 'blue', 'yellow', 'red'],
+            color: [ '#00CCCC','#1890FF','rgb(250, 204, 20)','rgb(240, 72, 100)'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -346,7 +347,8 @@ export default class NationDangerVisual extends Component {
         ]
         //
         let option3 = {
-            color: ['#CCFFCC', 'blue', 'yellow', 'red'],
+            // color: ['#CCFFCC', 'blue', 'yellow', 'red'],
+            color: [ '#00CCCC','#1890FF','rgb(250, 204, 20)','rgb(240, 72, 100)'],
             tooltip: {
                 trigger: 'axis'
             },
@@ -392,7 +394,7 @@ export default class NationDangerVisual extends Component {
         }
 
         let option4 = {
-            color: ['#CCFFCC', 'blue', 'yellow', 'red'],
+            color: [ '#00CCCC','#1890FF','rgb(250, 204, 20)','rgb(240, 72, 100)'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -447,7 +449,7 @@ export default class NationDangerVisual extends Component {
             ]
         }
         let option5 = {
-            color: ['#CCFFCC', 'blue', 'yellow', 'red'],
+            color: [ '#00CCCC','#1890FF','rgb(250, 204, 20)','rgb(240, 72, 100)'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -499,7 +501,7 @@ export default class NationDangerVisual extends Component {
         }
 
         let option6 = {
-            color: ['#CCFFCC', 'blue', 'yellow', 'red'],
+            color: [ '#00CCCC','#1890FF','rgb(250, 204, 20)','rgb(240, 72, 100)'],
             tooltip: {
                 trigger: 'axis'
             },
@@ -598,7 +600,7 @@ export default class NationDangerVisual extends Component {
                         bordered={false}
                         style={{marginTop: 10, height: '38vh'}}
                     >
-                        <WaterWave height={140} title="高度风险(Ⅳ级)" percent={this.state.random} color={'red'}/>
+                        <WaterWave height={140} title="高度风险(Ⅳ级)" percent={this.state.random} color={'rgb(240, 72, 100)'}/>
                     </Card>
                 </Col>
             </Row>
@@ -611,13 +613,13 @@ export default class NationDangerVisual extends Component {
                         headStyle={{height: 57}}
                         extra={<Button type="dashed" onClick={() => this.detailData('one')}>详细数据</Button>}
                     >
-                        <Tabs defaultActiveKey="industryOfEnterprise" onChange={this.onChange}>
-                            <TabPane tab="行业(企业)" key="industryOfEnterprise">
+                        <Tabs defaultActiveKey="industryOfEnterprise" onChange={this.onChange}  type="card">
+                            <TabPane tab="行业(企业)" key="industryOfEnterprise" >
                                 <ReactEcharts
                                     option={option4}
                                     onEvents={onEvents1} style={{height: '50vh'}}/>
                             </TabPane>
-                            <TabPane tab="行政区划(企业)" key="areaOfEnterprise">
+                            <TabPane tab="行政区划(企业)" key="areaOfEnterprise" >
                                 <ReactEcharts
                                     option={option3}
                                     onEvents={onEvents1} style={{height: '50vh'}}/>
@@ -627,7 +629,7 @@ export default class NationDangerVisual extends Component {
                                     option={option5}
                                     onEvents={onEvents1} style={{height: '50vh'}}/>
                             </TabPane>
-                            <TabPane tab="行政区划(区域)" key="areaOfArea">
+                            <TabPane tab="行政区划(区域)" key="areaOfArea" >
                                 <ReactEcharts
                                     option={option6}
                                     onEvents={onEvents1} style={{height: '50vh'}}/>

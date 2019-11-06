@@ -12,10 +12,12 @@ let switchFlag = "no"
 //企业
 export default class NationGovVisual extends Component {
     state = {
-        year: '2019'
+        year: '2019',
+        loading: true
     }
 
-    componentWillMount() {
+
+    componentDidMount() {
         this.yearOnChange(this.state.year)
     }
 
@@ -142,6 +144,7 @@ export default class NationGovVisual extends Component {
             }
         ]
         let option2 = {
+            color: ['#00CCCC', '#1890FF', 'rgb(250, 204, 20)'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -325,6 +328,7 @@ export default class NationGovVisual extends Component {
             }
         ]
         let option5 = {
+            color: ['#00CCCC', '#1890FF', 'rgb(250, 204, 20)'],
             tooltip: {
                 trigger: 'axis'
             },
@@ -364,6 +368,7 @@ export default class NationGovVisual extends Component {
             ]
         }
         let option6 = {
+            color: ['#1890FF', 'rgb(19, 194, 194)', 'rgb(250, 204, 20)', '#BBBBBB'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -418,6 +423,7 @@ export default class NationGovVisual extends Component {
             ]
         }
         let option7 = {
+            color: ['#00CCCC', '#1890FF', 'rgb(250, 204, 20)'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {            // 坐标轴指示器，坐标轴触发有效

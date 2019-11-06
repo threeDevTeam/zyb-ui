@@ -29,7 +29,7 @@ const menu = (
 
 class AdminLayout extends React.Component {
     state = {
-        collapsed: false,
+        collapsed: true,
         menus: []
     };
 

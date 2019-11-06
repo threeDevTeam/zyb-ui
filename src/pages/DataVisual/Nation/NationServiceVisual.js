@@ -416,6 +416,7 @@ export default class NationServiceVisual extends Component {
         }
 
         let option11 = {
+            color:['#1890FF','rgb(19, 194, 194)','rgb(250, 204, 20)','#BBBBBB','rgb(133, 67, 224)'],
             tooltip: {
                 trigger: 'item'
             },
@@ -441,6 +442,7 @@ export default class NationServiceVisual extends Component {
             ]
         };
         let option12 = {
+            color:['#1890FF','rgb(19, 194, 194)','rgb(250, 204, 20)'],
             tooltip: {
                 trigger: 'axis'
             },
@@ -480,6 +482,7 @@ export default class NationServiceVisual extends Component {
             ]
         };
         let option13 = {
+            color:['#1890FF'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -516,6 +519,7 @@ export default class NationServiceVisual extends Component {
         }
         //行政区划、登记注册类型
         let option21 = {
+            color:['#1890FF','rgb(19, 194, 194)','rgb(250, 204, 20)','#BBBBBB','rgb(133, 67, 224)'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -584,6 +588,7 @@ export default class NationServiceVisual extends Component {
             ]
         };
         let option22 = {
+            color:['#1890FF','rgb(19, 194, 194)','rgb(250, 204, 20)'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -643,6 +648,7 @@ export default class NationServiceVisual extends Component {
             ]
         }
         let option23 = {
+            color:['#1890FF'],
             tooltip: {
                 trigger: 'axis'
             },
