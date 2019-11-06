@@ -12,8 +12,7 @@ let switchFlag = "no"
 //企业
 export default class NationGovVisual extends Component {
     state = {
-        year: '2019',
-        loading: true
+        year: '2019'
     }
 
 

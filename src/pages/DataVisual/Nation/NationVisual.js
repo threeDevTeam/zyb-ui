@@ -9,7 +9,7 @@ const {TabPane} = Tabs
 //国家
 export default class NationVisual extends Component {
     state = {
-        type: '政府监管部门'
+        type: '风险预警'
     }
 
     componentWillMount() {
