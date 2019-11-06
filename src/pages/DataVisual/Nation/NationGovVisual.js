@@ -16,7 +16,7 @@ export default class NationGovVisual extends Component {
     }
 
 
-    componentDidMount() {
+    componentWillMount() {
         this.yearOnChange(this.state.year)
     }
 

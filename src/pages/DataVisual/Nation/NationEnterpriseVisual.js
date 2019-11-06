@@ -381,6 +381,7 @@ export default class NationEnterpriseVisual extends Component {
             ]
         };
         let option15 = {
+            color:['#1890FF','rgb(19, 194, 194)'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {            // 坐标轴指示器，坐标轴触发有效
