@@ -546,8 +546,8 @@ export default class NationDangerVisual extends Component {
             ]
         }
 
-        return <div>
-            <Row gutter={16}>
+        return <div >
+            <Row gutter={8}>
                 <Col span={5}>
                     {/*表2-40 企业职业病危害风险分级及管控措施*/}
                     <Card
@@ -604,7 +604,7 @@ export default class NationDangerVisual extends Component {
                     </Card>
                 </Col>
             </Row>
-            <Row gutter={16} style={{marginTop: 20}}>
+            <Row gutter={16} style={{marginTop: 10}}>
                 <Col span={24}>
                     {/*表2-41 企业职业病危害风险分布情况（按行政区划统计）*/}
                     <Card
