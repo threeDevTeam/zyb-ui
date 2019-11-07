@@ -12,7 +12,7 @@ export default {
                 webpackChunkName: true,
                 level: 1,
             },
-            title: '职业病预测预警平台',
+            title: '职业病危害监测预警预控云服务平台',
             metas: [{ charset: 'utf-8' }]
         }]
     ],
@@ -35,7 +35,7 @@ export default {
                 {path: '/user', redirect: '/user/login'},
                 {path: '/user/register', component: './Login/SysUserLogin'},
                 {path: '/user/login', component: './Login/Register'},
-                {path: '/changePassword', component: './Login/ChangePassword'},
+                {path: '/user/changePassword', component: './Login/ChangePassword'},
             ]
         },
         {

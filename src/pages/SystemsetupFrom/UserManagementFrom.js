@@ -27,6 +27,7 @@ class UserManagementFrom extends PureComponent {
         }
     }
 
+
     render() {
         return (
             <Form core={this.core} layout={{label:7}}>

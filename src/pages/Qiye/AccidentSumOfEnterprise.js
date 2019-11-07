@@ -76,7 +76,7 @@ class AccidentSumOfEnterprise extends PureComponent {
                     formData.append("form", JSON.stringify(values))
                     //异步请求
                     request.post('/zyb/accidentSumOfEnterprise/exceladd',{method: 'post', data: formData}).then(res => {
-                        if(res.flag){
+                        if(res && res.flag){
                             modal.update({content: '操作成功', okButtonProps: {disabled: false}})
                             globalList.refresh()
                         }else{
@@ -103,7 +103,7 @@ class AccidentSumOfEnterprise extends PureComponent {
                         content: <AccidentSumOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             request.post('/zyb/accidentSumOfEnterprise/edit', {data: {...values}}).then(res => {
-                                if (res.flag) {
+                                if (res && res.flag) {
                                     message.success("操作成功")
                                     hide()
                                     globalList.refresh()
@@ -132,7 +132,7 @@ class AccidentSumOfEnterprise extends PureComponent {
                 onOk: (values, hide) => {
                     request('/zyb/accidentSumOfEnterprise/delete?id=' + this.state.record.id).then(res => {
                         hide()
-                        if (res.flag) {
+                        if (res && res.flag) {
                             globalList.refresh()
                             message.success("删除成功")
                         } else {

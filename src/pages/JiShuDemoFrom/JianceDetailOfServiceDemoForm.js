@@ -83,7 +83,7 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
 
     render() {
         return (
-            <Form core={this.core} layout={{label: 7}}>
+            <Form core={this.core} layout={{label: 8}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
                 <FormItem required={true} label="检测时间" name="checkDateStr"><DatePicker placeholder="请选择检测时间"/></FormItem>
                 <FormItem required={true} label="检测年份" name="checkYear"><InputNumber/></FormItem>
@@ -106,7 +106,7 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
                 <FormItem required={true} label="岗位名称" name="cascaded3"><Cascader style={{width: 212}} options={this.state.dataSource3}  onChange={this.onChange} placeholder="岗位名称"/></FormItem>
                 <FormItem required={true} label="职业病危害因素名称" name="cascaded4"><Cascader style={{width: 212}} options={this.state.dataSource4}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
                 <FormItem required={true} value={"合格"}  label="判定结果" name="decideResult">
-                    <Radio.Group value={this.state.value}>
+                    <Radio.Group value={this.state.value} style={{width:200}}>
                         <Radio value={"合格"}>合格</Radio>
                         <Radio value={"不合格"}>不合格</Radio>
                     </Radio.Group>

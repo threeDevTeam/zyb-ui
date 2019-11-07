@@ -45,7 +45,7 @@ class SuperviseDemoForm extends PureComponent {
 
     render() {
         return (
-            <Form core={this.core} layout={{label:5}}>
+            <Form core={this.core} layout={{label:10}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
 
                 <FormItem required={true} label="申报年份" name="year"><InputNumber/></FormItem>
@@ -54,8 +54,8 @@ class SuperviseDemoForm extends PureComponent {
                     <FormItem required={true} label="注册地址" name="registerAddress"><Input/></FormItem>
                 <FormItem required={true} label="单位名称" name="name"><Input/></FormItem>
                 </div>
-                <FormItem required={true}  value={"是"}  label="是否独立设置职业健康监管" name="isSet">
-                    <Radio.Group  value={this.state.value} style={{paddingLeft:40,paddingTop:20}}>
+                <FormItem required={true}  value={"是"} style={{paddingTop:20}}  label="是否独立设置职业健康监管" name="isSet">
+                    <Radio.Group  value={this.state.value} style={{paddingLeft:40,width:200}}>
                         <Radio value={"是"}>是</Radio>
                         <Radio value={"否"}>否</Radio>
                     </Radio.Group>

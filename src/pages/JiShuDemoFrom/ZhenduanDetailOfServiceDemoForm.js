@@ -85,7 +85,7 @@ componentWillMount() {
  }
  render() {
   return (
- <Form core={this.core} layout={{label:7}}>
+ <Form core={this.core} layout={{label:8}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem required={true} label="诊断时间" name="checkDateStr"><DatePicker placeholder="请选择诊断时间"/></FormItem>
  <FormItem required={true} label="诊断年份" name="checkYear"><InputNumber/></FormItem>
@@ -106,7 +106,7 @@ componentWillMount() {
   <FormItem required={true} label="姓名" name="name"><Input/></FormItem>
  <FormItem required={true} label="身份证号" name="idNum"><Input/></FormItem>
  <FormItem  value={"男"} required={true} label="性别" name="gender">
-  <Radio.Group  value={this.state.value} >
+  <Radio.Group  value={this.state.value} style={{width:200}}>
    <Radio value={"男"}>男</Radio>
    <Radio value={"女"}>女</Radio>
   </Radio.Group>

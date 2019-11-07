@@ -123,7 +123,7 @@ class SysUserLogin extends PureComponent {
                     }
                     request.post('/zyb/enterpriseOfRegister/add', {data: this.core.value}).then(res => {
                         console.log(res)
-                        if (res.flag) {
+                        if (res && res.flag) {
                             message.success("操作成功")
                             window.location.href ='/user/login'
                         } else {
@@ -134,7 +134,7 @@ class SysUserLogin extends PureComponent {
 
             } else if (this.core.value.type === '政府监管部门') {
                 request.post('/zyb/superviseOfRegister/add', {data: this.core.value}).then(res => {
-                    if (res.flag) {
+                    if (res && res.flag) {
                         message.success("操作成功")
                         window.location.href ='/user/login'
                     } else {
@@ -143,7 +143,7 @@ class SysUserLogin extends PureComponent {
                 })
             } else if (this.core.value.type === '技术服务机构') {
                 request.post('/zyb/serviceOfRegister/add', {data: this.core.value}).then(res => {
-                    if (res.flag) {
+                    if (res && res.flag) {
                         message.success("操作成功")
                         window.location.href ='/user/login'
                     } else {
@@ -152,7 +152,7 @@ class SysUserLogin extends PureComponent {
                 })
             } else if (this.core.value.type === '普通用户') {
                 request.post('/zyb/sysUser/add', {data: this.core.value}).then(res => {
-                    if (res.flag) {
+                    if (res && res.flag) {
                         message.success("操作成功")
                         window.location.href ='/user/login'
                     } else {

@@ -34,7 +34,7 @@ class EquipmentOfSuperviseDemoForm extends PureComponent {
 
     render() {
         return (
-            <Form core={this.core} layout={{label: 6}}>
+            <Form core={this.core} layout={{label: 8}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
                 <FormItem required={true} label="装备名称" name="name"><Input/></FormItem>
                 <FormItem required={true} label="规格型号" name="num"><Input/></FormItem>

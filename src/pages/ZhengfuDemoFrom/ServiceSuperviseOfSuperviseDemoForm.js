@@ -38,7 +38,7 @@ class ServiceSuperviseOfSuperviseDemoForm extends PureComponent {
 
     render() {
         return (
-            <Form core={this.core} layout={{label:8}}>
+            <Form core={this.core} layout={{label:9}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
                 <FormItem required={true} label="年份" name="year"><InputNumber/></FormItem>
                 <FormItem required={true} label="检测机构的数量" name="jianceCount"><InputNumber/></FormItem>

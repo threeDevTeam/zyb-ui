@@ -36,11 +36,11 @@ class PersonOfSuperviseDemoForm extends PureComponent {
 
     render() {
         return (
-            <Form core={this.core} layout={{label: 7}}>
+            <Form core={this.core} layout={{label: 9}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
                 <FormItem required={true} label="姓名" name="name"><Input/></FormItem>
                    <FormItem required={true} value={"男"}  label="性别" name="gender">
-                       <Radio.Group  value={this.state.value} >
+                       <Radio.Group  value={this.state.value} style={{width:200}} >
                            <Radio value={"男"}>男</Radio>
                            <Radio value={"女"}>女</Radio>
                        </Radio.Group>
@@ -51,7 +51,7 @@ class PersonOfSuperviseDemoForm extends PureComponent {
                     <FormItem required={true} label="所学专业" name="major"><Input/></FormItem>
 
                      <FormItem required={true} value={"是"} label="是否取得执法资格证书" name="isGet">
-                         <Radio.Group  value={this.state.value} >
+                         <Radio.Group  value={this.state.value}style={{width:200}} >
                              <Radio value={"是"}>是</Radio>
                              <Radio value={"否"}>否</Radio>
                          </Radio.Group>

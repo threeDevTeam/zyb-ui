@@ -22,7 +22,7 @@ class Register extends PureComponent {
         this.core.validate((err) => {
             if (!err) {
                 request.post('/zyb/sysUser/register', {data: this.core.value}).then(res => {
-                    if (res.flag) {
+                    if (res && res.flag) {
                         sessionStorage.setItem("loginName", res.data.loginName)
 
                         window.location.href ='/supervise'
