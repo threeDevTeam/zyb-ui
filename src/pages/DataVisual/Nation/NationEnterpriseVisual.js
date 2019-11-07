@@ -6,6 +6,7 @@ import _ from 'lodash'
 import themes from './theme'
 
 let switchFlag = "no"
+let currentYear = new Date().getFullYear()
 //企业
 export default class NationEnterpriseVisual extends Component {
     state = {
@@ -14,7 +15,7 @@ export default class NationEnterpriseVisual extends Component {
         display3: 'none',
         display4: 'none',
         display5: 'none',
-        year: '2019',
+        year: currentYear,
         type: '危害因素',
         option11Data: [],
         option23Dataset: [['防护配备', '职业病防护设施设置率', '个人防护用品配备率']],
@@ -231,7 +232,7 @@ export default class NationEnterpriseVisual extends Component {
     render() {
         let onEvents = {
             'click': (params) => {
-                alert(params.name)
+                console.log(params.name)
             }
         }
         //危害因素、企业规模
@@ -684,15 +685,17 @@ export default class NationEnterpriseVisual extends Component {
             ]
         };
 
+        let yearSelect = []
+        for (let i = currentYear; i > (currentYear - 3); i--) {
+            yearSelect.push(<Select.Option value={i}>{i}</Select.Option>);
+        }
         return <div>
             <Row gutter={8}>
                 <Col span={24}>
                     <div style={{background: '#fff', height: 60}}>
                         <Select onChange={this.yearOnChange} defaultValue={this.state.year} size={'large'}
                                 style={{width: 120, marginLeft: 18, marginTop: 8, marginRight: 10}}>
-                            <Select.Option value="2019">2019</Select.Option>
-                            <Select.Option value="2018">2018</Select.Option>
-                            <Select.Option value="2017">2017</Select.Option>
+                            {yearSelect}
                         </Select>
                         <Radio.Group onChange={this.typeOnChange} defaultValue={this.state.type} size={'large'}>
                             <Radio.Button value="危害因素">危害因素</Radio.Button>

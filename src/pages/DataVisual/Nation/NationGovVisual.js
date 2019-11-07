@@ -8,11 +8,11 @@ import zhCh from 'antd/es/locale/zh_CN'
 
 const {TabPane} = Tabs
 let switchFlag = "no"
-
+let currentYear = new Date().getFullYear()
 //企业
 export default class NationGovVisual extends Component {
     state = {
-        year: '2019'
+        year: currentYear
     }
 
 
@@ -96,7 +96,7 @@ export default class NationGovVisual extends Component {
     render() {
         let onEvents = {
             'click': (params) => {
-                alert(params.name)
+                console.log(params.name)
             }
         }
         const option1Columns = [
@@ -467,6 +467,12 @@ export default class NationGovVisual extends Component {
                 }
             ]
         }
+
+        let yearSelect = []
+        for (let i = currentYear; i > (currentYear - 3); i--) {
+            yearSelect.push(<Radio.Button value={i}>{i}</Radio.Button>);
+        }
+
         return <div>
             <ConfigProvider locale={zhCh}>
                 <Row gutter={8}>
@@ -475,9 +481,7 @@ export default class NationGovVisual extends Component {
                             <Radio.Group style={{marginLeft: 18, marginTop: 10}} onChange={this.yearOnChange}
                                          defaultValue={this.state.year} size={'large'}>
                                 <span style={{fontSize: 16}}>年份：</span>
-                                <Radio.Button value="2019">2019</Radio.Button>
-                                <Radio.Button value="2018">2018</Radio.Button>
-                                <Radio.Button value="2017">2017</Radio.Button>
+                                {yearSelect}
                             </Radio.Group>
                         </div>
                     </Col>
