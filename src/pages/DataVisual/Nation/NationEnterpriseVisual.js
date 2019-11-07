@@ -685,7 +685,7 @@ export default class NationEnterpriseVisual extends Component {
         };
 
         return <div>
-            <Row gutter={24}>
+            <Row gutter={8}>
                 <Col span={24}>
                     <div style={{background: '#fff', height: 60}}>
                         <Select onChange={this.yearOnChange} defaultValue={this.state.year} size={'large'}
@@ -706,7 +706,7 @@ export default class NationEnterpriseVisual extends Component {
             </Row>
             {/*危害因素*/}
             <div style={{display: this.state.display1}}>
-                <Row gutter={24} style={{marginTop: 10}}>
+                <Row gutter={8} style={{marginTop: 10}}>
                     <Col span={12}>
                         {/*表2-1 基础信息统计分析表（按危害因素）*/}
                         <Card
@@ -734,7 +734,7 @@ export default class NationEnterpriseVisual extends Component {
                         </Card>
                     </Col>
                 </Row>
-                <Row gutter={24} style={{marginTop: 24}}>
+                <Row gutter={8} style={{marginTop: 10}}>
                     <Col span={12}>
                         {/*表2-3 基础信息统计分析表（按危害因素续2）*/}
                         <Card
@@ -765,7 +765,7 @@ export default class NationEnterpriseVisual extends Component {
             </div>
             {/*行政区划*/}
             <div style={{display: this.state.display2}}>
-                <Row gutter={24} style={{marginTop: 10}}>
+                <Row gutter={8} style={{marginTop: 10}}>
                     <Col span={24}>
                         {/*表2-1 基础信息统计分析表（按危害因素）*/}
                         <Card
@@ -780,7 +780,7 @@ export default class NationEnterpriseVisual extends Component {
                         </Card>
                     </Col>
                 </Row>
-                <Row gutter={24} style={{marginTop: 24}}>
+                <Row gutter={8} style={{marginTop: 10}}>
                     <Col span={12}>
                         {/*表2-2 基础信息统计分析表（按危害因素续1）*/}
                         <Card
@@ -808,7 +808,7 @@ export default class NationEnterpriseVisual extends Component {
                         </Card>
                     </Col>
                 </Row>
-                <Row gutter={24} style={{marginTop: 24}}>
+                <Row gutter={8} style={{marginTop: 10}}>
                     <Col span={12}>
                         {/*表2-4 基础信息统计分析表（按危害因素续3）*/}
                         <Card
@@ -839,7 +839,7 @@ export default class NationEnterpriseVisual extends Component {
             </div>
             {/*企业规模*/}
             <div style={{display: this.state.display3}}>
-                <Row gutter={24} style={{marginTop: 10}}>
+                <Row gutter={8} style={{marginTop: 10}}>
                     <Col span={9}>
                         {/*表2-1 基础信息统计分析表（按危害因素）*/}
                         <Card
@@ -859,14 +859,14 @@ export default class NationEnterpriseVisual extends Component {
                             bordered={false}
                             headStyle={{height: 57}}
                             extra={<Button type="dashed">详细数据</Button>}
-                            style={{marginBottom: 24}}
+                            style={{marginBottom: 10}}
                         >
                             <ReactEcharts
                                 option={option15}
                                 onEvents={onEvents} style={{height: 150}}/>
                         </Card>
                     </Col>
-                    <Col span={15} style={{marginBottom: 24}}>
+                    <Col span={15} style={{marginBottom: 10}}>
                         {/*表2-2 基础信息统计分析表（按危害因素续1）*/}
                         <Card
                             title={'基础信息统计分析表'}
@@ -880,7 +880,7 @@ export default class NationEnterpriseVisual extends Component {
                         </Card>
                     </Col>
                 </Row>
-                <Row gutter={24}>
+                <Row gutter={8}>
                     <Col span={12}>
                         {/*表2-3 基础信息统计分析表（按危害因素续2）*/}
                         <Card
@@ -911,7 +911,7 @@ export default class NationEnterpriseVisual extends Component {
             </div>
             {/*登记注册类型*/}
             <div style={{display: this.state.display4}}>
-                <Row gutter={24} style={{marginTop: 10}}>
+                <Row gutter={8} style={{marginTop: 10}}>
                     <Col span={24}>
                         {/*表2-1 基础信息统计分析表（按危害因素）*/}
                         <Card
@@ -926,7 +926,7 @@ export default class NationEnterpriseVisual extends Component {
                         </Card>
                     </Col>
                 </Row>
-                <Row gutter={24} style={{marginTop: 24}}>
+                <Row gutter={8} style={{marginTop: 10}}>
                     <Col span={12}>
                         {/*表2-2 基础信息统计分析表（按危害因素续1）*/}
                         <Card
@@ -954,7 +954,7 @@ export default class NationEnterpriseVisual extends Component {
                         </Card>
                     </Col>
                 </Row>
-                <Row gutter={24} style={{marginTop: 24}}>
+                <Row gutter={8} style={{marginTop: 10}}>
                     <Col span={12}>
                         {/*表2-4 基础信息统计分析表（按危害因素续3）*/}
                         <Card
@@ -985,7 +985,7 @@ export default class NationEnterpriseVisual extends Component {
             </div>
             {/*所属行业*/}
             <div style={{display: this.state.display5}}>
-                <Row gutter={24} style={{marginTop: 10}}>
+                <Row gutter={8} style={{marginTop: 10}}>
                     <Col span={24}>
                         {/*表2-1 基础信息统计分析表（按危害因素）*/}
                         <Card
@@ -1000,7 +1000,7 @@ export default class NationEnterpriseVisual extends Component {
                         </Card>
                     </Col>
                 </Row>
-                <Row gutter={24} style={{marginTop: 24}}>
+                <Row gutter={8} style={{marginTop: 10}}>
                     <Col span={12}>
                         {/*表2-2 基础信息统计分析表（按危害因素续1）*/}
                         <Card
@@ -1028,7 +1028,7 @@ export default class NationEnterpriseVisual extends Component {
                         </Card>
                     </Col>
                 </Row>
-                <Row gutter={24} style={{marginTop: 24}}>
+                <Row gutter={8} style={{marginTop: 10}}>
                     <Col span={12}>
                         {/*表2-4 基础信息统计分析表（按危害因素续3）*/}
                         <Card

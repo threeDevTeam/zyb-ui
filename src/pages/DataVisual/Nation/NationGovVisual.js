@@ -469,7 +469,7 @@ export default class NationGovVisual extends Component {
         }
         return <div>
             <ConfigProvider locale={zhCh}>
-                <Row gutter={24}>
+                <Row gutter={8}>
                     <Col span={24}>
                         <div style={{background: '#fff', height: 60}}>
                             <Radio.Group style={{marginLeft: 18, marginTop: 10}} onChange={this.yearOnChange}
@@ -482,7 +482,7 @@ export default class NationGovVisual extends Component {
                         </div>
                     </Col>
                 </Row>
-                <Row gutter={24} style={{marginTop: 10}}>
+                <Row gutter={8} style={{marginTop: 10}}>
                     <Col span={16}>
                         {/*表2-29 职业健康监管资源统计分析表*/}
                         <Card
@@ -509,7 +509,7 @@ export default class NationGovVisual extends Component {
                         </Card>
                     </Col>
                 </Row>
-                <Row gutter={24} style={{marginTop: 24}}>
+                <Row gutter={8} style={{marginTop: 10}}>
                     <Col span={12}>
                         {/*表2-31 职业健康监督执法统计分析表*/}
                         <Card
@@ -533,7 +533,7 @@ export default class NationGovVisual extends Component {
                         </Card>
                     </Col>
                 </Row>
-                <Row gutter={16} style={{marginTop: 24}}>
+                <Row gutter={8} style={{marginTop: 10}}>
                     <Col span={24}>
                         {/*
                         表2-33 技术服务机构监管情况统计分析表
@@ -545,7 +545,7 @@ export default class NationGovVisual extends Component {
                             headStyle={{height: 57}}
                             extra={<Button type="dashed" onClick={() => this.detailData('one')}>详细数据</Button>}
                         >
-                            <Tabs defaultActiveKey="option6" onChange={this.onChange}>
+                            <Tabs defaultActiveKey="option6" onChange={this.onChange} type={'card'}>
                                 <TabPane tab="技术服务机构监管情况1" key="option6">
                                     <ReactEcharts
                                         option={option6}

@@ -693,7 +693,7 @@ export default class NationServiceVisual extends Component {
         };
         return <div>
             <ConfigProvider locale={zhCh}>
-                <Row gutter={24}>
+                <Row gutter={8}>
                     <Col span={24}>
                         <div style={{background: '#fff', height: 60}}>
                             <Select onChange={this.yearOnChange} defaultValue={this.state.year} size={'large'}
@@ -712,7 +712,7 @@ export default class NationServiceVisual extends Component {
                 </Row>
                 {/*危害因素*/}
                 <div style={{display: this.state.display1}}>
-                    <Row gutter={24} style={{marginTop: 10}}>
+                    <Row gutter={8} style={{marginTop: 10}}>
                         <Col span={8}>
                             {/*表1  作业场所职业病危害因素检测情况统计分析表*/}
                             <Card
@@ -756,7 +756,7 @@ export default class NationServiceVisual extends Component {
                 </div>
                 {/*行政区划、登记注册类型*/}
                 <div style={{display: this.state.display2}}>
-                    <Row gutter={24} style={{marginTop: 10}}>
+                    <Row gutter={8} style={{marginTop: 10}}>
                         <Col span={24}>
                             <Card
                                 title={'作业场所职业病危害因素检测情况'}
@@ -770,7 +770,7 @@ export default class NationServiceVisual extends Component {
                             </Card>
                         </Col>
                     </Row>
-                    <Row gutter={24} style={{marginTop: 24}}>
+                    <Row gutter={8} style={{marginTop: 10}}>
                         <Col span={12}>
                             {/*表2-职业健康检查结果统计分析表*/}
                             <Card
@@ -798,7 +798,7 @@ export default class NationServiceVisual extends Component {
                             </Card>
                         </Col>
                     </Row>
-                    <Row gutter={24} style={{marginTop: 24}}>
+                    <Row gutter={8} style={{marginTop: 10}}>
                         <Col span={24}>
                             {/*表4-职业卫生技术服务机构统计分析表*/}
                             <Card
@@ -811,7 +811,7 @@ export default class NationServiceVisual extends Component {
                             </Card>
                         </Col>
                     </Row>
-                    <Row gutter={24} style={{marginTop: 24}}>
+                    <Row gutter={8} style={{marginTop: 10}}>
                         <Col span={12}>
                             {/*表5-职业健康检查机构统计分析表*/}
                             <Card

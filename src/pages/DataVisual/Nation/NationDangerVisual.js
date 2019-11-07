@@ -605,7 +605,7 @@ export default class NationDangerVisual extends Component {
                     </Card>
                 </Col>
             </Row>
-            <Row gutter={16} style={{marginTop: 10}}>
+            <Row gutter={8} style={{marginTop: 10}}>
                 <Col span={24}>
                     {/*表2-41 企业职业病危害风险分布情况（按行政区划统计）*/}
                     <Card
