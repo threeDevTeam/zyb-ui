@@ -8,6 +8,7 @@ import request from "../../../utils/request"
 import 'ant-design-pro/dist/ant-design-pro.css'
 import {WaterWave} from 'ant-design-pro/lib/Charts'
 import bj from '../../../assets/map_bg.jpg'
+import styles from './nation.less'
 
 const {TabPane} = Tabs
 let switchFlag = "no"
@@ -556,16 +557,16 @@ export default class NationDangerVisual extends Component {
                         style={{height: '97vh', overflow: 'hidden'}}
                     >
                         <Carousel autoplay dotPosition={"right"} dots={false}>
-                            <Table size={'middle'} showHeader={false} columns={columns}
+                            <Table size={'middle'} showHeader={false} columns={columns} className={styles.tableTdBorder}
                                    dataSource={this.state.scrollData.four}
                                    pagination={false}/>
-                            <Table size={'middle'} showHeader={false} columns={columns}
+                            <Table size={'middle'} showHeader={false} columns={columns} className={styles.tableTdBorder}
                                    dataSource={this.state.scrollData.three}
                                    pagination={false}/>
-                            <Table size={'middle'} showHeader={false} columns={columns}
+                            <Table size={'middle'} showHeader={false} columns={columns} className={styles.tableTdBorder}
                                    dataSource={this.state.scrollData.two}
                                    pagination={false}/>
-                            <Table size={'middle'} showHeader={false} columns={columns}
+                            <Table size={'middle'} showHeader={false} columns={columns} className={styles.tableTdBorder}
                                    dataSource={this.state.scrollData.one}
                                    pagination={false}/>
                         </Carousel>
