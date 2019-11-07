@@ -38,11 +38,11 @@ componentWillMount() {
  }
  render() {
   return (
- <Form core={this.core} layout={{label: 7}}>
+ <Form core={this.core} layout={{label: 9}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
   <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'} style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
  <FormItem required={true} label="是否设置防护设施" name="isSet">
-  <Radio.Group  >
+  <Radio.Group  style={{width:200,paddingLeft:10}}>
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
@@ -69,7 +69,7 @@ componentWillMount() {
   </Select>
  </FormItem>
  <FormItem required={true} value={"是"}  label="是否定期进行维护检修保养" name="isFix">
-  <Radio.Group  >
+  <Radio.Group  style={{width:200,paddingLeft:10}}>
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>

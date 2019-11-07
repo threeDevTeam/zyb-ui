@@ -25,7 +25,7 @@ componentWillMount() {
  }
  render() {
   return (
- <Form core={this.core} layout={{label: 7}}>
+ <Form core={this.core} layout={{label: 9}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem required={true} label="体检年份" name="year"><InputNumber/></FormItem>
  <FormItem required={true} label="体检月份" name="month"><InputNumber/></FormItem>

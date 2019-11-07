@@ -53,7 +53,7 @@ componentWillMount() {
  }
  render() {
   return (
- <Form core={this.core} layout={{label: 8}}>
+ <Form core={this.core} layout={{label: 9}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
   <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'} style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
  <FormItem required={true} label="申报时间" name="upDateeStr"><DatePicker placeholder="请选择申报时间"/></FormItem>

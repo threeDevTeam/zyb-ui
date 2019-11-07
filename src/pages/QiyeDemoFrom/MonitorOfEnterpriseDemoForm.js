@@ -36,7 +36,7 @@ componentWillMount() {
  }
  render() {
   return (
- <Form core={this.core} layout={{label: 7}}>
+ <Form core={this.core} layout={{label: 9}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
   <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'}  style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
  <FormItem required={true} label="监测周期" name="cycle"><Input/></FormItem>
@@ -52,7 +52,7 @@ componentWillMount() {
   </Select>
  </FormItem>
  <FormItem required={true} value={"合格"} label="判定结果" name="decideResult">
-  <Radio.Group  value={this.state.value} >
+  <Radio.Group  value={this.state.value} style={{width:200,paddingLeft:10}}>
    <Radio value={"合格"}>合格</Radio>
    <Radio value={"不合格"}>不合格</Radio>
   </Radio.Group>

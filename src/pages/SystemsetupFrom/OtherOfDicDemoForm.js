@@ -29,7 +29,7 @@ class OtherOfDicDemoForm extends PureComponent {
 
     render() {
         return (
-            <Form core={this.core} layout={{label: 4, control: 20}}>
+            <Form core={this.core} layout={{label:9}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
                 <FormItem label="name" name="name"><Input/></FormItem>
                 <FormItem label="sort" name="sort"><InputNumber/></FormItem>

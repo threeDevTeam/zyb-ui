@@ -38,11 +38,11 @@ componentWillMount() {
  }
  render() {
   return (
- <Form core={this.core} layout={{label: 7}}>
+ <Form core={this.core} layout={{label:9}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
   <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'} style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
  <FormItem required={true}  value={"是"} label="是否配备个人防护用品" name="isSet">
-  <Radio.Group  >
+  <Radio.Group  style={{width:200,paddingLeft:10}}>
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
@@ -52,13 +52,13 @@ componentWillMount() {
  <FormItem required={true} label="发放数量" name="count"><Input/></FormItem>
  <FormItem required={true} label="发放周期" name="cycle"><InputNumber/></FormItem>
  <FormItem required={true} value={"是"}  label="劳动者是否正确佩戴使用防护用品" name="isCorrect">
-  <Radio.Group  >
+  <Radio.Group  style={{width:200,paddingLeft:10}}>
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
  </FormItem>
  <FormItem required={true} value={"是"}  label="是否定期更换个人防护用品" name="isReplace">
-  <Radio.Group  >
+  <Radio.Group  style={{width:200,paddingLeft:10}}>
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>

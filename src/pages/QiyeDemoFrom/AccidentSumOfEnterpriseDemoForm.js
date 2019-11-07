@@ -36,7 +36,7 @@ componentWillMount() {
  }
  render() {
   return (
- <Form core={this.core} layout={{label: 7}}>
+ <Form core={this.core} layout={{label: 9}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem required={true} label="职业病危害事故编号" name="accidentNum"><Input/></FormItem>
  <FormItem required={true} label="事故发生时间" name="startTime"><InputNumber/></FormItem>
@@ -50,7 +50,7 @@ componentWillMount() {
  <FormItem required={true} label="事故原因" name="reason"><Input/></FormItem>
  <FormItem required={true} label="事故经过" name="process"><Input/></FormItem>
  <FormItem required={true} value={"是"} label="是否向有关部门报告" name="isReport">
-  <Radio.Group  >
+  <Radio.Group  style={{width:200}}>
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>

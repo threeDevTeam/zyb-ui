@@ -53,7 +53,7 @@ class OtherOfDic extends PureComponent {
             }
             let title = 'edit' === type ? '编辑' : '浏览'
             request('/zyb/sysUser/getById?id=' + this.state.record.id).then(res => {
-                if (res.flag) {
+                if (res && res.flag) {
                     Dialog.show({
                         title: title,
                         footerAlign: 'label',

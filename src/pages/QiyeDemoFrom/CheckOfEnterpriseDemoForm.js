@@ -33,11 +33,11 @@ componentWillMount() {
  }
  render() {
   return (
- <Form core={this.core} layout={{label: 7}}>
+ <Form core={this.core} layout={{label: 9}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem required={true} label="年份" name="year"><InputNumber/></FormItem>
  <FormItem required={true}  value={"是"} label="是否受过相关部门检查" name="isAccept">
-  <Radio.Group  >
+  <Radio.Group  style={{width:200}} >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>

@@ -67,7 +67,7 @@ componentWillMount() {
 }
  render() {
   return (
- <Form core={this.core} layout={{label: 7}}>
+ <Form core={this.core} layout={{label: 9}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
   <div style={{display: this.state.Login1,marginTop:10,marginBottom:10}}>
  <FormItem required={true} label="企业名称" name="name"><Input/></FormItem>
