@@ -5,6 +5,7 @@ import NationEnterpriseVisual from './NationEnterpriseVisual'
 import NationGovVisual from './NationGovVisual'
 import NationServiceVisual from './NationServiceVisual'
 import styles from './nation.less'
+import logo from '../../../assets/logo.png'
 
 const {TabPane} = Tabs
 //国家
@@ -27,28 +28,27 @@ export default class NationVisual extends Component {
     displayVisual = type => {
         if ('风险预警' === type) {
             return <NationDangerVisual></NationDangerVisual>
-        } else if ('企业' === type) {
+        } else if ('企业信息' === type) {
             return <NationEnterpriseVisual></NationEnterpriseVisual>
         } else if ('政府监管部门' === type) {
             return <NationGovVisual></NationGovVisual>
         } else if ('技术服务机构' === type) {
             return <NationServiceVisual></NationServiceVisual>
         }
-
     }
 
     render() {
         return <div>
             <Layout.Header
                 style={{background: '#fff', padding: 0, marginBottom: 10, height: 70, boxShadow: '0 0 12px #ccc'}}>
-                <span style={{paddingRight: 70, float: "left", marginLeft: 34}}><h2
-                    style={{fontWeight: 700, color: '#1890FF'}}>职业病危害监测预警预控云服务平台</h2></span>
+                <img src={logo} style={{float:'left',paddingTop:10,paddingLeft:20}}/>
+                <span style={{paddingRight: 70, float: "left", marginLeft: 10}}><h2 style={{color:'#1890FF',fontWeight:'bold',letterSpacing:8}}>职业病危害监测预警预控云服务平台</h2></span>
                 <Tabs defaultActiveKey="风险预警" onChange={this.onChange}
                       style={{float: 'right', marginRight: 60, paddingTop: 18}}
                       className={styles.tabBorderBottom}>
                     <TabPane tab="风险预警" key="风险预警">
                     </TabPane>
-                    <TabPane tab="企业" key="企业">
+                    <TabPane tab="企业信息" key="企业信息">
                     </TabPane>
                     <TabPane tab="政府监管部门" key="政府监管部门">
                     </TabPane>
