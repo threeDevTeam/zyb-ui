@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Button, Card, Carousel, Col, message, Row, Table, Tabs} from 'antd'
+import {Button, Card, Carousel, Col, message, Row, Table, Tabs, ConfigProvider} from 'antd'
 import {Modal} from 'nowrapper/lib/antd'
 import echarts from 'echarts'
 import ReactEcharts from 'echarts-for-react'
@@ -7,6 +7,7 @@ import 'echarts/map/js/china'
 import request from "../../../utils/request"
 import 'ant-design-pro/dist/ant-design-pro.css'
 import {WaterWave} from 'ant-design-pro/lib/Charts'
+import zhCh from 'antd/es/locale/zh_CN'
 import bj from '../../../assets/map_bg.jpg'
 import styles from './nation.less'
 
@@ -177,7 +178,7 @@ export default class NationDangerVisual extends Component {
                 seriesIndex: [0, 1, 2, 3, 4],
                 inRange: {
                     // color: ['#CCFFCC', 'blue', 'yellow', 'orange', 'red']
-                    color: [ '#00CCCC','#1890FF','rgb(250, 204, 20)','orange','rgb(240, 72, 100)'],
+                    color: ['#00CCCC', '#1890FF', 'rgb(250, 204, 20)', 'orange', 'rgb(240, 72, 100)'],
                 },
                 calculable: true
             },
@@ -257,7 +258,7 @@ export default class NationDangerVisual extends Component {
             }
         }
         let option2 = {
-            color: [ '#00CCCC','#1890FF','rgb(250, 204, 20)','rgb(240, 72, 100)'],
+            color: ['#00CCCC', '#1890FF', 'rgb(250, 204, 20)', 'rgb(240, 72, 100)'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -349,7 +350,7 @@ export default class NationDangerVisual extends Component {
         //
         let option3 = {
             // color: ['#CCFFCC', 'blue', 'yellow', 'red'],
-            color: [ '#00CCCC','#1890FF','rgb(250, 204, 20)','rgb(240, 72, 100)'],
+            color: ['#00CCCC', '#1890FF', 'rgb(250, 204, 20)', 'rgb(240, 72, 100)'],
             tooltip: {
                 trigger: 'axis'
             },
@@ -395,7 +396,7 @@ export default class NationDangerVisual extends Component {
         }
 
         let option4 = {
-            color: [ '#00CCCC','#1890FF','rgb(250, 204, 20)','rgb(240, 72, 100)'],
+            color: ['#00CCCC', '#1890FF', 'rgb(250, 204, 20)', 'rgb(240, 72, 100)'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -450,7 +451,7 @@ export default class NationDangerVisual extends Component {
             ]
         }
         let option5 = {
-            color: [ '#00CCCC','#1890FF','rgb(250, 204, 20)','rgb(240, 72, 100)'],
+            color: ['#00CCCC', '#1890FF', 'rgb(250, 204, 20)', 'rgb(240, 72, 100)'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -502,7 +503,7 @@ export default class NationDangerVisual extends Component {
         }
 
         let option6 = {
-            color: [ '#00CCCC','#1890FF','rgb(250, 204, 20)','rgb(240, 72, 100)'],
+            color: ['#00CCCC', '#1890FF', 'rgb(250, 204, 20)', 'rgb(240, 72, 100)'],
             tooltip: {
                 trigger: 'axis'
             },
@@ -547,98 +548,105 @@ export default class NationDangerVisual extends Component {
             ]
         }
 
-        return <div >
-            <Row gutter={8}>
-                <Col span={5}>
-                    {/*表2-40 企业职业病危害风险分级及管控措施*/}
-                    <Card
-                        title={'监督检查频次'}
-                        bordered={false}
-                        style={{height: '97vh', overflow: 'hidden'}}
-                    >
-                        <Carousel autoplay dotPosition={"right"} dots={false}>
-                            <Table size={'middle'} showHeader={false} columns={columns} className={styles.tableTdBorder}
-                                   dataSource={this.state.scrollData.four}
-                                   pagination={false}/>
-                            <Table size={'middle'} showHeader={false} columns={columns} className={styles.tableTdBorder}
-                                   dataSource={this.state.scrollData.three}
-                                   pagination={false}/>
-                            <Table size={'middle'} showHeader={false} columns={columns} className={styles.tableTdBorder}
-                                   dataSource={this.state.scrollData.two}
-                                   pagination={false}/>
-                            <Table size={'middle'} showHeader={false} columns={columns} className={styles.tableTdBorder}
-                                   dataSource={this.state.scrollData.one}
-                                   pagination={false}/>
-                        </Carousel>
-                    </Card>
-                </Col>
-                <Col span={12}>
-                    {/*表2-45 区域职业病危害风险分级及管控措施*/}
-                    <Card
-                        title={'区域职业病危害风险分级'}
-                        bordered={false}
-                        headStyle={{height: 57}}
-                        extra={<Button type="dashed" onClick={() => this.detailData('one')}>详细数据</Button>}
-                    >
-                        <ReactEcharts
-                            option={option1}
-                            onEvents={onEvents1} style={{height: '80vh'}}/>
-                    </Card>
-                </Col>
-                <Col span={7}>
-                    {/*表2-44 企业职业病危害风险分布情况*/}
-                    <Card
-                        title={'企业风险数量'}
-                        bordered={false}
-                    >
-                        <ReactEcharts
-                            option={option2}
-                            onEvents={onEvents1} style={{height: '40vh'}}/>
-                    </Card>
-                    <Card
-                        title={'高度风险占比'}
-                        bodyStyle={{textAlign: 'center', fontSize: 0}}
-                        bordered={false}
-                        style={{marginTop: 10, height: '38vh'}}
-                    >
-                        <WaterWave height={140} title="高度风险(Ⅳ级)" percent={this.state.random} color={'rgb(240, 72, 100)'}/>
-                    </Card>
-                </Col>
-            </Row>
-            <Row gutter={8} style={{marginTop: 10}}>
-                <Col span={24}>
-                    {/*表2-41 企业职业病危害风险分布情况（按行政区划统计）*/}
-                    <Card
-                        bordered={false}
-                        title={'企业及区域的职业病危害风险分布情况'}
-                        headStyle={{height: 57}}
-                        extra={<Button type="dashed" onClick={() => this.detailData('one')}>详细数据</Button>}
-                    >
-                        <Tabs defaultActiveKey="industryOfEnterprise" onChange={this.onChange}  type="card">
-                            <TabPane tab="行业(企业)" key="industryOfEnterprise" >
-                                <ReactEcharts
-                                    option={option4}
-                                    onEvents={onEvents1} style={{height: '50vh'}}/>
-                            </TabPane>
-                            <TabPane tab="行政区划(企业)" key="areaOfEnterprise" >
-                                <ReactEcharts
-                                    option={option3}
-                                    onEvents={onEvents1} style={{height: '50vh'}}/>
-                            </TabPane>
-                            <TabPane tab="登记注册类型(企业)" key="registerTypeOfEnterprise">
-                                <ReactEcharts
-                                    option={option5}
-                                    onEvents={onEvents1} style={{height: '50vh'}}/>
-                            </TabPane>
-                            <TabPane tab="行政区划(区域)" key="areaOfArea" >
-                                <ReactEcharts
-                                    option={option6}
-                                    onEvents={onEvents1} style={{height: '50vh'}}/>
-                            </TabPane>
-                        </Tabs>
-                    </Card>
-                </Col>
-            </Row>
+        return <div>
+            <ConfigProvider locale={zhCh}>
+                <Row gutter={8}>
+                    <Col span={5}>
+                        {/*表2-40 企业职业病危害风险分级及管控措施*/}
+                        <Card
+                            title={'监督检查频次'}
+                            bordered={false}
+                            style={{height: '97vh', overflow: 'hidden'}}
+                        >
+                            <Carousel autoplay dotPosition={"right"} dots={false}>
+                                <Table size={'middle'} showHeader={false} columns={columns}
+                                       className={styles.tableTdBorder}
+                                       dataSource={this.state.scrollData.four}
+                                       pagination={false}/>
+                                <Table size={'middle'} showHeader={false} columns={columns}
+                                       className={styles.tableTdBorder}
+                                       dataSource={this.state.scrollData.three}
+                                       pagination={false}/>
+                                <Table size={'middle'} showHeader={false} columns={columns}
+                                       className={styles.tableTdBorder}
+                                       dataSource={this.state.scrollData.two}
+                                       pagination={false}/>
+                                <Table size={'middle'} showHeader={false} columns={columns}
+                                       className={styles.tableTdBorder}
+                                       dataSource={this.state.scrollData.one}
+                                       pagination={false}/>
+                            </Carousel>
+                        </Card>
+                    </Col>
+                    <Col span={12}>
+                        {/*表2-45 区域职业病危害风险分级及管控措施*/}
+                        <Card
+                            title={'区域职业病危害风险分级'}
+                            bordered={false}
+                            headStyle={{height: 57}}
+                            extra={<Button type="dashed" onClick={() => this.detailData('one')}>详细数据</Button>}
+                        >
+                            <ReactEcharts
+                                option={option1}
+                                onEvents={onEvents1} style={{height: '80vh'}}/>
+                        </Card>
+                    </Col>
+                    <Col span={7}>
+                        {/*表2-44 企业职业病危害风险分布情况*/}
+                        <Card
+                            title={'企业风险数量'}
+                            bordered={false}
+                        >
+                            <ReactEcharts
+                                option={option2}
+                                onEvents={onEvents1} style={{height: '40vh'}}/>
+                        </Card>
+                        <Card
+                            title={'高度风险占比'}
+                            bodyStyle={{textAlign: 'center', fontSize: 0}}
+                            bordered={false}
+                            style={{marginTop: 10, height: '38vh'}}
+                        >
+                            <WaterWave height={140} title="高度风险(Ⅳ级)" percent={this.state.random}
+                                       color={'rgb(240, 72, 100)'}/>
+                        </Card>
+                    </Col>
+                </Row>
+                <Row gutter={8} style={{marginTop: 10}}>
+                    <Col span={24}>
+                        {/*表2-41 企业职业病危害风险分布情况（按行政区划统计）*/}
+                        <Card
+                            bordered={false}
+                            title={'企业及区域的职业病危害风险分布情况'}
+                            headStyle={{height: 57}}
+                            extra={<Button type="dashed" onClick={() => this.detailData('one')}>详细数据</Button>}
+                        >
+                            <Tabs defaultActiveKey="industryOfEnterprise" onChange={this.onChange} type="card">
+                                <TabPane tab="行业(企业)" key="industryOfEnterprise">
+                                    <ReactEcharts
+                                        option={option4}
+                                        onEvents={onEvents1} style={{height: '50vh'}}/>
+                                </TabPane>
+                                <TabPane tab="行政区划(企业)" key="areaOfEnterprise">
+                                    <ReactEcharts
+                                        option={option3}
+                                        onEvents={onEvents1} style={{height: '50vh'}}/>
+                                </TabPane>
+                                <TabPane tab="登记注册类型(企业)" key="registerTypeOfEnterprise">
+                                    <ReactEcharts
+                                        option={option5}
+                                        onEvents={onEvents1} style={{height: '50vh'}}/>
+                                </TabPane>
+                                <TabPane tab="行政区划(区域)" key="areaOfArea">
+                                    <ReactEcharts
+                                        option={option6}
+                                        onEvents={onEvents1} style={{height: '50vh'}}/>
+                                </TabPane>
+                            </Tabs>
+                        </Card>
+                    </Col>
+                </Row>
+            </ConfigProvider>
         </div>
     }
 }

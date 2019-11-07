@@ -143,7 +143,7 @@ export default class NationGovVisual extends Component {
             }
         ]
         let option2 = {
-            color: ['#00CCCC', '#1890FF', 'rgb(250, 204, 20)'],
+            color: ['#1890FF', '#00CCCC', 'rgb(250, 204, 20)'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -327,7 +327,7 @@ export default class NationGovVisual extends Component {
             }
         ]
         let option5 = {
-            color: ['#00CCCC', '#1890FF', 'rgb(250, 204, 20)'],
+            color: ['#1890FF', '#00CCCC', 'rgb(250, 204, 20)'],
             tooltip: {
                 trigger: 'axis'
             },
@@ -422,7 +422,7 @@ export default class NationGovVisual extends Component {
             ]
         }
         let option7 = {
-            color: ['#00CCCC', '#1890FF', 'rgb(250, 204, 20)'],
+            color: ['#1890FF', '#00CCCC', 'rgb(250, 204, 20)'],
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {            // 坐标轴指示器，坐标轴触发有效
