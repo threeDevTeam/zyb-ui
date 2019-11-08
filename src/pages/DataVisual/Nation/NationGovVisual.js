@@ -5,6 +5,7 @@ import request from "../../../utils/request"
 import _ from 'lodash'
 import Link from 'umi/link'
 import zhCh from 'antd/es/locale/zh_CN'
+import {Modal} from "nowrapper/lib/antd";
 
 const {TabPane} = Tabs
 let switchFlag = "no"
@@ -12,7 +13,8 @@ let currentYear = new Date().getFullYear()
 //企业
 export default class NationGovVisual extends Component {
     state = {
-        year: currentYear
+        year: currentYear,
+        tabKey: 'option6'
     }
 
 
@@ -36,6 +38,11 @@ export default class NationGovVisual extends Component {
                 this.setState({option2Data: res.data})
             }
         })
+        request('/zyb/nationGovVisual/' + switchFlag + '/option2Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option2Detail: res.data})
+            }
+        })
         //option3
         request('/zyb/nationGovVisual/' + switchFlag + '/option3', params).then(res => {
             if (res && res.flag) {
@@ -54,10 +61,20 @@ export default class NationGovVisual extends Component {
                 this.setState({option5Data: res.data})
             }
         })
+        request('/zyb/nationGovVisual/' + switchFlag + '/option5Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option5Detail: res.data})
+            }
+        })
         //option6
         request('/zyb/nationGovVisual/' + switchFlag + '/option6', params).then(res => {
             if (res && res.flag) {
                 this.setState({option6Data: res.data})
+            }
+        })
+        request('/zyb/nationGovVisual/' + switchFlag + '/option6Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option6Detail: res.data})
             }
         })
         //option7
@@ -66,31 +83,373 @@ export default class NationGovVisual extends Component {
                 this.setState({option7Data: res.data})
             }
         })
+        request('/zyb/nationGovVisual/' + switchFlag + '/option7Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option7Detail: res.data})
+            }
+        })
     }
 
     onChange = tabKey => {
+        let params = {
+            params: {year: this.state.year}
+        }
+        this.setState({tabKey})
         if (tabKey === 'option5') {
             //option5
-            request('/zyb/nationGovVisual/' + switchFlag + '/option5').then(res => {
+            request('/zyb/nationGovVisual/' + switchFlag + '/option5', params).then(res => {
                 if (res && res.flag) {
                     this.setState({option5Data: res.data})
                 }
             })
+            request('/zyb/nationGovVisual/' + switchFlag + '/option5Detail', params).then(res => {
+                if (res && res.flag) {
+                    this.setState({option5Detail: res.data})
+                }
+            })
         } else if (tabKey === 'option6') {
             //option6
-            request('/zyb/nationGovVisual/' + switchFlag + '/option6').then(res => {
+            request('/zyb/nationGovVisual/' + switchFlag + '/option6', params).then(res => {
                 if (res && res.flag) {
                     this.setState({option6Data: res.data})
                 }
             })
+            request('/zyb/nationGovVisual/' + switchFlag + '/option6Detail', params).then(res => {
+                if (res && res.flag) {
+                    this.setState({option6Detail: res.data})
+                }
+            })
         } else if (tabKey === 'option7') {
             //option7
-            request('/zyb/nationGovVisual/' + switchFlag + '/option7').then(res => {
+            request('/zyb/nationGovVisual/' + switchFlag + '/option7', params).then(res => {
                 if (res && res.flag) {
                     this.setState({option7Data: res.data})
                 }
             })
+            request('/zyb/nationGovVisual/' + switchFlag + '/option7Detail', params).then(res => {
+                if (res && res.flag) {
+                    this.setState({option7Detail: res.data})
+                }
+            })
         }
+    }
+
+    detailData = (type) => {
+        let dataSource = []
+        let columns = []
+        let title = ''
+        let width = '70vw'
+        let pagination = true
+        if ('option2' === type) {
+            title = ''
+            dataSource = this.state.option2Detail
+            columns = [
+                {
+                    title: '行政区划',
+                    dataIndex: 'name',
+                    key: 'name',
+                },
+                {
+                    title: '印发法律法规数',
+                    children: [
+                        {
+                            title: '新增',
+                            dataIndex: 'var1',
+                            key: 'var1'
+                        },
+                        {
+                            title: '累计',
+                            dataIndex: 'var2',
+                            key: 'var2',
+                        }
+                    ]
+                },
+                {
+                    title: '印发规范性文件数',
+                    children: [
+                        {
+                            title: '新增',
+                            dataIndex: 'var3',
+                            key: 'var3'
+                        },
+                        {
+                            title: '累计',
+                            dataIndex: 'var4',
+                            key: 'var4',
+                        }
+                    ]
+                },
+                {
+                    title: '印发标准数',
+                    children: [
+                        {
+                            title: '新增',
+                            dataIndex: 'var5',
+                            key: 'var5'
+                        },
+                        {
+                            title: '累计',
+                            dataIndex: 'var6',
+                            key: 'var6',
+                        }
+                    ]
+                }
+            ]
+        } else if ('tab' === type) {
+            width = '95vw'
+            let tabKey = this.state.tabKey
+            if ('option6' === tabKey) {
+                title = '技术服务机构监管情况'
+                columns = [
+                    {
+                        title: '行政区划',
+                        dataIndex: 'name',
+                        key: 'name',
+                    },
+                    {
+                        title: '检查机构数（家）',
+                        children: [
+                            {
+                                title: '职业卫生技术服务机构',
+                                dataIndex: 'var1',
+                                key: 'var1'
+                            },
+                            {
+                                title: '职业健康检查机构',
+                                dataIndex: 'var2',
+                                key: 'var2',
+                            },
+                            {
+                                title: '职业病诊断机构',
+                                dataIndex: 'var3',
+                                key: 'var3',
+                            }
+                        ]
+                    },
+                    {
+                        title: '处罚机构数（家）',
+                        children: [
+                            {
+                                title: '职业卫生技术服务机构',
+                                dataIndex: 'var4',
+                                key: 'var4'
+                            },
+                            {
+                                title: '职业健康检查机构',
+                                dataIndex: 'var5',
+                                key: 'var5',
+                            },
+                            {
+                                title: '职业病诊断机构',
+                                dataIndex: 'var6',
+                                key: 'var6',
+                            }
+                        ]
+                    },
+                    {
+                        title: '罚款金额',
+                        children: [
+                            {
+                                title: '职业卫生技术服务机构',
+                                dataIndex: 'var7',
+                                key: 'var7'
+                            },
+                            {
+                                title: '职业健康检查机构',
+                                dataIndex: 'var8',
+                                key: 'var8',
+                            },
+                            {
+                                title: '职业病诊断机构',
+                                dataIndex: 'var9',
+                                key: 'var9',
+                            }
+                        ]
+                    },
+                    {
+                        title: '吊销资质数',
+                        children: [
+                            {
+                                title: '职业卫生技术服务机构',
+                                dataIndex: 'var10',
+                                key: 'var10'
+                            },
+                            {
+                                title: '职业健康检查机构',
+                                dataIndex: 'var11',
+                                key: 'var11',
+                            },
+                            {
+                                title: '职业病诊断机构',
+                                dataIndex: 'var12',
+                                key: 'var12',
+                            }
+                        ]
+                    }
+                ]
+            } else if ('option5' === tabKey) {
+                title = '技术服务机构监管情况'
+                columns = [
+                    {
+                        title: '行政区划',
+                        dataIndex: 'name',
+                        key: 'name',
+                    },
+                    {
+                        title: '职业卫生技术服务机构（甲级）',
+                        children: [
+                            {
+                                title: '新增',
+                                dataIndex: 'var1',
+                                key: 'var1'
+                            },
+                            {
+                                title: '累计',
+                                dataIndex: 'var2',
+                                key: 'var2',
+                            }
+                        ]
+                    },
+                    {
+                        title: '职业卫生技术服务机构（乙级）',
+                        children: [
+                            {
+                                title: '新增',
+                                dataIndex: 'var3',
+                                key: 'var3'
+                            },
+                            {
+                                title: '累计',
+                                dataIndex: 'var4',
+                                key: 'var4',
+                            }
+                        ]
+                    },
+                    {
+                        title: '职业卫生技术服务机构（丙级）',
+                        children: [
+                            {
+                                title: '新增',
+                                dataIndex: 'var5',
+                                key: 'var5'
+                            },
+                            {
+                                title: '累计',
+                                dataIndex: 'var6',
+                                key: 'var6',
+                            }
+                        ]
+                    },
+                    {
+                        title: '职业健康检查机构',
+                        children: [
+                            {
+                                title: '新增',
+                                dataIndex: 'var7',
+                                key: 'var7'
+                            },
+                            {
+                                title: '累计',
+                                dataIndex: 'var8',
+                                key: 'var8',
+                            }
+                        ]
+                    },
+                    {
+                        title: '职业病诊断机构',
+                        children: [
+                            {
+                                title: '新增',
+                                dataIndex: 'var9',
+                                key: 'var9'
+                            },
+                            {
+                                title: '累计',
+                                dataIndex: 'var10',
+                                key: 'var10',
+                            }
+                        ]
+                    }
+                ]
+            } else if ('option7' === tabKey) {
+                title = '职业病危害事故'
+                columns = [
+                    {
+                        title: '行政区划',
+                        dataIndex: 'name',
+                        key: 'name',
+                    },
+                    {
+                        title: '事故或事件数（起）',
+                        children: [
+                            {
+                                title: '合计',
+                                dataIndex: 'var1',
+                                key: 'var1'
+                            },
+                            {
+                                title: '尘肺病事件',
+                                dataIndex: 'var2',
+                                key: 'var2',
+                            },
+                            {
+                                title: '中毒事故',
+                                dataIndex: 'var3',
+                                key: 'var3'
+                            },
+                            {
+                                title: '其它事故',
+                                dataIndex: 'var4',
+                                key: 'var4',
+                            }
+                        ]
+                    },
+                    {
+                        title: '事故人数（人）',
+                        children: [
+                            {
+                                title: '合计',
+                                dataIndex: 'var5',
+                                key: 'var5'
+                            },
+                            {
+                                title: '尘肺病事件人数',
+                                dataIndex: 'var6',
+                                key: 'var6',
+                            },
+                            {
+                                title: '中毒事故人数',
+                                dataIndex: 'var7',
+                                key: 'var7'
+                            },
+                            {
+                                title: '其它事故人数',
+                                dataIndex: 'var8',
+                                key: 'var8',
+                            }
+                        ]
+                    },
+                    {
+                        title: '死亡人数',
+                        dataIndex: 'var9',
+                        key: 'var9',
+                    },
+                    {
+                        title: '直接经济损失',
+                        dataIndex: 'var10',
+                        key: 'var10',
+                    }
+                ]
+            }
+            dataSource = this.state[tabKey + 'Detail']
+        }
+        Modal.info({
+            title: title,
+            okText: '关闭',
+            content: <Table pagination={pagination} columns={columns} dataSource={dataSource} bordered={true}
+                            size={'small'}/>,
+            width: width
+        })
     }
 
     render() {
@@ -493,7 +852,6 @@ export default class NationGovVisual extends Component {
                             title={'职业健康监管资源统计'}
                             bordered={false}
                             headStyle={{height: 57}}
-
                         >
                             <Table columns={option1Columns} dataSource={this.state.option1Data}
                                    style={{height: 350, overflowY: 'scroll'}} size={'middle'}/>
@@ -505,7 +863,7 @@ export default class NationGovVisual extends Component {
                             title={'职业健康法规标准建设统计'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option2')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option2}
@@ -547,7 +905,7 @@ export default class NationGovVisual extends Component {
                             bordered={false}
                             title={'技术服务机构监管情况、职业病危害事故'}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed" onClick={() => this.detailData('one')}>详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('tab')}>详细数据</Button>}
                         >
                             <Tabs defaultActiveKey="option6" onChange={this.onChange} type={'card'}>
                                 <TabPane tab="技术服务机构监管情况1" key="option6">

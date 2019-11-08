@@ -256,7 +256,6 @@ export default class NationDangerVisual extends Component {
             } else if ("areaOfEnterprise" === tabKey) {
                 title = '企业的职业病危害风险分布情况'
                 dataSource = this.state.option3Detail
-
                 columns = [
                     {
                         title: '行政区划',
@@ -291,7 +290,6 @@ export default class NationDangerVisual extends Component {
             } else if ("registerTypeOfEnterprise" === tabKey) {
                 title = '企业的职业病危害风险分布情况'
                 dataSource = this.state.option5Detail
-
                 columns = [
                     {
                         title: '登记注册类型',
