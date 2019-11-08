@@ -4,6 +4,7 @@ import ReactEcharts from 'echarts-for-react'
 import request from "../../../utils/request"
 import _ from 'lodash'
 import themes from './theme'
+import {Modal} from "nowrapper/lib/antd"
 
 let switchFlag = "no"
 let currentYear = new Date().getFullYear()
@@ -35,10 +36,20 @@ export default class NationEnterpriseVisual extends Component {
                 this.setState({option11Data: res.data})
             }
         })
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option11Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option11Detail: res.data})
+            }
+        })
         //option12
         request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option12', params).then(res => {
             if (res && res.flag) {
                 this.setState({option12Data: res.data})
+            }
+        })
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option12Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option12Detail: res.data})
             }
         })
         //option13
@@ -61,16 +72,31 @@ export default class NationEnterpriseVisual extends Component {
                 this.setState({option13Dataset: data})
             }
         })
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option13Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option13Detail: res.data})
+            }
+        })
         //option14
         request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option14', params).then(res => {
             if (res && res.flag) {
                 this.setState({option14Data: res.data})
             }
         })
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option14Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option14Detail: res.data})
+            }
+        })
         //option15
         request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option25', params).then(res => {
             if (res && res.flag) {
                 this.setState({option25Data: res.data})
+            }
+        })
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option25Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option25Detail: res.data})
             }
         })
     }
@@ -85,10 +111,20 @@ export default class NationEnterpriseVisual extends Component {
                 this.setState({option21Data: res.data})
             }
         })
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option21Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option21Detail: res.data})
+            }
+        })
         //option22
         request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option22', params).then(res => {
             if (res && res.flag) {
                 this.setState({option22Data: res.data})
+            }
+        })
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option22Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option22Detail: res.data})
             }
         })
         //option23
@@ -104,16 +140,31 @@ export default class NationEnterpriseVisual extends Component {
                 this.setState({option23Dataset: data})
             }
         })
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option23Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option23Detail: res.data})
+            }
+        })
         //option24
         request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option24', params).then(res => {
             if (res && res.flag) {
                 this.setState({option24Data: res.data})
             }
         })
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option24Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option24Detail: res.data})
+            }
+        })
         //option25
         request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option25', params).then(res => {
             if (res && res.flag) {
                 this.setState({option25Data: res.data})
+            }
+        })
+        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option25Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option25Detail: res.data})
             }
         })
     }
@@ -227,6 +278,286 @@ export default class NationEnterpriseVisual extends Component {
                 display5: 'block'
             })
         }
+    }
+
+    detailData = (type) => {
+        let dataSource = this.state[type + 'Detail']
+        let columns = []
+        let title = ''
+        let width = '90vw'
+        let pagination = true
+        if ('危害因素' === this.state.type || '企业规模' === this.state.type) {
+            pagination = false
+        }
+        if ('option11' === type || 'option21' === type) {
+            title = ''
+            columns = [
+                {
+                    title: this.state.type,
+                    dataIndex: 'name',
+                    key: 'name'
+                },
+                {
+                    title: '用人单位数',
+                    dataIndex: 'var1',
+                    key: 'var1'
+                },
+                {
+                    title: '从业人数',
+                    dataIndex: 'var2',
+                    key: 'var2'
+                },
+                {
+                    title: '接触职业病危害人数',
+                    dataIndex: 'var3',
+                    key: 'var3'
+                },
+                {
+                    title: '接害率',
+                    dataIndex: 'var4',
+                    key: 'var4'
+                },
+                {
+                    title: '接触粉尘危害人数',
+                    dataIndex: 'var5',
+                    key: 'var5'
+                },
+                {
+                    title: '接尘率',
+                    dataIndex: 'var6',
+                    key: 'var6'
+                },
+                {
+                    title: '接触化学因素危害人数',
+                    dataIndex: 'var7',
+                    key: 'var7'
+                },
+                {
+                    title: '接毒率',
+                    dataIndex: 'var8',
+                    key: 'var8'
+                },
+                {
+                    title: '接触物理因素危害人数',
+                    dataIndex: 'var9',
+                    key: 'var9'
+                },
+                {
+                    title: '接触物理因素危害率',
+                    dataIndex: 'var10',
+                    key: 'var10'
+                },
+                {
+                    title: '接触放射性因素危害人数',
+                    dataIndex: 'var11',
+                    key: 'var11'
+                },
+                {
+                    title: '接触放射性因素危害率',
+                    dataIndex: 'var12',
+                    key: 'var12'
+                },
+                {
+                    title: '接触生物因素危害人数',
+                    dataIndex: 'var13',
+                    key: 'var13'
+                },
+                {
+                    title: '接触生物因素危害率',
+                    dataIndex: 'var14',
+                    key: 'var14'
+                }
+            ]
+        } else if ('option12' === type || 'option22' === type) {
+            title = ''
+            columns = [
+                {
+                    title: this.state.type,
+                    dataIndex: 'name',
+                    key: 'name',
+                },
+                {
+                    title: '应检点数',
+                    dataIndex: 'var1',
+                    key: 'var1',
+                    sorter: (a, b) => a.var1 - b.var1
+                },
+                {
+                    title: '实检点数',
+                    dataIndex: 'var2',
+                    key: 'var2',
+                    sorter: (a, b) => a.var2 - b.var2
+                },
+                {
+                    title: '检测率',
+                    dataIndex: 'var3',
+                    key: 'var3',
+                    sorter: (a, b) => a.var3 - b.var3
+                },
+                {
+                    title: '达标点数',
+                    dataIndex: 'var4',
+                    key: 'var4',
+                    sorter: (a, b) => a.var4 - b.var4
+                },
+                {
+                    title: '达标率',
+                    dataIndex: 'var5',
+                    key: 'var5',
+                    sorter: (a, b) => a.var5 - b.var5
+                }
+            ]
+            width = '70vw'
+        } else if ('option13' === type || 'option23' === type) {
+            title = ''
+            columns = [
+                {
+                    title: this.state.type,
+                    dataIndex: 'name',
+                    key: 'name',
+                },
+                {
+                    title: '存在职业病危害岗位数',
+                    dataIndex: 'var1',
+                    key: 'var1',
+                    sorter: (a, b) => a.var1 - b.var1
+                },
+                {
+                    title: '设置职业病防护设施岗位数',
+                    dataIndex: 'var2',
+                    key: 'var2',
+                    sorter: (a, b) => a.var2 - b.var2
+                },
+                {
+                    title: '职业病防护设施设置率',
+                    dataIndex: 'var3',
+                    key: 'var3',
+                    sorter: (a, b) => a.var3 - b.var3
+                },
+                {
+                    title: '配备个体防护用品岗位数',
+                    dataIndex: 'var4',
+                    key: 'var4',
+                    sorter: (a, b) => a.var4 - b.var4
+                },
+                {
+                    title: '个人防护用品配备率',
+                    dataIndex: 'var5',
+                    key: 'var5',
+                    sorter: (a, b) => a.var5 - b.var5
+                }
+            ]
+        } else if ('option14' === type || 'option24' === type) {
+            title = ''
+            columns = [
+                {
+                    title: this.state.type,
+                    dataIndex: 'name',
+                    key: 'name',
+                },
+                {
+                    title: '体检人数',
+                    dataIndex: 'var1',
+                    key: 'var1',
+                    sorter: (a, b) => a.var1 - b.var1
+                },
+                {
+                    title: '体检率',
+                    dataIndex: 'var2',
+                    key: 'var2',
+                    sorter: (a, b) => a.var2 - b.var2
+                },
+                {
+                    title: '疑似职业病人数',
+                    dataIndex: 'var3',
+                    key: 'var3',
+                    sorter: (a, b) => a.var3 - b.var3
+                },
+                {
+                    title: '新增职业病病人数',
+                    dataIndex: 'var4',
+                    key: 'var4',
+                    sorter: (a, b) => a.var4 - b.var4
+                },
+                {
+                    title: '累计职业病病人数',
+                    dataIndex: 'var5',
+                    key: 'var5',
+                    sorter: (a, b) => a.var5 - b.var5
+                },
+                {
+                    title: '累计职业病患病率',
+                    dataIndex: 'var6',
+                    key: 'var6',
+                    sorter: (a, b) => a.var6 - b.var6
+                },
+                {
+                    title: '新增职业病死亡人数',
+                    dataIndex: 'var7',
+                    key: 'var7',
+                    sorter: (a, b) => a.var7 - b.var7
+                },
+                {
+                    title: '累计职业病死亡人数',
+                    dataIndex: 'var8',
+                    key: 'var8',
+                    sorter: (a, b) => a.var8 - b.var8
+                },
+                {
+                    title: '累计职业病病死率',
+                    dataIndex: 'var9',
+                    key: 'var9',
+                    sorter: (a, b) => a.var9 - b.var9
+                },
+                {
+                    title: '损失工作日',
+                    dataIndex: 'var10',
+                    key: 'var10',
+                    sorter: (a, b) => a.var10 - b.var10
+                }
+            ]
+            width = '95vw'
+        } else if ('option25' === type) {
+            title = ''
+            columns = [
+                {
+                    title: this.state.type,
+                    dataIndex: 'name',
+                    key: 'name',
+                },
+                {
+                    title: '签订劳动合同人数',
+                    dataIndex: 'var1',
+                    key: 'var1',
+                    sorter: (a, b) => a.var1 - b.var1
+                },
+                {
+                    title: '劳动合同签订率',
+                    dataIndex: 'var2',
+                    key: 'var2',
+                    sorter: (a, b) => a.var2 - b.var2
+                },
+                {
+                    title: '缴纳工伤保险人数',
+                    dataIndex: 'var3',
+                    key: 'var3',
+                    sorter: (a, b) => a.var3 - b.var3
+                },
+                {
+                    title: '工伤保险参保率',
+                    dataIndex: 'var4',
+                    key: 'var4',
+                    sorter: (a, b) => a.var4 - b.var4
+                }
+            ]
+        }
+        Modal.info({
+            title: title,
+            okText: '关闭',
+            content: <Table pagination={pagination} columns={columns} dataSource={dataSource} bordered={false}
+                            size={'middle'}/>,
+            width: width
+        })
     }
 
     render() {
@@ -716,7 +1047,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option11')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option11}
@@ -729,7 +1060,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option12')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option12}
@@ -744,7 +1075,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option13')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option13}
@@ -757,7 +1088,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option14')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option14}
@@ -775,7 +1106,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option21')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option21}
@@ -790,7 +1121,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option22')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option22}
@@ -803,7 +1134,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option23')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option23}
@@ -818,7 +1149,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option24')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option24}
@@ -831,7 +1162,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option25')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option25}
@@ -849,19 +1180,18 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option11')}>详细数据</Button>}
                             style={{marginBottom: 10}}
                         >
                             <ReactEcharts
                                 option={option11}
                                 onEvents={onEvents} style={{height: 164}}/>
                         </Card>
-                        {/*表2-1 基础信息统计分析表（按危害因素）*/}
                         <Card
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option25')}>详细数据</Button>}
                             style={{marginBottom: 10}}
                         >
                             <ReactEcharts
@@ -875,7 +1205,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option12')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option12}
@@ -890,7 +1220,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option13')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option13}
@@ -903,7 +1233,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option14')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option14}
@@ -921,7 +1251,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option21')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option21}
@@ -936,7 +1266,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option22')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option22}
@@ -949,7 +1279,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option23')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option23}
@@ -964,7 +1294,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option24')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option24}
@@ -977,7 +1307,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option25')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option25}
@@ -995,7 +1325,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option21')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option21}
@@ -1010,7 +1340,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option22')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option22}
@@ -1023,7 +1353,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option23')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option23}
@@ -1038,7 +1368,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option24')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option24}
@@ -1051,7 +1381,7 @@ export default class NationEnterpriseVisual extends Component {
                             title={'基础信息统计分析表'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            extra={<Button type="dashed">详细数据</Button>}
+                            extra={<Button type="dashed" onClick={() => this.detailData('option25')}>详细数据</Button>}
                         >
                             <ReactEcharts
                                 option={option25}
