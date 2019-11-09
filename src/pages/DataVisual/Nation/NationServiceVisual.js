@@ -5,6 +5,7 @@ import request from "../../../utils/request"
 import _ from 'lodash'
 import themes from './theme'
 import zhCh from 'antd/es/locale/zh_CN'
+import {Modal} from "nowrapper/lib/antd";
 
 let switchFlag = "no"
 let currentYear = new Date().getFullYear()
@@ -35,16 +36,31 @@ export default class NationServiceVisual extends Component {
                 this.setState({option11Data: res.data})
             }
         })
+        request('/zyb/nationServiceVisual/' + switchFlag + '/option11Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option11Detail: res.data})
+            }
+        })
         //option12
         request('/zyb/nationServiceVisual/' + switchFlag + '/option12', params).then(res => {
             if (res && res.flag) {
                 this.setState({option12Data: res.data})
             }
         })
+        request('/zyb/nationServiceVisual/' + switchFlag + '/option12Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option12Detail: res.data})
+            }
+        })
         //option13
         request('/zyb/nationServiceVisual/' + switchFlag + '/option13', params).then(res => {
             if (res && res.flag) {
                 this.setState({option13Data: res.data})
+            }
+        })
+        request('/zyb/nationServiceVisual/' + switchFlag + '/option13Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option13Detail: res.data})
             }
         })
     }
@@ -59,16 +75,31 @@ export default class NationServiceVisual extends Component {
                 this.setState({option21Data: res.data})
             }
         })
+        request('/zyb/nationServiceVisual/' + switchFlag + '/option21Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option21Detail: res.data})
+            }
+        })
         //option22
         request('/zyb/nationServiceVisual/' + switchFlag + '/option22', params).then(res => {
             if (res && res.flag) {
                 this.setState({option22Data: res.data})
             }
         })
+        request('/zyb/nationServiceVisual/' + switchFlag + '/option22Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option22Detail: res.data})
+            }
+        })
         //option23
         request('/zyb/nationServiceVisual/' + switchFlag + '/option23', params).then(res => {
             if (res && res.flag) {
                 this.setState({option23Data: res.data})
+            }
+        })
+        request('/zyb/nationServiceVisual/' + switchFlag + '/option23Detail', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option23Detail: res.data})
             }
         })
         //option24
@@ -409,6 +440,145 @@ export default class NationServiceVisual extends Component {
         }
     }
 
+    detailData = (type) => {
+        let dataSource = this.state[type + 'Detail']
+        let columns = []
+        let title = ''
+        let width = '90vw'
+        let pagination = true
+        if ('危害因素' === this.state.type) {
+            pagination = false
+        }
+        if ('option11' === type || 'option21' === type) {
+            title = '作业场所职业病危害因素检测情况'
+            columns = [
+                {
+                    title: this.state.type,
+                    dataIndex: 'name',
+                    key: 'name',
+                },
+                {
+                    title: '检测点数',
+                    dataIndex: 'var1',
+                    key: 'var1',
+                    sorter: (a, b) => a.var1 - b.var1
+                },
+                {
+                    title: '达标点数',
+                    dataIndex: 'var2',
+                    key: 'var2',
+                    sorter: (a, b) => a.var2 - b.var2
+                },
+                {
+                    title: '达标率',
+                    dataIndex: 'var3',
+                    key: 'var3',
+                    sorter: (a, b) => a.var3 - b.var3
+                }]
+        } else if ('option12' === type || 'option22' === type) {
+            title = '职业健康检查结果统计'
+            columns = [
+                {
+                    title: this.state.type,
+                    dataIndex: 'name',
+                    key: 'name',
+                },
+                {
+                    title: '职业健康检查企业数',
+                    dataIndex: 'var1',
+                    key: 'var1',
+                    sorter: (a, b) => a.var1 - b.var1
+                },
+                {
+                    title: '体检报告数',
+                    dataIndex: 'var2',
+                    key: 'var2',
+                    sorter: (a, b) => a.var2 - b.var2
+                },
+                {
+                    title: '职业禁忌证人数',
+                    dataIndex: 'var3',
+                    key: 'var3',
+                    sorter: (a, b) => a.var3 - b.var3
+                },
+                {
+                    title: '职业禁忌证检出率',
+                    dataIndex: 'var4',
+                    key: 'var4',
+                    sorter: (a, b) => a.var4 - b.var4
+                },
+                {
+                    title: '疑似职业病人数',
+                    dataIndex: 'var5',
+                    key: 'var5',
+                    sorter: (a, b) => a.var5 - b.var5
+                },
+                {
+                    title: '疑似职业病检出率',
+                    dataIndex: 'var6',
+                    key: 'var6',
+                    sorter: (a, b) => a.var6 - b.var6
+                },
+                {
+                    title: '检出疑似职业病企业数',
+                    dataIndex: 'var7',
+                    key: 'var7',
+                    sorter: (a, b) => a.var7 - b.var7
+                },
+                {
+                    title: '检出疑似职业病企业率',
+                    dataIndex: 'var8',
+                    key: 'var8',
+                    sorter: (a, b) => a.var8 - b.var8
+                }]
+        } else if ('option13' === type || 'option23' === type) {
+            title = '职业病诊断情况统计'
+            columns = [
+                {
+                    title: this.state.type,
+                    dataIndex: 'name',
+                    key: 'name',
+                },
+                {
+                    title: '职业病诊断企业数',
+                    dataIndex: 'var1',
+                    key: 'var1',
+                    sorter: (a, b) => a.var1 - b.var1
+                },
+                {
+                    title: '诊断出职业病病人企业数',
+                    dataIndex: 'var2',
+                    key: 'var2',
+                    sorter: (a, b) => a.var2 - b.var2
+                },
+                {
+                    title: '职业病诊断人数',
+                    dataIndex: 'var3',
+                    key: 'var3',
+                    sorter: (a, b) => a.var3 - b.var3
+                },
+                {
+                    title: '报告职业病人数',
+                    dataIndex: 'var4',
+                    key: 'var4',
+                    sorter: (a, b) => a.var4 - b.var4
+                },
+                {
+                    title: '职业病诊断率',
+                    dataIndex: 'var5',
+                    key: 'var5',
+                    sorter: (a, b) => a.var5 - b.var5
+                }]
+        }
+        Modal.info({
+            title: title,
+            okText: '关闭',
+            content: <Table pagination={pagination} columns={columns} dataSource={dataSource} bordered={false}
+                            size={'middle'}/>,
+            width: width
+        })
+    }
+
     render() {
         let onEvents = {
             'click': (params) => {
@@ -723,7 +893,7 @@ export default class NationServiceVisual extends Component {
                                 title={'作业场所职业病危害因素检测情况'}
                                 bordered={false}
                                 headStyle={{height: 57}}
-                                extra={<Button type="dashed">详细数据</Button>}
+                                extra={<Button type="dashed" onClick={() => this.detailData('option11')}>详细数据</Button>}
                             >
                                 <ReactEcharts
                                     option={option11}
@@ -736,7 +906,7 @@ export default class NationServiceVisual extends Component {
                                 title={'职业健康检查结果统计'}
                                 bordered={false}
                                 headStyle={{height: 57}}
-                                extra={<Button type="dashed">详细数据</Button>}
+                                extra={<Button type="dashed" onClick={() => this.detailData('option12')}>详细数据</Button>}
                             >
                                 <ReactEcharts
                                     option={option12}
@@ -749,7 +919,7 @@ export default class NationServiceVisual extends Component {
                                 title={'职业病诊断情况统计'}
                                 bordered={false}
                                 headStyle={{height: 57}}
-                                extra={<Button type="dashed">详细数据</Button>}
+                                extra={<Button type="dashed" onClick={() => this.detailData('option13')}>详细数据</Button>}
                             >
                                 <ReactEcharts
                                     option={option13}
@@ -766,7 +936,7 @@ export default class NationServiceVisual extends Component {
                                 title={'作业场所职业病危害因素检测情况'}
                                 bordered={false}
                                 headStyle={{height: 57}}
-                                extra={<Button type="dashed">详细数据</Button>}
+                                extra={<Button type="dashed" onClick={() => this.detailData('option21')}>详细数据</Button>}
                             >
                                 <ReactEcharts
                                     option={option21}
@@ -781,7 +951,7 @@ export default class NationServiceVisual extends Component {
                                 title={'职业健康检查结果统计'}
                                 bordered={false}
                                 headStyle={{height: 57}}
-                                extra={<Button type="dashed">详细数据</Button>}
+                                extra={<Button type="dashed" onClick={() => this.detailData('option22')}>详细数据</Button>}
                             >
                                 <ReactEcharts
                                     option={option22}
@@ -794,7 +964,7 @@ export default class NationServiceVisual extends Component {
                                 title={'职业病诊断情况统计'}
                                 bordered={false}
                                 headStyle={{height: 57}}
-                                extra={<Button type="dashed">详细数据</Button>}
+                                extra={<Button type="dashed" onClick={() => this.detailData('option23')}>详细数据</Button>}
                             >
                                 <ReactEcharts
                                     option={option23}

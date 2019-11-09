@@ -41,8 +41,9 @@ export default class NationVisual extends Component {
         return <div>
             <Layout.Header
                 style={{background: '#fff', padding: 0, marginBottom: 10, height: 70, boxShadow: '0 0 12px #ccc'}}>
-                <img src={logo} style={{float:'left',paddingTop:10,paddingLeft:20}}/>
-                <span style={{paddingRight: 70, float: "left", marginLeft: 10}}><h2 style={{color:'#1890FF',fontWeight:'bold',letterSpacing:8}}>职业病危害监测预警预控云服务平台</h2></span>
+                <img src={logo} style={{float: 'left', paddingTop: 10, paddingLeft: 20}}/>
+                <span style={{paddingRight: 70, float: "left", marginLeft: 10}}><h2
+                    style={{color: '#1890FF', fontWeight: 'bold', letterSpacing: 8}}>职业病危害监测预警预控云服务平台</h2></span>
                 <Tabs defaultActiveKey="风险预警" onChange={this.onChange}
                       style={{float: 'right', marginRight: 60, paddingTop: 18}}
                       className={styles.tabBorderBottom}>

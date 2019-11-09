@@ -1,4 +1,7 @@
 export default {
+    targets: {
+        ie: 11,
+    },
     // base: "/zyb/",
     // publicPath: "/zyb/",
     plugins: [

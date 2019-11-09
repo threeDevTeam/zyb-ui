@@ -13,7 +13,7 @@ import styles from './nation.less'
 import _ from 'lodash'
 
 const {TabPane} = Tabs
-let switchFlag = "no"
+let switchFlag = 'no'
 //国家
 export default class NationDangerVisual extends Component {
     state = {
@@ -27,9 +27,8 @@ export default class NationDangerVisual extends Component {
         tabKey: 'industryOfEnterprise'
     }
 
+
     componentWillMount() {
-        //后台取出开关
-        switchFlag = "no"
         //scroll
         request('/zyb/nationDangerVisual/' + switchFlag + '/scroll').then(res => {
             if (res && res.flag) {
