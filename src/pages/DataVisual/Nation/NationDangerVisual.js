@@ -171,7 +171,30 @@ export default class NationDangerVisual extends Component {
                 {
                     title: '风险等级',
                     dataIndex: 'var2',
-                    key: 'var2'
+                    key: 'var2',
+                    filters: [
+                        {
+                            text: '暂无风险',
+                            value: '暂无风险',
+                        },
+                        {
+                            text: '轻微风险(Ⅰ级)',
+                            value: '轻微风险(Ⅰ级)',
+                        },
+                        {
+                            text: '低度风险(Ⅱ级)',
+                            value: '低度风险(Ⅱ级)',
+                        },
+                        {
+                            text: '中度风险(Ⅲ级)',
+                            value: '中度风险(Ⅲ级)',
+                        },
+                        {
+                            text: '高度风险(Ⅳ级)',
+                            value: '高度风险(Ⅳ级)',
+                        }
+                    ],
+                    onFilter: (value, record) => record.var2.includes(value)
                 },
                 {
                     title: '应配备监管人员（人）',
@@ -360,8 +383,9 @@ export default class NationDangerVisual extends Component {
         Modal.info({
             title: title,
             okText: '关闭',
-            content: <Table pagination={pagination} columns={columns} dataSource={dataSource} bordered={false}
-                            size={'middle'}/>,
+            content: <ConfigProvider locale={zhCh}><Table pagination={pagination} columns={columns}
+                                                          dataSource={dataSource} bordered={false}
+                                                          size={'middle'}/></ConfigProvider>,
             width: width
         })
     }
