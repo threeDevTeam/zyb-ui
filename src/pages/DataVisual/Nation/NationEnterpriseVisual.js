@@ -299,72 +299,86 @@ export default class NationEnterpriseVisual extends Component {
                 {
                     title: '用人单位数',
                     dataIndex: 'var1',
-                    key: 'var1'
+                    key: 'var1',
+                    sorter: (a, b) => a.var1 - b.var1
                 },
                 {
                     title: '从业人数',
                     dataIndex: 'var2',
-                    key: 'var2'
+                    key: 'var2',
+                    sorter: (a, b) => a.var2 - b.var2
                 },
                 {
                     title: '接触职业病危害人数',
                     dataIndex: 'var3',
-                    key: 'var3'
+                    key: 'var3',
+                    sorter: (a, b) => a.var3 - b.var3
                 },
                 {
                     title: '接害率',
                     dataIndex: 'var4',
-                    key: 'var4'
+                    key: 'var4',
+                    sorter: (a, b) => a.var4 - b.var4
                 },
                 {
                     title: '接触粉尘危害人数',
                     dataIndex: 'var5',
-                    key: 'var5'
+                    key: 'var5',
+                    sorter: (a, b) => a.var5 - b.var5
                 },
                 {
                     title: '接尘率',
                     dataIndex: 'var6',
-                    key: 'var6'
+                    key: 'var6',
+                    sorter: (a, b) => a.var6 - b.var6
                 },
                 {
                     title: '接触化学因素危害人数',
                     dataIndex: 'var7',
-                    key: 'var7'
+                    key: 'var7',
+                    sorter: (a, b) => a.var7 - b.var7
                 },
                 {
                     title: '接毒率',
                     dataIndex: 'var8',
-                    key: 'var8'
+                    key: 'var8',
+                    sorter: (a, b) => a.var8 - b.var8
                 },
                 {
                     title: '接触物理因素危害人数',
                     dataIndex: 'var9',
-                    key: 'var9'
+                    key: 'var9',
+                    sorter: (a, b) => a.var9 - b.var9
                 },
                 {
                     title: '接触物理因素危害率',
                     dataIndex: 'var10',
-                    key: 'var10'
+                    key: 'var10',
+                    sorter: (a, b) => a.var10 - b.var10
                 },
                 {
                     title: '接触放射性因素危害人数',
                     dataIndex: 'var11',
-                    key: 'var11'
+                    key: 'var11',
+                    sorter: (a, b) => a.var11 - b.var11
                 },
                 {
                     title: '接触放射性因素危害率',
                     dataIndex: 'var12',
-                    key: 'var12'
+                    key: 'var12',
+                    sorter: (a, b) => a.var12 - b.var12
                 },
                 {
                     title: '接触生物因素危害人数',
                     dataIndex: 'var13',
-                    key: 'var13'
+                    key: 'var13',
+                    sorter: (a, b) => a.var13 - b.var13
                 },
                 {
                     title: '接触生物因素危害率',
                     dataIndex: 'var14',
-                    key: 'var14'
+                    key: 'var14',
+                    sorter: (a, b) => a.var14 - b.var14
                 }
             ]
         } else if ('option12' === type || 'option22' === type) {
