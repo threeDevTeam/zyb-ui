@@ -4,7 +4,7 @@ import NationDangerVisual from './NationDangerVisual'
 import NationEnterpriseVisual from './NationEnterpriseVisual'
 import NationGovVisual from './NationGovVisual'
 import NationServiceVisual from './NationServiceVisual'
-import styles from './nation.less'
+import styles from './style.less'
 import logo from '../../../assets/logo.png'
 
 const {TabPane} = Tabs

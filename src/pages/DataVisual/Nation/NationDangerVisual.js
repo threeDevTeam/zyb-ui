@@ -9,7 +9,7 @@ import 'ant-design-pro/dist/ant-design-pro.css'
 import {WaterWave} from 'ant-design-pro/lib/Charts'
 import zhCh from 'antd/es/locale/zh_CN'
 import bj from '../../../assets/map_bg.jpg'
-import styles from './nation.less'
+import styles from './style.less'
 import _ from 'lodash'
 
 const {TabPane} = Tabs

@@ -3,7 +3,6 @@ import {Button, Card, Carousel, Col, message, Row, Table, Tabs, Select, Radio} f
 import ReactEcharts from 'echarts-for-react'
 import request from "../../../utils/request"
 import _ from 'lodash'
-import themes from './theme'
 import {Modal} from "nowrapper/lib/antd"
 
 let switchFlag = "no"

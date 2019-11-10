@@ -3,7 +3,6 @@ import {Button, Card, Carousel, Col, message, Row, Table, Tabs, Select, Radio, C
 import ReactEcharts from 'echarts-for-react'
 import request from "../../../utils/request"
 import _ from 'lodash'
-import themes from './theme'
 import zhCh from 'antd/es/locale/zh_CN'
 import {Modal} from "nowrapper/lib/antd";
 
