@@ -40,66 +40,66 @@ class dataVisualSwitchFlag extends PureComponent {
     render() {
         return (
             <Form core={this.core} layout={{label: 8, control:10}}>
-                <FormItem  label="国家 开关" required={true}   value={"开"} name="nationSwitch">
+                <FormItem  label="国家 开关" required={true}   value={"yes"} name="nationSwitch">
                     <Radio.Group value={this.state.value} >
-                        <Radio value={"开"}>实际数据</Radio>
-                        <Radio value={"关"}>虚拟数据</Radio>
+                        <Radio value={"yes"}>实际数据</Radio>
+                        <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
 
-                <FormItem label="省和市 开关" required={true} value={"开"}  name="provinceOrCitySwitch">
+                <FormItem label="省和市 开关" required={true} value={"yes"}  name="provinceOrCitySwitch">
                     <Radio.Group value={this.state.value}>
-                        <Radio value={"开"}>实际数据</Radio>
-                        <Radio value={"关"}>虚拟数据</Radio>
+                        <Radio value={"yes"}>实际数据</Radio>
+                        <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
 
-                <FormItem label="市 开关" required={true} value={"开"} name="citySwitch">
+                <FormItem label="市 开关" required={true} value={"yes"} name="citySwitch">
                     <Radio.Group value={this.state.value}>
-                        <Radio value={"开"}>实际数据</Radio>
-                        <Radio value={"关"}>虚拟数据</Radio>
+                        <Radio value={"yes"}>实际数据</Radio>
+                        <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
 
-                <FormItem label="市和区 开关" required={true} value={"开"} name="countryOrDistrictSwitch">
+                <FormItem label="市和区 开关" required={true} value={"yes"} name="countryOrDistrictSwitch">
                     <Radio.Group value={this.state.value}>
-                        <Radio value={"开"}>实际数据</Radio>
-                        <Radio value={"关"}>虚拟数据</Radio>
+                        <Radio value={"yes"}>实际数据</Radio>
+                        <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
 
-                <FormItem label="企业 开关" required={true} value={"开"} name="enterpriceSwitch">
+                <FormItem label="企业 开关" required={true} value={"yes"} name="enterpriceSwitch">
                     <Radio.Group value={this.state.value}>
-                        <Radio value={"开"}>实际数据</Radio>
-                        <Radio value={"关"}>虚拟数据</Radio>
+                        <Radio value={"yes"}>实际数据</Radio>
+                        <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
 
-                <FormItem label="检测机构 开关" required={true}  value={"开"} name="jianceSwitch">
+                <FormItem label="检测机构 开关" required={true}  value={"yes"} name="jianceSwitch">
                     <Radio.Group value={this.state.value}>
-                        <Radio value={"开"}>实际数据</Radio>
-                        <Radio value={"关"}>虚拟数据</Radio>
+                        <Radio value={"yes"}>实际数据</Radio>
+                        <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
 
-                <FormItem label="体检机构 开关" required={true}  value={"开"} name="tijianSwitch">
+                <FormItem label="体检机构 开关" required={true}  value={"yes"} name="tijianSwitch">
                     <Radio.Group value={this.state.value}>
-                        <Radio value={"开"}>实际数据</Radio>
-                        <Radio value={"关"}>虚拟数据</Radio>
+                        <Radio value={"yes"}>实际数据</Radio>
+                        <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
 
-                <FormItem label="诊断机构机构 开关" required={true} value={"开"} name="zhenduanSwitch">
+                <FormItem label="诊断机构机构 开关" required={true} value={"yes"} name="zhenduanSwitch">
                     <Radio.Group value={this.state.value}>
-                        <Radio value={"开"}>实际数据</Radio>
-                        <Radio value={"关"}>虚拟数据</Radio>
+                        <Radio value={"yes"}>实际数据</Radio>
+                        <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
 
-                <FormItem label="政府开关 开关" required={true} value={"开"} name="zhengfuSwitch">
+                <FormItem label="政府开关 开关" required={true} value={"yes"} name="zhengfuSwitch">
                     <Radio.Group value={this.state.value}>
-                        <Radio value={"开"}>实际数据</Radio>
-                        <Radio value={"关"}>虚拟数据</Radio>
+                        <Radio value={"yes"}>实际数据</Radio>
+                        <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
 
