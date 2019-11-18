@@ -1,9 +1,11 @@
 import React, {PureComponent} from 'react'
 import {Input, Button, Select, Dialog} from 'nowrapper/lib/antd'
 import Form, {FormItem, FormCore} from 'noform'
-import {Card, message} from "antd";
+import {Card, message, Row, Col, Icon} from "antd";
 import request from "../../utils/request";
 import bj from '../../assets/bj2.jpg'
+import styles from './login.less'
+import Link from 'umi/link'
 
 const validate = {
     loginName: {type: "string", required: true, message: '登录名不能为空'},
@@ -56,18 +58,27 @@ class Register extends PureComponent {
     render() {
         let backgroundImage = 'url(' + bj + ')'
         return (
-            <div style={{backgroundImage, height: '100vh'}}>
-                <Form core={this.core} layout={{label: 7}}>
-                    <FormItem label="登录名" name="loginName" defaultMinWidth={false}><Input style={{width: 230}}
-                                                                                          placeholder="请输入用户名"/></FormItem>
-                    <FormItem label="登录密码" name="loginPassword" defaultMinWidth={false}><Input.Password
-                        style={{width: 230}} placeholder="请输入密码"/></FormItem>
-                    <FormItem onKeydown={this.handleEnterKey}>
-                        <Button type="primary" onClick={this.handleOperator}>登录</Button>
-                    </FormItem>
+            <div className={styles.wrapper}>
+                <Form core={this.core} className={styles.login}>
+                    <div className={styles.loginText}>登录</div>
+                    <div className={styles.content}>
+                        <FormItem name="loginName"><Input autocomplete="off" prefix={<Icon type="user"
+                                                                                           style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                                          placeholder="登录名" size='large'/></FormItem>
+                        <FormItem name="loginPassword"><Input type="password" autocomplete="off"
+                                                              prefix={<Icon type="lock"
+                                                                            style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                                              placeholder="密码"
+                                                              size='large'/></FormItem>
+                        <FormItem onKeydown={this.handleEnterKey}><Button size='large'
+                                                                          style={{width: 255, marginTop: 20}}
+                                                                          onClick={this.handleOperator}
+                                                                          type="primary">登&nbsp;&nbsp;&nbsp;&nbsp;录</Button></FormItem>
+                    </div>
+                    <div className={styles.registerText}><Link to="/user/register">注册账号</Link></div>
                 </Form>
             </div>
-        );
+        )
     }
 }
 
