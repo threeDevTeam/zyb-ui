@@ -485,7 +485,7 @@ export default class NationDangerVisual extends Component {
         }
         let onEvents = {
             'click': (params) => {
-                alert(params.name)
+                // alert(params.name)
                 let areaQuery={name1:params.name}
                 router.push({
                     pathname: '/visual/OtherVisual',

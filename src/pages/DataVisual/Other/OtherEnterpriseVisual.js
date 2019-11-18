@@ -356,8 +356,7 @@ export default class OtherEnterpriseVisual extends Component {
                 {
                     title: '接害率',
                     dataIndex: 'var4',
-                    key: 'var4',
-                    sorter: (a, b) => a.var4 - b.var4
+                    key: 'var4'
                 },
                 {
                     title: '接触粉尘危害人数',
@@ -368,8 +367,7 @@ export default class OtherEnterpriseVisual extends Component {
                 {
                     title: '接尘率',
                     dataIndex: 'var6',
-                    key: 'var6',
-                    sorter: (a, b) => a.var6 - b.var6
+                    key: 'var6'
                 },
                 {
                     title: '接触化学因素危害人数',
@@ -380,8 +378,7 @@ export default class OtherEnterpriseVisual extends Component {
                 {
                     title: '接毒率',
                     dataIndex: 'var8',
-                    key: 'var8',
-                    sorter: (a, b) => a.var8 - b.var8
+                    key: 'var8'
                 },
                 {
                     title: '接触物理因素危害人数',
@@ -392,8 +389,7 @@ export default class OtherEnterpriseVisual extends Component {
                 {
                     title: '接触物理因素危害率',
                     dataIndex: 'var10',
-                    key: 'var10',
-                    sorter: (a, b) => a.var10 - b.var10
+                    key: 'var10'
                 },
                 {
                     title: '接触放射性因素危害人数',
@@ -404,8 +400,7 @@ export default class OtherEnterpriseVisual extends Component {
                 {
                     title: '接触放射性因素危害率',
                     dataIndex: 'var12',
-                    key: 'var12',
-                    sorter: (a, b) => a.var12 - b.var12
+                    key: 'var12'
                 },
                 {
                     title: '接触生物因素危害人数',
@@ -416,8 +411,7 @@ export default class OtherEnterpriseVisual extends Component {
                 {
                     title: '接触生物因素危害率',
                     dataIndex: 'var14',
-                    key: 'var14',
-                    sorter: (a, b) => a.var14 - b.var14
+                    key: 'var14'
                 }
             ]
         } else if ('option12' === type || 'option22' === type) {
@@ -443,8 +437,7 @@ export default class OtherEnterpriseVisual extends Component {
                 {
                     title: '检测率',
                     dataIndex: 'var3',
-                    key: 'var3',
-                    sorter: (a, b) => a.var3 - b.var3
+                    key: 'var3'
                 },
                 {
                     title: '达标点数',
@@ -455,8 +448,7 @@ export default class OtherEnterpriseVisual extends Component {
                 {
                     title: '达标率',
                     dataIndex: 'var5',
-                    key: 'var5',
-                    sorter: (a, b) => a.var5 - b.var5
+                    key: 'var5'
                 }
             ]
             width = '70vw'
@@ -483,8 +475,7 @@ export default class OtherEnterpriseVisual extends Component {
                 {
                     title: '职业病防护设施设置率',
                     dataIndex: 'var3',
-                    key: 'var3',
-                    sorter: (a, b) => a.var3 - b.var3
+                    key: 'var3'
                 },
                 {
                     title: '配备个体防护用品岗位数',
@@ -495,8 +486,7 @@ export default class OtherEnterpriseVisual extends Component {
                 {
                     title: '个人防护用品配备率',
                     dataIndex: 'var5',
-                    key: 'var5',
-                    sorter: (a, b) => a.var5 - b.var5
+                    key: 'var5'
                 }
             ]
         } else if ('option14' === type || 'option24' === type) {
@@ -540,8 +530,7 @@ export default class OtherEnterpriseVisual extends Component {
                 {
                     title: '累计职业病患病率',
                     dataIndex: 'var6',
-                    key: 'var6',
-                    sorter: (a, b) => a.var6 - b.var6
+                    key: 'var6'
                 },
                 {
                     title: '新增职业病死亡人数',
@@ -558,8 +547,7 @@ export default class OtherEnterpriseVisual extends Component {
                 {
                     title: '累计职业病病死率',
                     dataIndex: 'var9',
-                    key: 'var9',
-                    sorter: (a, b) => a.var9 - b.var9
+                    key: 'var9'
                 },
                 {
                     title: '损失工作日',
@@ -586,8 +574,7 @@ export default class OtherEnterpriseVisual extends Component {
                 {
                     title: '劳动合同签订率',
                     dataIndex: 'var2',
-                    key: 'var2',
-                    sorter: (a, b) => a.var2 - b.var2
+                    key: 'var2'
                 },
                 {
                     title: '缴纳工伤保险人数',
@@ -598,8 +585,7 @@ export default class OtherEnterpriseVisual extends Component {
                 {
                     title: '工伤保险参保率',
                     dataIndex: 'var4',
-                    key: 'var4',
-                    sorter: (a, b) => a.var4 - b.var4
+                    key: 'var4'
                 }
             ]
         }

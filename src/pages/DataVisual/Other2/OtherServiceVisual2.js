@@ -505,8 +505,7 @@ export default class OtherServiceVisual extends Component {
                 {
                     title: '达标率',
                     dataIndex: 'var3',
-                    key: 'var3',
-                    sorter: (a, b) => a.var3 - b.var3
+                    key: 'var3'
                 }]
         } else if ('option12' === type || 'option22' === type) {
             title = '职业健康检查结果统计'
@@ -537,8 +536,7 @@ export default class OtherServiceVisual extends Component {
                 {
                     title: '职业禁忌证检出率',
                     dataIndex: 'var4',
-                    key: 'var4',
-                    sorter: (a, b) => a.var4 - b.var4
+                    key: 'var4'
                 },
                 {
                     title: '疑似职业病人数',
@@ -549,8 +547,7 @@ export default class OtherServiceVisual extends Component {
                 {
                     title: '疑似职业病检出率',
                     dataIndex: 'var6',
-                    key: 'var6',
-                    sorter: (a, b) => a.var6 - b.var6
+                    key: 'var6'
                 },
                 {
                     title: '检出疑似职业病企业数',
@@ -561,8 +558,7 @@ export default class OtherServiceVisual extends Component {
                 {
                     title: '检出疑似职业病企业率',
                     dataIndex: 'var8',
-                    key: 'var8',
-                    sorter: (a, b) => a.var8 - b.var8
+                    key: 'var8'
                 }]
         } else if ('option13' === type || 'option23' === type) {
             title = '职业病诊断情况统计'
@@ -599,8 +595,7 @@ export default class OtherServiceVisual extends Component {
                 {
                     title: '职业病诊断率',
                     dataIndex: 'var5',
-                    key: 'var5',
-                    sorter: (a, b) => a.var5 - b.var5
+                    key: 'var5'
                 }]
         }
         Modal.info({

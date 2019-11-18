@@ -528,7 +528,7 @@ export default class OtherDangerVisual extends Component {
         }
         let onEvent = {
             'click': (params) => {
-                alert(params.name)
+                // alert(params.name)
                 if (areaQuery['name2']) {
                     areaQuery['name3'] = params.name
                 } else {

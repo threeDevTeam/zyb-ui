@@ -26,10 +26,7 @@ export default {
             routes: [
                 {path: '/visual', redirect: '/visual/NationVisual'},
                 {path: '/visual/NationVisual', component: './DataVisual/Nation/NationVisual'},
-                {path: '/visual/OtherVisual', component: './DataVisual/Other/OtherVisual'},
-/*                {path: '/visual/ProvinceOrCityVisual', component: './DataVisual/ProvinceOrCityVisual'},
-                {title: '城市视图哦', path: '/visual/CityVisual', component: './DataVisual/CityVisual'},
-                {path: '/visual/CountryOrDistrictVisual', component: './DataVisual/CountryOrDistrictVisual'},*/
+                {path: '/visual/OtherVisual', component: './DataVisual/Other/OtherVisual'}
             ]
         },
         {
