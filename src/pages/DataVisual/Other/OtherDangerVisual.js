@@ -15,8 +15,9 @@ import router from 'umi/router'
 
 const {TabPane} = Tabs
 let switchFlag = 'no'
+let areaQuery = {}
 //国家
-export default class NationDangerVisual extends Component {
+export default class OtherDangerVisual extends Component {
     state = {
         option1Data: [],
         option2Data: [],
@@ -25,46 +26,58 @@ export default class NationDangerVisual extends Component {
         option5Data: [],
         option6Data: [],
         scrollData: [],
-        tabKey: 'industryOfEnterprise'
+        tabKey: 'industryOfEnterprise',
+        mapType: ''
     }
 
 
     componentWillMount() {
+        console.log("OtherDangerVisual componentWillMount")
+        this.init()
+    }
+
+    init = () => {
+        //行政区域
+        this.area()
+        //行政区域的参数
+        let params = {
+            params: areaQuery
+        }
         //scroll
-        request('/zyb/nationDangerVisual/' + switchFlag + '/scroll').then(res => {
+        request('/zyb/otherDangerVisual/' + switchFlag + '/scroll', params).then(res => {
             if (res && res.flag) {
                 this.setState({scrollData: res.data})
             }
         })
         //option1
-        request('/zyb/nationDangerVisual/' + switchFlag + '/option1').then(res => {
+        request('/zyb/otherDangerVisual/' + switchFlag + '/option1', params).then(res => {
             if (res && res.flag) {
                 this.setState({option1Data: res.data})
             }
         })
-        request('/zyb/nationDangerVisual/' + switchFlag + '/option1Detail').then(res => {
+        request('/zyb/otherDangerVisual/' + switchFlag + '/option1Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option1Detail: res.data})
             }
         })
         //option2
-        request('/zyb/nationDangerVisual/' + switchFlag + '/option2').then(res => {
+        request('/zyb/otherDangerVisual/' + switchFlag + '/option2', params).then(res => {
             if (res && res.flag) {
                 this.setState({option2Data: res.data})
             }
         })
-        request('/zyb/nationDangerVisual/' + switchFlag + '/option2Detail').then(res => {
+        request('/zyb/otherDangerVisual/' + switchFlag + '/option2Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option2Detail: res.data})
             }
         })
         //option4
-        request('/zyb/nationDangerVisual/' + switchFlag + '/option4').then(res => {
+        request('/zyb/otherDangerVisual/' + switchFlag + '/option4', params).then(res => {
             if (res && res.flag) {
                 this.setState({option4Data: res.data})
             }
         })
-        request('/zyb/nationDangerVisual/' + switchFlag + '/option4Detail').then(res => {
+        request('/zyb/otherDangerVisual/' + switchFlag + '/option4Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option4Detail: res.data})
             }
@@ -74,52 +87,77 @@ export default class NationDangerVisual extends Component {
         this.setState({random: Math.round(Math.random() * 80)})
     }
 
+    area = () => {
+        areaQuery = this.props.areaQuery
+        let areaName = 'china'
+        if (this.props.areaQuery['name3']) {
+            areaName = this.props.areaQuery['name3']
+        } else if (this.props.areaQuery['name2']) {
+            areaName = this.props.areaQuery['name2']
+        } else if (this.props.areaQuery['name1']) {
+            areaName = this.props.areaQuery['name1']
+        }
+
+        this.setState({mapType: areaName})
+        //地图的geo
+        request('/zyb/areaOfDic/getGeoJsonByName', {params: areaQuery}).then(res => {
+            if (res && res.flag) {
+                this.setState({mapType: areaName})
+                echarts.registerMap(areaName, res.data);
+            }
+        })
+    }
+
     onChange = tabKey => {
         this.setState({tabKey})
+        //行政区域的参数
+        let params = {
+            params: areaQuery
+        }
         if (tabKey === 'areaOfEnterprise') {
             //option3
-            request('/zyb/nationDangerVisual/' + switchFlag + '/option3').then(res => {
+            request('/zyb/otherDangerVisual/' + switchFlag + '/option3', params).then(res => {
                 if (res && res.flag) {
                     this.setState({option3Data: res.data})
                 }
             })
-            request('/zyb/nationDangerVisual/' + switchFlag + '/option3Detail').then(res => {
+            request('/zyb/otherDangerVisual/' + switchFlag + '/option3Detail', params).then(res => {
                 if (res && res.flag) {
                     this.setState({option3Detail: res.data})
                 }
             })
         } else if (tabKey === 'industryOfEnterprise') {
             //option4
-            request('/zyb/nationDangerVisual/' + switchFlag + '/option4').then(res => {
+            request('/zyb/otherDangerVisual/' + switchFlag + '/option4', params).then(res => {
                 if (res && res.flag) {
                     this.setState({option4Data: res.data})
                 }
             })
-            request('/zyb/nationDangerVisual/' + switchFlag + '/option4Detail').then(res => {
+            request('/zyb/otherDangerVisual/' + switchFlag + '/option4Detail', params).then(res => {
                 if (res && res.flag) {
                     this.setState({option4Detail: res.data})
                 }
             })
         } else if (tabKey === 'registerTypeOfEnterprise') {
             //option5
-            request('/zyb/nationDangerVisual/' + switchFlag + '/option5').then(res => {
+            request('/zyb/otherDangerVisual/' + switchFlag + '/option5', params).then(res => {
                 if (res && res.flag) {
                     this.setState({option5Data: res.data})
                 }
             })
-            request('/zyb/nationDangerVisual/' + switchFlag + '/option5Detail').then(res => {
+            request('/zyb/otherDangerVisual/' + switchFlag + '/option5Detail', params).then(res => {
                 if (res && res.flag) {
                     this.setState({option5Detail: res.data})
                 }
             })
         } else if (tabKey === 'areaOfArea') {
             //option6
-            request('/zyb/nationDangerVisual/' + switchFlag + '/option6').then(res => {
+            request('/zyb/otherDangerVisual/' + switchFlag + '/option6', params).then(res => {
                 if (res && res.flag) {
                     this.setState({option6Data: res.data})
                 }
             })
-            request('/zyb/nationDangerVisual/' + switchFlag + '/option6Detail').then(res => {
+            request('/zyb/otherDangerVisual/' + switchFlag + '/option6Detail', params).then(res => {
                 if (res && res.flag) {
                     this.setState({option6Detail: res.data})
                 }
@@ -423,8 +461,8 @@ export default class NationDangerVisual extends Component {
                 calculable: true
             },
             geo: {
-                zoom: 1.2,
-                map: 'china',
+                zoom: 1.4,
+                map: this.state.mapType,
                 roam: false,//禁止拖拽
                 label: {
                     normal: {
@@ -485,12 +523,28 @@ export default class NationDangerVisual extends Component {
         }
         let onEvents = {
             'click': (params) => {
+                console.log(params);
+            }
+        }
+        let onEvent = {
+            'click': (params) => {
                 alert(params.name)
-                let areaQuery={name1:params.name}
+                if (areaQuery['name2']) {
+                    areaQuery['name3'] = params.name
+                } else {
+                    areaQuery['name2'] = params.name
+                }
+                console.log("otherDangerVisual", areaQuery)
                 router.push({
                     pathname: '/visual/OtherVisual',
                     query: areaQuery
                 })
+                if ((areaQuery['name1'] === '北京' || areaQuery['name1'] === '上海' || areaQuery['name1'] === '重庆' || areaQuery['name1'] === '天津') && areaQuery['name2']) {
+
+                } else {
+                    this.init()
+                }
+
             }
         }
         let option2 = {
@@ -826,7 +880,7 @@ export default class NationDangerVisual extends Component {
                         >
                             <ReactEcharts
                                 option={option1}
-                                onEvents={onEvents} style={{height: '80vh'}}/>
+                                onEvents={onEvent} style={{height: '80vh'}}/>
                         </Card>
                     </Col>
                     <Col span={7}>

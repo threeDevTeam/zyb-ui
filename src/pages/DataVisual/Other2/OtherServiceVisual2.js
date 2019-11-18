@@ -8,8 +8,10 @@ import {Modal} from "nowrapper/lib/antd";
 
 let switchFlag = "no"
 let currentYear = new Date().getFullYear()
+
+let areaQuery = {}
 //技术服务机构
-export default class NationServiceVisual extends Component {
+export default class OtherServiceVisual extends Component {
     state = {
         display1: 'block',
         display2: 'none',
@@ -27,37 +29,37 @@ export default class NationServiceVisual extends Component {
     }
     data1 = (year, type) => {
         let params = {
-            params: {year: year || this.state.year, type: type || this.state.type}
+            params: {year: year || this.state.year, type: type || this.state.type, ...areaQuery}
         }
         //option11
-        request('/zyb/nationServiceVisual/' + switchFlag + '/option11', params).then(res => {
+        request('/zyb/otherServiceVisual/' + switchFlag + '/option11', params).then(res => {
             if (res && res.flag) {
                 this.setState({option11Data: res.data})
             }
         })
-        request('/zyb/nationServiceVisual/' + switchFlag + '/option11Detail', params).then(res => {
+        request('/zyb/otherServiceVisual/' + switchFlag + '/option11Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option11Detail: res.data})
             }
         })
         //option12
-        request('/zyb/nationServiceVisual/' + switchFlag + '/option12', params).then(res => {
+        request('/zyb/otherServiceVisual/' + switchFlag + '/option12', params).then(res => {
             if (res && res.flag) {
                 this.setState({option12Data: res.data})
             }
         })
-        request('/zyb/nationServiceVisual/' + switchFlag + '/option12Detail', params).then(res => {
+        request('/zyb/otherServiceVisual/' + switchFlag + '/option12Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option12Detail: res.data})
             }
         })
         //option13
-        request('/zyb/nationServiceVisual/' + switchFlag + '/option13', params).then(res => {
+        request('/zyb/otherServiceVisual/' + switchFlag + '/option13', params).then(res => {
             if (res && res.flag) {
                 this.setState({option13Data: res.data})
             }
         })
-        request('/zyb/nationServiceVisual/' + switchFlag + '/option13Detail', params).then(res => {
+        request('/zyb/otherServiceVisual/' + switchFlag + '/option13Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option13Detail: res.data})
             }
@@ -66,64 +68,96 @@ export default class NationServiceVisual extends Component {
 
     data2 = (year, type) => {
         let params = {
-            params: {year: year || this.state.year, type: type || this.state.type}
+            params: {year: year || this.state.year, type: type || this.state.type, ...areaQuery}
         }
         //option21
-        request('/zyb/nationServiceVisual/' + switchFlag + '/option21', params).then(res => {
+        request('/zyb/otherServiceVisual/' + switchFlag + '/option21', params).then(res => {
             if (res && res.flag) {
                 this.setState({option21Data: res.data})
             }
         })
-        request('/zyb/nationServiceVisual/' + switchFlag + '/option21Detail', params).then(res => {
+        request('/zyb/otherServiceVisual/' + switchFlag + '/option21Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option21Detail: res.data})
             }
         })
         //option22
-        request('/zyb/nationServiceVisual/' + switchFlag + '/option22', params).then(res => {
+        request('/zyb/otherServiceVisual/' + switchFlag + '/option22', params).then(res => {
             if (res && res.flag) {
                 this.setState({option22Data: res.data})
             }
         })
-        request('/zyb/nationServiceVisual/' + switchFlag + '/option22Detail', params).then(res => {
+        request('/zyb/otherServiceVisual/' + switchFlag + '/option22Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option22Detail: res.data})
             }
         })
         //option23
-        request('/zyb/nationServiceVisual/' + switchFlag + '/option23', params).then(res => {
+        request('/zyb/otherServiceVisual/' + switchFlag + '/option23', params).then(res => {
             if (res && res.flag) {
                 this.setState({option23Data: res.data})
             }
         })
-        request('/zyb/nationServiceVisual/' + switchFlag + '/option23Detail', params).then(res => {
+        request('/zyb/otherServiceVisual/' + switchFlag + '/option23Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option23Detail: res.data})
             }
         })
         //option24
-        request('/zyb/nationServiceVisual/' + switchFlag + '/option24', params).then(res => {
+        request('/zyb/otherServiceVisual/' + switchFlag + '/option24', params).then(res => {
             if (res && res.flag) {
                 this.setState({option24Data: res.data})
             }
         })
         //option25
-        request('/zyb/nationServiceVisual/' + switchFlag + '/option25', params).then(res => {
+        request('/zyb/otherServiceVisual/' + switchFlag + '/option25', params).then(res => {
             if (res && res.flag) {
                 this.setState({option25Data: res.data})
             }
         })
         //option26
-        request('/zyb/nationServiceVisual/' + switchFlag + '/option26', params).then(res => {
+        request('/zyb/otherServiceVisual/' + switchFlag + '/option26', params).then(res => {
             if (res && res.flag) {
                 this.setState({option26Data: res.data})
             }
         })
     }
 
+    areaCategory = () => {
+        let params = {
+            params: areaQuery
+        }
+        request('/zyb/categoryController/getAreaStrChildren', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option21Category: res.data})
+            }
+        })
+        request('/zyb/categoryController/getAreaReverseStrChildren', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option22Category: res.data})
+            }
+        })
+    }
+
+    registerTypeCategory = () => {
+        request('/zyb/categoryController/getRegisterTypeStrList').then(res => {
+            if (res && res.flag) {
+                this.setState({option21Category: res.data})
+            }
+        })
+        request('/zyb/categoryController/getRegisterTypeReverseStrList').then(res => {
+            if (res && res.flag) {
+                this.setState({option22Category: res.data})
+            }
+        })
+    }
+
     componentWillMount() {
-        let option21Category = ['北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '重庆', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '香港']
-        this.setState({option21Category})
+        //行政区划
+        areaQuery = this.props.areaQuery
+
+        this.areaCategory()
+
         this.data1()
     }
 
@@ -151,7 +185,7 @@ export default class NationServiceVisual extends Component {
                 display2: 'none',
             })
         } else if ("行政区划" === type) {
-            let option21Category = ['北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '重庆', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '香港']
+            this.areaCategory()
             let option24Columns = [
                 {
                     title: '行政区划',
@@ -287,14 +321,14 @@ export default class NationServiceVisual extends Component {
                     sorter: (a, b) => a.var5 - b.var5
                 }
             ]
-            this.setState({option21Category, option24Columns, option25Columns, option26Columns})
+            this.setState({option24Columns, option25Columns, option26Columns})
             this.data2(year, type)
             this.setState({
                 display1: 'none',
                 display2: 'block',
             })
         } else if ("登记注册类型" === type) {
-            let option21Category =['国有企业','集体企业','股份合作企业','联营企业','有限责任公司','股份有限公司','私营企业','其他企业','合资经营企业（港或澳、台资）','合作经营企业（港或澳、台资）','港、澳、台商独资经营企业','港、澳、台商投资股份有限公司','其他港、澳、台商投资企业','中外合资经营企业','中外合作经营企业','外资企业','外商投资股份有限公司','其他外商投资企业','事业单位','社会团体']
+            this.registerTypeCategory()
             let option24Columns = [
                 {
                     title: '登记注册类型',
@@ -430,7 +464,7 @@ export default class NationServiceVisual extends Component {
                     sorter: (a, b) => a.var5 - b.var5
                 }
             ]
-            this.setState({option21Category, option24Columns, option25Columns, option26Columns})
+            this.setState({option24Columns, option25Columns, option26Columns})
             this.data2(year, type)
             this.setState({
                 display1: 'none',
@@ -877,7 +911,7 @@ export default class NationServiceVisual extends Component {
                             </Select>
                             <Radio.Group onChange={this.typeOnChange} defaultValue={this.state.type} size={'large'}>
                                 <Radio.Button value="危害因素">危害因素</Radio.Button>
-                                <Radio.Button value="行政区划">行政区划</Radio.Button>
+                                {/*<Radio.Button value="行政区划">行政区划</Radio.Button>*/}
                                 <Radio.Button value="登记注册类型">登记注册类型</Radio.Button>
                             </Radio.Group>
                         </div>

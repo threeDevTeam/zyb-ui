@@ -7,8 +7,9 @@ import {Modal} from "nowrapper/lib/antd"
 
 let switchFlag = "no"
 let currentYear = new Date().getFullYear()
+let areaQuery = {}
 //企业
-export default class NationEnterpriseVisual extends Component {
+export default class OtherEnterpriseVisual extends Component {
     state = {
         display1: 'block',
         display2: 'none',
@@ -23,36 +24,36 @@ export default class NationEnterpriseVisual extends Component {
         option11Indicator2: [],
         option13Dataset: [['防护配备', '职业病防护设施设置率', '个人防护用品配备率']],
         option14Category: ['粉尘', '化学因素', '物理因素', '放射性因素', '生物因素'],
-        option21Category: ['北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '重庆', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '香港']
+        option21Category: []
     }
     data1 = (year, type) => {
         let params = {
-            params: {year: year || this.state.year, type: type || this.state.type}
+            params: {year: year || this.state.year, type: type || this.state.type, ...areaQuery}
         }
         //option11
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option11', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option11', params).then(res => {
             if (res && res.flag) {
                 this.setState({option11Data: res.data})
             }
         })
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option11Detail', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option11Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option11Detail: res.data})
             }
         })
         //option12
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option12', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option12', params).then(res => {
             if (res && res.flag) {
                 this.setState({option12Data: res.data})
             }
         })
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option12Detail', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option12Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option12Detail: res.data})
             }
         })
         //option13
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option13', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option13', params).then(res => {
             if (res && res.flag) {
                 let type = this.state.type
                 let arr = []
@@ -71,29 +72,29 @@ export default class NationEnterpriseVisual extends Component {
                 this.setState({option13Dataset: data})
             }
         })
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option13Detail', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option13Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option13Detail: res.data})
             }
         })
         //option14
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option14', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option14', params).then(res => {
             if (res && res.flag) {
                 this.setState({option14Data: res.data})
             }
         })
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option14Detail', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option14Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option14Detail: res.data})
             }
         })
         //option15
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option25', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option25', params).then(res => {
             if (res && res.flag) {
                 this.setState({option25Data: res.data})
             }
         })
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option25Detail', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option25Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option25Detail: res.data})
             }
@@ -102,32 +103,32 @@ export default class NationEnterpriseVisual extends Component {
 
     data2 = (year, type) => {
         let params = {
-            params: {year: year || this.state.year, type: type || this.state.type}
+            params: {year: year || this.state.year, type: type || this.state.type, ...areaQuery}
         }
         //option21
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option21', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option21', params).then(res => {
             if (res && res.flag) {
                 this.setState({option21Data: res.data})
             }
         })
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option21Detail', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option21Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option21Detail: res.data})
             }
         })
         //option22
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option22', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option22', params).then(res => {
             if (res && res.flag) {
                 this.setState({option22Data: res.data})
             }
         })
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option22Detail', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option22Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option22Detail: res.data})
             }
         })
         //option23
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option23', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option23', params).then(res => {
             if (res && res.flag) {
                 let tmp = res.data
                 let data = [['防护配备', '职业病防护设施设置率', '个人防护用品配备率']]
@@ -139,36 +140,81 @@ export default class NationEnterpriseVisual extends Component {
                 this.setState({option23Dataset: data})
             }
         })
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option23Detail', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option23Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option23Detail: res.data})
             }
         })
         //option24
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option24', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option24', params).then(res => {
             if (res && res.flag) {
                 this.setState({option24Data: res.data})
             }
         })
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option24Detail', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option24Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option24Detail: res.data})
             }
         })
         //option25
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option25', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option25', params).then(res => {
             if (res && res.flag) {
                 this.setState({option25Data: res.data})
             }
         })
-        request('/zyb/nationEnterpriseVisual/' + switchFlag + '/option25Detail', params).then(res => {
+        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option25Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option25Detail: res.data})
             }
         })
     }
 
+    areaCategory = () => {
+        let params = {
+            params: areaQuery
+        }
+        request('/zyb/categoryController/getAreaStrChildren', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option21Category: res.data})
+            }
+        })
+        request('/zyb/categoryController/getAreaReverseStrChildren', params).then(res => {
+            if (res && res.flag) {
+                this.setState({option22Category: res.data})
+            }
+        })
+    }
+
+    industryCategory = () => {
+        request('/zyb/categoryController/getIndustryStrList').then(res => {
+            if (res && res.flag) {
+                this.setState({option21Category: res.data})
+            }
+        })
+        request('/zyb/categoryController/getIndustryReverseStrList').then(res => {
+            if (res && res.flag) {
+                this.setState({option22Category: res.data})
+            }
+        })
+    }
+
+    registerTypeCategory = () => {
+        request('/zyb/categoryController/getRegisterTypeStrList').then(res => {
+            if (res && res.flag) {
+                this.setState({option21Category: res.data})
+            }
+        })
+        request('/zyb/categoryController/getRegisterTypeReverseStrList').then(res => {
+            if (res && res.flag) {
+                this.setState({option22Category: res.data})
+            }
+        })
+    }
+
     componentWillMount() {
+        //行政区划
+        areaQuery = this.props.areaQuery
+
         let option11Indicator = [
             {name: '接害率', max: 100},
             {name: '接触粉尘危害率', max: 100},
@@ -179,9 +225,8 @@ export default class NationEnterpriseVisual extends Component {
         ]
         let option11Indicator2 = ['生物因素', '放射性因素', '物理因素', '化学因素', '粉尘']
         let option14Category = ['粉尘', '化学因素', '物理因素', '放射性因素', '生物因素']
-        let option21Category = ['北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '重庆', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '香港']
-        let option22Category = ['香港', '新疆', '宁夏', '青海', '甘肃', '陕西', '西藏', '云南', '贵州', '四川', '重庆', '海南', '广西', '广东', '湖南', '湖北', '河南', '山东', '江西', '福建', '安徽', '浙江', '江苏', '上海', '黑龙江', '吉林', '辽宁', '内蒙古', '山西', '河北', '天津', '北京']
-        this.setState({option11Indicator, option11Indicator2, option14Category, option21Category, option22Category})
+        this.setState({option11Indicator, option11Indicator2, option14Category})
+        this.areaCategory()
         this.data1()
     }
 
@@ -222,9 +267,7 @@ export default class NationEnterpriseVisual extends Component {
                 display5: 'none'
             })
         } else if ("行政区划" === type) {
-            let option21Category = ['北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '重庆', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '香港']
-            let option22Category = ['香港', '新疆', '宁夏', '青海', '甘肃', '陕西', '西藏', '云南', '贵州', '四川', '重庆', '海南', '广西', '广东', '湖南', '湖北', '河南', '山东', '江西', '福建', '安徽', '浙江', '江苏', '上海', '黑龙江', '吉林', '辽宁', '内蒙古', '山西', '河北', '天津', '北京']
-            this.setState({option21Category, option22Category})
+            this.areaCategory()
             this.data2(year, type)
             this.setState({
                 display1: 'none',
@@ -253,9 +296,7 @@ export default class NationEnterpriseVisual extends Component {
                 display5: 'none'
             })
         } else if ("登记注册类型" === type) {
-            let option21Category =['国有企业','集体企业','股份合作企业','联营企业','有限责任公司','股份有限公司','私营企业','其他企业','合资经营企业（港或澳、台资）','合作经营企业（港或澳、台资）','港、澳、台商独资经营企业','港、澳、台商投资股份有限公司','其他港、澳、台商投资企业','中外合资经营企业','中外合作经营企业','外资企业','外商投资股份有限公司','其他外商投资企业','事业单位','社会团体']
-            let option22Category =['社会团体','事业单位','其他外商投资企业','外商投资股份有限公司','外资企业','中外合作经营企业','中外合资经营企业','其他港、澳、台商投资企业','港、澳、台商投资股份有限公司','港、澳、台商独资经营企业','合作经营企业（港或澳、台资）','合资经营企业（港或澳、台资）','其他企业','私营企业','股份有限公司','有限责任公司','联营企业','股份合作企业','集体企业','国有企业']
-            this.setState({option21Category, option22Category})
+            this.registerTypeCategory()
             this.data2(year, type)
             this.setState({
                 display1: 'none',
@@ -265,9 +306,7 @@ export default class NationEnterpriseVisual extends Component {
                 display5: 'none'
             })
         } else if ("所属行业" === type) {
-            let option21Category = ['煤炭开采和洗选业', '石油和天然气开采业', '黑色金属矿采选业', '有色金属矿采选业', '非金属矿采选业', '开采辅助活动', '其他采矿业', '农副食品加工业', '食品制造业', '酒、饮料和精制茶制造业', '烟草制品业 ', '纺织业', '纺织服装、服饰业', '皮革、毛皮、羽毛及其制品和制鞋业', '木材加工和木、竹、藤、棕、草制品业', '家具制造业 ', '造纸和纸制品业 ', '印刷和记录媒介复制业', '文教、工美、体育和娱乐用品制造业', '石油加工、炼焦和核燃料加工业 ', '化学原料和化学制品制造业', '医药制造业 ', '化学纤维制造业', '橡胶和塑料制品业', '非金属矿物制品业', '黑色金属冶炼和压延加工业 ', '有色金属冶炼和压延加工业 ', '金属制品业 ', '通用设备制造业', '专用设备制造业 ', '汽车制造业', '铁路、船舶、航空航天和其他运输设备制造业', '电气机械和器材制造业 ', '计算机、通信和其他电子设备制造业', '仪器仪表制造业', '其他制造业', '废弃资源综合利用业', '金属制品、机械和设备修理业', '电力、热力生产和供应业', '燃气生产和供应业', '水的生产和供应业']
-            let option22Category = ['水的生产和供应业', '燃气生产和供应业', '电力、热力生产和供应业', '金属制品、机械和设备修理业', '废弃资源综合利用业', '其他制造业', '仪器仪表制造业', '计算机、通信和其他电子设备制造业', '电气机械和器材制造业 ', '铁路、船舶、航空航天和其他运输设备制造业', '汽车制造业', '专用设备制造业 ', '通用设备制造业', '金属制品业 ', '有色金属冶炼和压延加工业 ', '黑色金属冶炼和压延加工业 ', '非金属矿物制品业', '橡胶和塑料制品业', '化学纤维制造业', '医药制造业 ', '化学原料和化学制品制造业', '石油加工、炼焦和核燃料加工业 ', '文教、工美、体育和娱乐用品制造业', '印刷和记录媒介复制业', '造纸和纸制品业 ', '家具制造业 ', '木材加工和木、竹、藤、棕、草制品业', '皮革、毛皮、羽毛及其制品和制鞋业', '纺织服装、服饰业', '纺织业', '烟草制品业 ', '酒、饮料和精制茶制造业', '食品制造业', '农副食品加工业', '其他采矿业', '开采辅助活动', '非金属矿采选业', '有色金属矿采选业', '黑色金属矿采选业', '石油和天然气开采业', '煤炭开采和洗选业']
-            this.setState({option21Category, option22Category})
+            this.industryCategory()
             this.data2(year, type)
             this.setState({
                 display1: 'none',
@@ -1043,7 +1082,7 @@ export default class NationEnterpriseVisual extends Component {
                         </Select>
                         <Radio.Group onChange={this.typeOnChange} defaultValue={this.state.type} size={'large'}>
                             <Radio.Button value="危害因素">危害因素</Radio.Button>
-                            <Radio.Button value="行政区划">行政区划</Radio.Button>
+                            {/*<Radio.Button value="行政区划">行政区划</Radio.Button>*/}
                             <Radio.Button value="企业规模">企业规模</Radio.Button>
                             <Radio.Button value="登记注册类型">登记注册类型</Radio.Button>
                             <Radio.Button value="所属行业">所属行业</Radio.Button>
