@@ -43,7 +43,7 @@ class AdminLayout extends React.Component {
         if (item.children && item.children.length > 0) {
             console.log(item.key)
             return (
-                <Menu.SubMenu key={item.key} title={<span><span>{item.name}</span></span>}>
+                <Menu.SubMenu key={item.key} title={<span><Icon type={item.icon}/><span>{item.name}</span></span>}>
                     {this.renderMenu(item.children)}
                 </Menu.SubMenu>
             )
@@ -171,6 +171,7 @@ class AdminLayout extends React.Component {
                                 type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                                 onClick={this.toggle}
                             />
+                            <span><h2 style={{color: '#1890FF', fontWeight: 'bold', letterSpacing: 8,display:'inline'}}>职业病危害监测预警预控云服务平台</h2></span>
                             <Dropdown overlay={menu}>
                             <span style={{paddingRight: 70, float: "right"}}><Icon type="user"
                                                                                    style={{marginRight: 15}}/>欢迎你,{sessionStorage.getItem("loginName")}</span>
