@@ -30,12 +30,14 @@ const menu = (
 class AdminLayout extends React.Component {
     state = {
         collapsed: true,
-        menus: []
+        menus: [],
+        display:'none'
     };
 
     toggle = () => {
         this.setState({
             collapsed: !this.state.collapsed,
+            display:this.state.display==='none'?'inline-block':'none'
         });
     };
 
@@ -71,7 +73,7 @@ class AdminLayout extends React.Component {
                 <Layout>
                     <Sider trigger={null} collapsible collapsed={this.state.collapsed} width={256}
                            style={{minHeight: '100vh', color: 'white'}}>
-                        <div className={styles.logo}/>
+                        <div className={styles.logo}><div style={{display:this.state.display,width:'200px',lineHeight:'48px',paddingLeft:'55px'}}>职业病危害云服务平台</div></div>
                         <Menu theme="dark" mode="inline" defaultSelectedKeys={['21']} defaultOpenKeys={['sub2']}>
                             {this.renderMenu(this.state.menus)}
                             {/* <Menu.Item key="1">
