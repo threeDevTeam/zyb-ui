@@ -40,7 +40,7 @@ const validate = {
     propertyMoney: {type: "string", required: true, message: '资产总额不能为空'},
 }
 
-class SysUserLogin extends PureComponent {
+class SysUserRegister extends PureComponent {
 
     state = {
         value: undefined,
@@ -328,4 +328,4 @@ class SysUserLogin extends PureComponent {
     }
 }
 
-export default SysUserLogin;
+export default SysUserRegister;

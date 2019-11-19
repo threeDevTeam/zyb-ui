@@ -12,7 +12,7 @@ const validate = {
     loginPassword: {type: "string", required: true, message: '登录密码不能为空'},
 }
 
-class Register extends PureComponent {
+class Login extends PureComponent {
     constructor(props) {
         super(props);
         this.core = new FormCore({validateConfig: validate});
@@ -82,4 +82,4 @@ class Register extends PureComponent {
     }
 }
 
-export default Register;
+export default Login;

@@ -26,7 +26,8 @@ export default {
             routes: [
                 {path: '/visual', redirect: '/visual/NationVisual'},
                 {path: '/visual/NationVisual', component: './DataVisual/Nation/NationVisual'},
-                {path: '/visual/OtherVisual', component: './DataVisual/Other/OtherVisual'}
+                {path: '/visual/OtherVisual', component: './DataVisual/Other/OtherVisual'},
+                {path: '/visual/NationDangerVisual', component: './DataVisual/Nation/NationDangerVisual'}
             ]
         },
         {
@@ -34,8 +35,8 @@ export default {
             component: '../layouts/UserLayout',
             routes: [
                 {path: '/user', redirect: '/user/login'},
-                {path: '/user/register', component: './Login/SysUserLogin'},
-                {path: '/user/login', component: './Login/Register'},
+                {path: '/user/register', component: './Login/SysUserRegister'},
+                {path: '/user/login', component: './Login/Login'},
                 {path: '/user/changePassword', component: './Login/ChangePassword'},
             ]
         },
@@ -72,9 +73,9 @@ export default {
                 {path: '/zhenduanBasicOfService', component: './JishujiGou/ZhenduanBasicOfService'},
                 {path: '/zhenduanDetailOfService', component: './JishujiGou/ZhenduanDetailOfService'},
                 {path: '/zhenduanTotalOfService', component: './JishujiGou/ZhenduanTotalOfService'},
-                {path: '/sysUserLogin', component: './Login/SysUserLogin'},
+                {path: '/sysUserLogin', component: './Login/SysUserRegister'},
                 {path: '/email', component: './Login/Email'},
-                {path: '/register', component: './Login/Register'},
+                {path: '/register', component: './Login/Login'},
                 {path: '/changePassword', component: './Login/ChangePassword'},
                 {path: '/enterprise', component: './Qiye/Enterprise'},
                 {path: '/procuctionOfEnterprise', component: './Qiye/ProcuctionOfEnterprise.js'},
@@ -100,6 +101,7 @@ export default {
                 {path: '/menuManagement', component: './Systemsetup/MenuManagement'},
                 {path: '/roleManagement', component: './Systemsetup/RoleManagement'},
                 {path: '/dataVisualSwitchFlag', component: './Systemsetup/dataVisualSwitchFlag'},
+                {path: '/NationDangerVisual', component: './DataVisual/Nation/NationDangerVisual'}
             ]
         }
     ],
