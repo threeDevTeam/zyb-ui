@@ -1,9 +1,11 @@
 import React, {PureComponent} from 'react'
-import {Input, Button, Select, Dialog, Cascader,DatePicker} from 'nowrapper/lib/antd'
+import {Input, Button, Select, Dialog, Cascader, DatePicker} from 'nowrapper/lib/antd'
 import Form, {FormItem, FormCore} from 'noform'
-import {Card, message} from "antd";
+import {Card, message, Layout, Row, Col} from "antd";
 import request from "../../utils/request";
 import moment from "moment";
+import logo from '../../assets/logo.png'
+import Link from 'umi/link'
 
 
 const validate = {
@@ -44,7 +46,7 @@ class SysUserRegister extends PureComponent {
 
     state = {
         value: undefined,
-        dataSource:[],
+        dataSource: [],
         Login: 'block',
         displayEnterprise: 'none',
         displayGov: 'none',
@@ -59,10 +61,6 @@ class SysUserRegister extends PureComponent {
         this.core = new FormCore({validateConfig: validate});
     }
 
-    componentWillMount() {
-
-    }
-
     study = () => {
         if ("企业" === this.core.value.type) {
             this.setState({
@@ -70,9 +68,9 @@ class SysUserRegister extends PureComponent {
                 displayEnterprise: 'block',
                 displayGov: 'none',
                 displayService: 'none',
-                primaryreturn: 'block',
+                primaryreturn: 'inline-block',
                 study: 'none',
-                handleOperator: 'block'
+                handleOperator: 'inline-block'
             })
         }
         if ("政府监管部门" === this.core.value.type) {
@@ -81,9 +79,9 @@ class SysUserRegister extends PureComponent {
                 displayEnterprise: 'none',
                 displayGov: 'block',
                 displayService: 'none',
-                primaryreturn: 'block',
+                primaryreturn: 'inline-block',
                 study: 'none',
-                handleOperator: 'block'
+                handleOperator: 'inline-block'
             })
         }
         if ("技术服务机构" === this.core.value.type) {
@@ -92,9 +90,9 @@ class SysUserRegister extends PureComponent {
                 displayEnterprise: 'none',
                 displayGov: 'none',
                 displayService: 'block',
-                primaryreturn: 'block',
+                primaryreturn: 'inline-block',
                 study: 'none',
-                handleOperator: 'block'
+                handleOperator: 'inline-block'
             })
         }
         if ("普通用户" === this.core.value.type) {
@@ -104,7 +102,7 @@ class SysUserRegister extends PureComponent {
                 displayGov: 'none',
                 displayService: 'none',
                 study: 'none',
-                handleOperator: 'block'
+                handleOperator: 'inline-block'
             })
         }
     }
@@ -125,7 +123,7 @@ class SysUserRegister extends PureComponent {
                         console.log(res)
                         if (res && res.flag) {
                             message.success("操作成功")
-                            window.location.href ='/user/login'
+                            window.location.href = '/user/login'
                         } else {
                             message.error("操作失败")
                         }
@@ -136,7 +134,7 @@ class SysUserRegister extends PureComponent {
                 request.post('/zyb/superviseOfRegister/add', {data: this.core.value}).then(res => {
                     if (res && res.flag) {
                         message.success("操作成功")
-                        window.location.href ='/user/login'
+                        window.location.href = '/user/login'
                     } else {
                         message.error("操作失败")
                     }
@@ -145,7 +143,7 @@ class SysUserRegister extends PureComponent {
                 request.post('/zyb/serviceOfRegister/add', {data: this.core.value}).then(res => {
                     if (res && res.flag) {
                         message.success("操作成功")
-                        window.location.href ='/user/login'
+                        window.location.href = '/user/login'
                     } else {
                         message.error("操作失败")
                     }
@@ -154,7 +152,7 @@ class SysUserRegister extends PureComponent {
                 request.post('/zyb/sysUser/add', {data: this.core.value}).then(res => {
                     if (res && res.flag) {
                         message.success("操作成功")
-                        window.location.href ='/user/login'
+                        window.location.href = '/user/login'
                     } else {
                         message.error("操作失败")
                     }
@@ -243,87 +241,125 @@ class SysUserRegister extends PureComponent {
             })
         }
     }
-    componentWillMount() {
 
-        request.get('/zyb/areaOfDic/cascadeData').then(res =>{
-            if(res.flag){
-                this.setState({dataSource:res.data})
+    componentWillMount() {
+        request.get('/zyb/areaOfDic/cascadeData').then(res => {
+            if (res.flag) {
+                this.setState({dataSource: res.data})
             }
         })
     }
+
     onChange = value => {
-        this.setState({ value });
+        this.setState({value});
     };
+
     render() {
         const dateFormat = 'YYYY/MM/DD';
         return (
-            <Card title="注册表单">
-                <div>
-                    <Button type="primary" style={{display: this.state.primaryreturn}}
-                            onClick={this.primaryreturn}>返回上一层</Button>
-                </div>
-                <Form core={this.core} layout={{label: 7}}>
-                    <div style={{display: this.state.Login}}>
-                        <FormItem label="登录名" name="loginName" required={true}><Input style={{width: 212}} placeholder="请输入用户名"/></FormItem>
-                        <FormItem label="登录密码" name="loginPassword" required={true}><Input.Password style={{width: 212}} placeholder="请输入密码"/></FormItem>
-                        <FormItem label="确认密码" name="ConfirmPassword" required={true}><Input.Password style={{width: 212}} placeholder="请输入密码"/></FormItem>
-                        <FormItem label="电子邮箱" name="email" required={true}><Input placeholder="email"/></FormItem>
-                        <FormItem label="手机号码" name="mobile" required={true}><Input style={{width: '100%'}}
-                                                                    placeholder="请输入电话号码"/></FormItem>
-                        <FormItem label="用户类型" name="type" required={true}>
-                            <Select onSelect={this.onSelect} style={{width: 212}} placeholder="----请选择用户类型----">
-                                <option key={"企业"}>{"企业"}</option>
-                                <option key={"政府监管部门"}>{"政府监管部门"}</option>
-                                <option key={"技术服务机构"}>{"技术服务机构"}</option>
-                                <option key={"普通用户"}>{"普通用户"}</option>
-                            </Select>
-                        </FormItem>
-                        <FormItem label="企业名称" name="companyName" required={true}><Input  placeholder="请选择企业名称"/></FormItem>
-                    </div>
-                    <div style={{display: this.state.displayEnterprise}}>
-                        <br/>
-                        <FormItem label="统一社会信用代码" name="code" required={true}><Input/></FormItem>
-                        <FormItem label="省/市/区" name="cascader" required={true}><Cascader style={{width: 212}} options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
+            <div>
+                <Layout.Header
+                    style={{background: '#fff', padding: 0, marginBottom: 10, height: 70, boxShadow: '0 0 12px #ccc'}}>
+                    <img src={logo} style={{float: 'left', paddingTop: 10, paddingLeft: 20}}/>
+                    <span style={{paddingRight: 70, float: "left", marginLeft: 10}}><h2
+                        style={{color: '#1890FF', fontWeight: 'bold', letterSpacing: 8}}>职业病危害监测预警预控云服务平台</h2></span>
+                    <div style={{
+                        display: 'inline-block',
+                        float: 'right',
+                        marginRight: 80,
+                        marginTop: 13,
+                        fontSize: 18
+                    }}>已有账号？<Link to="/user/login">请登录></Link></div>
+                </Layout.Header>
+                <Row>
+                    <Col span={12} offset={6}>
+                        <Card title="欢迎注册" size="small">
+                            <Form core={this.core} layout={{ label: 9, control: 10 }}>
+                                <div style={{display: this.state.Login, fontSize: '16px'}}>
+                                    <FormItem label="登录名" name="loginName" required={true}><Input style={{width: 230}}
+                                                                                                  placeholder="请输入用户名"/></FormItem>
+                                    <FormItem label="登录密码" name="loginPassword" required={true}><Input.Password
+                                        style={{width: 230}} placeholder="请输入密码" /></FormItem>
+                                    <FormItem label="确认密码" name="ConfirmPassword" required={true}><Input.Password
+                                        style={{width: 230}} placeholder="请输入密码"/></FormItem>
+                                    <FormItem label="电子邮箱" name="email" required={true}><Input
+                                        placeholder="email" style={{width: 230}}/></FormItem>
+                                    <FormItem label="手机号码" name="mobile" required={true}><Input placeholder="请输入电话号码" style={{width: 230}}/></FormItem>
+                                    <FormItem label="用户类型" name="type"  required={true}>
+                                        <Select onSelect={this.onSelect} style={{width: 230}}
+                                                placeholder="----请选择用户类型----">
+                                            <option key={"企业"}>{"企业"}</option>
+                                            <option key={"政府监管部门"}>{"政府监管部门"}</option>
+                                            <option key={"技术服务机构"}>{"技术服务机构"}</option>
+                                            <option key={"普通用户"}>{"普通用户"}</option>
+                                        </Select>
+                                    </FormItem>
+                                    <FormItem label="企业名称" name="companyName" required={true}><Input
+                                        placeholder="请选择企业名称" style={{width:230}}/></FormItem>
+                                </div>
+                                <div style={{display: this.state.displayEnterprise, fontSize: '16px'}}>
+                                    <FormItem label="统一社会信用代码" name="code" required={true}><Input/></FormItem>
+                                    <FormItem label="省/市/区" name="cascader" required={true}><Cascader
+                                        style={{width: 212}}
+                                        options={this.state.dataSource}
+                                        onChange={this.onChange}
+                                        placeholder="请选择省/市/区"/></FormItem>
 
-                        <FormItem label="核定生产能力" name="productionCapacity" required={true}><Input/></FormItem>
-                        <FormItem label="生产能力单位类型" name="unitType" required={true}><Input/></FormItem>
-                        <FormItem label="注册资本" name="regiterMoney" required={true}><Input/></FormItem>
-                        <FormItem label="注册地址" name="registerAddress" required={true}><Input/></FormItem>
-                        <FormItem label="注册时间" name="registerDateStr" required={true}><DatePicker placeholder="请选择注册时间"/></FormItem>
-                        <FormItem label="投产时间" name="startDateStr" required={true}><DatePicker placeholder="请选择投产时间"/></FormItem>
-                        <FormItem label="资产总额" name="propertyMoney" required={true}><Input/></FormItem>
-                    </div>
-                    <div style={{display: this.state.displayGov}}>
-                        <br/>
-                        <FormItem label="省/市/区" name="cascader" required={true}><Cascader style={{width: 212}} options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
-                        <FormItem label="注册地址" name="registerAddress" required={true}><Input/></FormItem>
-                    </div>
-                    <div style={{display: this.state.displayService}}>
-                        <br/>
-                        <FormItem label="社会统一代码" name="code" required={true}><Input/></FormItem>
-                        <FormItem label="省/市/区" name="cascader" required={true}><Cascader style={{width: 212}} options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
-                        <FormItem label="注册地址" name="registerAddress" required={true}><Input/></FormItem>
-                        <FormItem label="机构类型" name="type2" required={true}>
-                            <Select placeholder="----请选择机构类型----" style={{width: 212}}>
-                                <option key={"检测机构"}>{"检测机构"}</option>
-                                <option key={"体检机构"}>{"体检机构"}</option>
-                                <option key={"诊断机构"}>{"诊断机构"}</option>
-                            </Select>
-                        </FormItem>
+                                    <FormItem label="核定生产能力" name="productionCapacity"
+                                              required={true}><Input/></FormItem>
+                                    <FormItem label="生产能力单位类型" name="unitType" required={true}><Input/></FormItem>
+                                    <FormItem label="注册资本" name="regiterMoney" required={true}><Input/></FormItem>
+                                    <FormItem label="注册地址" name="registerAddress" required={true}><Input/></FormItem>
+                                    <FormItem label="注册时间" name="registerDateStr" required={true}><DatePicker
+                                        placeholder="请选择注册时间"/></FormItem>
+                                    <FormItem label="投产时间" name="startDateStr" required={true}><DatePicker
+                                        placeholder="请选择投产时间"/></FormItem>
+                                    <FormItem label="资产总额" name="propertyMoney" required={true}><Input style={{width: 230}}/></FormItem>
+                                </div>
+                                <div style={{display: this.state.displayGov,fontSize: '16px'}}>
+                                    <FormItem label="省/市/区" name="cascader" required={true}><Cascader
+                                        style={{width: 212}}
+                                        options={this.state.dataSource}
+                                        onChange={this.onChange}
+                                        placeholder="请选择省/市/区"/></FormItem>
+                                    <FormItem label="注册地址" name="registerAddress" required={true}><Input/></FormItem>
+                                </div>
+                                <div style={{display: this.state.displayService, fontSize: '18px'}}>
+                                    <FormItem label="社会统一代码" name="code" required={true}><Input/></FormItem>
+                                    <FormItem label="省/市/区" name="cascader" required={true}><Cascader
+                                        style={{width: 212}}
+                                        options={this.state.dataSource}
+                                        onChange={this.onChange}
+                                        placeholder="请选择省/市/区"/></FormItem>
+                                    <FormItem label="注册地址" name="registerAddress" required={true}><Input/></FormItem>
+                                    <FormItem label="机构类型" name="type2" required={true}>
+                                        <Select placeholder="----请选择机构类型----" style={{width: 212}}>
+                                            <option key={"检测机构"}>{"检测机构"}</option>
+                                            <option key={"体检机构"}>{"体检机构"}</option>
+                                            <option key={"诊断机构"}>{"诊断机构"}</option>
+                                        </Select>
+                                    </FormItem>
+                                </div>
+                                <FormItem>
+                                    <Button style={{display: this.state.study,marginTop:40}} type="primary"
+                                            onClick={this.study}>下一步</Button>
+                                </FormItem>
+                                <FormItem>
+                                    <div>
+                                        <Button style={{display: this.state.primaryreturn,}}
+                                                onClick={this.primaryreturn}>返回上一层</Button>
 
-                    </div>
-                    <br/>
-                    <FormItem direction="horizontal" style={{marginLeft:290}}>
-                        <Button style={{display: this.state.study}} type="primary" onClick={this.study}>下一步</Button>
-                    </FormItem>
+                                        <Button
+                                            style={{display: this.state.handleOperator,marginLeft:52}} type="primary"
+                                            onClick={this.handleOperator}>注&nbsp;&nbsp;&nbsp;&nbsp;册</Button>
+                                    </div>
+                                </FormItem>
 
-                    <FormItem direction="horizontal">
-                        <Button style={{display: this.state.handleOperator}} type="primary"
-                                onClick={this.handleOperator}>注册</Button>
-                    </FormItem>
-
-                </Form>
-            </Card>
+                            </Form>
+                        </Card>
+                    </Col>
+                </Row>
+            </div>
         );
     }
 }

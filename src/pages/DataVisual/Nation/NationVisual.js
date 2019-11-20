@@ -28,13 +28,13 @@ export default class NationVisual extends Component {
 
     displayVisual = type => {
         if ('风险预警' === type) {
-            return <NationDangerVisual></NationDangerVisual>
+            return <NationDangerVisual/>
         } else if ('企业信息' === type) {
-            return <NationEnterpriseVisual></NationEnterpriseVisual>
+            return <NationEnterpriseVisual/>
         } else if ('政府监管部门' === type) {
-            return <NationGovVisual></NationGovVisual>
+            return <NationGovVisual/>
         } else if ('技术服务机构' === type) {
-            return <NationServiceVisual></NationServiceVisual>
+            return <NationServiceVisual/>
         } else if ('进入后台' === type) {
             if(sessionStorage.getItem('loginName')){
                 router.push('/userManagement')

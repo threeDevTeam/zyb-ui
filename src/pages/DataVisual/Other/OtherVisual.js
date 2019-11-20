@@ -39,35 +39,35 @@ export default class OtherVisual extends Component {
         areaQuery = this.props.location.query
         if ('风险预警' === type) {
             if (areaQuery['name3']) {
-                return <OtherDangerVisual2 areaQuery={areaQuery}></OtherDangerVisual2>
+                return <OtherDangerVisual2 areaQuery={areaQuery}/>
             } else if ((areaQuery['name1'] === '北京' || areaQuery['name1'] === '上海' || areaQuery['name1'] === '重庆' || areaQuery['name1'] === '天津') && areaQuery['name2']) {
-                return <OtherDangerVisual2 areaQuery={areaQuery}></OtherDangerVisual2>
+                return <OtherDangerVisual2 areaQuery={areaQuery}/>
             } else {
-                return <OtherDangerVisual areaQuery={areaQuery}></OtherDangerVisual>
+                return <OtherDangerVisual areaQuery={areaQuery}/>
             }
         } else if ('企业信息' === type) {
             if (areaQuery['name3']) {
-                return <OtherEnterpriseVisual2 areaQuery={areaQuery}></OtherEnterpriseVisual2>
+                return <OtherEnterpriseVisual2 areaQuery={areaQuery}/>
             } else if ((areaQuery['name1'] === '北京' || areaQuery['name1'] === '上海' || areaQuery['name1'] === '重庆' || areaQuery['name1'] === '天津') && areaQuery['name2']) {
-                return <OtherEnterpriseVisual2 areaQuery={areaQuery}></OtherEnterpriseVisual2>
+                return <OtherEnterpriseVisual2 areaQuery={areaQuery}/>
             } else {
-                return <OtherEnterpriseVisual areaQuery={areaQuery}></OtherEnterpriseVisual>
+                return <OtherEnterpriseVisual areaQuery={areaQuery}/>
             }
         } else if ('政府监管部门' === type) {
             if (areaQuery['name3']) {
-                return <OtherGovVisual2 areaQuery={areaQuery}></OtherGovVisual2>
+                return <OtherGovVisual2 areaQuery={areaQuery}/>
             } else if ((areaQuery['name1'] === '北京' || areaQuery['name1'] === '上海' || areaQuery['name1'] === '重庆' || areaQuery['name1'] === '天津') && areaQuery['name2']) {
-                return <OtherGovVisual2 areaQuery={areaQuery}></OtherGovVisual2>
+                return <OtherGovVisual2 areaQuery={areaQuery}/>
             } else {
-                return <OtherGovVisual areaQuery={areaQuery}></OtherGovVisual>
+                return <OtherGovVisual areaQuery={areaQuery}/>
             }
         } else if ('技术服务机构' === type) {
             if (areaQuery['name3']) {
-                return <OtherServiceVisual2 areaQuery={areaQuery}></OtherServiceVisual2>
+                return <OtherServiceVisual2 areaQuery={areaQuery}/>
             } else if ((areaQuery['name1'] === '北京' || areaQuery['name1'] === '上海' || areaQuery['name1'] === '重庆' || areaQuery['name1'] === '天津') && areaQuery['name2']) {
-                return <OtherServiceVisual2 areaQuery={areaQuery}></OtherServiceVisual2>
+                return <OtherServiceVisual2 areaQuery={areaQuery}/>
             } else {
-                return <OtherServiceVisual areaQuery={areaQuery}></OtherServiceVisual>
+                return <OtherServiceVisual areaQuery={areaQuery}/>
             }
         } else if ('进入后台' === type) {
             if(sessionStorage.getItem('loginName')){
