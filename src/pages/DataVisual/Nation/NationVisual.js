@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
-import {Row, Col, Layout, Tabs} from 'antd'
+import {Row, Col, Layout, Tabs,Icon} from 'antd'
 import NationDangerVisual from './NationDangerVisual'
 import NationEnterpriseVisual from './NationEnterpriseVisual'
 import NationGovVisual from './NationGovVisual'
 import NationServiceVisual from './NationServiceVisual'
 import styles from './style.less'
 import logo from '../../../assets/logo.png'
+import router from 'umi/router'
 
 const {TabPane} = Tabs
 //国家
@@ -34,6 +35,8 @@ export default class NationVisual extends Component {
             return <NationGovVisual></NationGovVisual>
         } else if ('技术服务机构' === type) {
             return <NationServiceVisual></NationServiceVisual>
+        } else if ('进入后台' === type) {
+            router.push('/userManagement')
         }
     }
 
@@ -54,6 +57,9 @@ export default class NationVisual extends Component {
                     <TabPane tab="政府监管部门" key="政府监管部门">
                     </TabPane>
                     <TabPane tab="技术服务机构" key="技术服务机构">
+                    </TabPane>
+                    <TabPane tab={
+                        <span><Icon type="home"  theme="filled"/>进入后台</span>} key="进入后台">
                     </TabPane>
                 </Tabs>
             </Layout.Header>

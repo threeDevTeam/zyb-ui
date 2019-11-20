@@ -1,6 +1,7 @@
 export default {
     targets: {
         ie: 11,
+        chrome: 79
     },
     // base: "/zyb/",
     // publicPath: "/zyb/",
@@ -16,7 +17,7 @@ export default {
                 level: 1,
             },
             title: '职业病危害监测预警预控云服务平台',
-            metas: [{ charset: 'utf-8' }]
+            metas: [{charset: 'utf-8'}]
         }]
     ],
     routes: [
@@ -73,9 +74,9 @@ export default {
                 {path: '/zhenduanBasicOfService', component: './JishujiGou/ZhenduanBasicOfService'},
                 {path: '/zhenduanDetailOfService', component: './JishujiGou/ZhenduanDetailOfService'},
                 {path: '/zhenduanTotalOfService', component: './JishujiGou/ZhenduanTotalOfService'},
-                {path: '/sysUserLogin', component: './Login/SysUserRegister'},
+                {path: '/register', component: './Login/SysUserRegister'},
                 {path: '/email', component: './Login/Email'},
-                {path: '/register', component: './Login/Login'},
+                {path: '/sysUserLogin', component: './Login/Login'},
                 {path: '/changePassword', component: './Login/ChangePassword'},
                 {path: '/enterprise', component: './Qiye/Enterprise'},
                 {path: '/procuctionOfEnterprise', component: './Qiye/ProcuctionOfEnterprise.js'},

@@ -6,6 +6,7 @@ import request from "../../utils/request";
 import bj from '../../assets/bj2.jpg'
 import styles from './login.less'
 import Link from 'umi/link'
+import router from 'umi/router'
 
 const validate = {
     loginName: {type: "string", required: true, message: '登录名不能为空'},
@@ -18,21 +19,24 @@ class Login extends PureComponent {
         this.core = new FormCore({validateConfig: validate});
     }
 
-    componentWillMount() {
-
-    }
-
     handleOperator = () => {
-
         this.core.validate((err) => {
             if (!err) {
                 request.post('/zyb/sysUser/register', {data: this.core.value}).then(res => {
                     if (res && res.flag) {
-                        sessionStorage.setItem("loginName", res.data.loginName)
-
-                        window.location.href = '/supervise'
-                        // message.success("登录成功")
-
+                        let type = res.data.obj1.type
+                        sessionStorage.setItem("loginName", res.data.obj1.loginName)
+                        sessionStorage.setItem("type", type)
+                        if ('管理员' === type) {
+                            router.push('/visual/NationVisual')
+                        } else if ('政府监管部门' === type) {
+                            sessionStorage.setItem("name1", res.data.obj2.provinceName)
+                            let areaQuery = {name1: res.data.obj2.provinceName}
+                            router.push({
+                                pathname: '/visual/OtherVisual',
+                                query: areaQuery
+                            })
+                        }
                     } else {
                         message.error("账号或密码错误")
                     }
@@ -51,10 +55,6 @@ class Login extends PureComponent {
         document.addEventListener("keydown", this.handleEnterKey);
     }
 
-    componentWillUmount() {
-        document.removeEventListener("keydown", this.handleEenterKey);
-    }
-
     render() {
         let backgroundImage = 'url(' + bj + ')'
         return (
@@ -62,10 +62,10 @@ class Login extends PureComponent {
                 <Form core={this.core} className={styles.login}>
                     <div className={styles.loginText}>登录</div>
                     <div className={styles.content}>
-                        <FormItem name="loginName"><Input autocomplete="off" prefix={<Icon type="user"
+                        <FormItem name="loginName" defaultMinWidth={false}><Input style={{width:255}} autocomplete="off" prefix={<Icon type="user"
                                                                                            style={{color: 'rgba(0,0,0,.25)'}}/>}
                                                           placeholder="登录名" size='large'/></FormItem>
-                        <FormItem name="loginPassword"><Input type="password" autocomplete="off"
+                        <FormItem name="loginPassword" defaultMinWidth={false}><Input style={{width:255}}  type="password" autocomplete="off"
                                                               prefix={<Icon type="lock"
                                                                             style={{color: 'rgba(0,0,0,.25)'}}/>}
                                                               placeholder="密码"

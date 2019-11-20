@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Row, Col, Layout, Tabs} from 'antd'
+import {Row, Col, Layout, Tabs, Icon} from 'antd'
 import OtherDangerVisual from './OtherDangerVisual'
 import OtherDangerVisual2 from '../Other2/OtherDangerVisual2'
 import OtherEnterpriseVisual from './OtherEnterpriseVisual'
@@ -11,6 +11,7 @@ import OtherServiceVisual2 from '../Other2/OtherServiceVisual2'
 import styles from './style.less'
 import logo from '../../../assets/logo.png'
 import request from "../../../utils/request"
+import router from "umi/router";
 
 const {TabPane} = Tabs
 let areaQuery = {}
@@ -68,6 +69,8 @@ export default class OtherVisual extends Component {
             } else {
                 return <OtherServiceVisual areaQuery={areaQuery}></OtherServiceVisual>
             }
+        } else if ('进入后台' === type) {
+            router.push('/userManagement')
         }
     }
 
@@ -88,6 +91,9 @@ export default class OtherVisual extends Component {
                     <TabPane tab="政府监管部门" key="政府监管部门">
                     </TabPane>
                     <TabPane tab="技术服务机构" key="技术服务机构">
+                    </TabPane>
+                    <TabPane tab={
+                        <span><Icon type="home" theme="filled"/>进入后台</span>} key="进入后台">
                     </TabPane>
                 </Tabs>
             </Layout.Header>

@@ -29,28 +29,42 @@ const menu = (
 
 class AdminLayout extends React.Component {
     state = {
-        collapsed: true,
+        collapsed: false,
         menus: [],
-        display:'none'
+        display: 'inline-block',
+        openKeys: [],
+        selectedKeys: []
     };
 
     toggle = () => {
         this.setState({
             collapsed: !this.state.collapsed,
-            display:this.state.display==='none'?'inline-block':'none'
-        });
-    };
+            display: this.state.display === 'inline-block' ? 'none' : 'inline-block'
+        })
+    }
+
+    rootSubmenuKeys = ['1', '13', '25', '48']
+
+    onOpenChange = (openKeys) => {
+        const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
+        if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+            this.setState({openKeys});
+        } else {
+            this.setState({
+                openKeys: latestOpenKey ? [latestOpenKey] : [],
+            });
+        }
+    }
 
     renderMenu = data => data.map((item) => {
         if (item.children && item.children.length > 0) {
-            console.log(item.key)
             return (
-                <Menu.SubMenu key={item.key} title={<span><Icon type={item.icon}/><span>{item.name}</span></span>}>
+                <Menu.SubMenu key={item.id} title={<span><Icon type={item.icon}/><span>{item.name}</span></span>}>
                     {this.renderMenu(item.children)}
                 </Menu.SubMenu>
             )
         }
-        return <Menu.Item key={item.key} title={item.name}><Link
+        return <Menu.Item key={item.id} title={item.name}><Link
             to={item.url}>{item.name}</Link></Menu.Item>
     })
 
@@ -60,11 +74,41 @@ class AdminLayout extends React.Component {
         //ajax,用户名-->角色-->菜单
         // this.setState({menus: res.data.menus})
         request.get('/zyb/sysMenu/sysMenulogin?loginName=' + loginName).then(res => {
-
             if (res && res.flag) {
                 this.setState({menus: res.data})
             }
         })
+
+        let type = sessionStorage.getItem('type')
+        if ('管理员' === type) {
+            this.setState({openKeys: ['48'],selectedKeys:['50']})
+        } else if ('政府监管部门' === type) {
+            this.setState({openKeys: ['1'],selectedKeys:['2']})
+        }
+    }
+
+    show = () => {
+        let type = sessionStorage.getItem('type')
+        if ('管理员' === type) {
+            return (
+                <Menu.Item key='100'>
+                    <a href='/visual/NationVisual' target='_blank'>
+                        <Icon type='area-chart'/>
+                        <span>监控可视化</span>
+                    </a>
+                </Menu.Item>
+            )
+        } else if ('政府监管部门' === type) {
+            let name1 = sessionStorage.getItem('name1')
+            return (
+                <Menu.Item key='100'>
+                    <a href={'/visual/OtherVisual?name1=' + name1} target='_blank'>
+                        <Icon type='area-chart'/>
+                        <span>监控可视化</span>
+                    </a>
+                </Menu.Item>
+            )
+        }
     }
 
     render() {
@@ -73,8 +117,18 @@ class AdminLayout extends React.Component {
                 <Layout>
                     <Sider trigger={null} collapsible collapsed={this.state.collapsed} width={256}
                            style={{minHeight: '100vh', color: 'white'}}>
-                        <div className={styles.logo}><div style={{display:this.state.display,width:'200px',lineHeight:'48px',paddingLeft:'55px'}}>职业病危害云服务平台</div></div>
-                        <Menu theme="dark" mode="inline" defaultSelectedKeys={['21']} defaultOpenKeys={['sub2']}>
+                        <div className={styles.logo}>
+                            <div style={{
+                                display: this.state.display,
+                                width: '200px',
+                                lineHeight: '48px',
+                                paddingLeft: '55px'
+                            }}>职业病危害云服务平台
+                            </div>
+                        </div>
+                        <Menu theme="dark" mode="inline" selectedKeys={this.state.selectedKeys}
+                              openKeys={this.state.openKeys} onOpenChange={this.onOpenChange}>
+                            {this.show()}
                             {this.renderMenu(this.state.menus)}
                             {/* <Menu.Item key="1">
                             <Link to="/demo/pro">
@@ -173,10 +227,15 @@ class AdminLayout extends React.Component {
                                 type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                                 onClick={this.toggle}
                             />
-                            <span><h2 style={{color: '#1890FF', fontWeight: 'bold', letterSpacing: 8,display:'inline'}}>职业病危害监测预警预控云服务平台</h2></span>
+                            <span><h2 style={{
+                                color: '#1890FF',
+                                fontWeight: 'bold',
+                                letterSpacing: 8,
+                                display: 'inline'
+                            }}>职业病危害监测预警预控云服务平台</h2></span>
                             <Dropdown overlay={menu}>
-                            <span style={{paddingRight: 70, float: "right"}}><Icon type="user"
-                                                                                   style={{marginRight: 15}}/>欢迎你,{sessionStorage.getItem("loginName")}</span>
+                                <span style={{paddingRight: 70, float: "right"}}><Icon type="user"
+                                                                                       style={{marginRight: 15}}/>欢迎你,{sessionStorage.getItem("loginName")}</span>
                             </Dropdown>
                         </Header>
                         <Content
