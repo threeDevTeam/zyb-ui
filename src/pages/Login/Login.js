@@ -22,18 +22,51 @@ class Login extends PureComponent {
     handleOperator = () => {
         this.core.validate((err) => {
             if (!err) {
-                request.post('/zyb/sysUser/register', {data: this.core.value}).then(res => {
+                request.post('/zyb/sysUser/login', {data: this.core.value}).then(res => {
                     if (res && res.flag) {
                         let type = res.data.obj1.type
                         sessionStorage.setItem("loginName", res.data.obj1.loginName)
                         sessionStorage.setItem("type", type)
+                        sessionStorage.setItem("name", res.data.name)
+                        let areaQuery = {}
                         if ('管理员' === type) {
                             router.push('/visual/NationVisual')
                         } else if ('政府监管部门' === type) {
-                            sessionStorage.setItem("name1", res.data.obj2.provinceName)
-                            let areaQuery = {name1: res.data.obj2.provinceName}
+                            let areaNameList = res.data.areaNameList
+                            for (let i = 0; i < areaNameList.length; i++) {
+                                if (areaNameList[i]) {
+                                    sessionStorage.setItem('name' + (i + 1), areaNameList[i])
+                                    areaQuery['name' + (i + 1)] = areaNameList[i]
+                                }
+                            }
                             router.push({
                                 pathname: '/visual/OtherVisual',
+                                query: areaQuery
+                            })
+                        } else if ('企业' === type) {
+                            areaQuery['name'] = res.data.name
+                            let areaNameList = res.data.areaNameList
+                            for (let i = 0; i < areaNameList.length; i++) {
+                                if (areaNameList[i]) {
+                                    sessionStorage.setItem('name' + (i + 1), areaNameList[i])
+                                    areaQuery['name' + (i + 1)] = areaNameList[i]
+                                }
+                            }
+                            router.push({
+                                pathname: '/visual/OtherVisual3',
+                                query: areaQuery
+                            })
+                        } else if (type.match('技术服务机构')) {
+                            areaQuery['name'] = res.data.name
+                            let areaNameList = res.data.areaNameList
+                            for (let i = 0; i < areaNameList.length; i++) {
+                                if (areaNameList[i]) {
+                                    sessionStorage.setItem('name' + (i + 1), areaNameList[i])
+                                    areaQuery['name' + (i + 1)] = areaNameList[i]
+                                }
+                            }
+                            router.push({
+                                pathname: '/visual/OtherVisual4',
                                 query: areaQuery
                             })
                         }
@@ -62,14 +95,18 @@ class Login extends PureComponent {
                 <Form core={this.core} className={styles.login}>
                     <div className={styles.loginText}>登录</div>
                     <div className={styles.content}>
-                        <FormItem name="loginName" defaultMinWidth={false}><Input style={{width:255}} autocomplete="off" prefix={<Icon type="user"
-                                                                                           style={{color: 'rgba(0,0,0,.25)'}}/>}
-                                                          placeholder="登录名" size='large'/></FormItem>
-                        <FormItem name="loginPassword" defaultMinWidth={false}><Input style={{width:255}}  type="password" autocomplete="off"
-                                                              prefix={<Icon type="lock"
-                                                                            style={{color: 'rgba(0,0,0,.25)'}}/>}
-                                                              placeholder="密码"
-                                                              size='large'/></FormItem>
+                        <FormItem name="loginName" defaultMinWidth={false}><Input style={{width: 255}}
+                                                                                  autocomplete="off"
+                                                                                  prefix={<Icon type="user"
+                                                                                                style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                                                                  placeholder="登录名"
+                                                                                  size='large'/></FormItem>
+                        <FormItem name="loginPassword" defaultMinWidth={false}><Input style={{width: 255}}
+                                                                                      type="password" autocomplete="off"
+                                                                                      prefix={<Icon type="lock"
+                                                                                                    style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                                                                      placeholder="密码"
+                                                                                      size='large'/></FormItem>
                         <FormItem onKeydown={this.handleEnterKey}><Button size='large'
                                                                           style={{width: 255, marginTop: 20}}
                                                                           onClick={this.handleOperator}

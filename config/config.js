@@ -28,7 +28,8 @@ export default {
                 {path: '/visual', redirect: '/visual/NationVisual'},
                 {path: '/visual/NationVisual', component: './DataVisual/Nation/NationVisual'},
                 {path: '/visual/OtherVisual', component: './DataVisual/Other/OtherVisual'},
-                {path: '/visual/NationDangerVisual', component: './DataVisual/Nation/NationDangerVisual'}
+                {path: '/visual/OtherVisual3', component: './DataVisual/Other3/OtherVisual3'},
+                {path: '/visual/OtherVisual4', component: './DataVisual/Other4/OtherVisual4'},
             ]
         },
         {
@@ -78,7 +79,7 @@ export default {
                 {path: '/email', component: './Login/Email'},
                 {path: '/sysUserLogin', component: './Login/Login'},
                 {path: '/changePassword', component: './Login/ChangePassword'},
-                {path: '/enterprise', component: './Qiye/Enterprise'},
+                {path: '/Enterprise', component: './Qiye/Enterprise'},
                 {path: '/procuctionOfEnterprise', component: './Qiye/ProcuctionOfEnterprise.js'},
                 {path: '/workplaceOfEnterprise', component: './Qiye/WorkplaceOfEnterprise'},
                 {path: '/postOfEnterprise', component: './Qiye/PostOfEnterprise'},

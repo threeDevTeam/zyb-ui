@@ -1,22 +1,23 @@
 import React, {Component} from 'react'
-import {Row, Col, Layout, Tabs,Icon} from 'antd'
-import NationDangerVisual from './NationDangerVisual'
-import NationEnterpriseVisual from './NationEnterpriseVisual'
-import NationGovVisual from './NationGovVisual'
-import NationServiceVisual from './NationServiceVisual'
+import {Row, Col, Layout, Tabs, Icon} from 'antd'
 import styles from './style.less'
 import logo from '../../../assets/logo.png'
-import router from 'umi/router'
+import request from "../../../utils/request"
+import router from "umi/router"
+import EnterpriseVisual from './EnterpriseVisual'
+import EnterpriseDangerVisual from './EnterpriseDangerVisual'
 
 const {TabPane} = Tabs
+let areaQuery = {}
 //国家
-export default class NationVisual extends Component {
+export default class OtherVisual3 extends Component {
     state = {
         type: '风险预警'
     }
 
     componentWillMount() {
     }
+
 
     onClick = type => {
         this.setState({type})
@@ -26,18 +27,17 @@ export default class NationVisual extends Component {
         this.setState({type: tabKey})
     }
 
+
     displayVisual = type => {
+        //取出地址栏的行政区域信息
+        areaQuery = this.props.location.query
         if ('风险预警' === type) {
-            return <NationDangerVisual></NationDangerVisual>
+            return <EnterpriseDangerVisual areaQuery={areaQuery}/>
         } else if ('企业信息' === type) {
-            return <NationEnterpriseVisual></NationEnterpriseVisual>
-        } else if ('政府监管部门' === type) {
-            return <NationGovVisual></NationGovVisual>
-        } else if ('技术服务机构' === type) {
-            return <NationServiceVisual></NationServiceVisual>
+            return <EnterpriseVisual areaQuery={areaQuery}/>
         } else if ('进入后台' === type) {
             if(sessionStorage.getItem('loginName')){
-                router.push('/userManagement')
+                router.push({pathname: '/enterprise', query: areaQuery})
             }else{
                 router.push('/user/login')
             }
@@ -58,19 +58,14 @@ export default class NationVisual extends Component {
                     </TabPane>
                     <TabPane tab="企业信息" key="企业信息">
                     </TabPane>
-                    <TabPane tab="政府监管部门" key="政府监管部门">
-                    </TabPane>
-                    <TabPane tab="技术服务机构" key="技术服务机构">
-                    </TabPane>
                     <TabPane tab={
-                        <span><Icon type="home"  theme="filled"/>进入后台</span>} key="进入后台">
+                        <span><Icon type="home" theme="filled"/>进入后台</span>} key="进入后台">
                     </TabPane>
                 </Tabs>
             </Layout.Header>
             {
                 this.displayVisual(this.state.type)
             }
-
         </div>
     }
 }

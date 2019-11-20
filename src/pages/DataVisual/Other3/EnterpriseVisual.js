@@ -9,7 +9,7 @@ let switchFlag = "no"
 let currentYear = new Date().getFullYear()
 let areaQuery = {}
 //企业
-export default class OtherEnterpriseVisual extends Component {
+export default class enterpriseVisual extends Component {
     state = {
         display1: 'block',
         display2: 'none',
@@ -31,29 +31,29 @@ export default class OtherEnterpriseVisual extends Component {
             params: {year: year || this.state.year, type: type || this.state.type, ...areaQuery}
         }
         //option11
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option11', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option11', params).then(res => {
             if (res && res.flag) {
                 this.setState({option11Data: res.data})
             }
         })
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option11Detail', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option11Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option11Detail: res.data})
             }
         })
         //option12
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option12', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option12', params).then(res => {
             if (res && res.flag) {
                 this.setState({option12Data: res.data})
             }
         })
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option12Detail', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option12Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option12Detail: res.data})
             }
         })
         //option13
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option13', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option13', params).then(res => {
             if (res && res.flag) {
                 let type = this.state.type
                 let arr = []
@@ -72,31 +72,20 @@ export default class OtherEnterpriseVisual extends Component {
                 this.setState({option13Dataset: data})
             }
         })
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option13Detail', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option13Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option13Detail: res.data})
             }
         })
         //option14
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option14', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option14', params).then(res => {
             if (res && res.flag) {
                 this.setState({option14Data: res.data})
             }
         })
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option14Detail', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option14Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option14Detail: res.data})
-            }
-        })
-        //option15
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option25', params).then(res => {
-            if (res && res.flag) {
-                this.setState({option25Data: res.data})
-            }
-        })
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option25Detail', params).then(res => {
-            if (res && res.flag) {
-                this.setState({option25Detail: res.data})
             }
         })
     }
@@ -106,33 +95,33 @@ export default class OtherEnterpriseVisual extends Component {
             params: {year: year || this.state.year, type: type || this.state.type, ...areaQuery}
         }
         //option21
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option21', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option21', params).then(res => {
             if (res && res.flag) {
                 this.setState({option21Data: res.data})
             }
         })
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option21Detail', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option21Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option21Detail: res.data})
             }
         })
         //option22
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option22', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option22', params).then(res => {
             if (res && res.flag) {
                 this.setState({option22Data: res.data})
             }
         })
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option22Detail', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option22Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option22Detail: res.data})
             }
         })
         //option23
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option23', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option23', params).then(res => {
             if (res && res.flag) {
                 let tmp = res.data
                 let data = [['防护配备', '职业病防护设施设置率', '个人防护用品配备率']]
-                let areaArr=this.state.option21Category
+                let areaArr = ['北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '重庆', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '香港']
                 for (let i = 0; i < areaArr.length; i++) {
                     data.push(_.flatMapDeep(_.concat(areaArr[i], tmp['list' + i])))
                 }
@@ -140,29 +129,29 @@ export default class OtherEnterpriseVisual extends Component {
                 this.setState({option23Dataset: data})
             }
         })
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option23Detail', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option23Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option23Detail: res.data})
             }
         })
         //option24
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option24', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option24', params).then(res => {
             if (res && res.flag) {
                 this.setState({option24Data: res.data})
             }
         })
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option24Detail', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option24Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option24Detail: res.data})
             }
         })
         //option25
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option25', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option25', params).then(res => {
             if (res && res.flag) {
                 this.setState({option25Data: res.data})
             }
         })
-        request('/zyb/otherEnterpriseVisual/' + switchFlag + '/option25Detail', params).then(res => {
+        request('/zyb/enterpriseVisual/' + switchFlag + '/option25Detail', params).then(res => {
             if (res && res.flag) {
                 this.setState({option25Detail: res.data})
             }
@@ -361,8 +350,7 @@ export default class OtherEnterpriseVisual extends Component {
                 {
                     title: '接触粉尘危害人数',
                     dataIndex: 'var5',
-                    key: 'var5',
-                    sorter: (a, b) => a.var5 - b.var5
+                    key: 'var5'
                 },
                 {
                     title: '接尘率',
@@ -506,8 +494,7 @@ export default class OtherEnterpriseVisual extends Component {
                 {
                     title: '体检率',
                     dataIndex: 'var2',
-                    key: 'var2',
-                    sorter: (a, b) => a.var2 - b.var2
+                    key: 'var2'
                 },
                 {
                     title: '疑似职业病人数',
@@ -791,268 +778,6 @@ export default class OtherEnterpriseVisual extends Component {
                 }
             ]
         };
-        //行政区划、登记注册类型、所属行业
-        let option21 = {
-            color: ['#1890FF', 'rgb(19, 194, 194)', 'rgb(250, 204, 20)', '#BBBBBB', 'rgb(133, 67, 224)'],
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                }
-            },
-            legend: {
-                data: ['粉尘', '化学因素', '物理因素', '放射性因素', '生物因素']
-            },
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
-                containLabel: true
-            },
-            xAxis: [
-                {
-                    type: 'category',
-                    data: this.state.option21Category
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'value'
-                }
-            ],
-            series: [
-                {
-                    name: '粉尘',
-                    type: 'bar',
-                    data: this.state.option21Data && this.state.option21Data.list1
-                },
-                {
-                    name: '化学因素',
-                    type: 'bar',
-                    stack: '因素',
-                    data: this.state.option21Data && this.state.option21Data.list2
-                },
-                {
-                    name: '物理因素',
-                    type: 'bar',
-                    stack: '因素',
-                    data: this.state.option21Data && this.state.option21Data.list3
-                },
-                {
-                    name: '放射性因素',
-                    type: 'bar',
-                    stack: '因素',
-                    data: this.state.option21Data && this.state.option21Data.list4
-                },
-                {
-                    name: '生物因素',
-                    type: 'bar',
-                    data: this.state.option21Data && this.state.option21Data.list5,
-                    /*                    markLine: {
-                                            lineStyle: {
-                                                normal: {
-                                                    type: 'dashed'
-                                                }
-                                            },
-                                            data: [
-                                                [{type: 'min'}, {type: 'max'}]
-                                            ]
-                                        }*/
-                }
-            ]
-        };
-        let option22 = {
-            color: ['#1890FF', 'rgb(19, 194, 194)', 'rgb(250, 204, 20)'],
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                }
-            },
-            legend: {
-                data: ['检测率', '达标率', '损失率']
-            },
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
-                containLabel: true
-            },
-            xAxis: [
-                {
-                    type: 'value'
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'category',
-                    axisTick: {show: false},
-                    data: this.state.option22Category
-                }
-            ],
-            series: [
-                {
-                    name: '检测率',
-                    type: 'bar',
-                    label: {
-                        normal: {
-                            show: true
-                        }
-                    },
-                    data: this.state.option22Data && this.state.option22Data.list1
-                },
-                {
-                    name: '达标率',
-                    type: 'bar',
-                    label: {
-                        normal: {
-                            show: true,
-                            position: 'inside'
-                        }
-                    },
-                    data: this.state.option22Data && this.state.option22Data.list2
-                },
-                {
-                    name: '损失率',
-                    type: 'bar',
-                    label: {
-                        normal: {
-                            show: true,
-                            position: 'left'
-                        }
-                    },
-                    data: this.state.option22Data && this.state.option22Data.list3
-                }
-            ],
-            dataZoom: [
-                {
-                    type: 'slider',
-                    show: true,
-                    yAxisIndex: [0],
-                    left: '93%',
-                    start: 100,
-                    end: 95,
-                },
-                {
-                    type: 'inside',
-                    show: true,
-                    yAxisIndex: [0],
-                    start: 100,
-                    end: 95
-                }
-            ]
-        };
-        let option23 = {
-            color: ['#1890FF', 'rgb(19, 194, 194)'],
-            legend: {},
-            tooltip: {},
-            dataset: {
-                source: this.state.option23Dataset
-            },
-            xAxis: {type: 'category'},
-            yAxis: {},
-            series: [
-                {type: 'bar'},
-                {type: 'line'}
-            ],
-            dataZoom: [
-                {
-                    show: true,
-                    realtime: true,
-                    start: 0,
-                    end: 50
-                },
-                {
-                    type: 'inside',
-                    realtime: true,
-                    start: 0,
-                    end: 50
-                }
-            ]
-        };
-        let option24 = {
-            color: ['#1890FF', 'rgb(19, 194, 194)', 'rgb(250, 204, 20)'],
-            tooltip: {
-                trigger: 'axis'
-            },
-            legend: {
-                data: ['体检率', '累计职业病患病率', '累计职业病病死率']
-            },
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
-                containLabel: true
-            },
-            xAxis: {
-                type: 'category',
-                boundaryGap: true,
-                data: this.state.option21Category
-            },
-            yAxis: {
-                type: 'value'
-            },
-            series: [
-                {
-                    name: '体检率',
-                    type: 'line',
-                    data: this.state.option24Data && this.state.option24Data.list1
-                },
-                {
-                    name: '累计职业病患病率',
-                    type: 'line',
-                    data: this.state.option24Data && this.state.option24Data.list2
-                },
-                {
-                    name: '累计职业病病死率',
-                    type: 'line',
-                    data: this.state.option24Data && this.state.option24Data.list3
-                }
-            ]
-        };
-        let option25 = {
-            color: ['#1890FF', 'rgb(19, 194, 194)'],
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                }
-            },
-            legend: {
-                data: ['劳动合同签订率', '工伤保险参保率']
-            },
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
-                containLabel: true
-            },
-            xAxis: [
-                {
-                    type: 'category',
-                    data: this.state.option21Category
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'value'
-                }
-            ],
-            series: [
-                {
-                    name: '劳动合同签订率',
-                    type: 'bar',
-                    stack: '劳动',
-                    data: this.state.option25Data && this.state.option25Data.list1
-                },
-                {
-                    name: '工伤保险参保率',
-                    type: 'bar',
-                    stack: '劳动',
-                    data: this.state.option25Data && this.state.option25Data.list2
-                }
-            ]
-        };
 
         let yearSelect = []
         for (let i = currentYear; i > (currentYear - 3); i--) {
@@ -1068,10 +793,10 @@ export default class OtherEnterpriseVisual extends Component {
                         </Select>
                         <Radio.Group onChange={this.typeOnChange} defaultValue={this.state.type} size={'large'}>
                             <Radio.Button value="危害因素">危害因素</Radio.Button>
-                            <Radio.Button value="行政区划">行政区划</Radio.Button>
+                            {/*<Radio.Button value="行政区划">行政区划</Radio.Button>*/}
                             <Radio.Button value="企业规模">企业规模</Radio.Button>
-                            <Radio.Button value="登记注册类型">登记注册类型</Radio.Button>
-                            <Radio.Button value="所属行业">所属行业</Radio.Button>
+                            {/*<Radio.Button value="登记注册类型">登记注册类型</Radio.Button>*/}
+                            {/*<Radio.Button value="所属行业">所属行业</Radio.Button>*/}
                         </Radio.Group>
                     </div>
                 </Col>
@@ -1130,80 +855,6 @@ export default class OtherEnterpriseVisual extends Component {
                         >
                             <ReactEcharts
                                 option={option14}
-                                onEvents={onEvents} style={{height: '60vh'}}/>
-                        </Card>
-                    </Col>
-                </Row>
-            </div>
-            {/*行政区划*/}
-            <div style={{display: this.state.display2}}>
-                <Row gutter={8} style={{marginTop: 10}}>
-                    <Col span={24}>
-                        {/*表2-1 基础信息统计分析表（按危害因素）*/}
-                        <Card
-                            title={'基础信息统计分析表'}
-                            bordered={false}
-                            headStyle={{height: 57}}
-                            extra={<Button type="dashed" onClick={() => this.detailData('option21')}>详细数据</Button>}
-                        >
-                            <ReactEcharts
-                                option={option21}
-                                onEvents={onEvents} style={{height: '60vh'}}/>
-                        </Card>
-                    </Col>
-                </Row>
-                <Row gutter={8} style={{marginTop: 10}}>
-                    <Col span={12}>
-                        {/*表2-2 基础信息统计分析表（按危害因素续1）*/}
-                        <Card
-                            title={'基础信息统计分析表'}
-                            bordered={false}
-                            headStyle={{height: 57}}
-                            extra={<Button type="dashed" onClick={() => this.detailData('option22')}>详细数据</Button>}
-                        >
-                            <ReactEcharts
-                                option={option22}
-                                onEvents={onEvents} style={{height: '60vh'}}/>
-                        </Card>
-                    </Col>
-                    <Col span={12}>
-                        {/*表2-3 基础信息统计分析表（按危害因素续2）*/}
-                        <Card
-                            title={'基础信息统计分析表'}
-                            bordered={false}
-                            headStyle={{height: 57}}
-                            extra={<Button type="dashed" onClick={() => this.detailData('option23')}>详细数据</Button>}
-                        >
-                            <ReactEcharts
-                                option={option23}
-                                onEvents={onEvents} style={{height: '60vh'}}/>
-                        </Card>
-                    </Col>
-                </Row>
-                <Row gutter={8} style={{marginTop: 10}}>
-                    <Col span={12}>
-                        {/*表2-4 基础信息统计分析表（按危害因素续3）*/}
-                        <Card
-                            title={'基础信息统计分析表'}
-                            bordered={false}
-                            headStyle={{height: 57}}
-                            extra={<Button type="dashed" onClick={() => this.detailData('option24')}>详细数据</Button>}
-                        >
-                            <ReactEcharts
-                                option={option24}
-                                onEvents={onEvents} style={{height: '60vh'}}/>
-                        </Card>
-                    </Col>
-                    <Col span={12}>
-                        {/*表2-9 基础信息统计分析表（按行政区划续4）*/}
-                        <Card
-                            title={'基础信息统计分析表'}
-                            bordered={false}
-                            headStyle={{height: 57}}
-                            extra={<Button type="dashed" onClick={() => this.detailData('option25')}>详细数据</Button>}
-                        >
-                            <ReactEcharts
-                                option={option25}
                                 onEvents={onEvents} style={{height: '60vh'}}/>
                         </Card>
                     </Col>
@@ -1275,154 +926,6 @@ export default class OtherEnterpriseVisual extends Component {
                         >
                             <ReactEcharts
                                 option={option14}
-                                onEvents={onEvents} style={{height: '60vh'}}/>
-                        </Card>
-                    </Col>
-                </Row>
-            </div>
-            {/*登记注册类型*/}
-            <div style={{display: this.state.display4}}>
-                <Row gutter={8} style={{marginTop: 10}}>
-                    <Col span={24}>
-                        {/*表2-1 基础信息统计分析表（按危害因素）*/}
-                        <Card
-                            title={'基础信息统计分析表'}
-                            bordered={false}
-                            headStyle={{height: 57}}
-                            extra={<Button type="dashed" onClick={() => this.detailData('option21')}>详细数据</Button>}
-                        >
-                            <ReactEcharts
-                                option={option21}
-                                onEvents={onEvents} style={{height: '60vh'}}/>
-                        </Card>
-                    </Col>
-                </Row>
-                <Row gutter={8} style={{marginTop: 10}}>
-                    <Col span={12}>
-                        {/*表2-2 基础信息统计分析表（按危害因素续1）*/}
-                        <Card
-                            title={'基础信息统计分析表'}
-                            bordered={false}
-                            headStyle={{height: 57}}
-                            extra={<Button type="dashed" onClick={() => this.detailData('option22')}>详细数据</Button>}
-                        >
-                            <ReactEcharts
-                                option={option22}
-                                onEvents={onEvents} style={{height: '60vh'}}/>
-                        </Card>
-                    </Col>
-                    <Col span={12}>
-                        {/*表2-3 基础信息统计分析表（按危害因素续2）*/}
-                        <Card
-                            title={'基础信息统计分析表'}
-                            bordered={false}
-                            headStyle={{height: 57}}
-                            extra={<Button type="dashed" onClick={() => this.detailData('option23')}>详细数据</Button>}
-                        >
-                            <ReactEcharts
-                                option={option23}
-                                onEvents={onEvents} style={{height: '60vh'}}/>
-                        </Card>
-                    </Col>
-                </Row>
-                <Row gutter={8} style={{marginTop: 10}}>
-                    <Col span={12}>
-                        {/*表2-4 基础信息统计分析表（按危害因素续3）*/}
-                        <Card
-                            title={'基础信息统计分析表'}
-                            bordered={false}
-                            headStyle={{height: 57}}
-                            extra={<Button type="dashed" onClick={() => this.detailData('option24')}>详细数据</Button>}
-                        >
-                            <ReactEcharts
-                                option={option24}
-                                onEvents={onEvents} style={{height: '60vh'}}/>
-                        </Card>
-                    </Col>
-                    <Col span={12}>
-                        {/*表2-9 基础信息统计分析表（按行政区划续4）*/}
-                        <Card
-                            title={'基础信息统计分析表'}
-                            bordered={false}
-                            headStyle={{height: 57}}
-                            extra={<Button type="dashed" onClick={() => this.detailData('option25')}>详细数据</Button>}
-                        >
-                            <ReactEcharts
-                                option={option25}
-                                onEvents={onEvents} style={{height: '60vh'}}/>
-                        </Card>
-                    </Col>
-                </Row>
-            </div>
-            {/*所属行业*/}
-            <div style={{display: this.state.display5}}>
-                <Row gutter={8} style={{marginTop: 10}}>
-                    <Col span={24}>
-                        {/*表2-1 基础信息统计分析表（按危害因素）*/}
-                        <Card
-                            title={'基础信息统计分析表'}
-                            bordered={false}
-                            headStyle={{height: 57}}
-                            extra={<Button type="dashed" onClick={() => this.detailData('option21')}>详细数据</Button>}
-                        >
-                            <ReactEcharts
-                                option={option21}
-                                onEvents={onEvents} style={{height: '60vh'}}/>
-                        </Card>
-                    </Col>
-                </Row>
-                <Row gutter={8} style={{marginTop: 10}}>
-                    <Col span={12}>
-                        {/*表2-2 基础信息统计分析表（按危害因素续1）*/}
-                        <Card
-                            title={'基础信息统计分析表'}
-                            bordered={false}
-                            headStyle={{height: 57}}
-                            extra={<Button type="dashed" onClick={() => this.detailData('option22')}>详细数据</Button>}
-                        >
-                            <ReactEcharts
-                                option={option22}
-                                onEvents={onEvents} style={{height: '60vh'}}/>
-                        </Card>
-                    </Col>
-                    <Col span={12}>
-                        {/*表2-3 基础信息统计分析表（按危害因素续2）*/}
-                        <Card
-                            title={'基础信息统计分析表'}
-                            bordered={false}
-                            headStyle={{height: 57}}
-                            extra={<Button type="dashed" onClick={() => this.detailData('option23')}>详细数据</Button>}
-                        >
-                            <ReactEcharts
-                                option={option23}
-                                onEvents={onEvents} style={{height: '60vh'}}/>
-                        </Card>
-                    </Col>
-                </Row>
-                <Row gutter={8} style={{marginTop: 10}}>
-                    <Col span={12}>
-                        {/*表2-4 基础信息统计分析表（按危害因素续3）*/}
-                        <Card
-                            title={'基础信息统计分析表'}
-                            bordered={false}
-                            headStyle={{height: 57}}
-                            extra={<Button type="dashed" onClick={() => this.detailData('option24')}>详细数据</Button>}
-                        >
-                            <ReactEcharts
-                                option={option24}
-                                onEvents={onEvents} style={{height: '60vh'}}/>
-                        </Card>
-                    </Col>
-                    <Col span={12}>
-                        {/*表2-9 基础信息统计分析表（按行政区划续4）*/}
-                        <Card
-                            title={'基础信息统计分析表'}
-                            bordered={false}
-                            headStyle={{height: 57}}
-                            extra={<Button type="dashed" onClick={() => this.detailData('option25')}>详细数据</Button>}
-                        >
-                            <ReactEcharts
-                                option={option25}
                                 onEvents={onEvents} style={{height: '60vh'}}/>
                         </Card>
                     </Col>

@@ -41,7 +41,7 @@ class Enterprise extends PureComponent {
                 enableValidate: true,
                 content: <EnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
-                    request.post('/zyb/enterprise/add', {data: {...values}}).then(res => {
+                    request.post('/zyb/Enterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
                             hide()
@@ -59,7 +59,7 @@ class Enterprise extends PureComponent {
                 return
             }
             let title = 'edit' === type ? '编辑' : '浏览'
-            request('/zyb/enterprise/getById?id=' + this.state.record.id).then(res => {
+            request('/zyb/Enterprise/getById?id=' + this.state.record.id).then(res => {
                 if (res.flag) {
                     Dialog.show({
                         title: title,
@@ -77,7 +77,7 @@ class Enterprise extends PureComponent {
                                 values.registerDateStr = values.registerDateStr.format('YYYY-MM-DD')
                             }
                             console.log(values)
-                            request.post('/zyb/enterprise/edit', {data: {...values}}).then(res => {
+                            request.post('/zyb/Enterprise/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
                                     message.success("操作成功")
                                     hide()
@@ -116,7 +116,7 @@ class Enterprise extends PureComponent {
                     //将表单数据放入formData
                     formData.append("form", JSON.stringify(values))
                     //异步请求
-                    request.post('/zyb/enterprise/exceladd',{method: 'post', data: formData}).then(res => {
+                    request.post('/zyb/Enterprise/exceladd',{method: 'post', data: formData}).then(res => {
                         if(res.flag){
                             modal.update({content: '操作成功', okButtonProps: {disabled: false}})
                             globalList.refresh()
@@ -138,7 +138,7 @@ class Enterprise extends PureComponent {
                 style: {width: '400px'},
                 content: `确定要删除企业名称=${this.state.record.name}的数据吗?`,
                 onOk: (values, hide) => {
-                    request('/zyb/enterprise/delete?id=' + this.state.record.id).then(res => {
+                    request('/zyb/Enterprise/delete?id=' + this.state.record.id).then(res => {
                         hide()
                         if (res.flag) {
                             globalList.refresh()

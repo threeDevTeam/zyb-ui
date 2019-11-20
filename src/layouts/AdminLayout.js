@@ -33,7 +33,7 @@ class AdminLayout extends React.Component {
         menus: [],
         display: 'inline-block',
         openKeys: [],
-        selectedKeys: []
+        defaultSelectedKeys: []
     };
 
     toggle = () => {
@@ -81,9 +81,17 @@ class AdminLayout extends React.Component {
 
         let type = sessionStorage.getItem('type')
         if ('管理员' === type) {
-            this.setState({openKeys: ['48'],selectedKeys:['50']})
+            this.setState({openKeys: ['48'], defaultSelectedKeys: ['50']})
         } else if ('政府监管部门' === type) {
-            this.setState({openKeys: ['1'],selectedKeys:['2']})
+            this.setState({openKeys: ['1'], defaultSelectedKeys: ['2']})
+        } else if ('企业' === type) {
+            this.setState({openKeys: ['25'], defaultSelectedKeys: ['26']})
+        } else if (type.match('检测机构')) {
+            this.setState({openKeys: ['13'], defaultSelectedKeys: ['14']})
+        } else if (type.match('体检机构')) {
+            this.setState({openKeys: ['13'], defaultSelectedKeys: ['18']})
+        } else if (type.match('诊断机构')) {
+            this.setState({openKeys: ['13'], defaultSelectedKeys: ['22']})
         }
     }
 
@@ -92,7 +100,7 @@ class AdminLayout extends React.Component {
         if ('管理员' === type) {
             return (
                 <Menu.Item key='100'>
-                    <a href='/visual/NationVisual' target='_blank'>
+                    <a href='/visual/NationVisual'>
                         <Icon type='area-chart'/>
                         <span>监控可视化</span>
                     </a>
@@ -100,9 +108,64 @@ class AdminLayout extends React.Component {
             )
         } else if ('政府监管部门' === type) {
             let name1 = sessionStorage.getItem('name1')
+            let name2 = sessionStorage.getItem('name2')
+            let name3 = sessionStorage.getItem('name3')
+            let query = 'name1=' + name1
+            if (name2) {
+                query += '&name2=' + name2
+            }
+            if (name3) {
+                query += '&name3=' + name3
+            }
             return (
                 <Menu.Item key='100'>
-                    <a href={'/visual/OtherVisual?name1=' + name1} target='_blank'>
+                    <a href={'/visual/OtherVisual?' + query}>
+                        <Icon type='area-chart'/>
+                        <span>监控可视化</span>
+                    </a>
+                </Menu.Item>
+            )
+        } else if ('企业' === type) {
+            let name = sessionStorage.getItem('name')
+            let name1 = sessionStorage.getItem('name1')
+            let name2 = sessionStorage.getItem('name2')
+            let name3 = sessionStorage.getItem('name3')
+            let query = 'name=' + name
+            if (name1) {
+                query += '&name1=' + name
+            }
+            if (name2) {
+                query += '&name2=' + name2
+            }
+            if (name3) {
+                query += '&name3=' + name3
+            }
+            return (
+                <Menu.Item key='100'>
+                    <a href={'/visual/OtherVisual3?' + query}>
+                        <Icon type='area-chart'/>
+                        <span>监控可视化</span>
+                    </a>
+                </Menu.Item>
+            )
+        }else if ( type.match('技术服务机构')) {
+            let name = sessionStorage.getItem('name')
+            let name1 = sessionStorage.getItem('name1')
+            let name2 = sessionStorage.getItem('name2')
+            let name3 = sessionStorage.getItem('name3')
+            let query = 'name=' + name
+            if (name1) {
+                query += '&name1=' + name
+            }
+            if (name2) {
+                query += '&name2=' + name2
+            }
+            if (name3) {
+                query += '&name3=' + name3
+            }
+            return (
+                <Menu.Item key='100'>
+                    <a href={'/visual/OtherVisual4?' + query}>
                         <Icon type='area-chart'/>
                         <span>监控可视化</span>
                     </a>
@@ -126,7 +189,7 @@ class AdminLayout extends React.Component {
                             }}>职业病危害云服务平台
                             </div>
                         </div>
-                        <Menu theme="dark" mode="inline" selectedKeys={this.state.selectedKeys}
+                        <Menu theme="dark" mode="inline" defaultSelectedKeys={this.state.defaultSelectedKeys}
                               openKeys={this.state.openKeys} onOpenChange={this.onOpenChange}>
                             {this.show()}
                             {this.renderMenu(this.state.menus)}

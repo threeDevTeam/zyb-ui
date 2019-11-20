@@ -132,7 +132,7 @@ export default class OtherEnterpriseVisual extends Component {
             if (res && res.flag) {
                 let tmp = res.data
                 let data = [['防护配备', '职业病防护设施设置率', '个人防护用品配备率']]
-                let areaArr = ['北京', '天津', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '上海', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '重庆', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '香港']
+                let areaArr=this.state.option21Category
                 for (let i = 0; i < areaArr.length; i++) {
                     data.push(_.flatMapDeep(_.concat(areaArr[i], tmp['list' + i])))
                 }
@@ -201,6 +201,7 @@ export default class OtherEnterpriseVisual extends Component {
     registerTypeCategory = () => {
         request('/zyb/categoryController/getRegisterTypeStrList').then(res => {
             if (res && res.flag) {
+                console.log(res.data)
                 this.setState({option21Category: res.data})
             }
         })
