@@ -121,14 +121,22 @@ class OtherOfDic extends PureComponent {
         }
     }
 
+    isShowAddButton = () => {
+        let type = sessionStorage.getItem('type')
+        if ('管理员' === type) {
+        } else {
+            return <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}
+                           className={styles.marginRight20}>新增</Button>
+        }
+    }
+
     render() {
         return (
             <List url='/zyb/sysUser/list' onError={this.handleError} onMount={this.onMount}>
 
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
-                    <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>新增</Button>
-                    <Button icon="edit" type="primary" onClick={() => this.handleOperator('edit')}
-                            className={styles.marginLeft20}>编辑</Button>
+                    {this.isShowAddButton()}
+                    <Button icon="edit" type="primary" onClick={() => this.handleOperator('edit')}>编辑</Button>
                     <Button icon="eye" type="primary" onClick={() => this.handleOperator('view')}
                             className={styles.marginLeft20}>浏览</Button>
                     <div style={{float: 'right'}}>
