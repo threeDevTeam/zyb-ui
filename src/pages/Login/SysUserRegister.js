@@ -244,7 +244,7 @@ class SysUserRegister extends PureComponent {
 
     componentWillMount() {
         request.get('/zyb/areaOfDic/cascadeData').then(res => {
-            if (res.flag) {
+            if (res && res.flag) {
                 this.setState({dataSource: res.data})
             }
         })
