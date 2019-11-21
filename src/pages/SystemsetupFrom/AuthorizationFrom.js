@@ -12,20 +12,19 @@ const validate = {}
 class AuthorizationFrom extends PureComponent {
     state = {
         value: undefined,
-        records:[]
+        records: []
     }
 
     constructor(props) {
         super(props);
-
+        this.core = new FormCore();
     }
 
     componentWillMount() {
         let {type, record} = this.props.option
-
+        console.log(record);
         if ('authorization' === type || 'view' === type) {
-            this.setState({records:record})
-            console.log(record)
+                this.core.setValues({checkbox: record.supervise, checkbox2: record.service, checkbox3: record.enterprise, checkbox4: record.Management})
         }
         request.get('/zyb/sysRole/sysRoleTree').then(res => {
             if (res && res.flag) {
@@ -64,17 +63,17 @@ class AuthorizationFrom extends PureComponent {
         return (
             <Form core={this.core} layout={{label: 7}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem label="政府监管部门" name="checkbox" value={this.state.records} className={styles.newLine}>
-                <Checkbox.Group options={this.state.dataSource}  onChange={this.onChange}/>
-            </FormItem>
-                <FormItem label="技术服务机构" name="checkbox2"value={this.state.records} className={styles.newLine}>
-                    <Checkbox.Group options={this.state.dataSource2}   onChange={this.onChange}/>
+                <FormItem label="政府监管部门" name="checkbox" className={styles.newLine}>
+                    <Checkbox.Group options={this.state.dataSource} onChange={this.onChange}/>
                 </FormItem>
-                <FormItem label="企业" name="checkbox3"value={this.state.records} className={styles.newLine}>
-                    <Checkbox.Group options={this.state.dataSource3}   onChange={this.onChange}/>
+                <FormItem label="技术服务机构" name="checkbox2" className={styles.newLine}>
+                    <Checkbox.Group options={this.state.dataSource2} onChange={this.onChange}/>
                 </FormItem>
-                <FormItem label="系统管理" name="checkbox4"value={this.state.records} className={styles.newLine}>
-                    <Checkbox.Group options={this.state.dataSource4}  onChange={this.onChange}/>
+                <FormItem label="企业" name="checkbox3" className={styles.newLine}>
+                    <Checkbox.Group options={this.state.dataSource3} onChange={this.onChange}/>
+                </FormItem>
+                <FormItem label="系统管理" name="checkbox4" className={styles.newLine}>
+                    <Checkbox.Group options={this.state.dataSource4} onChange={this.onChange}/>
                 </FormItem>
             </Form>
         )

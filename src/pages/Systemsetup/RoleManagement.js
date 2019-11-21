@@ -17,6 +17,8 @@ import BindUserFrom from '../SystemsetupFrom/BindUserFrom'
 import {connect} from 'dva'
 import request from '../../utils/request'
 
+import _ from 'lodash'
+
 
 let globalList
 
@@ -64,7 +66,6 @@ class RoleManagement extends PureComponent {
                     enableValidate: true,
                     content: <AuthorizationFrom option={{type, record: res.data}}/>,
                     onOk: (values, hide) => {
-                        console.log(values)
                         request.post('/zyb/sysRoleMenu/add?id=' + this.state.record.id, {data: {...values}}).then(res => {
                             if (res && res.flag) {
                                 message.success("操作成功")
@@ -111,7 +112,7 @@ class RoleManagement extends PureComponent {
 
             }
         })
-             if ('edit' === type || 'view' === type) {
+        if ('edit' === type || 'view' === type) {
             if (!this.state.record) {
                 message.warning('请先单击一条数据!')
                 return
