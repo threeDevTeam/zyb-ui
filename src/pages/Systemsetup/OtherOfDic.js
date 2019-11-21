@@ -121,6 +121,7 @@ class OtherOfDic extends PureComponent {
         }
     }
 
+
     render() {
         return (
             <List url='/zyb/otherOfDic/list' onError={this.handleError} onMount={this.onMount}>
@@ -145,7 +146,7 @@ class OtherOfDic extends PureComponent {
                 }}>
                     <Table.Column title="大类名称" dataIndex="chineseTableName"/>
                     <Table.Column title="小类名称" dataIndex="chineseColumnName"/>
-                    <Table.Column title="排序" dataIndex="sort"/>
+                    <Table.Column title="排序" dataIndex="sort" sorter={(a, b) => a.sort - b.sort}/>
                     <Table.Column title="值" dataIndex="name"/>
 
                 </Table>
