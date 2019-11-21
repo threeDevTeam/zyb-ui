@@ -34,7 +34,6 @@ class UserManagementFrom extends PureComponent {
                 <FormItem label="用户名" name="loginName"><Input/></FormItem>
                 <FormItem label="邮箱" name="email"><InputNumber/></FormItem>
                 <FormItem label="联系方式" name="mobile"><Input/></FormItem>
-
              </Form>
         )
     }
