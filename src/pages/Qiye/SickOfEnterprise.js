@@ -28,7 +28,14 @@ class SickOfEnterprise extends PureComponent {
         this.setState({fileList: [...this.state.fileList, file]})
         return false
     }
-
+    isShowAddButton = () => {
+        let type = sessionStorage.getItem('type')
+        if ('管理员' === type) {
+        } else {
+            return <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}
+                           className={styles.marginRight20}>新增</Button>
+        }
+    }
     handleOperator = (type) => {
         const {dispatch} = this.props;
         if ('create' === type) {
@@ -179,9 +186,9 @@ class SickOfEnterprise extends PureComponent {
 
                 </Filter>
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
-                    <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>新增</Button>
+                    {this.isShowAddButton()}
                     <Button icon="edit" type="primary" onClick={() => this.handleOperator('edit')}
-                            className={styles.marginLeft20}>编辑</Button>
+                         >编辑</Button>
                     <Button icon="eye" type="primary" onClick={() => this.handleOperator('view')}
                             className={styles.marginLeft20}>浏览</Button>
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}

@@ -57,18 +57,18 @@ componentWillMount() {  let {type, record} = this.props.option
   }
  })
  request.get('/zyb/jianceBasicOfService/cascadeData').then(res =>{
-  if(res.flag){
+  if(res && res.flag){
    this.setState({dataSource1:res.data})
   }
  })
  request.get('/zyb/jianceDetailOfService/cascadeData2').then(res => {
-  if (res.flag) {
+  if (res && res.flag) {
    this.setState({dataSource2: res.data})
   }
  })
  request.get('/zyb/jianceDetailOfService/cascadeData3').then(res => {
 
-  if (res.flag) {
+  if (res && res.flag) {
    this.setState({dataSource3: res.data})
   }
  })

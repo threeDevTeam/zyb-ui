@@ -41,7 +41,7 @@ class PropagateOfSupervise extends PureComponent {
                 content: <PropagateOfSuperviseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
                     request.post('/zyb/propagateOfSupervise/add', {data: {...values}}).then(res => {
-                        if (res.flag) {
+                        if (res && res.flag) {
                             message.success("操作成功")
                             hide()
                             globalList.refresh()
@@ -59,7 +59,7 @@ class PropagateOfSupervise extends PureComponent {
             }
             let title = 'edit' === type ? '编辑' : '浏览'
             request('/zyb/propagateOfSupervise/getById?id=' + this.state.record.id).then(res => {
-                if (res.flag) {
+                if (res && res.flag) {
                     Dialog.show({
                         title: title,
                         footerAlign: 'label',
@@ -70,7 +70,7 @@ class PropagateOfSupervise extends PureComponent {
                         content: <PropagateOfSuperviseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             request.post('/zyb/propagateOfSupervise/edit', {data: {...values}}).then(res => {
-                                if (res.flag) {
+                                if (res && res.flag) {
                                     message.success("操作成功")
                                     hide()
                                     globalList.refresh()
@@ -109,7 +109,7 @@ class PropagateOfSupervise extends PureComponent {
                     formData.append("form", JSON.stringify(values))
                     //异步请求
                     request.post('/zyb/propagateOfSupervise/exceladd',{method: 'post', data: formData}).then(res => {
-                        if(res.flag){
+                        if(res && res.flag){
                             modal.update({content: '操作成功', okButtonProps: {disabled: false}})
                             globalList.refresh()
                         }else{
@@ -132,7 +132,7 @@ class PropagateOfSupervise extends PureComponent {
                 onOk: (values, hide) => {
                     request('/zyb/propagateOfSupervise/delete?id=' + this.state.record.id).then(res => {
                         hide()
-                        if (res.flag) {
+                        if (res && res.flag) {
                             globalList.refresh()
                             message.success("删除成功")
                         } else {
@@ -157,7 +157,14 @@ class PropagateOfSupervise extends PureComponent {
             this.handleOperator('edit')
         }
     }
-
+    isShowAddButton = () => {
+        let type = sessionStorage.getItem('type')
+        if ('管理员' === type) {
+        } else {
+            return <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}
+                           className={styles.marginRight20}>新增</Button>
+        }
+    }
     render() {
         return (
 
@@ -167,9 +174,9 @@ class PropagateOfSupervise extends PureComponent {
                         <Filter.Item label="宣传受众人数" name="acceptCount"><Input/></Filter.Item>
                     </Filter>
                     <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
-                        <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>新增</Button>
+                        {this.isShowAddButton()}
                         <Button icon="edit" type="primary" onClick={() => this.handleOperator('edit')}
-                                className={styles.marginLeft20}>编辑</Button>
+                                >编辑</Button>
                         <Button icon="eye" type="primary" onClick={() => this.handleOperator('view')}
                                 className={styles.marginLeft20}>浏览</Button>
                         <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}

@@ -62,27 +62,27 @@ componentWillMount() {
  })
 
  request.get('/zyb/jianceBasicOfService/cascadeData').then(res =>{
-  if(res.flag){
+  if(res && res.flag){
    this.setState({dataSource1:res.data})
   }
  })
  request.get('/zyb/jianceDetailOfService/cascadeData2').then(res => {
-  if (res.flag) {
+  if (res && res.flag) {
    this.setState({dataSource2: res.data})
   }
  })
  request.get('/zyb/jianceDetailOfService/cascadeData3').then(res => {
-  if (res.flag) {
+  if (res && res.flag) {
    this.setState({dataSource3: res.data})
   }
  })
  request.get('/zyb/jianceDetailOfService/cascadeData4').then(res => {
-  if (res.flag) {
+  if (res && res.flag) {
    this.setState({dataSource4: res.data})
   }
  })
  request.get('/zyb/zhenduanDetailOfService/cascadeData5').then(res => {
-  if (res.flag) {
+  if (res && res.flag) {
    this.setState({dataSource5: res.data})
   }
  })
