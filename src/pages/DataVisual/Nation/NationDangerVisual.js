@@ -793,27 +793,28 @@ export default class NationDangerVisual extends Component {
                             title={'监督检查频次'}
                             bordered={false}
                             headStyle={{height: 57}}
-                            style={{height: '97vh', overflow: 'hidden'}}
                             extra={<Button type="dashed" onClick={() => this.detailData('zero')}>详细数据</Button>}
                         >
+                            <div style={{height:500,overflow:'hidden'}}>
                             <Carousel autoplay dotPosition={"right"} dots={false}>
                                 <Table size={'middle'} showHeader={false} columns={columns}
                                        className={styles.tableTdBorder}
                                        dataSource={this.state.scrollData.four}
-                                       pagination={false}/>
+                                       pagination={false} tableLayout='fixed'/>
                                 <Table size={'middle'} showHeader={false} columns={columns}
                                        className={styles.tableTdBorder}
                                        dataSource={this.state.scrollData.three}
-                                       pagination={false}/>
+                                       pagination={false} tableLayout='fixed'/>
                                 <Table size={'middle'} showHeader={false} columns={columns}
                                        className={styles.tableTdBorder}
                                        dataSource={this.state.scrollData.two}
-                                       pagination={false}/>
+                                       pagination={false} tableLayout='fixed'/>
                                 <Table size={'middle'} showHeader={false} columns={columns}
                                        className={styles.tableTdBorder}
                                        dataSource={this.state.scrollData.one}
-                                       pagination={false}/>
+                                       pagination={false} tableLayout='fixed'/>
                             </Carousel>
+                            </div>
                         </Card>
                     </Col>
                     <Col span={12}>
@@ -826,7 +827,7 @@ export default class NationDangerVisual extends Component {
                         >
                             <ReactEcharts
                                 option={option1}
-                                onEvents={onEvents} style={{height: '80vh'}}/>
+                                onEvents={onEvents} style={{height: 500}}/>
                         </Card>
                     </Col>
                     <Col span={7}>
@@ -839,13 +840,13 @@ export default class NationDangerVisual extends Component {
                         >
                             <ReactEcharts
                                 option={option2}
-                                onEvents={onEvents} style={{height: '40vh'}}/>
+                                onEvents={onEvents} style={{height: 245}}/>
                         </Card>
                         <Card
                             title={'高度风险占比'}
                             bodyStyle={{textAlign: 'center', fontSize: 0}}
                             bordered={false}
-                            style={{marginTop: 10, height: '38vh'}}
+                            style={{marginTop: 10}}
                         >
                             <WaterWave height={140} title="高度风险(Ⅳ级)" percent={this.state.random}
                                        color={'rgb(240, 72, 100)'}/>
