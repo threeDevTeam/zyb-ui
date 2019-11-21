@@ -27,7 +27,7 @@ export default class OtherDangerVisual2 extends Component {
 
 
     componentWillMount() {
-        console.log("OtherDangerVisual2 componentWillMount")
+        // console.log("OtherDangerVisual2 componentWillMount")
         this.init()
     }
 
@@ -139,7 +139,7 @@ export default class OtherDangerVisual2 extends Component {
         let width = '70vw'
         let pagination = true
         if ("zero" === type) {
-            pagination=false
+            pagination = false
             title = '监督检查频次'
             dataSource = this.state.scrollData
             columns = [
@@ -358,7 +358,7 @@ export default class OtherDangerVisual2 extends Component {
                         query: areaQuery
                     })
                 }
-                console.log("otherDangerVisual2", areaQuery)
+                // console.log("otherDangerVisual2", areaQuery)
                 this.init()
             }
         }
@@ -665,9 +665,9 @@ export default class OtherDangerVisual2 extends Component {
                             headStyle={{height: 57}}
                             extra={<Button type="dashed" onClick={() => this.detailData('zero')}>详细数据</Button>}
                         >
-                            <div style={{height:300,paddingTop:50}}>
-                            <WaterWave height={200} title="高度风险(Ⅳ级)" percent={this.state.random}
-                                       color={'rgb(240, 72, 100)'}/></div>
+                            <div style={{height: 300, paddingTop: 50}}>
+                                <WaterWave height={200} title="高度风险(Ⅳ级)" percent={this.state.random}
+                                           color={'rgb(240, 72, 100)'}/></div>
                         </Card>
                     </Col>
                     <Col span={18}>

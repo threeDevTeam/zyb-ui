@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Row, Col, Layout, Tabs,Icon} from 'antd'
+import {Row, Col, Layout, Tabs, Icon} from 'antd'
 import NationDangerVisual from './NationDangerVisual'
 import NationEnterpriseVisual from './NationEnterpriseVisual'
 import NationGovVisual from './NationGovVisual'
@@ -36,9 +36,9 @@ export default class NationVisual extends Component {
         } else if ('技术服务机构' === type) {
             return <NationServiceVisual/>
         } else if ('进入后台' === type) {
-            if(sessionStorage.getItem('loginName')){
+            if (sessionStorage.getItem('loginName')) {
                 router.push('/userManagement')
-            }else{
+            } else {
                 router.push('/user/login')
             }
         }
@@ -63,7 +63,7 @@ export default class NationVisual extends Component {
                     <TabPane tab="技术服务机构" key="技术服务机构">
                     </TabPane>
                     <TabPane tab={
-                        <span><Icon type="home"  theme="filled"/>进入后台</span>} key="进入后台">
+                        <span><Icon type="home" theme="filled"/>进入后台</span>} key="进入后台">
                     </TabPane>
                 </Tabs>
             </Layout.Header>

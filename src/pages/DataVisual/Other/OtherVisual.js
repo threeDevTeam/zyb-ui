@@ -70,9 +70,9 @@ export default class OtherVisual extends Component {
                 return <OtherServiceVisual areaQuery={areaQuery}/>
             }
         } else if ('进入后台' === type) {
-            if(sessionStorage.getItem('loginName')){
+            if (sessionStorage.getItem('loginName')) {
                 router.push({pathname: '/supervise', query: areaQuery})
-            }else{
+            } else {
                 router.push('/user/login')
             }
         }

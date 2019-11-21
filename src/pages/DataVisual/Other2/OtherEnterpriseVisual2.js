@@ -132,7 +132,7 @@ export default class OtherEnterpriseVisual extends Component {
             if (res && res.flag) {
                 let tmp = res.data
                 let data = [['防护配备', '职业病防护设施设置率', '个人防护用品配备率']]
-                let areaArr=this.state.option21Category
+                let areaArr = this.state.option21Category
                 for (let i = 0; i < areaArr.length; i++) {
                     data.push(_.flatMapDeep(_.concat(areaArr[i], tmp['list' + i])))
                 }
@@ -201,7 +201,7 @@ export default class OtherEnterpriseVisual extends Component {
     registerTypeCategory = () => {
         request('/zyb/categoryController/getRegisterTypeStrList').then(res => {
             if (res && res.flag) {
-                console.log(res.data)
+                // console.log(res.data)
                 this.setState({option21Category: res.data})
             }
         })

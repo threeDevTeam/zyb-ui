@@ -269,7 +269,7 @@ export default class OtherGovVisual extends Component {
                     ]
                 }
             ]
-        }else if('option5'===type){
+        } else if ('option5' === type) {
             width = '95vw'
             title = '技术服务机构监管情况1'
             dataSource = this.state.option5Detail
@@ -355,7 +355,7 @@ export default class OtherGovVisual extends Component {
                     ]
                 }
             ]
-        } else if('option6'===type){
+        } else if ('option6' === type) {
             width = '95vw'
             title = '技术服务机构监管情况2'
             dataSource = this.state.option6Detail
@@ -446,7 +446,7 @@ export default class OtherGovVisual extends Component {
                     ]
                 }
             ]
-        }else if('option7'===type){
+        } else if ('option7' === type) {
             width = '95vw'
             title = '职业病危害事故'
             dataSource = this.state.option7Detail
@@ -565,7 +565,7 @@ export default class OtherGovVisual extends Component {
                 trigger: 'axis'
             },
             legend: {
-                data: ['累计','新增']
+                data: ['累计', '新增']
             },
             grid: {
                 left: '3%',
@@ -730,7 +730,7 @@ export default class OtherGovVisual extends Component {
                 trigger: 'axis'
             },
             legend: {
-                data: ['检查机构数','处罚机构数','罚款金额','吊销资质数']
+                data: ['检查机构数', '处罚机构数', '罚款金额', '吊销资质数']
             },
             grid: {
                 left: '3%',
@@ -741,7 +741,7 @@ export default class OtherGovVisual extends Component {
             xAxis: {
                 type: 'category',
                 boundaryGap: true,
-                data: ['职业卫生技术服务机构','职业健康检查机构','职业病诊断机构']
+                data: ['职业卫生技术服务机构', '职业健康检查机构', '职业病诊断机构']
             },
             yAxis: {
                 type: 'value'
@@ -881,7 +881,7 @@ export default class OtherGovVisual extends Component {
                             bordered={false}
                             headStyle={{height: 57}}
                         >
-                            <Table pagination={false}  columns={option4Columns} dataSource={this.state.option4Data}
+                            <Table pagination={false} columns={option4Columns} dataSource={this.state.option4Data}
                                    style={{height: 250, overflowY: 'scroll'}} size={'middle'}/>
                         </Card>
                     </Col>

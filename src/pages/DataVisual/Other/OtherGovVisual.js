@@ -725,7 +725,7 @@ export default class OtherGovVisual extends Component {
             xAxis: {
                 type: 'category',
                 boundaryGap: true,
-                data:this.state.option21Category
+                data: this.state.option21Category
             },
             yAxis: {
                 type: 'value'
@@ -768,7 +768,7 @@ export default class OtherGovVisual extends Component {
             xAxis: [
                 {
                     type: 'category',
-                    data:this.state.option21Category
+                    data: this.state.option21Category
                 }
             ],
             yAxis: [
@@ -823,7 +823,7 @@ export default class OtherGovVisual extends Component {
             xAxis: [
                 {
                     type: 'category',
-                    data:this.state.option21Category
+                    data: this.state.option21Category
                 }
             ],
             yAxis: [

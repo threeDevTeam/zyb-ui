@@ -141,7 +141,7 @@ export default class NationDangerVisual extends Component {
         let pagination = true
         if ("zero" === type) {
             title = '监督检查频次'
-            dataSource = _.flatMapDeep(_.concat(this.state.scrollData.four, this.state.scrollData.three, this.state.scrollData.two, this.state.scrollData.one))
+            dataSource = _.flatMapDeep(_.concat(this.state.scrollData.high, this.state.scrollData.low))
             columns = [
                 {
                     title: '行政区划',
@@ -398,7 +398,6 @@ export default class NationDangerVisual extends Component {
     }
 
 
-
     render() {
         let option1 = {
             /*            title: {
@@ -580,11 +579,13 @@ export default class NationDangerVisual extends Component {
             {
                 title: '名称',
                 dataIndex: 'areaName',
+                width:'30%',
                 render: text => <a>{text}</a>,
             },
             {
                 title: '风险等级',
                 dataIndex: 'level',
+                width:'50%'
             },
             {
                 title: '监督检查',
@@ -807,20 +808,12 @@ export default class NationDangerVisual extends Component {
                                 <Carousel autoplay dotPosition={"right"} dots={false}>
                                     <Table size={'middle'} showHeader={false} columns={columns}
                                            className={styles.tableTdBorder}
-                                           dataSource={this.state.scrollData.four}
-                                           pagination={false} tableLayout='fixed'/>
+                                           dataSource={this.state.scrollData.high}
+                                           pagination={false}/>
                                     <Table size={'middle'} showHeader={false} columns={columns}
                                            className={styles.tableTdBorder}
-                                           dataSource={this.state.scrollData.three}
-                                           pagination={false} tableLayout='fixed'/>
-                                    <Table size={'middle'} showHeader={false} columns={columns}
-                                           className={styles.tableTdBorder}
-                                           dataSource={this.state.scrollData.two}
-                                           pagination={false} tableLayout='fixed'/>
-                                    <Table size={'middle'} showHeader={false} columns={columns}
-                                           className={styles.tableTdBorder}
-                                           dataSource={this.state.scrollData.one}
-                                           pagination={false} tableLayout='fixed'/>
+                                           dataSource={this.state.scrollData.low}
+                                           pagination={false}/>
                                 </Carousel>
                             </div>
                         </Card>

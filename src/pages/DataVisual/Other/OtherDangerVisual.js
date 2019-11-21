@@ -33,7 +33,7 @@ export default class OtherDangerVisual extends Component {
 
 
     componentWillMount() {
-        console.log("OtherDangerVisual componentWillMount")
+        // console.log("OtherDangerVisual componentWillMount")
         this.init()
     }
 
@@ -179,16 +179,18 @@ export default class OtherDangerVisual extends Component {
         let pagination = true
         if ("zero" === type) {
             title = '监督检查频次'
-            dataSource = _.flatMapDeep(_.concat(this.state.scrollData.four, this.state.scrollData.three, this.state.scrollData.two, this.state.scrollData.one))
+            dataSource = _.flatMapDeep(_.concat(this.state.scrollData.high, this.state.scrollData.low))
             columns = [
                 {
                     title: '行政区划',
                     dataIndex: 'areaName',
+                    width:'30%',
                     key: 'areaName',
                 },
                 {
                     title: '职业病危害风险等级',
                     dataIndex: 'level',
+                    width:'50%',
                     key: 'level',
                 },
                 {
@@ -540,7 +542,7 @@ export default class OtherDangerVisual extends Component {
                 } else {
                     areaQuery['name2'] = params.name
                 }
-                console.log("otherDangerVisual", areaQuery)
+                // console.log("otherDangerVisual", areaQuery)
                 router.push({
                     pathname: '/visual/OtherVisual',
                     query: areaQuery
@@ -859,19 +861,11 @@ export default class OtherDangerVisual extends Component {
                                 <Carousel autoplay dotPosition={"right"} dots={false}>
                                     <Table size={'middle'} showHeader={false} columns={columns}
                                            className={styles.tableTdBorder}
-                                           dataSource={this.state.scrollData.four}
+                                           dataSource={this.state.scrollData.high}
                                            pagination={false} tableLayout='fixed'/>
                                     <Table size={'middle'} showHeader={false} columns={columns}
                                            className={styles.tableTdBorder}
-                                           dataSource={this.state.scrollData.three}
-                                           pagination={false} tableLayout='fixed'/>
-                                    <Table size={'middle'} showHeader={false} columns={columns}
-                                           className={styles.tableTdBorder}
-                                           dataSource={this.state.scrollData.two}
-                                           pagination={false} tableLayout='fixed'/>
-                                    <Table size={'middle'} showHeader={false} columns={columns}
-                                           className={styles.tableTdBorder}
-                                           dataSource={this.state.scrollData.one}
+                                           dataSource={this.state.scrollData.low}
                                            pagination={false} tableLayout='fixed'/>
                                 </Carousel>
                             </div>
