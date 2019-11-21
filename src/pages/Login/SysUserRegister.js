@@ -257,7 +257,7 @@ class SysUserRegister extends PureComponent {
     render() {
         const dateFormat = 'YYYY/MM/DD';
         return (
-            <div>
+            <div style={{background:'#f2f4f5'}}>
                 <Layout.Header
                     style={{background: '#fff', padding: 0, marginBottom: 10, height: 70, boxShadow: '0 0 12px #ccc'}}>
                     <img src={logo} style={{float: 'left', paddingTop: 10, paddingLeft: 20}}/>
@@ -273,7 +273,7 @@ class SysUserRegister extends PureComponent {
                 </Layout.Header>
                 <Row>
                     <Col span={12} offset={6}>
-                        <Card title="欢迎注册" size="small">
+                        <Card title="欢迎注册" headStyle={{fontWeight:'bold',fontSize: '18px',letterSpacing: 4}}>
                             <Form core={this.core} layout={{ label: 9, control: 10 }}>
                                 <div style={{display: this.state.Login, fontSize: '16px'}}>
                                     <FormItem label="登录名" name="loginName" required={true}><Input style={{width: 230}}

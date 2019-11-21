@@ -52,14 +52,14 @@ export default class OtherVisual3 extends Component {
                 <span style={{paddingRight: 70, float: "left", marginLeft: 10}}><h2
                     style={{color: '#1890FF', fontWeight: 'bold', letterSpacing: 8}}>职业病危害监测预警预控云服务平台</h2></span>
                 <Tabs defaultActiveKey="风险预警" onChange={this.onChange}
-                      style={{float: 'right', marginRight: 60, paddingTop: 18}}
+                      style={{float: 'right', marginRight: 10, paddingTop: 18}}
                       className={styles.tabBorderBottom}>
                     <TabPane tab="风险预警" key="风险预警">
                     </TabPane>
                     <TabPane tab="企业信息" key="企业信息">
                     </TabPane>
                     <TabPane tab={
-                        <span><Icon type="home" theme="filled"/>进入后台</span>} key="进入后台">
+                        <span style={{paddingLeft:20}}><Icon type="home" theme="twoTone"/>进入后台</span>} key="进入后台">
                     </TabPane>
                 </Tabs>
             </Layout.Header>

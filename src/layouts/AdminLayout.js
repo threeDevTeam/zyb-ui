@@ -182,11 +182,15 @@ class AdminLayout extends React.Component {
                            style={{minHeight: '100vh', color: 'white'}}>
                         <div className={styles.logo}>
                             <div style={{
+                                color: '#1890FF',
                                 display: this.state.display,
                                 width: '200px',
                                 lineHeight: '48px',
-                                paddingLeft: '55px'
-                            }}>职业病危害云服务平台
+                                paddingLeft: '65px',
+                                letterSpacing: 8,
+                                fontSize:'18px',
+                                fontWeight:'bold'
+                            }}>云服务平台
                             </div>
                         </div>
                         <Menu theme="dark" mode="inline" defaultSelectedKeys={this.state.defaultSelectedKeys}
@@ -297,7 +301,7 @@ class AdminLayout extends React.Component {
                                 display: 'inline'
                             }}>职业病危害监测预警预控云服务平台</h2></span>
                             <Dropdown overlay={menu}>
-                                <span style={{paddingRight: 70, float: "right"}}><Icon type="user"
+                                <span style={{paddingRight: 40, float: "right"}}><Icon type="user"
                                                                                        style={{marginRight: 15}}/>欢迎你,{sessionStorage.getItem("loginName")}</span>
                             </Dropdown>
                         </Header>
