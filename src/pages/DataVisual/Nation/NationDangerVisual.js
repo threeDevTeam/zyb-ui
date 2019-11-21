@@ -76,7 +76,7 @@ export default class NationDangerVisual extends Component {
     }
 
     componentDidMount() {
-        alert(this.refs.areaHeight.echartsElement.clientHeight)
+        // alert(this.refs.areaHeight.echartsElement.clientHeight)
         this.setState({clientHeight: this.refs.areaHeight.echartsElement.clientHeight})
     }
 

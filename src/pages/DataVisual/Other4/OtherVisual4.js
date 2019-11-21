@@ -15,10 +15,6 @@ export default class OtherVisual4 extends Component {
         type: '技术服务机构'
     }
 
-    componentWillMount() {
-    }
-
-
     onClick = type => {
         this.setState({type})
     }
