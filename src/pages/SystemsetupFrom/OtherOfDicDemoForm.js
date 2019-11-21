@@ -32,9 +32,9 @@ class OtherOfDicDemoForm extends PureComponent {
             <Form core={this.core} layout={{label:9}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
                 <FormItem label="大类名称" name="chineseTableName"><Input/></FormItem>
-                <FormItem label="大类英文名称" name="englishTableName"><InputNumber/></FormItem>
+                <FormItem label="大类英文名称" name="englishTableName"><Input/></FormItem>
                 <FormItem label="小类名称" name="chineseColumnName"><Input/></FormItem>
-                <FormItem label="小类英文名称" name="englishColumnName"><InputNumber/></FormItem>
+                <FormItem label="小类英文名称" name="englishColumnName"><Input/></FormItem>
                 <FormItem label="排序" name="sort"><InputNumber/></FormItem>
                 <FormItem label="值" name="name"><Input/></FormItem>
             </Form>
