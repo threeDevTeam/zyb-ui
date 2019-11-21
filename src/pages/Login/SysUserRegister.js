@@ -276,7 +276,7 @@ class SysUserRegister extends PureComponent {
                         <Card title="欢迎注册" headStyle={{fontWeight:'bold',fontSize: '18px',letterSpacing: 4}}>
                             <Form core={this.core} layout={{ label: 9, control: 10 }}>
                                 <div style={{display: this.state.Login, fontSize: '16px'}}>
-                                    <FormItem label="登录名" name="loginName" required={true}><Input style={{width: 230}}
+                                    <FormItem label="用户名" name="loginName" required={true}><Input style={{width: 230}}
                                                                                                   placeholder="请输入用户名"/></FormItem>
                                     <FormItem label="登录密码" name="loginPassword" required={true}><Input.Password
                                         style={{width: 230}} placeholder="请输入密码" /></FormItem>

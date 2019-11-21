@@ -17,7 +17,7 @@ const menu = (
             <div style={{float: "left", width: 20}}>
                 <Icon type="edit"/>
             </div>
-            <Link to='/changePassword'>修改密码</Link>
+            <Link to='/user/changePassword'>修改密码</Link>
         </Menu.Item>
         <Menu.Item>
             <div style={{float: "left", width: 20}}>
