@@ -199,7 +199,7 @@ class AdminLayout extends React.Component {
                             </div>
                         </div>
                         <Menu theme="dark" mode="inline" defaultSelectedKeys={this.state.defaultSelectedKeys}
-                              openKeys={this.state.openKeys} onOpenChange={this.onOpenChange}>
+                              defaultOpenKeys={this.state.openKeys} onOpenChange={this.onOpenChange}>
                             {this.show()}
                             {this.renderMenu(this.state.menus)}
                             {/* <Menu.Item key="1">
