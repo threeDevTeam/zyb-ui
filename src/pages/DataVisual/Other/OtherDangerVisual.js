@@ -8,7 +8,6 @@ import request from "../../../utils/request"
 import 'ant-design-pro/dist/ant-design-pro.css'
 import {WaterWave} from 'ant-design-pro/lib/Charts'
 import zhCh from 'antd/es/locale/zh_CN'
-import bj from '../../../assets/map_bg.jpg'
 import styles from './style.less'
 import _ from 'lodash'
 import router from 'umi/router'
@@ -629,7 +628,6 @@ export default class OtherDangerVisual extends Component {
                 }
             ]
         }
-        let backgroundImage = 'url(' + bj + ')'
         const columns = [
             {
                 title: '名称',

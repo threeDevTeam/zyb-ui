@@ -1,10 +1,9 @@
 export default {
+/*    base: "/zyb/",
+    publicPath: "/zyb/",*/
     targets: {
-        ie: 11,
-        chrome: 79
+        ie: 11
     },
-    // base: "/zyb/",
-    // publicPath: "/zyb/",
     plugins: [
         ['umi-plugin-react', {
             antd: true,
