@@ -89,7 +89,7 @@ componentWillMount() {
  <Form core={this.core} layout={{label:8}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem required={true} label="诊断时间" name="checkDateStr"><DatePicker locale={locale} style={{width: 230}}  placeholder="请选择诊断时间"/></FormItem>
- <FormItem required={true} label="诊断年份" name="checkYear"><InputNumber style={{width: 230}} /></FormItem>
+ <FormItem required={true} label="诊断年份" vlaue={2019} name="checkYear"><InputNumber style={{width: 230}} /></FormItem>
  <FormItem required={true} label="诊断月份" name="checkMonth"><InputNumber style={{width: 230}} /></FormItem>
  <FormItem required={true} label="企业名称" name="enterpriseName"><Input style={{width: 230}} /></FormItem>
  <FormItem required={true} label="统一社会信用代码" name="enterpriseCode"><Input style={{width: 230}} /></FormItem>

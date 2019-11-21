@@ -58,7 +58,7 @@ componentWillMount() {
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
   <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'} style={{width: 230}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
  <FormItem required={true} label="申报时间" name="upDateeStr"><DatePicker  locale={locale} style={{width: 230}} placeholder="请选择申报时间"/></FormItem>
- <FormItem required={true} label="申报年份" name="upYear"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="申报年份" value={2019} name="upYear"><InputNumber style={{width: 230}}/></FormItem>
  <FormItem required={true} label="申报月份" name="upMonth"><InputNumber style={{width: 230}}/></FormItem>
   <FormItem required={true} label="职业病危害因素名称" name="cascaded1"><Cascader style={{width: 230}} options={this.state.dataSource1}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
 

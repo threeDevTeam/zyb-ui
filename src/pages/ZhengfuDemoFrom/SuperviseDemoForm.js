@@ -48,7 +48,7 @@ class SuperviseDemoForm extends PureComponent {
             <Form core={this.core} layout={{label:10}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
 
-                <FormItem required={true} label="申报年份" name="year" value={2019} ><InputNumber/></FormItem>
+                <FormItem required={true} label="申报年份"  name="year" value={2019} ><InputNumber/></FormItem>
                 <div style={{display: this.state.Login,marginTop:10}}>
                     <FormItem required={true} label="省/市/区" name="cascader"><Cascader style={{width: 212}} options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
                     <FormItem required={true} label="注册地址" name="registerAddress"><Input/></FormItem>

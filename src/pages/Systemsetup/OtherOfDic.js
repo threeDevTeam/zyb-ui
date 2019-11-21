@@ -125,7 +125,7 @@ class OtherOfDic extends PureComponent {
         return (
             <List url='/zyb/otherOfDic/list' onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
-                    <Filter.Item label="name" name="name"><Input/></Filter.Item>
+                    <Filter.Item label="小类名称" name="chineseColumnName"><Input/></Filter.Item>
 
                 </Filter>
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
@@ -143,13 +143,11 @@ class OtherOfDic extends PureComponent {
                         onDoubleClick: () => this.clickOperation('onDoubleClick', record)
                     }
                 }}>
-                    <Table.Column title="id" dataIndex="id"/>
-                    <Table.Column title="name" dataIndex="name"/>
-                    <Table.Column title="sort" dataIndex="sort"/>
-                    <Table.Column title="chineseTableName" dataIndex="chineseTableName"/>
-                    <Table.Column title="englishTableName" dataIndex="englishTableName"/>
-                    <Table.Column title="chineseColumnName" dataIndex="chineseColumnName"/>
-                    <Table.Column title="englishColumnName" dataIndex="englishColumnName"/>
+                    <Table.Column title="大类名称" dataIndex="chineseTableName"/>
+                    <Table.Column title="小类名称" dataIndex="chineseColumnName"/>
+                    <Table.Column title="排序" dataIndex="sort"/>
+                    <Table.Column title="值" dataIndex="name"/>
+
                 </Table>
                 <Pagination/>
             </List>

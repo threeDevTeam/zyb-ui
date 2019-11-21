@@ -51,7 +51,7 @@ componentWillMount() {
  <FormItem style={{display: 'none'}} name="id"><Input style={{width: 230}}/></FormItem>
   <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'}  style={{width: 230}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
   <FormItem required={true} label="检测时间" name="checkDateStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择检测时间"/></FormItem>
- <FormItem required={true} label="检测年份" name="checkYear"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="检测年份" value={2019} name="checkYear"><InputNumber style={{width: 230}}/></FormItem>
  <FormItem required={true} label="检测月份" name="checkMonth"><InputNumber style={{width: 230}}/></FormItem>
  <FormItem required={true} label="检测机构" name="org"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} label="检测机构的社会统一代码" name="code"><Input style={{width: 230}}/></FormItem>

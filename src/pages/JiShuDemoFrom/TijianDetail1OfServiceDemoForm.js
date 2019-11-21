@@ -78,7 +78,7 @@ componentWillMount() {  let {type, record} = this.props.option
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem required={true} label="体检时间" name="checkDateStr"><DatePicker locale={locale} style={{width: 230}}  placeholder="请选择体检时间"/></FormItem>
- <FormItem required={true} label="体检年份" name="checkYear"><InputNumber style={{width: 230}} /></FormItem>
+ <FormItem required={true} label="体检年份" vlaue={2019} name="checkYear"><InputNumber style={{width: 230}} /></FormItem>
  <FormItem required={true} label="体检月份" name="checkMonth"><InputNumber style={{width: 230}} /></FormItem>
  <FormItem required={true} label="体检报告编号" name="num"><Input style={{width: 230}} /></FormItem>
  <FormItem required={true} label="企业名称" name="enterpriseName"><Input style={{width: 230}} /></FormItem>
