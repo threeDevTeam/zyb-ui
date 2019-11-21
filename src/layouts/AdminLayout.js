@@ -4,7 +4,8 @@ import styles from './AdminLayout.less'
 import {Layout, Menu, Icon, Dropdown, ConfigProvider} from 'antd'
 import zhCN from 'antd/es/locale/zh_CN'
 import Link from 'umi/link'
-import request from "../utils/request";
+import request from "../utils/request"
+import router from 'umi/router'
 import {Button, Dialog} from "nowrapper/lib/antd";
 import AccidentPersonOfEnterpriseDemoForm from "../pages/QiyeDemoFrom/AccidentPersonOfEnterpriseDemoForm";
 
@@ -71,27 +72,31 @@ class AdminLayout extends React.Component {
     componentWillMount() {
         //获取用户拥有的菜单
         let loginName = sessionStorage.getItem("loginName")
-        //ajax,用户名-->角色-->菜单
-        // this.setState({menus: res.data.menus})
-        request.get('/zyb/sysMenu/sysMenulogin?loginName=' + loginName).then(res => {
-            if (res && res.flag) {
-                this.setState({menus: res.data})
-            }
-        })
+        if (loginName) {
+            //ajax,用户名-->角色-->菜单
+            // this.setState({menus: res.data.menus})
+            request.get('/zyb/sysMenu/sysMenulogin?loginName=' + loginName).then(res => {
+                if (res && res.flag) {
+                    this.setState({menus: res.data})
+                }
+            })
 
-        let type = sessionStorage.getItem('type')
-        if ('管理员' === type) {
-            this.setState({openKeys: ['48'], defaultSelectedKeys: ['50']})
-        } else if ('政府监管部门' === type) {
-            this.setState({openKeys: ['1'], defaultSelectedKeys: ['2']})
-        } else if ('企业' === type) {
-            this.setState({openKeys: ['25'], defaultSelectedKeys: ['26']})
-        } else if (type.match('检测机构')) {
-            this.setState({openKeys: ['13'], defaultSelectedKeys: ['14']})
-        } else if (type.match('体检机构')) {
-            this.setState({openKeys: ['13'], defaultSelectedKeys: ['18']})
-        } else if (type.match('诊断机构')) {
-            this.setState({openKeys: ['13'], defaultSelectedKeys: ['22']})
+            let type = sessionStorage.getItem('type')
+            if ('管理员' === type) {
+                this.setState({openKeys: ['48'], defaultSelectedKeys: ['50']})
+            } else if ('政府监管部门' === type) {
+                this.setState({openKeys: ['1'], defaultSelectedKeys: ['2']})
+            } else if ('企业' === type) {
+                this.setState({openKeys: ['25'], defaultSelectedKeys: ['26']})
+            } else if (type.match('检测机构')) {
+                this.setState({openKeys: ['13'], defaultSelectedKeys: ['14']})
+            } else if (type.match('体检机构')) {
+                this.setState({openKeys: ['13'], defaultSelectedKeys: ['18']})
+            } else if (type.match('诊断机构')) {
+                this.setState({openKeys: ['13'], defaultSelectedKeys: ['22']})
+            }
+        } else {
+            router.push('/user/login')
         }
     }
 
@@ -148,7 +153,7 @@ class AdminLayout extends React.Component {
                     </a>
                 </Menu.Item>
             )
-        }else if ( type.match('技术服务机构')) {
+        } else if (type.match('技术服务机构')) {
             let name = sessionStorage.getItem('name')
             let name1 = sessionStorage.getItem('name1')
             let name2 = sessionStorage.getItem('name2')
@@ -188,8 +193,8 @@ class AdminLayout extends React.Component {
                                 lineHeight: '48px',
                                 paddingLeft: '65px',
                                 letterSpacing: 8,
-                                fontSize:'18px',
-                                fontWeight:'bold'
+                                fontSize: '18px',
+                                fontWeight: 'bold'
                             }}>云服务平台
                             </div>
                         </div>

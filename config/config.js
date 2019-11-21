@@ -75,9 +75,9 @@ export default {
                 {path: '/zhenduanBasicOfService', component: './JishujiGou/ZhenduanBasicOfService'},
                 {path: '/zhenduanDetailOfService', component: './JishujiGou/ZhenduanDetailOfService'},
                 {path: '/zhenduanTotalOfService', component: './JishujiGou/ZhenduanTotalOfService'},
-                {path: '/register', component: './Login/SysUserRegister'},
-                {path: '/email', component: './Login/Email'},
-                {path: '/sysUserLogin', component: './Login/Login'},
+/*                {path: '/register', component: './Login/SysUserRegister'},
+                {path: '/email', component: './Login/Email'},*/
+                // {path: '/sysUserLogin', component: './Login/Login'},
                 {path: '/changePassword', component: './Login/ChangePassword'},
                 {path: '/Enterprise', component: './Qiye/Enterprise'},
                 {path: '/procuctionOfEnterprise', component: './Qiye/ProcuctionOfEnterprise.js'},
