@@ -40,16 +40,16 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label: 9}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'} style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
+  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'} style={{width: 230}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
  <FormItem required={true} label="是否设置防护设施" name="isSet">
   <Radio.Group  style={{width:200,paddingLeft:10}}>
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem required={true} label="防护设施名称" name="name"><Input/></FormItem>
+ <FormItem required={true} label="防护设施名称" name="name"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} label="防护设施类别" name="type">
-  <Select style={{width: 212}}>
+  <Select style={{width: 230}}>
    <option key={"防尘设施"}>{"防尘设施"}</option>
    <option key={"防毒设施"}>{"防毒设施"}</option>
    <option key={"防噪声设施"}>{"防噪声设施"}</option>
@@ -59,7 +59,7 @@ componentWillMount() {
   </Select>
  </FormItem>
  <FormItem required={true} label="运行状态" name="status">
-  <Select style={{width: 212}} >
+  <Select style={{width: 230}} >
    <option key={"正常"}>{"正常"}</option>
    <option key={"维修"}>{"维修"}</option>
    <option key={"故障"}>{"故障"}</option>
@@ -75,7 +75,7 @@ componentWillMount() {
   </Radio.Group>
  </FormItem>
  <FormItem required={true} label="工程防护效果" name="protectEffect">
-  <Select style={{width: 212}} >
+  <Select style={{width: 230}} >
    <option key={"良好"}>{"良好"}</option>
    <option key={"一般"}>{"一般"}</option>
    <option key={"差"}>{"差"}</option>

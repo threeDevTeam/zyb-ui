@@ -4,6 +4,7 @@ import {Cascader, DatePicker, Input, InputNumber, Radio, Select} from 'nowrapper
 import {TreeSelect} from "antd";
 import request from "../../utils/request";
 import moment from "moment";
+import locale from "antd/es/date-picker/locale/zh_CN";
 const validate = {
 name: {type: "string", required: true, message: '姓名不能为空'},
 idNum: {type: "string", required: true, message: '身份证号不能为空'},
@@ -61,42 +62,42 @@ componentWillMount() {
  render() {
   return (
  <Form core={this.core} layout={{label: 9}}>
-  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'} style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
- <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-  <FormItem required={true} label="姓名" name="name"><Input/></FormItem>
- <FormItem required={true} label="身份证号" name="idNum"><Input/></FormItem>
-  <FormItem required={true} label="职业病名称" name="cascaded1"><Cascader style={{width: 212}} options={this.state.dataSource1}  onChange={this.onChange} placeholder="职业病名称"/></FormItem>
+  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'} style={{width: 230}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
+ <FormItem style={{display: 'none'}} name="id"><Input style={{width: 230}}/></FormItem>
+  <FormItem required={true} label="姓名" name="name"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="身份证号" name="idNum"><Input style={{width: 230}}/></FormItem>
+  <FormItem required={true} label="职业病名称" name="cascaded1"><Cascader style={{width: 230}} options={this.state.dataSource1}  onChange={this.onChange} placeholder="职业病名称"/></FormItem>
 
   <FormItem required={true} label="病人类别" name="type">
-  <Select style={{width: 212}} >
+  <Select style={{width: 230}} >
    <option key={"新病例"}>{"新病例"}</option>
    <option key={"首次晋期"}>{"首次晋期"}</option>
    <option key={"再次晋期"}>{"再次晋期"}</option>
   </Select>
  </FormItem>
- <FormItem required={true} label="诊断机构" name="org"><Input/></FormItem>
- <FormItem required={true} label="诊断日期" name="checkDateStr"><DatePicker placeholder="请选择诊断日期"/></FormItem>
- <FormItem required={true} label="诊断年份" name="checkYear"><InputNumber/></FormItem>
- <FormItem required={true} label="诊断月份" name="checkMonth"><InputNumber/></FormItem>
- <FormItem required={true} label="发病工龄" name="sickYear"><InputNumber/></FormItem>
+ <FormItem required={true} label="诊断机构" name="org"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="诊断日期" name="checkDateStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择诊断日期"/></FormItem>
+ <FormItem required={true} label="诊断年份" name="checkYear"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="诊断月份" name="checkMonth"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="发病工龄" name="sickYear"><InputNumber style={{width: 230}}/></FormItem>
  <FormItem required={true} value={"是"}  label="是否进行了职业病病人报告" name="isReport">
   <Radio.Group style={{width:200,paddingLeft:10}} >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem required={true} label="职业病损失工作日" name="workDay"><InputNumber/></FormItem>
- <FormItem required={true} label="新增" name="increase"><Input/></FormItem>
+ <FormItem required={true} label="职业病损失工作日" name="workDay"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="新增" name="increase"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} label="转归情况" name="transform">
-  <Select style={{width: 212}}>
+  <Select style={{width: 230}}>
    <option key={"治愈中"}>{"治愈中"}</option>
    <option key={"康复"}>{"康复"}</option>
    <option key={"死亡"}>{"死亡"}</option>
   </Select>
  </FormItem>
- <FormItem required={true} label="死亡日期" name="dieDateStr"><DatePicker placeholder="请选择死亡日期"/></FormItem>
- <FormItem required={true} label="死亡年份" name="dieYear"><InputNumber/></FormItem>
- <FormItem required={true} label="死亡月份" name="dieMonth"><InputNumber/></FormItem>
+ <FormItem required={true} label="死亡日期" name="dieDateStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择死亡日期"/></FormItem>
+ <FormItem required={true} label="死亡年份" name="dieYear"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="死亡月份" name="dieMonth"><InputNumber style={{width: 230}}/></FormItem>
  </Form>
  )
  }

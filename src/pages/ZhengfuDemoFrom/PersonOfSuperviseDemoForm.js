@@ -1,9 +1,9 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {DatePicker, Input, InputNumber, Radio} from 'nowrapper/lib/antd'
+import {DatePicker , Input, InputNumber, Radio} from 'nowrapper/lib/antd'
 import {Col, Row} from "antd";
 import moment from "moment";
-
+import locale from 'antd/es/date-picker/locale/zh_CN';
 const validate = {
     name: {type: "string", required: true, message: '姓名不能为空'},
     gender: {type: "string", required: true, message: '性别不能为空'},
@@ -46,7 +46,7 @@ class PersonOfSuperviseDemoForm extends PureComponent {
                        </Radio.Group>
                    </FormItem>
                      <FormItem required={true} label="身份证号" name="idNum"><Input/></FormItem>
-                    <FormItem required={true} label="出生日期" name="birthStr"><DatePicker placeholder="请选择出生日期"/></FormItem>
+                    <FormItem required={true} label="出生日期" name="birthStr"><DatePicker locale={locale} placeholder="请选择出生日期"/></FormItem>
                    <FormItem required={true} label="职务" name="job"><Input/></FormItem>
                     <FormItem required={true} label="所学专业" name="major"><Input/></FormItem>
 

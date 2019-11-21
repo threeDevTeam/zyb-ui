@@ -5,6 +5,7 @@ import {InlineRepeater, Selectify} from "nowrapper/lib/antd/repeater";
 import {TreeSelect} from "antd";
 import request from "../../utils/request";
 import moment from "moment";
+import locale from "antd/es/date-picker/locale/zh_CN";
 let SelectInlineRepeater = Selectify(InlineRepeater)
 const validate = {
 checkDate: {type: "number", required: true, message: '检测时间不能为空'},
@@ -47,23 +48,23 @@ componentWillMount() {
  render() {
   return (
  <Form core={this.core} layout={{label: 9}}>
- <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'}  style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
-  <FormItem required={true} label="检测时间" name="checkDateStr"><DatePicker placeholder="请选择检测时间"/></FormItem>
- <FormItem required={true} label="检测年份" name="checkYear"><InputNumber/></FormItem>
- <FormItem required={true} label="检测月份" name="checkMonth"><InputNumber/></FormItem>
- <FormItem required={true} label="检测机构" name="org"><Input/></FormItem>
- <FormItem required={true} label="检测机构的社会统一代码" name="code"><Input/></FormItem>
- <FormItem required={true} label="检测报告编号" name="num"><Input/></FormItem>
+ <FormItem style={{display: 'none'}} name="id"><Input style={{width: 230}}/></FormItem>
+  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'}  style={{width: 230}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
+  <FormItem required={true} label="检测时间" name="checkDateStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择检测时间"/></FormItem>
+ <FormItem required={true} label="检测年份" name="checkYear"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="检测月份" name="checkMonth"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="检测机构" name="org"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="检测机构的社会统一代码" name="code"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="检测报告编号" name="num"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true}  value={"合格"} label="判定结果" name="decideResult">
   <Radio.Group  value={this.state.value} >
    <Radio value={"合格"}>合格</Radio>
    <Radio value={"不合格"}>不合格</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem required={true} label="超标原因" name="reason"><Input/></FormItem>
+ <FormItem required={true} label="超标原因" name="reason"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} label="危害程度级别" name="dangerLevel">
-  <Radio.Group  value={this.state.value} style={{width: 212}} >
+  <Radio.Group  value={this.state.value} style={{width: 230}} >
    <Radio value={"轻度"}>轻度</Radio>
    <Radio value={"中度"}>中度</Radio>
    <Radio value={"高度"}>高度</Radio>
@@ -72,9 +73,9 @@ componentWillMount() {
  </FormItem>
   <FormItem name="course">
    <SelectInlineRepeater locale='zh' selectMode="multiple" multiple>
-    <FormItem  label='检测结果' name="checkResult"><Input/></FormItem>
+    <FormItem  label='检测结果' name="checkResult"><Input style={{width: 230}}/></FormItem>
     <FormItem label='类别' name="type">
-     <Select value={this.state.city} style={{width: 212}}>
+     <Select value={this.state.city} style={{width: 230}}>
       <option key={"CMAC"}>{"CMAC"}</option>
       <option key={"CTWA"}>{"CTWA"}</option>
       <option key={"CSTEL"}>{"CSTEL"}</option>
@@ -83,7 +84,7 @@ componentWillMount() {
      </Select>
     </FormItem>
     <FormItem  label='单位' name="unit">
-     <Select value={this.state.city} style={{width: 212}}>
+     <Select value={this.state.city} style={{width: 230}}>
 
       <option key={"mg/m3"}>{"mg/m3"}</option>
       <option key={"kV"}>{"kV"}</option>

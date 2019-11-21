@@ -4,7 +4,7 @@ import {Cascader, DatePicker, Input, InputNumber, Radio, Select} from 'nowrapper
 import {InlineRepeater, Selectify} from "nowrapper/lib/antd/repeater";
 import request from "../../utils/request";
 import moment from "moment";
-
+import locale from 'antd/es/date-picker/locale/zh_CN';
 let SelectInlineRepeater = Selectify(InlineRepeater)
 const validate = {
  checkDate: {type: "number", required: true, message: '检测时间不能为空'},
@@ -85,26 +85,26 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
         return (
             <Form core={this.core} layout={{label: 8}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem required={true} label="检测时间" name="checkDateStr"><DatePicker placeholder="请选择检测时间"/></FormItem>
-                <FormItem required={true} label="检测年份" name="checkYear"><InputNumber/></FormItem>
-                <FormItem required={true} label="检测月份" name="checkMonth"><InputNumber/></FormItem>
-                <FormItem required={true} label="检测报告编号" name="num"><Input/></FormItem>
-                <FormItem required={true} label="企业名称" name="enterpriseName"><Input/></FormItem>
-                <FormItem required={true} label="统一社会信用代码" name="enterpriseCode"><Input/></FormItem>
-                <FormItem required={true} label="省/市/区" name="cascader"><Cascader style={{width: 212}} options={this.state.dataSource}
+                <FormItem required={true} label="检测时间" name="checkDateStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择检测时间"/></FormItem>
+                <FormItem required={true} label="检测年份" name="checkYear"><InputNumber style={{width: 230}}/></FormItem>
+                <FormItem required={true} label="检测月份" name="checkMonth"><InputNumber style={{width: 230}}/></FormItem>
+                <FormItem required={true} label="检测报告编号" name="num"><Input style={{width: 230}}/></FormItem>
+                <FormItem required={true} label="企业名称" name="enterpriseName"><Input style={{width: 230}}/></FormItem>
+                <FormItem required={true} label="统一社会信用代码" name="enterpriseCode"><Input style={{width: 230}}/></FormItem>
+                <FormItem required={true} label="省/市/区" name="cascader"><Cascader style={{width: 230}} options={this.state.dataSource}
                                                                   onChange={this.onChange}
                                                                   placeholder="请选择省/市/区"/></FormItem>
-                <FormItem required={true} label="注册地址" name="registerAddress"><Input/></FormItem>
+                <FormItem required={true} label="注册地址" name="registerAddress"><Input style={{width: 230}}/></FormItem>
 
-                <FormItem required={true} label="登记注册类型小类名" name="cascaded1"><Cascader style={{width: 212}} options={this.state.dataSource1}  onChange={this.onChange} placeholder="登记注册类型"/></FormItem>
+                <FormItem required={true} label="登记注册类型小类名" name="cascaded1"><Cascader style={{width: 230}} options={this.state.dataSource1}  onChange={this.onChange} placeholder="登记注册类型"/></FormItem>
 
-                <FormItem required={true} label="所属行业名称" name="cascaded2"><Cascader style={{width: 212}} options={this.state.dataSource2}  onChange={this.onChange} placeholder="所属行业名称"/></FormItem>
+                <FormItem required={true} label="所属行业名称" name="cascaded2"><Cascader style={{width: 230}} options={this.state.dataSource2}  onChange={this.onChange} placeholder="所属行业名称"/></FormItem>
 
-               <FormItem required={true} label="工作场所地址" name="workAddress"><Input/></FormItem>
-                <FormItem required={true} label="工作场所名称" name="workplaceName"><Input/></FormItem>
-                <FormItem required={true} label="工作场所编码" name="workplaceCode"><InputNumber/></FormItem>
-                <FormItem required={true} label="岗位名称" name="cascaded3"><Cascader style={{width: 212}} options={this.state.dataSource3}  onChange={this.onChange} placeholder="岗位名称"/></FormItem>
-                <FormItem required={true} label="职业病危害因素名称" name="cascaded4"><Cascader style={{width: 212}} options={this.state.dataSource4}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
+               <FormItem required={true} label="工作场所地址" name="workAddress"><Input style={{width: 230}}/></FormItem>
+                <FormItem required={true} label="工作场所名称" name="workplaceName"><Input style={{width: 230}}/></FormItem>
+                <FormItem required={true} label="工作场所编码" name="workplaceCode"><InputNumber style={{width: 230}}/></FormItem>
+                <FormItem required={true} label="岗位名称" name="cascaded3"><Cascader style={{width: 230}} options={this.state.dataSource3}  onChange={this.onChange} placeholder="岗位名称"/></FormItem>
+                <FormItem required={true} label="职业病危害因素名称" name="cascaded4"><Cascader style={{width: 230}} options={this.state.dataSource4}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
                 <FormItem required={true} value={"合格"}  label="判定结果" name="decideResult">
                     <Radio.Group value={this.state.value} style={{width:200}}>
                         <Radio value={"合格"}>合格</Radio>
@@ -112,13 +112,13 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
                     </Radio.Group>
                 </FormItem>
 
-                <FormItem required={true} label="超标原因" name="reason"><Input/></FormItem>
+                <FormItem required={true} label="超标原因" name="reason"><Input style={{width: 230}}/></FormItem>
 
                 <FormItem name="course">
                     <SelectInlineRepeater locale='zh' selectMode="multiple" multiple>
-                        <FormItem  label='检测结果' name="checkResult"><Input/></FormItem>
+                        <FormItem  label='检测结果' name="checkResult"><Input style={{width: 230}}/></FormItem>
                         <FormItem label='类别' name="type">
-                            <Select value={this.state.city} style={{width: 212}}>
+                            <Select value={this.state.city} style={{width: 230}}>
 
                                 <option key={"CMAC"}>{"CMAC"}</option>
                                 <option key={"CTWA"}>{"CTWA"}</option>
@@ -127,7 +127,7 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
                                 <option key={"其他"}>{"其他"}</option>
                             </Select>
                         </FormItem>
-                        <FormItem label='单位' name="unit"><Input/></FormItem>
+                        <FormItem label='单位' name="unit"><Input style={{width: 230}}/></FormItem>
                     </SelectInlineRepeater>
                 </FormItem>
             </Form>

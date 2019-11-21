@@ -3,6 +3,7 @@ import Form, {FormItem, FormCore} from 'noform'
 import {Cascader, DatePicker, Input, InputNumber, Select} from 'nowrapper/lib/antd'
 import request from "../../utils/request";
 import moment from "moment";
+import locale from "antd/es/date-picker/locale/zh_CN";
 const validate = {
 riskLevel: {type: "string", required: true, message: '风险等级不能为空'},
 year: {type: "number", required: true, message: '申报年份不能为空'},
@@ -70,11 +71,11 @@ componentWillMount() {
  <Form core={this.core} layout={{label: 9}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
   <div style={{display: this.state.Login1,marginTop:10,marginBottom:10}}>
- <FormItem required={true} label="企业名称" name="name"><Input/></FormItem>
- <FormItem required={true} label="统一社会信用代码" name="code"><Input/></FormItem>
+ <FormItem required={true} label="企业名称" name="name"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="统一社会信用代码" name="code"><Input style={{width: 230}}/></FormItem>
   </div>
  <FormItem required={true} label="风险等级" name="riskLevel">
-  <Select value={this.state.city} style={{width: 212}}>
+  <Select value={this.state.city} style={{width: 230}}>
 
    <option key={"I级"}>{"I级"}</option>
    <option key={"Ⅱ级"}>{"Ⅱ级"}</option>
@@ -82,25 +83,25 @@ componentWillMount() {
 
   </Select>
  </FormItem>
- <FormItem required={true} label="申报年份" name="year"><InputNumber/></FormItem>
+ <FormItem required={true} label="申报年份" value={2019} name="year"><InputNumber style={{width: 230}}/></FormItem>
 
   <div style={{display: this.state.Login,marginTop:10,marginBottom:10}}>
    <FormItem required={true} label="企业规模" name="size">
     <Input disabled/>
    </FormItem>
-   <FormItem required={true} label="省/市/区" name="cascader"><Cascader style={{width: 212}} options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
+   <FormItem required={true} label="省/市/区" name="cascader"><Cascader style={{width: 230}} options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
   </div>
   <div style={{marginTop:10,marginBottom:10}}>
-  <FormItem required={true} label="工作场所地址" name="workAddress"><Input/></FormItem>
+  <FormItem required={true} label="工作场所地址" name="workAddress"><Input style={{width: 230}}/></FormItem>
   </div>
 
-  <FormItem required={true} label="登记注册类型" name="cascaded1"><Cascader style={{width: 212}} options={this.state.dataSource1}  onChange={this.onChange1} placeholder="登记注册类型"/></FormItem>
+  <FormItem required={true} label="登记注册类型" name="cascaded1"><Cascader style={{width: 230}} options={this.state.dataSource1}  onChange={this.onChange1} placeholder="登记注册类型"/></FormItem>
 
-  <FormItem required={true} label="所属行业名称" name="cascaded2"><Cascader style={{width: 212}} options={this.state.dataSource2}  onChange={this.onChange} placeholder="所属行业名称"/></FormItem>
+  <FormItem required={true} label="所属行业名称" name="cascaded2"><Cascader style={{width: 230}} options={this.state.dataSource2}  onChange={this.onChange} placeholder="所属行业名称"/></FormItem>
 
-  <FormItem required={true} label="核定生产能力" name="productionCapacity"><InputNumber/></FormItem>
+  <FormItem required={true} label="核定生产能力" name="productionCapacity"><InputNumber style={{width: 230}}/></FormItem>
  <FormItem required={true} label="生产能力单位类型" name="unitType">
-  <Select value={this.state.city} style={{width: 212}}>
+  <Select value={this.state.city} style={{width: 230}}>
    <option key={"万件"}>{"万件"}</option>
    <option key={"万吨"}>{"万吨"}</option>
    <option key={"万立方米"}>{"万立方米"}</option>
@@ -109,19 +110,19 @@ componentWillMount() {
   </Select>
  </FormItem>
   <div style={{display: this.state.Login2,marginTop:10,marginBottom:10}}>
- <FormItem required={true} label="注册资本" name="regiterMoney"><InputNumber/></FormItem>
- <FormItem required={true} label="注册地址" name="registerAddress"><Input/></FormItem>
- <FormItem required={true} disabled label="注册时间" name="registerDateStr"><DatePicker placeholder="请选择注册时间"/></FormItem>
- <FormItem required={true}  label="投产时间" name="startDateStr"><DatePicker placeholder="请选择投产时间"/></FormItem>
- <FormItem required={true} label="资产总额" name="propertyMoney"><InputNumber/></FormItem>
+ <FormItem required={true} label="注册资本" name="regiterMoney"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="注册地址" name="registerAddress"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} disabled label="注册时间" name="registerDateStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择注册时间"/></FormItem>
+ <FormItem required={true}  label="投产时间" name="startDateStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择投产时间"/></FormItem>
+ <FormItem required={true} label="资产总额" name="propertyMoney"><InputNumber style={{width: 230}}/></FormItem>
   </div>
   <div style={{marginTop:10,marginBottom:10}}>
- <FormItem required={true} label="营业收入" name="saleMoney"><InputNumber/></FormItem>
+ <FormItem required={true} label="营业收入" name="saleMoney"><InputNumber style={{width: 230}}/></FormItem>
   </div>
- <FormItem required={true} label="从业人数" name="workerNumber"><InputNumber/></FormItem>
- <FormItem required={true} label="从业人数中的女工数" name="womenWorkerNumber"><InputNumber/></FormItem>
- <FormItem required={true} label="劳务派遣用工人数" name="outNumber"><InputNumber/></FormItem>
- <FormItem required={true} label="劳务派遣的女工数" name="outWomenNumber"><InputNumber/></FormItem>
+ <FormItem required={true} label="从业人数" name="workerNumber"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="从业人数中的女工数" name="womenWorkerNumber"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="劳务派遣用工人数" name="outNumber"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="劳务派遣的女工数" name="outWomenNumber"><InputNumber style={{width: 230}}/></FormItem>
  </Form>
  )
  }

@@ -1,9 +1,10 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Cascader, DatePicker, Input, InputNumber, Radio} from 'nowrapper/lib/antd'
+import {Cascader, DatePicker, Input, InputNumber, Radio, Select} from 'nowrapper/lib/antd'
 import {TreeSelect} from "antd";
 import moment from 'moment'
 import request from "../../utils/request";
+import locale from "antd/es/date-picker/locale/zh_CN";
 
 const validate = {
     name: {type: "string", required: true, message: '姓名不能为空'},
@@ -62,22 +63,22 @@ class TouchPersonOfEnterpriseDemoForm extends PureComponent {
             <Form core={this.core} layout={{label: 9}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
                 <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'}
-                                                                                     style={{width: 212}}
+                                                                                     style={{width: 230}}
                                                                                      placeholder="请选择工作场所"
                                                                                      treeData={this.state.dataSource}
                                                                                      onChange={this.onChange}/></FormItem>
-                <FormItem required={true} label="姓名" name="name"><Input/></FormItem>
-                <FormItem required={true} label="身份证号" name="idNum"><Input/></FormItem>
+                <FormItem required={true} label="姓名" name="name"><Input style={{width: 230}}/></FormItem>
+                <FormItem required={true} label="身份证号" name="idNum"><Input style={{width: 230}}/></FormItem>
                 <FormItem required={true} label="性别" name="gender">
                     <Radio.Group value={this.state.value} style={{width:200,paddingLeft:10}}>
                         <Radio value={"男"}>男</Radio>
                         <Radio value={"女"}>女</Radio>
                     </Radio.Group>
                 </FormItem>
-                <FormItem required={true} label="出生日期" name="birthStr"><DatePicker placeholder="请选择出生日期"/></FormItem>
-                <FormItem required={true} label="上岗时间" name="startDateStr"><DatePicker placeholder="请选择上岗时间"/></FormItem>
-                <FormItem required={true} label="离岗时间" name="leaveDateStr"><DatePicker placeholder="请选择离岗时间"/></FormItem>
-                <FormItem required={true} label="接害工龄" name="touchYear"><InputNumber/></FormItem>
+                <FormItem required={true} label="出生日期" name="birthStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择出生日期"/></FormItem>
+                <FormItem required={true} label="上岗时间" name="startDateStr"><DatePicker locale={locale}style={{width: 230}} placeholder="请选择上岗时间"/></FormItem>
+                <FormItem required={true} label="离岗时间" name="leaveDateStr"><DatePicker  locale={locale}style={{width: 230}} placeholder="请选择离岗时间"/></FormItem>
+                <FormItem required={true} label="接害工龄" name="touchYear"><InputNumber style={{width: 230}}/></FormItem>
                 <FormItem required={true} value={"是"} label="是否缴纳工伤保险" name="isBuy">
                     <Radio.Group value={this.state.value} style={{width:200,paddingLeft:10}}>
                         <Radio value={"是"}>是</Radio>

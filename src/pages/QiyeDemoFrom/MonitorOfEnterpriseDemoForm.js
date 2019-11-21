@@ -37,13 +37,13 @@ componentWillMount() {
  render() {
   return (
  <Form core={this.core} layout={{label: 9}}>
- <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'}  style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
- <FormItem required={true} label="监测周期" name="cycle"><Input/></FormItem>
- <FormItem required={true} label="监测时间" name="monitorTime"><InputNumber/></FormItem>
- <FormItem required={true} label="监测结果" name="monitorResult"><InputNumber/></FormItem>
+ <FormItem style={{display: 'none'}} name="id"><Input style={{width: 230}}/></FormItem>
+  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'}  style={{width: 230}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
+ <FormItem required={true} label="监测周期" name="cycle"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="监测时间" name="monitorTime"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="监测结果" name="monitorResult"><InputNumber style={{width: 230}}/></FormItem>
  <FormItem required={true} label="单位" name="unit">
-  <Select value={this.state.city} style={{width: 212}}>
+  <Select value={this.state.city} style={{width: 230}}>
 
    <option key={"mg/m3"}>{"mg/m3"}</option>
    <option key={"kV"}>{"kV"}</option>

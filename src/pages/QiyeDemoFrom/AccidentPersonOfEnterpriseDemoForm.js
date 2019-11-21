@@ -1,9 +1,10 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Cascader, DatePicker, Input, InputNumber, Radio} from 'nowrapper/lib/antd'
+import {Cascader, DatePicker, Input, InputNumber, Radio, Select} from 'nowrapper/lib/antd'
 import {TreeSelect} from "antd";
 import request from "../../utils/request";
 import moment from "moment";
+import locale from 'antd/es/date-picker/locale/zh_CN';
 const validate = {
 accidentNum: {type: "string", required: true, message: '职业病危害事故编号不能为空'},
 name: {type: "string", required: true, message: '姓名不能为空'},
@@ -43,25 +44,25 @@ componentWillMount() {
  render() {
   return (
  <Form core={this.core} layout={{label: 9}}>
- <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'} style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
-  <FormItem required={true} label="职业病危害事故编号" name="accidentNum"><Input/></FormItem>
- <FormItem required={true} label="姓名" name="name"><Input/></FormItem>
- <FormItem required={true} label="身份证号" name="idNum"><Input/></FormItem>
+ <FormItem style={{display: 'none'}} name="id"><Input style={{width: 230}}/></FormItem>
+  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'} style={{width: 230}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
+  <FormItem required={true} label="职业病危害事故编号" name="accidentNum"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="姓名" name="name"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="身份证号" name="idNum"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} value={"男"} label="性别" name="gender">
   <Radio.Group  style={{width:200}}>
    <Radio value={"男"}>男</Radio>
    <Radio value={"女"}>女</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem required={true} label="年龄" name="age"><InputNumber/></FormItem>
+ <FormItem required={true} label="年龄" name="age"><InputNumber style={{width: 230}}/></FormItem>
  <FormItem required={true} value={"是"} label="是否死亡" name="isDie">
   <Radio.Group  style={{width:200}}>
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem required={true}  label="死亡日期" name="dieDateStr"><DatePicker placeholder="请选择死亡日期"/></FormItem>
+ <FormItem required={true}  label="死亡日期" name="dieDateStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择死亡日期"/></FormItem>
  </Form>
  )
  }

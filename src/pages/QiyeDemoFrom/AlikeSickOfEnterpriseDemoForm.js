@@ -1,9 +1,10 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Cascader, DatePicker, Input, InputNumber, Radio} from 'nowrapper/lib/antd'
+import {Cascader, DatePicker, Input, InputNumber, Radio, Select} from 'nowrapper/lib/antd'
 import {TreeSelect} from "antd";
 import request from "../../utils/request";
 import moment from "moment";
+import locale from "antd/es/date-picker/locale/zh_CN";
 const validate = {
 name: {type: "string", required: true, message: '姓名不能为空'},
 idNum: {type: "string", required: true, message: '身份证号不能为空'},
@@ -46,14 +47,14 @@ componentWillMount() {
   return (
  <Form core={this.core}layout={{label: 9}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'} style={{width: 212}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
-  <FormItem required={true} label="姓名" name="name"><Input/></FormItem>
- <FormItem required={true} label="身份证号" name="idNum"><Input/></FormItem>
- <FormItem required={true} label="检查机构" name="org"><Input/></FormItem>
- <FormItem required={true} label="检查日期" name="checkDateStr"><DatePicker placeholder="请选择检查日期"/></FormItem>
- <FormItem required={true} label="检查年份" name="checkYear"><InputNumber/></FormItem>
- <FormItem required={true} label="检查月份" name="checkMonth"><InputNumber/></FormItem>
- <FormItem required={true} label="发病工龄" name="sickYear"><InputNumber/></FormItem>
+  <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'} style={{width: 230}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
+  <FormItem required={true} label="姓名" name="name"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="身份证号" name="idNum"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="检查机构" name="org"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="检查日期" name="checkDateStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择检查日期"/></FormItem>
+ <FormItem required={true} label="检查年份" name="checkYear"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="检查月份" name="checkMonth"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="发病工龄" name="sickYear"><InputNumber style={{width: 230}}/></FormItem>
  <FormItem required={true}  value={"是"} label="是否进行了疑似职业病病人报告" name="isReport">
   <Radio.Group style={{width:200}} >
    <Radio value={"是"}>是</Radio>

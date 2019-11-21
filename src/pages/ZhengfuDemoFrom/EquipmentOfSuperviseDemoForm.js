@@ -3,7 +3,7 @@ import Form, {FormItem, FormCore} from 'noform'
 import {DatePicker, Input, InputNumber, Select} from 'nowrapper/lib/antd'
 import {Col, Row} from "antd";
 import moment from "moment";
-
+import locale from 'antd/es/date-picker/locale/zh_CN';
 const validate = {
     name: {type: "string", required: true, message: '装备名称不能为空'},
     num: {type: "string", required: true, message: '规格型号不能为空'},
@@ -36,13 +36,13 @@ class EquipmentOfSuperviseDemoForm extends PureComponent {
         return (
             <Form core={this.core} layout={{label: 8}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem required={true} label="装备名称" name="name"><Input/></FormItem>
-                <FormItem required={true} label="规格型号" name="num"><Input/></FormItem>
-                <FormItem required={true} label="数量" name="amount"><InputNumber/></FormItem>
-                <FormItem required={true} label="购置时间" name="buyDateStr"><DatePicker placeholder="请选择购置时间"/></FormItem>
+                <FormItem required={true} label="装备名称" name="name"><Input style={{width:230}}/></FormItem>
+                <FormItem required={true} label="规格型号" name="num"><Input style={{width:230}}/></FormItem>
+                <FormItem required={true} label="数量" name="amount"><InputNumber style={{width:230}}/></FormItem>
+                <FormItem required={true} label="购置时间" name="buyDateStr"><DatePicker locale={locale} style={{width:230}} placeholder="请选择购置时间"/></FormItem>
 
                 <FormItem required={true} label="装备状态" name="status">
-                    <Select value={this.state.city} style={{width: 212}}>
+                    <Select value={this.state.city} style={{width:230}}>
 
                              <option key={"在用"}>{"在用"}</option>
                              <option key={"停用"}>{"停用"}</option>

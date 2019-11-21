@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Cascader, Input, InputNumber, Radio} from 'nowrapper/lib/antd'
+import {Cascader, Input, InputNumber, Radio, Select} from 'nowrapper/lib/antd'
 import request from "../../utils/request";
 const validate = {
 accidentNum: {type: "string", required: true, message: '职业病危害事故编号不能为空'},
@@ -38,17 +38,17 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label: 9}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
- <FormItem required={true} label="职业病危害事故编号" name="accidentNum"><Input/></FormItem>
- <FormItem required={true} label="事故发生时间" name="startTime"><InputNumber/></FormItem>
- <FormItem required={true} label="事故发生地点" name="place"><Input/></FormItem>
-  <FormItem required={true} label="导致事故的职业病危害因素名称" name="cascaded1"><Cascader style={{width: 212}} options={this.state.dataSource1}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
+ <FormItem required={true} label="职业病危害事故编号" name="accidentNum"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="事故发生时间" name="startTime"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="事故发生地点" name="place"><Input style={{width: 230}}/></FormItem>
+  <FormItem required={true} label="导致事故的职业病危害因素名称" name="cascaded1"><Cascader style={{width: 230}} options={this.state.dataSource1}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
 
- <FormItem required={true} label="发病人数" name="sickCount"><InputNumber/></FormItem>
- <FormItem required={true} label="送医院治疗人数" name="treatCount"><InputNumber/></FormItem>
- <FormItem required={true} label="直接经济损失" name="directLose"><InputNumber/></FormItem>
- <FormItem required={true} label="间接经济损失" name="indirectLose"><InputNumber/></FormItem>
- <FormItem required={true} label="事故原因" name="reason"><Input/></FormItem>
- <FormItem required={true} label="事故经过" name="process"><Input/></FormItem>
+ <FormItem required={true} label="发病人数" name="sickCount"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="送医院治疗人数" name="treatCount"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="直接经济损失" name="directLose"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="间接经济损失" name="indirectLose"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="事故原因" name="reason"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="事故经过" name="process"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} value={"是"} label="是否向有关部门报告" name="isReport">
   <Radio.Group  style={{width:200}}>
    <Radio value={"是"}>是</Radio>

@@ -37,9 +37,9 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label: 9}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
- <FormItem required={true} label="产品名称" name="name"><Input/></FormItem>
+ <FormItem required={true} label="产品名称" name="name"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} label="产品状态" name="status">
-  <Select style={{width: 212}}>
+  <Select  style={{width: 230}}>
    <option key={"固态"}>{"固态"}</option>
    <option key={"液态"}>{"液态"}</option>
    <option key={"气态"}>{"气态"}</option>
@@ -47,16 +47,16 @@ componentWillMount() {
 
   </Select>
  </FormItem>
- <FormItem required={true} label="产品年产量" name="yearNumber"><InputNumber/></FormItem>
- <FormItem required={true} label="产量类型" name="productionType"><Input/></FormItem>
- <FormItem required={true} label="中间品名称" name="middleName"><Input/></FormItem>
- <FormItem required={true} label="中间品状态" name="middleStatus"><Input/></FormItem>
- <FormItem required={true} label="中间品年产量" name="middleYearNumber"><InputNumber/></FormItem>
- <FormItem required={true} label="原辅料名称" name="materialName"><Input/></FormItem>
- <FormItem required={true} label="原辅料状态" name="materialStatus"><Input/></FormItem>
- <FormItem required={true} label="原辅料年用量" name="materialYearNumber"><InputNumber/></FormItem>
- <FormItem required={true} label="用量类型" name="materialType"><Input/></FormItem>
- <FormItem required={true} label="主要生产工艺描述" name="describee"><Input/></FormItem>
+ <FormItem required={true} label="产品年产量" name="yearNumber"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="产量类型" name="productionType"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="中间品名称" name="middleName"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="中间品状态" name="middleStatus"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="中间品年产量" name="middleYearNumber"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="原辅料名称" name="materialName"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="原辅料状态" name="materialStatus"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="原辅料年用量" name="materialYearNumber"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="用量类型" name="materialType"><Input style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="主要生产工艺描述" name="describee"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} value={"是"} label="是否存在职业病危害工艺岗位" name="isExist">
   <Radio.Group style={{width:200,paddingLeft:10}}>
    <Radio value={"是"}>是</Radio>

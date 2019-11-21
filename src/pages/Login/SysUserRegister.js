@@ -6,7 +6,7 @@ import request from "../../utils/request";
 import moment from "moment";
 import logo from '../../assets/logo.png'
 import Link from 'umi/link'
-
+import locale from 'antd/es/date-picker/locale/zh_CN';
 
 const validate = {
     loginName: {type: "string", required: true, message: '登录名不能为空'},
@@ -298,42 +298,42 @@ class SysUserRegister extends PureComponent {
                                         placeholder="请选择企业名称" style={{width:230}}/></FormItem>
                                 </div>
                                 <div style={{display: this.state.displayEnterprise, fontSize: '16px'}}>
-                                    <FormItem label="统一社会信用代码" name="code" required={true}><Input/></FormItem>
+                                    <FormItem label="统一社会信用代码" name="code" required={true}><Input style={{width:230}}/></FormItem>
                                     <FormItem label="省/市/区" name="cascader" required={true}><Cascader
-                                        style={{width: 212}}
+                                        style={{width:230}}
                                         options={this.state.dataSource}
                                         onChange={this.onChange}
                                         placeholder="请选择省/市/区"/></FormItem>
 
                                     <FormItem label="核定生产能力" name="productionCapacity"
-                                              required={true}><Input/></FormItem>
-                                    <FormItem label="生产能力单位类型" name="unitType" required={true}><Input/></FormItem>
-                                    <FormItem label="注册资本" name="regiterMoney" required={true}><Input/></FormItem>
-                                    <FormItem label="注册地址" name="registerAddress" required={true}><Input/></FormItem>
-                                    <FormItem label="注册时间" name="registerDateStr" required={true}><DatePicker
+                                              required={true}><Input style={{width:230}}/></FormItem>
+                                    <FormItem label="生产能力单位类型" name="unitType" required={true}><Input style={{width:230}}/></FormItem>
+                                    <FormItem label="注册资本" name="regiterMoney" required={true} ><Input style={{width:230}}/></FormItem>
+                                    <FormItem label="注册地址" name="registerAddress" required={true} ><Input style={{width:230}}/></FormItem>
+                                    <FormItem label="注册时间" name="registerDateStr"  required={true}><DatePicker locale={locale} style={{width:230}}
                                         placeholder="请选择注册时间"/></FormItem>
-                                    <FormItem label="投产时间" name="startDateStr" required={true}><DatePicker
+                                    <FormItem label="投产时间" name="startDateStr"  required={true}><DatePicker locale={locale} style={{width:230}}
                                         placeholder="请选择投产时间"/></FormItem>
                                     <FormItem label="资产总额" name="propertyMoney" required={true}><Input style={{width: 230}}/></FormItem>
                                 </div>
                                 <div style={{display: this.state.displayGov,fontSize: '16px'}}>
                                     <FormItem label="省/市/区" name="cascader" required={true}><Cascader
-                                        style={{width: 212}}
+                                        style={{width:230}}
                                         options={this.state.dataSource}
                                         onChange={this.onChange}
                                         placeholder="请选择省/市/区"/></FormItem>
-                                    <FormItem label="注册地址" name="registerAddress" required={true}><Input/></FormItem>
+                                    <FormItem label="注册地址" name="registerAddress" required={true}><Input style={{width:230}}/></FormItem>
                                 </div>
                                 <div style={{display: this.state.displayService, fontSize: '18px'}}>
-                                    <FormItem label="社会统一代码" name="code" required={true}><Input/></FormItem>
+                                    <FormItem label="社会统一代码" name="code" required={true}><Input style={{width:230}}/></FormItem>
                                     <FormItem label="省/市/区" name="cascader" required={true}><Cascader
-                                        style={{width: 212}}
+                                        style={{width:230}}
                                         options={this.state.dataSource}
                                         onChange={this.onChange}
                                         placeholder="请选择省/市/区"/></FormItem>
-                                    <FormItem label="注册地址" name="registerAddress" required={true}><Input/></FormItem>
+                                    <FormItem label="注册地址" name="registerAddress" required={true}><Input style={{width:230}}/></FormItem>
                                     <FormItem label="机构类型" name="type2" required={true}>
-                                        <Select placeholder="----请选择机构类型----" style={{width: 212}}>
+                                        <Select placeholder="----请选择机构类型----" style={{width:230}}>
                                             <option key={"检测机构"}>{"检测机构"}</option>
                                             <option key={"体检机构"}>{"体检机构"}</option>
                                             <option key={"诊断机构"}>{"诊断机构"}</option>

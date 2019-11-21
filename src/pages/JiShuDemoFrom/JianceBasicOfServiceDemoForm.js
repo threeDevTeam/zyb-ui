@@ -56,20 +56,20 @@ componentWillMount() {
  <Form core={this.core} layout={{label:8}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
   <div style={{display: this.state.Login,marginBottom:10}}>
-  <FormItem required={true} label="机构名称" name="name"><Input/></FormItem>
-  <FormItem required={true} label="社会统一代码" name="code"><Input/></FormItem>
+  <FormItem required={true} label="机构名称" name="name"><Input style={{width:230}}/></FormItem>
+  <FormItem required={true} label="社会统一代码" name="code"><Input style={{width:230}}/></FormItem>
  </div>
   <div style={{marginBottom:10}}>
-   <FormItem required={true} label="申报年份" name="year"><InputNumber/></FormItem>
+   <FormItem required={true} label="申报年份" name="year"><InputNumber style={{width:230}}/></FormItem>
   </div>
   <div style={{display: this.state.Login1,marginTop:10,marginBottom:10}}>
-   <FormItem required={true} label="省/市/区" name="cascader"><Cascader style={{width: 212}} options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
- <FormItem required={true} label="注册地址" name="registerAddress"><Input/></FormItem>
+   <FormItem required={true} label="省/市/区" name="cascader"><Cascader  style={{width:230}} options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>
+ <FormItem required={true} label="注册地址" name="registerAddress"><Input style={{width:230}}/></FormItem>
   </div>
-  <FormItem required={true} label="登记注册类型" name="cascaded1"><Cascader style={{width: 212}} options={this.state.dataSource1}  onChange={this.onChange1} placeholder="登记注册类型"/></FormItem>
+  <FormItem required={true} label="登记注册类型" name="cascaded1"><Cascader  style={{width:230}}options={this.state.dataSource1}  onChange={this.onChange1} placeholder="登记注册类型"/></FormItem>
 
   <FormItem required={true} label="资质等级" name="level">
-  <Select value={this.state.city} style={{width: 212}}>
+  <Select value={this.state.city}  style={{width:230}}>
 
    <option key={"甲级"}>{"甲级"}</option>
    <option key={"乙级"}>{"乙级"}</option>
@@ -77,11 +77,11 @@ componentWillMount() {
 
   </Select>
  </FormItem>
- <FormItem required={true} label="资质证书编号" name="num"><Input/></FormItem>
- <FormItem required={true} label="专业技术人员数" name="technologyCount"><InputNumber/></FormItem>
- <FormItem required={true} label="经培训合格数" name="passCount"><InputNumber/></FormItem>
- <FormItem required={true} label="检测仪器台套数" name="equipmentCount"><InputNumber/></FormItem>
- <FormItem required={true} label="计量认证项目数" name="projectCount"><InputNumber/></FormItem>
+ <FormItem required={true} label="资质证书编号" name="num"><Input style={{width:230}}/></FormItem>
+ <FormItem required={true} label="专业技术人员数" name="technologyCount"><InputNumber style={{width:230}}/></FormItem>
+ <FormItem required={true} label="经培训合格数" name="passCount"><InputNumber style={{width:230}}/></FormItem>
+ <FormItem required={true} label="检测仪器台套数" name="equipmentCount"><InputNumber style={{width:230}}/></FormItem>
+ <FormItem required={true} label="计量认证项目数" name="projectCount"><InputNumber style={{width:230}}/></FormItem>
  </Form>
  )
  }
