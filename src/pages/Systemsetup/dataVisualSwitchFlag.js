@@ -40,73 +40,71 @@ class dataVisualSwitchFlag extends PureComponent {
     render() {
         return (
             <Form core={this.core} layout={{label: 8, control:10}}>
-                <FormItem  label="国家 开关" required={true}   value={"yes"} name="nationSwitch">
+                <FormItem  label="国家 开关" required={true}   value={"no"} name="nationSwitch">
                     <Radio.Group value={this.state.value} >
                         <Radio value={"yes"}>实际数据</Radio>
                         <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
 
-                <FormItem label="省和市 开关" required={true} value={"yes"}  name="provinceOrCitySwitch">
+                <FormItem label="省和市 开关" required={true} value={"no"}  name="provinceOrCitySwitch">
                     <Radio.Group value={this.state.value}>
                         <Radio value={"yes"}>实际数据</Radio>
                         <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
 
-                <FormItem label="市 开关" required={true} value={"yes"} name="citySwitch">
+                <FormItem label="市 开关" required={true} value={"no"} name="citySwitch">
                     <Radio.Group value={this.state.value}>
                         <Radio value={"yes"}>实际数据</Radio>
                         <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
 
-                <FormItem label="市和区 开关" required={true} value={"yes"} name="countryOrDistrictSwitch">
+                <FormItem label="市和区 开关" required={true} value={"no"} name="countryOrDistrictSwitch">
                     <Radio.Group value={this.state.value}>
                         <Radio value={"yes"}>实际数据</Radio>
                         <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
 
-                <FormItem label="企业 开关" required={true} value={"yes"} name="enterpriceSwitch">
+                <FormItem label="企业 开关" required={true} value={"no"} name="enterpriceSwitch">
                     <Radio.Group value={this.state.value}>
                         <Radio value={"yes"}>实际数据</Radio>
                         <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
 
-                <FormItem label="检测机构 开关" required={true}  value={"yes"} name="jianceSwitch">
+                <FormItem label="检测机构 开关" required={true}  value={"no"} name="jianceSwitch">
                     <Radio.Group value={this.state.value}>
                         <Radio value={"yes"}>实际数据</Radio>
                         <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
 
-                <FormItem label="体检机构 开关" required={true}  value={"yes"} name="tijianSwitch">
+                <FormItem label="体检机构 开关" required={true}  value={"no"} name="tijianSwitch">
                     <Radio.Group value={this.state.value}>
                         <Radio value={"yes"}>实际数据</Radio>
                         <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
 
-                <FormItem label="诊断机构机构 开关" required={true} value={"yes"} name="zhenduanSwitch">
+                <FormItem label="诊断机构机构 开关" required={true} value={"no"} name="zhenduanSwitch">
                     <Radio.Group value={this.state.value}>
                         <Radio value={"yes"}>实际数据</Radio>
                         <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
 
-                <FormItem label="政府开关 开关" required={true} value={"yes"} name="zhengfuSwitch">
+                <FormItem label="政府开关 开关" required={true} value={"no"} name="zhengfuSwitch">
                     <Radio.Group value={this.state.value}>
                         <Radio value={"yes"}>实际数据</Radio>
                         <Radio value={"no"}>虚拟数据</Radio>
                     </Radio.Group>
                 </FormItem>
-
-                <div style={{float: "right", marginRight: 80, marginTop: 100}}>
-                    <Button type="primary" onClick={this.handleOperator} >确定</Button>
-                </div>
-
+                <FormItem>
+                <Button type="primary" onClick={this.handleOperator} >确定</Button>
+                </FormItem>
             </Form>
         )
     }

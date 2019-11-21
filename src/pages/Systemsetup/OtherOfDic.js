@@ -26,7 +26,7 @@ class OtherOfDic extends PureComponent {
         const {dispatch} = this.props;
         if ('create' === type) {
             Dialog.show({
-                title: '创建',
+                title: '新增',
                 footerAlign: 'label',
                 locale: 'zh',
                 width: 650,
@@ -126,7 +126,7 @@ class OtherOfDic extends PureComponent {
         return (
             <List url='/zyb/otherOfDic/list' onError={this.handleError} onMount={this.onMount}>
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
-                    <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>创建</Button>
+                    <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>新增</Button>
                     <Button icon="edit" type="primary" onClick={() => this.handleOperator('edit')}
                             className={styles.marginLeft20}>编辑</Button>
                     <Button icon="eye" type="primary" onClick={() => this.handleOperator('view')}
@@ -135,7 +135,7 @@ class OtherOfDic extends PureComponent {
                             className={styles.marginLeft20}>删除</Button>
                     <div style={{float: 'right'}}>
                         <Filter noDefaultLayout>
-                            <Filter.Item label="小类名称" name="chineseColumnName"><Input/></Filter.Item>
+                            <Filter.Item label="小类名称：" name="chineseColumnName"><Input/></Filter.Item>
                             <Filter.Search><Button icon="search" type='primary'>查询</Button></Filter.Search>
                         </Filter>
                     </div>

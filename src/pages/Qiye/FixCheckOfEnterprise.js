@@ -175,7 +175,7 @@ class FixCheckOfEnterprise extends PureComponent {
                     <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>新增</Button>
                     <Button icon="edit" type="primary" onClick={() => this.handleOperator('edit')}
                             className={styles.marginLeft20}>编辑</Button>
-                    <Button icon="search" type="primary" onClick={() => this.handleOperator('view')}
+                    <Button icon="eye" type="primary" onClick={() => this.handleOperator('view')}
                             className={styles.marginLeft20}>浏览</Button>
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                             className={styles.marginLeft20}>删除</Button>

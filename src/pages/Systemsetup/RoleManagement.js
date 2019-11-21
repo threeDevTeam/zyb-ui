@@ -28,7 +28,7 @@ class RoleManagement extends PureComponent {
         const {dispatch} = this.props;
         if ('create' === type) {
             Dialog.show({
-                title: '创建',
+                title: '新增',
                 footerAlign: 'label',
                 locale: 'zh',
                 width: 650,
@@ -168,20 +168,23 @@ class RoleManagement extends PureComponent {
     render() {
         return (
             <List url='/zyb/sysRole/list' onError={this.handleError} onMount={this.onMount}>
-                <Filter cols={2}>
-                    <Filter.Item label="角色名称" name="name"><Input/></Filter.Item>
 
-                </Filter>
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
-                    <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>创建</Button>
+                    <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>新增</Button>
                     <Button icon="edit" type="primary" onClick={() => this.handleOperator('edit')}
                             className={styles.marginLeft20}>编辑</Button>
-                    <Button icon="search" type="primary" onClick={() => this.handleOperator('view')}
+                    <Button icon="eye" type="primary" onClick={() => this.handleOperator('view')}
                             className={styles.marginLeft20}>浏览</Button>
                     <Button icon="edit" type="primary" onClick={() => this.handleOperator('authorization')}
                             className={styles.marginLeft20}>授权</Button>
                     <Button icon="edit" type="primary" onClick={() => this.handleOperator('BindUser')}
                             className={styles.marginLeft20}>绑定用户</Button>
+                    <div style={{float: 'right'}}>
+                        <Filter noDefaultLayout>
+                            <Filter.Item label="角色名称：" name="name"><Input/></Filter.Item>
+                            <Filter.Search><Button icon="search" type='primary'>查询</Button></Filter.Search>
+                        </Filter>
+                    </div>
                 </div>
                 <Table onRow={record => {
                     return {

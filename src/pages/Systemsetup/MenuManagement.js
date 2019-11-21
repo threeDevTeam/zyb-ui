@@ -26,7 +26,7 @@ class MenuManagement extends PureComponent {
         const {dispatch} = this.props;
         if ('create' === type) {
             Dialog.show({
-                title: '创建',
+                title: '新增',
                 footerAlign: 'label',
                 locale: 'zh',
                 width: 650,
@@ -127,17 +127,21 @@ class MenuManagement extends PureComponent {
     render() {
         return (
             <List url='/zyb/sysMenu/list' onError={this.handleError} onMount={this.onMount}>
-                <Filter cols={2}>
-                    <Filter.Item label="名称" name="name"><Input/></Filter.Item>
-                </Filter>
+
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
-                    <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>创建</Button>
+                    <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>新增</Button>
                     <Button icon="edit" type="primary" onClick={() => this.handleOperator('edit')}
                             className={styles.marginLeft20}>编辑</Button>
-                    <Button icon="search" type="primary" onClick={() => this.handleOperator('view')}
+                    <Button icon="eye" type="primary" onClick={() => this.handleOperator('view')}
                             className={styles.marginLeft20}>浏览</Button>
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                             className={styles.marginLeft20}>删除</Button>
+                    <div style={{float: 'right'}}>
+                        <Filter noDefaultLayout>
+                            <Filter.Item label="名称：" name="name"><Input/></Filter.Item>
+                            <Filter.Search><Button icon="search" type='primary'>查询</Button></Filter.Search>
+                        </Filter>
+                    </div>
                 </div>
                 <Table onRow={record => {
                     return {
@@ -145,7 +149,6 @@ class MenuManagement extends PureComponent {
                         onDoubleClick: () => this.clickOperation('onDoubleClick', record)
                     }
                 }}>
-                    <Table.Column title="父子级" dataIndex="pid"/>
                     <Table.Column title="名称" dataIndex="name"/>
                     <Table.Column title="地址" dataIndex="url"/>
                 </Table>
