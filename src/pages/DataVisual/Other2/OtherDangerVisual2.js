@@ -665,8 +665,9 @@ export default class OtherDangerVisual2 extends Component {
                             headStyle={{height: 57}}
                             extra={<Button type="dashed" onClick={() => this.detailData('zero')}>详细数据</Button>}
                         >
-                            <WaterWave height={300} title="高度风险(Ⅳ级)" percent={this.state.random}
-                                       color={'rgb(240, 72, 100)'}/>
+                            <div style={{height:300,paddingTop:50}}>
+                            <WaterWave height={200} title="高度风险(Ⅳ级)" percent={this.state.random}
+                                       color={'rgb(240, 72, 100)'}/></div>
                         </Card>
                     </Col>
                     <Col span={18}>

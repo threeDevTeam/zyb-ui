@@ -27,13 +27,19 @@ export default class OtherDangerVisual extends Component {
         option6Data: [],
         scrollData: [],
         tabKey: 'industryOfEnterprise',
-        mapType: ''
+        mapType: '',
+        clientHeight: 500
     }
 
 
     componentWillMount() {
         console.log("OtherDangerVisual componentWillMount")
         this.init()
+    }
+
+    componentDidMount() {
+        alert(this.refs.areaHeight.echartsElement.clientHeight)
+        this.setState({clientHeight: this.refs.areaHeight.echartsElement.clientHeight})
     }
 
     init = () => {
@@ -760,7 +766,7 @@ export default class OtherDangerVisual extends Component {
             xAxis: [
                 {
                     type: 'category',
-                    data:['国有企业','集体企业','股份合作企业','联营企业','有限责任公司','股份有限公司','私营企业','其他企业','合资经营企业（港或澳、台资）','合作经营企业（港或澳、台资）','港、澳、台商独资经营企业','港、澳、台商投资股份有限公司','其他港、澳、台商投资企业','中外合资经营企业','中外合作经营企业','外资企业','外商投资股份有限公司','其他外商投资企业','事业单位','社会团体']
+                    data: ['国有企业', '集体企业', '股份合作企业', '联营企业', '有限责任公司', '股份有限公司', '私营企业', '其他企业', '合资经营企业（港或澳、台资）', '合作经营企业（港或澳、台资）', '港、澳、台商独资经营企业', '港、澳、台商投资股份有限公司', '其他港、澳、台商投资企业', '中外合资经营企业', '中外合作经营企业', '外资企业', '外商投资股份有限公司', '其他外商投资企业', '事业单位', '社会团体']
                 }
             ],
             yAxis: [
@@ -849,25 +855,25 @@ export default class OtherDangerVisual extends Component {
                             headStyle={{height: 57}}
                             extra={<Button type="dashed" onClick={() => this.detailData('zero')}>详细数据</Button>}
                         >
-                            <div style={{height:500,overflow:'hidden'}}>
-                            <Carousel autoplay dotPosition={"right"} dots={false}>
-                                <Table size={'middle'} showHeader={false} columns={columns}
-                                       className={styles.tableTdBorder}
-                                       dataSource={this.state.scrollData.four}
-                                       pagination={false} tableLayout='fixed'/>
-                                <Table size={'middle'} showHeader={false} columns={columns}
-                                       className={styles.tableTdBorder}
-                                       dataSource={this.state.scrollData.three}
-                                       pagination={false} tableLayout='fixed'/>
-                                <Table size={'middle'} showHeader={false} columns={columns}
-                                       className={styles.tableTdBorder}
-                                       dataSource={this.state.scrollData.two}
-                                       pagination={false} tableLayout='fixed'/>
-                                <Table size={'middle'} showHeader={false} columns={columns}
-                                       className={styles.tableTdBorder}
-                                       dataSource={this.state.scrollData.one}
-                                       pagination={false} tableLayout='fixed'/>
-                            </Carousel>
+                            <div style={{height: this.state.clientHeight, overflow: 'hidden'}}>
+                                <Carousel autoplay dotPosition={"right"} dots={false}>
+                                    <Table size={'middle'} showHeader={false} columns={columns}
+                                           className={styles.tableTdBorder}
+                                           dataSource={this.state.scrollData.four}
+                                           pagination={false} tableLayout='fixed'/>
+                                    <Table size={'middle'} showHeader={false} columns={columns}
+                                           className={styles.tableTdBorder}
+                                           dataSource={this.state.scrollData.three}
+                                           pagination={false} tableLayout='fixed'/>
+                                    <Table size={'middle'} showHeader={false} columns={columns}
+                                           className={styles.tableTdBorder}
+                                           dataSource={this.state.scrollData.two}
+                                           pagination={false} tableLayout='fixed'/>
+                                    <Table size={'middle'} showHeader={false} columns={columns}
+                                           className={styles.tableTdBorder}
+                                           dataSource={this.state.scrollData.one}
+                                           pagination={false} tableLayout='fixed'/>
+                                </Carousel>
                             </div>
                         </Card>
                     </Col>
@@ -880,8 +886,9 @@ export default class OtherDangerVisual extends Component {
                             extra={<Button type="dashed" onClick={() => this.detailData('option1')}>详细数据</Button>}
                         >
                             <ReactEcharts
+                                ref='areaHeight'
                                 option={option1}
-                                onEvents={onEvent} style={{height: 500}}/>
+                                onEvents={onEvent} style={{height: '80vh'}}/>
                         </Card>
                     </Col>
                     <Col span={7}>
@@ -894,7 +901,7 @@ export default class OtherDangerVisual extends Component {
                         >
                             <ReactEcharts
                                 option={option2}
-                                onEvents={onEvents} style={{height: 245}}/>
+                                onEvents={onEvents} style={{height: this.state.clientHeight - 254}}/>
                         </Card>
                         <Card
                             title={'高度风险占比'}
