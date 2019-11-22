@@ -1,6 +1,6 @@
 export default {
-/*    base: "/zyb/",
-    publicPath: "/zyb/",*/
+    base: "/zyb/",
+    publicPath: "/zyb/",
     targets: {
         ie: 11
     },
@@ -93,11 +93,11 @@ export default {
                 {path: '/accidentSumOfEnterprise', component: './Qiye/AccidentSumOfEnterprise'},
                 {path: '/accidentPersonOfEnterprise', component: './Qiye/AccidentPersonOfEnterprise'},
                 {path: '/checkOfEnterprise', component: './Qiye/CheckOfEnterprise'},
-                {path: '/otherOfDic', component: './Systemsetup/OtherOfDic'},
+                {path: '/otherOfDicManagement', component: './Systemsetup/OtherOfDic'},
                 {path: '/userManagement', component: './Systemsetup/UserManagement'},
                 {path: '/menuManagement', component: './Systemsetup/MenuManagement'},
                 {path: '/roleManagement', component: './Systemsetup/RoleManagement'},
-                {path: '/dataVisualSwitchFlag', component: './Systemsetup/dataVisualSwitchFlag'}
+                {path: '/dataVisualSwitchFlagManagement', component: './Systemsetup/dataVisualSwitchFlag'}
             ]
         }
     ],

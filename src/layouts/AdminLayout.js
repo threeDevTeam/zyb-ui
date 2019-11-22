@@ -1,13 +1,11 @@
 import React from 'react'
 import 'antd/dist/antd.css'
 import styles from './AdminLayout.less'
-import {Layout, Menu, Icon, Dropdown, ConfigProvider} from 'antd'
+import {ConfigProvider, Dropdown, Icon, Layout, Menu} from 'antd'
 import zhCN from 'antd/es/locale/zh_CN'
 import Link from 'umi/link'
 import request from "../utils/request"
 import router from 'umi/router'
-import {Button, Dialog} from "nowrapper/lib/antd";
-import AccidentPersonOfEnterpriseDemoForm from "../pages/QiyeDemoFrom/AccidentPersonOfEnterpriseDemoForm";
 
 const {Header, Sider, Content} = Layout;
 const {SubMenu} = Menu
@@ -105,7 +103,7 @@ class AdminLayout extends React.Component {
         if ('管理员' === type) {
             return (
                 <Menu.Item key='100'>
-                    <a href='/visual/NationVisual'>
+                    <a href='/zyb/visual/NationVisual'>
                         <Icon type='area-chart'/>
                         <span>监控可视化</span>
                     </a>
@@ -124,7 +122,7 @@ class AdminLayout extends React.Component {
             }
             return (
                 <Menu.Item key='100'>
-                    <a href={'/visual/OtherVisual?' + query}>
+                    <a href={'/zyb/visual/OtherVisual?' + query}>
                         <Icon type='area-chart'/>
                         <span>监控可视化</span>
                     </a>
@@ -147,7 +145,7 @@ class AdminLayout extends React.Component {
             }
             return (
                 <Menu.Item key='100'>
-                    <a href={'/visual/OtherVisual3?' + query}>
+                    <a href={'/zyb/visual/OtherVisual3?' + query}>
                         <Icon type='area-chart'/>
                         <span>监控可视化</span>
                     </a>
@@ -170,7 +168,7 @@ class AdminLayout extends React.Component {
             }
             return (
                 <Menu.Item key='100'>
-                    <a href={'/visual/OtherVisual4?' + query}>
+                    <a href={'/zyb/visual/OtherVisual4?' + query}>
                         <Icon type='area-chart'/>
                         <span>监控可视化</span>
                     </a>
@@ -199,7 +197,7 @@ class AdminLayout extends React.Component {
                             </div>
                         </div>
                         <Menu theme="dark" mode="inline" defaultSelectedKeys={this.state.defaultSelectedKeys}
-                              defaultOpenKeys={this.state.openKeys} onOpenChange={this.onOpenChange}>
+                              defaultOpenKeys={this.state.openKeys} openKeys={this.state.openKeys} onOpenChange={this.onOpenChange}>
                             {this.show()}
                             {this.renderMenu(this.state.menus)}
                             {/* <Menu.Item key="1">
@@ -307,7 +305,7 @@ class AdminLayout extends React.Component {
                             }}>职业病危害监测预警预控云服务平台</h2></span>
                             <Dropdown overlay={menu}>
                                 <span style={{paddingRight: 40, float: "right"}}><Icon type="user"
-                                                                                       style={{marginRight: 15}}/>欢迎你,{sessionStorage.getItem("loginName")}</span>
+                                                                                       style={{marginRight: 10}}/>欢迎你,{sessionStorage.getItem("loginName")}</span>
                             </Dropdown>
                         </Header>
                         <Content
