@@ -56,6 +56,7 @@ class AdminLayout extends React.Component {
     }
 
     renderMenu = data => data.map((item) => {
+        console.log(item.id+"="+item.name)
         if (item.children && item.children.length > 0) {
             return (
                 <Menu.SubMenu key={item.id} title={<span><Icon type={item.icon}/><span>{item.name}</span></span>}>
@@ -196,8 +197,8 @@ class AdminLayout extends React.Component {
                             }}>云服务平台
                             </div>
                         </div>
-                        <Menu theme="dark" mode="inline" defaultSelectedKeys={this.state.defaultSelectedKeys}
-                              defaultOpenKeys={this.state.openKeys} onOpenChange={this.onOpenChange}>
+                        <Menu theme="dark" mode="inline"
+                              openKeys={this.state.openKeys} onOpenChange={this.onOpenChange}>
                             {this.show()}
                             {this.renderMenu(this.state.menus)}
                             {/* <Menu.Item key="1">

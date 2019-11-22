@@ -93,11 +93,11 @@ export default {
                 {path: '/accidentSumOfEnterprise', component: './Qiye/AccidentSumOfEnterprise'},
                 {path: '/accidentPersonOfEnterprise', component: './Qiye/AccidentPersonOfEnterprise'},
                 {path: '/checkOfEnterprise', component: './Qiye/CheckOfEnterprise'},
-                {path: '/otherOfDicManagement', component: './Systemsetup/OtherOfDic'},
+                {path: '/otherOfDic', component: './Systemsetup/OtherOfDic'},
                 {path: '/userManagement', component: './Systemsetup/UserManagement'},
                 {path: '/menuManagement', component: './Systemsetup/MenuManagement'},
                 {path: '/roleManagement', component: './Systemsetup/RoleManagement'},
-                {path: '/dataVisualSwitchFlagManagement', component: './Systemsetup/dataVisualSwitchFlag'}
+                {path: '/dataVisualSwitchFlag', component: './Systemsetup/dataVisualSwitchFlag'}
             ]
         }
     ],
