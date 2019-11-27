@@ -307,7 +307,15 @@ class SysUserRegister extends PureComponent {
 
                                     <FormItem label="核定生产能力" name="productionCapacity"
                                               required={true}><Input style={{width:230}}/></FormItem>
-                                    <FormItem label="生产能力单位类型" name="unitType" required={true}><Input style={{width:230}}/></FormItem>
+                                    <FormItem required={true} label="生产能力单位类型" name="unitType">
+                                        <Select value={this.state.city} style={{width: 230}}>
+                                            <option value={"万件"}>{"万件"}</option>
+                                            <option value={"万吨"}>{"万吨"}</option>
+                                            <option value={"万立方米"}>{"万立方米"}</option>
+                                            <option value={"万千瓦时"}>{"万千瓦时"}</option>
+                                        </Select>
+                                    </FormItem>
+
                                     <FormItem label="注册资本" name="regiterMoney" required={true} ><Input style={{width:230}}/></FormItem>
                                     <FormItem label="注册地址" name="registerAddress" required={true} ><Input style={{width:230}}/></FormItem>
                                     <FormItem label="注册时间" name="registerDateStr"  required={true}><DatePicker locale={locale} style={{width:230}}

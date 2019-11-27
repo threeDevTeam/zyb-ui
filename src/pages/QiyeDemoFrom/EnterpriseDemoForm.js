@@ -6,7 +6,6 @@ import moment from "moment";
 import locale from "antd/es/date-picker/locale/zh_CN";
 
 const validate = {
-    riskLevel: {type: "string", required: true, message: '风险等级不能为空'},
     year: {type: "number", required: true, message: '申报年份不能为空'},
     workAddress: {type: "string", required: true, message: '工作场所地址不能为空'},
 
@@ -81,19 +80,21 @@ class EnterpriseDemoForm extends PureComponent {
                     <FormItem required={true} label="企业名称" name="name"><Input style={{width: 230}}/></FormItem>
                     <FormItem required={true} label="统一社会信用代码" name="code"><Input style={{width: 230}}/></FormItem>
                 </div>
-                <FormItem required={true} label="风险等级" name="riskLevel">
-                    <Select value={this.state.city} style={{width: 230}}>
 
-                        <option key={"I级"}>{"I级"}</option>
-                        <option key={"Ⅱ级"}>{"Ⅱ级"}</option>
-                        <option key={"Ⅲ级"}>{"Ⅲ级"}</option>
-
-                    </Select>
-                </FormItem>
                 <FormItem required={true} label="申报年份" value={2019} name="year"><InputNumber
                     style={{width: 230}}/></FormItem>
 
                 <div style={{display: this.state.Login, marginTop: 10, marginBottom: 10}}>
+                    <FormItem required={true} label="风险等级" name="riskLevel">
+                        <Input style={{width: 230}}  disabled/>
+                        {/*<Select value={this.state.city} style={{width: 230}} disabled>*/}
+
+                        {/*    <option key={"I级"}>{"I级"}</option>*/}
+                        {/*    <option key={"Ⅱ级"}>{"Ⅱ级"}</option>*/}
+                        {/*    <option key={"Ⅲ级"}>{"Ⅲ级"}</option>*/}
+
+                        {/*</Select>*/}
+                    </FormItem>
                     <FormItem required={true} label="企业规模" name="size">
                         <Input style={{width: 230}} disabled/>
                     </FormItem>
@@ -116,18 +117,19 @@ class EnterpriseDemoForm extends PureComponent {
                                                                                     onChange={this.onChange}
                                                                                     placeholder="所属行业名称"/></FormItem>
 
-                <FormItem required={true} label="核定生产能力" name="productionCapacity"><InputNumber
-                    style={{width: 230}}/></FormItem>
-                <FormItem required={true} label="生产能力单位类型" name="unitType">
-                    <Select value={this.state.city} style={{width: 230}}>
-                        <option key={"万件"}>{"万件"}</option>
-                        <option key={"万吨"}>{"万吨"}</option>
-                        <option key={"万立方米"}>{"万立方米"}</option>
-                        <option key={"万千瓦时"}>{"万千瓦时"}</option>
 
-                    </Select>
-                </FormItem>
                 <div style={{display: this.state.Login2, marginTop: 10, marginBottom: 10}}>
+                    <FormItem required={true} label="核定生产能力" name="productionCapacity"><InputNumber
+                        style={{width: 230}}/></FormItem>
+                    <FormItem required={true} label="生产能力单位类型" name="unitType">
+                        <Select value={this.state.city} style={{width: 230}}>
+                            <option value={"万件"}>{"万件"}</option>
+                            <option value={"万吨"}>{"万吨"}</option>
+                            <option value={"万立方米"}>{"万立方米"}</option>
+                            <option value={"万千瓦时"}>{"万千瓦时"}</option>
+
+                        </Select>
+                    </FormItem>
                     <FormItem required={true} label="注册资本" name="regiterMoney"><InputNumber
                         style={{width: 230}}/></FormItem>
                     <FormItem required={true} label="注册地址" name="registerAddress"><Input

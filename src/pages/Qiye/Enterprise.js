@@ -199,7 +199,7 @@ class Enterprise extends PureComponent {
                     }
                 }}>
                     <Table.Column title="企业名称" dataIndex="name"/>
-                    <Table.Column title="风险等级" dataIndex="riskLevel"/>
+                    <Table.Column title="统一社会信用代码" dataIndex="code"/>
                     <Table.Column title="申报年份" dataIndex="year"/>
                     <Table.Column title="生产能力单位类型" dataIndex="unitType"/>
                     <Table.Column title="资产总额" dataIndex="propertyMoney"/>
