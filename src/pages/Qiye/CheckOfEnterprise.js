@@ -48,7 +48,7 @@ class CheckOfEnterprise extends PureComponent {
                 content: <CheckOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
                     if (values.checkDateStr) {
-                        values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')
+                        values.checkDateStr = values.startDateStr._i
                     }
                     request.post('/zyb/checkOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
@@ -80,7 +80,7 @@ class CheckOfEnterprise extends PureComponent {
                         content: <CheckOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.checkDateStr) {
-                                values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')
+                                values.checkDateStr = values.startDateStr._i
                             }
                             request.post('/zyb/checkOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res && res.flag) {
