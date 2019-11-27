@@ -9,6 +9,8 @@ import router from 'umi/router'
 
 const {Header, Sider, Content} = Layout;
 const {SubMenu} = Menu
+
+let projectName=''
 const menu = (
     <Menu>
         <Menu.Item>
@@ -104,7 +106,7 @@ class AdminLayout extends React.Component {
         if ('管理员' === type) {
             return (
                 <Menu.Item key='100'>
-                    <a href='/zyb/visual/NationVisual'>
+                    <a href={projectName+'/visual/NationVisual'}>
                         <Icon type='area-chart'/>
                         <span>监控可视化</span>
                     </a>
@@ -123,7 +125,7 @@ class AdminLayout extends React.Component {
             }
             return (
                 <Menu.Item key='100'>
-                    <a href={'/zyb/visual/OtherVisual?' + query}>
+                    <a href={projectName+'/visual/OtherVisual?' + query}>
                         <Icon type='area-chart'/>
                         <span>监控可视化</span>
                     </a>
@@ -146,7 +148,7 @@ class AdminLayout extends React.Component {
             }
             return (
                 <Menu.Item key='100'>
-                    <a href={'/zyb/visual/OtherVisual3?' + query}>
+                    <a href={projectName+'/visual/OtherVisual3?' + query}>
                         <Icon type='area-chart'/>
                         <span>监控可视化</span>
                     </a>
@@ -169,7 +171,7 @@ class AdminLayout extends React.Component {
             }
             return (
                 <Menu.Item key='100'>
-                    <a href={'/zyb/visual/OtherVisual4?' + query}>
+                    <a href={projectName+'/visual/OtherVisual4?' + query}>
                         <Icon type='area-chart'/>
                         <span>监控可视化</span>
                     </a>

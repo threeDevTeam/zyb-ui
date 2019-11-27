@@ -19,7 +19,6 @@ import FileForm from "../FileUpDown/FileForm";
 
 let globalList
 
-// @connect(({demo}) => ({demo}))
 class Enterprise extends PureComponent {
     state = {
         fileList: []
@@ -37,14 +36,12 @@ class Enterprise extends PureComponent {
         }
     }
     handleOperator = (type) => {
-        const {dispatch} = this.props;
         if ('create' === type) {
             Dialog.show({
                 title: '新增',
                 footerAlign: 'label',
                 locale: 'zh',
                 width: 650,
-                // style: {width: 1000},
                 enableValidate: true,
                 content: <EnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
@@ -78,12 +75,11 @@ class Enterprise extends PureComponent {
                         content: <EnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.startDateStr) {
-                                values.startDateStr = values.startDateStr.format('YYYY-MM-DD')
+                                values.startDateStr = values.startDateStr._i
                             }
                             if (values.registerDateStr) {
-                                values.registerDateStr = values.registerDateStr.format('YYYY-MM-DD')
+                                values.registerDateStr = values.registerDateStr._i
                             }
-
                             request.post('/zyb/enterprise/edit', {data: {...values}}).then(res => {
                                 if (res && res.flag) {
                                     message.success("操作成功")

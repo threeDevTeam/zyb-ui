@@ -1,6 +1,6 @@
 export default {
-    base: "/zyb/",
-    publicPath: "/zyb/",
+    // base: "/zyb/",
+    // publicPath: "/zyb/",
     targets: {
         ie: 11
     },
