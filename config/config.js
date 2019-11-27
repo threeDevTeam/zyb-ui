@@ -74,7 +74,7 @@ export default {
                 {path: '/zhenduanBasicOfService', component: './JishujiGou/ZhenduanBasicOfService'},
                 {path: '/zhenduanDetailOfService', component: './JishujiGou/ZhenduanDetailOfService'},
                 {path: '/zhenduanTotalOfService', component: './JishujiGou/ZhenduanTotalOfService'},
-                {path: '/Enterprise', component: './Qiye/Enterprise'},
+                {path: '/enterprise', component: './Qiye/Enterprise'},
                 {path: '/procuctionOfEnterprise', component: './Qiye/ProcuctionOfEnterprise.js'},
                 {path: '/workplaceOfEnterprise', component: './Qiye/WorkplaceOfEnterprise'},
                 {path: '/postOfEnterprise', component: './Qiye/PostOfEnterprise'},

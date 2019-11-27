@@ -199,10 +199,10 @@ class JianceDetailOfService extends PureComponent {
                 }}>
                     <Table.Column title="检测年份" dataIndex="checkYear"/>
                     <Table.Column title="企业名称" dataIndex="enterpriseName"/>
-                    <Table.Column title="登记注册类型的小类名称" dataIndex="registerSmallName"/>
-                    <Table.Column title="所属行业的小类名称" dataIndex="industrySmallName"/>
+                    <Table.Column title="登记注册类型名称" dataIndex="registerSmallName"/>
+                    <Table.Column title="所属行业名称" dataIndex="industrySmallName"/>
                     <Table.Column title="工作场所名称" dataIndex="workplaceName"/>
-                    <Table.Column title="岗位的小类名称" dataIndex="postSmallName"/>
+                    <Table.Column title="岗位名称" dataIndex="postSmallName"/>
                     <Table.Column title="判定结果" dataIndex="decideResult"/>
                 </Table>
                 <Pagination/>

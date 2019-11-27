@@ -96,7 +96,7 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
                                                                   placeholder="请选择省/市/区"/></FormItem>
                 <FormItem required={true} label="注册地址" name="registerAddress"><Input style={{width: 230}}/></FormItem>
 
-                <FormItem required={true} label="登记注册类型小类名" name="cascaded1"><Cascader style={{width: 230}} options={this.state.dataSource1}  onChange={this.onChange} placeholder="登记注册类型"/></FormItem>
+                <FormItem required={true} label="登记注册类型" name="cascaded1"><Cascader style={{width: 230}} options={this.state.dataSource1}  onChange={this.onChange} placeholder="登记注册类型"/></FormItem>
 
                 <FormItem required={true} label="所属行业名称" name="cascaded2"><Cascader style={{width: 230}} options={this.state.dataSource2}  onChange={this.onChange} placeholder="所属行业名称"/></FormItem>
 
