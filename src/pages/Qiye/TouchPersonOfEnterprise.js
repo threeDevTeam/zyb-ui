@@ -50,13 +50,13 @@ class TouchPersonOfEnterprise extends PureComponent {
                 onOk: (values, hide) => {
                     //提取日期
                     if (values.startDateStr) {
-                        values.startDateStr = values.startDateStr.format('YYYY-MM-DD')
+                        values.startDateStr =values.startDateStr._i
                     }
                     if (values.startDateStr) {
-                        values.startDateStr = values.startDateStr.format('YYYY-MM-DD')
+                        values.startDateStr =values.startDateStr._i
                     }
                     if (values.leaveDateStr) {
-                        values.leaveDateStr = values.leaveDateStr.format('YYYY-MM-DD')
+                        values.leaveDateStr = values.startDateStr._i
                     }
                     request.post('/zyb/touchPersonOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
@@ -126,13 +126,13 @@ class TouchPersonOfEnterprise extends PureComponent {
                         content: <TouchPersonOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.startDateStr) {
-                                values.startDateStr = values.startDateStr.format('YYYY-MM-DD')
+                                values.startDateStr = values.startDateStr._i
                             }
                             if (values.startDateStr) {
-                                values.startDateStr = values.startDateStr.format('YYYY-MM-DD')
+                                values.startDateStr = values.startDateStr._i
                             }
                             if (values.leaveDateStr) {
-                                values.leaveDateStr = values.leaveDateStr.format('YYYY-MM-DD')
+                                values.leaveDateStr = values.startDateStr._i
                             }
                            console.log(res)
                             request.post('/zyb/touchPersonOfEnterprise/edit', {data: {...values}}).then(res => {
