@@ -108,7 +108,7 @@ class JianceDetailOfService extends PureComponent {
                         content: <JianceDetailOfServiceDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.checkDateStr) {
-                                values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')
+                                values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')|| values.checkDateStr._i
                             }
                             request.post('/zyb/jianceDetailOfService/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {
@@ -193,7 +193,6 @@ class JianceDetailOfService extends PureComponent {
                 }}>
                     <Table.Column title="检测年份" dataIndex="checkYear"/>
                     <Table.Column title="企业名称" dataIndex="enterpriseName"/>
-                    <Table.Column title="登记注册类型的小类名称" dataIndex="registerSmallName"/>
                     <Table.Column title="所属行业的小类名称" dataIndex="industrySmallName"/>
                     <Table.Column title="工作场所名称" dataIndex="workplaceName"/>
                     <Table.Column title="岗位的小类名称" dataIndex="postSmallName"/>

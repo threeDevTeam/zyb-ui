@@ -41,7 +41,7 @@ class TijianDetail2OfService extends PureComponent {
                 content: <TijianDetail2OfServiceDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
                     if (values.checkDateStr) {
-                        values.checkDateStr = values.checkDateStr._i
+                        values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')|| values.checkDateStr._i
                     }
                     request.post('/zyb/tijianDetail2OfService/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
@@ -106,7 +106,7 @@ class TijianDetail2OfService extends PureComponent {
                         content: <TijianDetail2OfServiceDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.checkDateStr) {
-                                values.checkDateStr = values.checkDateStr._i
+                                values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')|| values.checkDateStr._i
                             }
                             request.post('/zyb/tijianDetail2OfService/edit', {data: {...values}}).then(res => {
                                 if (res && res.flag) {
@@ -134,7 +134,7 @@ class TijianDetail2OfService extends PureComponent {
                 footerAlign: 'label',
                 locale: 'zh',
                 style: {width: '400px'},
-                content: `确定要删除username=${this.state.record.username}的数据吗?`,
+                content: `确定要删除企业名称=${this.state.record.enterpriseName}的数据吗?`,
                 onOk: (values, hide) => {
                     request('/zyb/tijianDetail2OfService/delete?id=' + this.state.record.id).then(res => {
                         hide()
@@ -202,7 +202,6 @@ class TijianDetail2OfService extends PureComponent {
                 }}>
                     <Table.Column title="体检年份" dataIndex="checkYear"/>
                     <Table.Column title="企业名称" dataIndex="enterpriseName"/>
-                    <Table.Column title="登记注册类型的小类名称" dataIndex="registerSmallName"/>
                     <Table.Column title="所属行业的小类名称" dataIndex="industrySmallName"/>
                     <Table.Column title="工作场所名称" dataIndex="workplaceName"/>
                     <Table.Column title="姓名" dataIndex="name"/>

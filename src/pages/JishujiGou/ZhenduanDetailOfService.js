@@ -41,7 +41,7 @@ class ZhenduanDetailOfService extends PureComponent {
                 content: <ZhenduanDetailOfServiceDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
                     if (values.checkDateStr) {
-                        values.checkDateStr = values.checkDateStr._i
+                        values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')|| values.checkDateStr._i
                     }
                     request.post('/zyb/zhenduanDetailOfService/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
@@ -73,7 +73,7 @@ class ZhenduanDetailOfService extends PureComponent {
                         content: <ZhenduanDetailOfServiceDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.checkDateStr) {
-                                values.checkDateStr = values.checkDateStr._i
+                                values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')|| values.checkDateStr._i
                             }
                             request.post('/zyb/zhenduanDetailOfService/edit', {data: {...values}}).then(res => {
                                 if (res && res.flag) {

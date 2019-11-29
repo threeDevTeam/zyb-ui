@@ -43,7 +43,7 @@ class TijianDetail1OfService extends PureComponent {
                 onOk: (values, hide) => {
                     console.log(values)
                     if (values.checkDateStr) {
-                        values.checkDateStr = values.checkDateStr._i
+                        values.checkDateStr =  values.checkDateStr.format('YYYY-MM-DD')|| values.checkDateStr._i
                     }
 
                     request.post('/zyb/tijianDetail1OfService/add', {data: {...values}}).then(res => {
@@ -109,8 +109,9 @@ class TijianDetail1OfService extends PureComponent {
                         enableValidate: true,
                         content: <TijianDetail1OfServiceDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
+                            console.log(values)
                             if (values.checkDateStr) {
-                                values.checkDateStr = values.checkDateStr._i
+                                values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')|| values.checkDateStr._i
                             }
                             request.post('/zyb/tijianDetail1OfService/edit', {data: {...values}}).then(res => {
                                 if (res && res.flag) {

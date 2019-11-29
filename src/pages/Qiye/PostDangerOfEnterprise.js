@@ -49,7 +49,7 @@ class PostDangerOfEnterprise extends PureComponent {
                 content: <PostDangerOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
                     if (values.upDateeStr) {
-                        values.upDateeStr = values.upDateeStr.format('YYYY-MM-DD')
+                        values.upDateeStr = values.upDateeStr.format('YYYY-MM-DD')|| values.upDateeStr._i
                     }
                     request.post('/zyb/postDangerOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
@@ -81,7 +81,7 @@ class PostDangerOfEnterprise extends PureComponent {
                         content: <PostDangerOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.upDateeStr) {
-                                values.upDateeStr = values.upDateeStr.format('YYYY-MM-DD')
+                                values.upDateeStr = values.upDateeStr.format('YYYY-MM-DD')|| values.upDateeStr._i
                             }
                             request.post('/zyb/postDangerOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res && res.flag) {

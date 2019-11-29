@@ -74,14 +74,12 @@ class Enterprise extends PureComponent {
                         enableValidate: true,
                         content: <EnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            console.log(values);
                             if (values.startDateStr) {
                                 values.startDateStr = values.startDateStr.format('YYYY-MM-DD') || values.startDateStr._i
                             }
                             if (values.registerDateStr) {
                                 values.registerDateStr = values.registerDateStr.format('YYYY-MM-DD') || values.registerDateStr._i
                             }
-                            console.log(values);
                             request.post('/zyb/enterprise/edit', {data: {...values}}).then(res => {
                                 if (res && res.flag) {
                                     message.success("操作成功")

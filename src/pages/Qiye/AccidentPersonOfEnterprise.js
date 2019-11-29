@@ -48,7 +48,7 @@ class AccidentPersonOfEnterprise extends PureComponent {
                 content: <AccidentPersonOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
                     if (values.dieDateStr) {
-                        values.dieDateStr = values.dieDateStr.format('YYYY-MM-DD')
+                        values.dieDateStr = values.dieDateStr.format('YYYY-MM-DD')||  values.dieDateStr._i
                     }
                     request.post('/zyb/accidentPersonOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
@@ -80,7 +80,7 @@ class AccidentPersonOfEnterprise extends PureComponent {
                         content: <AccidentPersonOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.dieDateStr) {
-                                values.dieDateStr = values.dieDateStr.format('YYYY-MM-DD')
+                                values.dieDateStr = values.dieDateStr.format('YYYY-MM-DD')||  values.dieDateStr._i
                             }
                             request.post('/zyb/accidentPersonOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res&&res.flag) {
