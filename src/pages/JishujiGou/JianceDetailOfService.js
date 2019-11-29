@@ -41,8 +41,9 @@ class JianceDetailOfService extends PureComponent {
                 content: <JianceDetailOfServiceDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
                     if (values.checkDateStr) {
-                        values.checkDateStr = values.startDateStr._i
+                        values.checkDateStr = values.checkDateStr._i
                     }
+
                     request.post('/zyb/jianceDetailOfService/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
@@ -107,7 +108,7 @@ class JianceDetailOfService extends PureComponent {
                         content: <JianceDetailOfServiceDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.checkDateStr) {
-                                values.checkDateStr = values.startDateStr._i
+                                values.checkDateStr = values.checkDateStr._i
                             }
                             request.post('/zyb/jianceDetailOfService/edit', {data: {...values}}).then(res => {
                                 if (res && res.flag) {

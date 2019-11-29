@@ -56,7 +56,7 @@ class TouchPersonOfEnterprise extends PureComponent {
                         values.startDateStr =values.startDateStr._i
                     }
                     if (values.leaveDateStr) {
-                        values.leaveDateStr = values.startDateStr._i
+                        values.leaveDateStr = values.leaveDateStr._i
                     }
                     request.post('/zyb/touchPersonOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
@@ -132,7 +132,7 @@ class TouchPersonOfEnterprise extends PureComponent {
                                 values.startDateStr = values.startDateStr._i
                             }
                             if (values.leaveDateStr) {
-                                values.leaveDateStr = values.startDateStr._i
+                                values.leaveDateStr = values.leaveDateStr._i
                             }
                            console.log(res)
                             request.post('/zyb/touchPersonOfEnterprise/edit', {data: {...values}}).then(res => {

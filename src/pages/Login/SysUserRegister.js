@@ -113,7 +113,7 @@ class SysUserRegister extends PureComponent {
 
                     //提取日期
                     if (this.core.value.registerDateStr) {
-                        this.core.value.registerDateStr =  values.startDateStr._i
+                        this.core.value.registerDateStr =  values.registerDateStr._i
                     }
                     //提取日期
                     if (this.core.value.startDateStr) {

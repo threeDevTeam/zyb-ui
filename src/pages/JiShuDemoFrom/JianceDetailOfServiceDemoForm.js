@@ -41,6 +41,7 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
 
     constructor(props) {
         super(props);
+        console.log(this.core)
         this.core = new FormCore({validateConfig: validate});
     }
 
@@ -85,7 +86,9 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
         return (
             <Form core={this.core} layout={{label: 8}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem required={true} label="检测时间" name="checkDateStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择检测时间"/></FormItem>
+
+                <FormItem label="检测时间" name="checkDateStr"  required={true}><DatePicker locale={locale} style={{width:230}}
+                                                                                           placeholder="请选择检测时间"/></FormItem>
                 <FormItem required={true} label="检测年份" value={2019} name="checkYear"><InputNumber style={{width: 230}}/></FormItem>
                 <FormItem required={true} label="检测月份" name="checkMonth"><InputNumber style={{width: 230}}/></FormItem>
                 <FormItem required={true} label="检测报告编号" name="num"><Input style={{width: 230}}/></FormItem>

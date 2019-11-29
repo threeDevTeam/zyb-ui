@@ -49,7 +49,7 @@ class SickOfEnterprise extends PureComponent {
                 content: <SickOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
                     if (values.checkDateStr) {
-                        values.checkDateStr = values.startDateStr._i
+                        values.checkDateStr = values.checkDateStr._i
                     }
                     if (values.dieDateStr) {
                         values.dieDateStr = values.dieDateStr.format('YYYY-MM-DD')
@@ -84,7 +84,7 @@ class SickOfEnterprise extends PureComponent {
                         content: <SickOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.checkDateStr) {
-                                values.checkDateStr = values.startDateStr._i
+                                values.checkDateStr = values.checkDateStr._i
                             }
                             if (values.dieDateStr) {
                                 values.dieDateStr = values.dieDateStr.format('YYYY-MM-DD')

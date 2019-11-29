@@ -41,7 +41,7 @@ class PersonOfSupervise extends PureComponent {
                 content: <PersonOfSuperviseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
                     if (values.birthStr) {
-                        values.birthStr = values.startDateStr._i
+                        values.birthStr = values.birthStr._i
                     }
                     request.post('/zyb/personOfSupervise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
@@ -73,7 +73,7 @@ class PersonOfSupervise extends PureComponent {
                         content: <PersonOfSuperviseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.birthStr) {
-                                values.birthStr = values.startDateStr._i
+                                values.birthStr = values.birthStr._i
                             }
                             request.post('/zyb/personOfSupervise/edit', {data: {...values}}).then(res => {
                                 if (res && res.flag) {

@@ -38,11 +38,14 @@ class TijianDetail1OfService extends PureComponent {
                 width: 550,
                 // style: {width: 1000},
                 enableValidate: true,
+
                 content: <TijianDetail1OfServiceDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
+                    console.log(values)
                     if (values.checkDateStr) {
-                        values.checkDateStr = values.startDateStr._i
+                        values.checkDateStr = values.checkDateStr._i
                     }
+
                     request.post('/zyb/tijianDetail1OfService/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
                             message.success("操作成功")
@@ -107,7 +110,7 @@ class TijianDetail1OfService extends PureComponent {
                         content: <TijianDetail1OfServiceDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.checkDateStr) {
-                                values.checkDateStr = values.startDateStr._i
+                                values.checkDateStr = values.checkDateStr._i
                             }
                             request.post('/zyb/tijianDetail1OfService/edit', {data: {...values}}).then(res => {
                                 if (res && res.flag) {
