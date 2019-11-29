@@ -41,11 +41,11 @@ class JianceDetailOfService extends PureComponent {
                 content: <JianceDetailOfServiceDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
                     if (values.checkDateStr) {
-                        values.checkDateStr = values.checkDateStr._i
+                        values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD') || values.checkDateStr._i
                     }
-
+                    console.log(values);
                     request.post('/zyb/jianceDetailOfService/add', {data: {...values}}).then(res => {
-                        if (res && res.flag) {
+                        if (res.flag) {
                             message.success("操作成功")
                             hide()
                             globalList.refresh()
@@ -80,7 +80,7 @@ class JianceDetailOfService extends PureComponent {
                     formData.append("form", JSON.stringify(values))
                     //异步请求
                     request.post('/zyb/jianceDetailOfService/exceladd',{method: 'post', data: formData}).then(res => {
-                        if(res && res.flag){
+                        if(res.flag){
                             modal.update({content: '操作成功', okButtonProps: {disabled: false}})
                             globalList.refresh()
                         }else{
@@ -97,7 +97,7 @@ class JianceDetailOfService extends PureComponent {
             }
             let title = 'edit' === type ? '编辑' : '浏览'
             request('/zyb/jianceDetailOfService/getById?id=' + this.state.record.id).then(res => {
-                if (res && res.flag) {
+                if (res.flag) {
                     Dialog.show({
                         title: title,
                         footerAlign: 'label',
@@ -108,10 +108,10 @@ class JianceDetailOfService extends PureComponent {
                         content: <JianceDetailOfServiceDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.checkDateStr) {
-                                values.checkDateStr = values.checkDateStr._i
+                                values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')
                             }
                             request.post('/zyb/jianceDetailOfService/edit', {data: {...values}}).then(res => {
-                                if (res && res.flag) {
+                                if (res.flag) {
                                     message.success("操作成功")
                                     hide()
                                     globalList.refresh()
@@ -140,7 +140,7 @@ class JianceDetailOfService extends PureComponent {
                 onOk: (values, hide) => {
                     request('/zyb/jianceDetailOfService/delete?id=' + this.state.record.id).then(res => {
                         hide()
-                        if (res && res.flag) {
+                        if (res.flag) {
                             globalList.refresh()
                             message.success("删除成功")
                         } else {
@@ -151,14 +151,7 @@ class JianceDetailOfService extends PureComponent {
             })
         }
     }
-    isShowAddButton = () => {
-        let type = sessionStorage.getItem('type')
-        if ('管理员' === type) {
-        } else {
-            return <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}
-                           className={styles.marginRight20}>新增</Button>
-        }
-    }
+
     handleError = (err) => {
     }
 
@@ -181,10 +174,10 @@ class JianceDetailOfService extends PureComponent {
                     <Filter.Item label="判定结果" name="decideResult"><Input/></Filter.Item>
                 </Filter>
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
-                    {this.isShowAddButton()}
+                    <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>新增</Button>
                     <Button icon="edit" type="primary" onClick={() => this.handleOperator('edit')}
-                           >编辑</Button>
-                    <Button icon="eye" type="primary" onClick={() => this.handleOperator('view')}
+                            className={styles.marginLeft20}>编辑</Button>
+                    <Button icon="search" type="primary" onClick={() => this.handleOperator('view')}
                             className={styles.marginLeft20}>浏览</Button>
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                             className={styles.marginLeft20}>删除</Button>
@@ -200,10 +193,10 @@ class JianceDetailOfService extends PureComponent {
                 }}>
                     <Table.Column title="检测年份" dataIndex="checkYear"/>
                     <Table.Column title="企业名称" dataIndex="enterpriseName"/>
-                    <Table.Column title="登记注册类型名称" dataIndex="registerSmallName"/>
-                    <Table.Column title="所属行业名称" dataIndex="industrySmallName"/>
+                    <Table.Column title="登记注册类型的小类名称" dataIndex="registerSmallName"/>
+                    <Table.Column title="所属行业的小类名称" dataIndex="industrySmallName"/>
                     <Table.Column title="工作场所名称" dataIndex="workplaceName"/>
-                    <Table.Column title="岗位名称" dataIndex="postSmallName"/>
+                    <Table.Column title="岗位的小类名称" dataIndex="postSmallName"/>
                     <Table.Column title="判定结果" dataIndex="decideResult"/>
                 </Table>
                 <Pagination/>

@@ -74,12 +74,14 @@ class Enterprise extends PureComponent {
                         enableValidate: true,
                         content: <EnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
+                            console.log(values);
                             if (values.startDateStr) {
-                                values.startDateStr = values.startDateStr._i
+                                values.startDateStr = values.startDateStr.format('YYYY-MM-DD') || values.startDateStr._i
                             }
                             if (values.registerDateStr) {
-                                values.registerDateStr = values.registerDateStr._i
+                                values.registerDateStr = values.registerDateStr.format('YYYY-MM-DD') || values.registerDateStr._i
                             }
+                            console.log(values);
                             request.post('/zyb/enterprise/edit', {data: {...values}}).then(res => {
                                 if (res && res.flag) {
                                     message.success("操作成功")
@@ -96,7 +98,7 @@ class Enterprise extends PureComponent {
                     message.error("操作失败")
                 }
             })
-        }else if ('upExcel' === type) {
+        } else if ('upExcel' === type) {
             Dialog.show({
                 title: '',
                 footerAlign: 'label',
@@ -119,11 +121,11 @@ class Enterprise extends PureComponent {
                     //将表单数据放入formData
                     formData.append("form", JSON.stringify(values))
                     //异步请求
-                    request.post('/zyb/enterprise/exceladd',{method: 'post', data: formData}).then(res => {
-                        if(res && res.flag){
+                    request.post('/zyb/enterprise/exceladd', {method: 'post', data: formData}).then(res => {
+                        if (res && res.flag) {
                             modal.update({content: '操作成功', okButtonProps: {disabled: false}})
                             globalList.refresh()
-                        }else{
+                        } else {
                             modal.update({content: '操作失败,请联系管理员!', okButtonProps: {disabled: false}})
                         }
                     })
@@ -178,14 +180,16 @@ class Enterprise extends PureComponent {
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
                     {this.isShowAddButton()}
                     <Button icon="edit" type="primary" onClick={() => this.handleOperator('edit')}
-                            >编辑</Button>
+                    >编辑</Button>
                     <Button icon="eye" type="primary" onClick={() => this.handleOperator('view')}
                             className={styles.marginLeft20}>浏览</Button>
                     <Button icon="delete" type="primary" onClick={() => this.handleOperator('delete')}
                             className={styles.marginLeft20}>删除</Button>
                     <Button icon="file-excel" type="primary" onClick={() => this.handleOperator('download')}
-                            className={styles.marginLeft20} href={'/zyb/excelTemplate/download'+window.location.pathname.replace("/zyb","")}>下载模板</Button>
-                    <Button icon="upload" type="primary" className={styles.marginLeft20} onClick={() => this.handleOperator('upExcel')}>上传Excel</Button>
+                            className={styles.marginLeft20}
+                            href={'/zyb/excelTemplate/download' + window.location.pathname.replace("/zyb", "")}>下载模板</Button>
+                    <Button icon="upload" type="primary" className={styles.marginLeft20}
+                            onClick={() => this.handleOperator('upExcel')}>上传Excel</Button>
 
                 </div>
                 <Table onRow={record => {
