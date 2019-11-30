@@ -194,12 +194,9 @@ class ServiceOfSupervise extends PureComponent {
                         <Table.Column title="年份" dataIndex="year"/>
                         <Table.Column title="检测机构的资质等级" dataIndex="jianceLevel"/>
                         <Table.Column title="检测机构的新增" dataIndex="jianceIncrease"/>
-                        <Table.Column title="检测机构的累计" dataIndex="jianceSum"/>
                         <Table.Column title="体检机构的新增" dataIndex="tijianIncrease"/>
-                        <Table.Column title="体检机构的累计" dataIndex="tijianSum"/>
-                        <Table.Column title="诊断机构的新增" dataIndex="zhenduanIncrease"/>
-                        <Table.Column title="诊断机构的累计" dataIndex="zhenduanSum"/>
-                    </Table>
+                       <Table.Column title="诊断机构的新增" dataIndex="zhenduanIncrease"/>
+                        </Table>
                     <Pagination/>
                 </List>
 

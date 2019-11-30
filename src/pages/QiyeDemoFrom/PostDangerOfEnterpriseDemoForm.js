@@ -7,7 +7,6 @@ import moment from "moment";
 import locale from "antd/es/date-picker/locale/zh_CN";
 const validate = {
 upYear: {type: "number", required: true, message: '申报年份不能为空'},
-upMonth: {type: "number", required: true, message: '申报月份不能为空'},
 hurt: {type: "string", required: true, message: '可能引起的急性职业伤害不能为空'},
 workTime: {type: "number", required: true, message: '工作时间不能为空'},
 touchTime: {type: "number", required: true, message: '接触时间不能为空'},
@@ -59,7 +58,22 @@ componentWillMount() {
   <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'} style={{width: 230}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
  <FormItem required={true} label="申报时间" name="upDateeStr"><DatePicker  locale={locale} style={{width: 230}} placeholder="请选择申报时间"/></FormItem>
  <FormItem required={true} label="申报年份" value={2019} name="upYear"><InputNumber style={{width: 230}}/></FormItem>
- <FormItem required={true} label="申报月份" name="upMonth"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="申报月份" name="upMonth">
+  <Select style={{width: 230}}>
+
+   <option key={"1"}>{"1"}</option>
+   <option key={"2"}>{"2"}</option>
+   <option key={"3"}>{"3"}</option>
+   <option key={"4"}>{"4"}</option>
+   <option key={"5"}>{"5"}</option>
+   <option key={"6"}>{"6"}</option>
+   <option key={"7"}>{"7"}</option>
+   <option key={"8"}>{"8"}</option>
+   <option key={"9"}>{"9"}</option>
+   <option key={"10"}>{"10"}</option>
+   <option key={"11"}>{"11"}</option>
+   <option key={"12"}>{"12"}</option>  </Select>
+ </FormItem>
   <FormItem required={true} label="职业病危害因素名称" name="cascaded1"><Cascader style={{width: 230}} options={this.state.dataSource1}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
 
   <FormItem required={true} label="可能导致的职业病名称" name="cascaded2"><Cascader style={{width: 230}} options={this.state.dataSource2}  onChange={this.onChange} placeholder="可能导致的职业病名称"/></FormItem>

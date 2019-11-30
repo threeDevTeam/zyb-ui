@@ -45,9 +45,12 @@ class ServiceSuperviseOfSuperviseDemoForm extends PureComponent {
                 <FormItem required={true} label="体检机构的数量" name="tijianianceount"><InputNumber/></FormItem>
                 <FormItem required={true} label="诊断机构的数量" name="zhenduanCount"><InputNumber/></FormItem>
                 <FormItem required={true} label="检测机构的被处罚数量" name="jiancePunishCount"><InputNumber/></FormItem>
+                <FormItem required={true} label="体检机构的被处罚数量" name="tijianPunishCount"><InputNumber/></FormItem>
                 <FormItem required={true} label="诊断机构的被处罚数量" name="zhenduanPunishCount"><InputNumber/></FormItem>
                 <FormItem required={true} label="检测机构的罚款金额" name="jianceMoney"><InputNumber/></FormItem>
                 <FormItem required={true} label="体检机构的罚款金额" name="tijianMoney"><InputNumber/></FormItem>
+                <FormItem required={true} label="诊断机构的罚款金额" name="zhenduanMoney"><InputNumber/></FormItem>
+
                 <FormItem required={true} label="检测机构的被吊销资质数量" name="jianceCancelCount"><InputNumber/></FormItem>
                 <FormItem required={true} label="体检机构的被吊销资质数量" name="tijianianceancelCount"><InputNumber/></FormItem>
                 <FormItem required={true} label="诊断机构的被吊销资质数量" name="zhenduanCancelCount"><InputNumber/></FormItem>

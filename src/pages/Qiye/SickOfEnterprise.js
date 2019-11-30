@@ -49,10 +49,10 @@ class SickOfEnterprise extends PureComponent {
                 content: <SickOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
                     if (values.checkDateStr) {
-                        values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')||  values.checkDateStr._i
+                        values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')
                     }
                     if (values.dieDateStr) {
-                        values.dieDateStr = values.dieDateStr.format('YYYY-MM-DD')||values.dieDateStr._i
+                        values.dieDateStr = values.dieDateStr.format('YYYY-MM-DD')
                     }
                     request.post('/zyb/sickOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
@@ -84,10 +84,10 @@ class SickOfEnterprise extends PureComponent {
                         content: <SickOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.checkDateStr) {
-                                values.checkDateStr =values.checkDateStr.format('YYYY-MM-DD') || values.checkDateStr._i
+                                values.checkDateStr = values.checkDateStr._i ||values.checkDateStr.format('YYYY-MM-DD')
                             }
                             if (values.dieDateStr) {
-                                values.dieDateStr = values.dieDateStr.format('YYYY-MM-DD') || values.dieDateStr._i
+                                values.dieDateStr = values.dieDateStr._i  || values.dieDateStr.format('YYYY-MM-DD')
 
                             }
                             request.post('/zyb/sickOfEnterprise/edit', {data: {...values}}).then(res => {
