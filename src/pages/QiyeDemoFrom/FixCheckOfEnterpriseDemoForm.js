@@ -61,7 +61,7 @@ class FixCheckOfEnterpriseDemoForm extends PureComponent {
                 <FormItem required={true} label="检测时间" name="checkDateStr"><DatePicker locale={locale}
                                                                                        style={{width: 230}}
                                                                                        placeholder="请选择检测时间"/></FormItem>
-                <FormItem required={true} label="检测年份" value={2019} name="checkYear"><InputNumber style={{width: 230}}/></FormItem>
+                <FormItem required={true} label="检测年份"  name="checkYear"><InputNumber  placeholder="2019" style={{width: 230}}/></FormItem>
                 <FormItem required={true} label="检测月份" name="checkMonth">
                     <Select style={{width: 230}}>
 

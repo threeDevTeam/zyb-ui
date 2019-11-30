@@ -35,7 +35,7 @@ componentWillMount() {
  <FormItem required={true} label="接触物理因素人数" name="physical "><InputNumber/></FormItem>
  <FormItem required={true} label="接触放射性因素人数" name="radioactivity"><InputNumber/></FormItem>
  <FormItem required={true} label="接触生物因素人数" name="biology"><InputNumber/></FormItem>
- <FormItem required={true} label="年份" value={2019} name="year"><InputNumber/></FormItem>
+ <FormItem required={true} label="年份" name="year"><InputNumber placeholder="2019"/></FormItem>
  <FormItem required={true} label="月份" name="month"><InputNumber/></FormItem>
  </Form>
  )

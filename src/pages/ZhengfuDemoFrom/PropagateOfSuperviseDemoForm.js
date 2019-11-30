@@ -33,7 +33,7 @@ class PropagateOfSuperviseDemoForm extends PureComponent {
         return (
             <Form core={this.core} layout={{label:9}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem required={true} label="年份 " value={2019} name="year"><InputNumber/></FormItem>
+                <FormItem required={true} label="年份 " name="year"><InputNumber placeholder="2019"/></FormItem>
                 <FormItem required={true} label="新闻报道数" name="newsCount"><InputNumber/></FormItem>
                 <FormItem required={true} label="印发宣传材料数" name="paperCount"><InputNumber/></FormItem>
                 <FormItem required={true} label="制作和发放专题宣传片（视频）数" name="videoCount"><InputNumber/></FormItem>

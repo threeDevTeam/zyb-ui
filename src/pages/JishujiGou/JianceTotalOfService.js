@@ -69,7 +69,7 @@ class JianceTotalOfService extends PureComponent {
                         enableValidate: true,
                         content: <JianceTotalOfServiceDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
-                            request.post('/zyb/demo/edit', {data: {...values}}).then(res => {
+                            request.post('/zyb/jianceTotalOfService/edit', {data: {...values}}).then(res => {
                                 if (res && res.flag) {
                                     message.success("操作成功")
                                     hide()

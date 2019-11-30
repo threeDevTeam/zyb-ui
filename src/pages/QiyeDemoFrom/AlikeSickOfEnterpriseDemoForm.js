@@ -51,7 +51,7 @@ componentWillMount() {
  <FormItem required={true} label="身份证号" name="idNum"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} label="检查机构" name="org"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} label="检查日期" name="checkDateStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择检查日期"/></FormItem>
- <FormItem required={true} label="检查年份" value={2019} name="checkYear"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="检查年份"  name="checkYear"><InputNumber placeholder="2019" style={{width: 230}}/></FormItem>
  <FormItem required={true} label="检查月份" name="checkMonth">
   <Select style={{width: 230}}>
 

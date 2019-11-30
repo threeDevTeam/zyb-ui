@@ -76,7 +76,7 @@ componentWillMount() {
  </FormItem>
  <FormItem required={true} label="诊断机构" name="org"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} label="诊断日期" name="checkDateStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择诊断日期"/></FormItem>
- <FormItem required={true} label="诊断年份" value={2019} name="checkYear"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="诊断年份"  name="checkYear"><InputNumber placeholder="2019" style={{width: 230}}/></FormItem>
  <FormItem required={true} label="诊断月份" name="checkMonth">
   <Select style={{width: 230}}>
 
@@ -111,7 +111,7 @@ componentWillMount() {
   </Select>
  </FormItem>
  <FormItem required={true} label="死亡日期" name="dieDateStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择死亡日期"/></FormItem>
- <FormItem required={true} label="死亡年份" value={2019} name="dieYear"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="死亡年份"  name="dieYear"><InputNumber  placeholder="2019" style={{width: 230}}/></FormItem>
  <FormItem required={true} label="死亡月份" name="dieMonth">
   <Select style={{width: 230}}>
 
