@@ -194,11 +194,6 @@ class EnterpriseCheckSumOfEnterprise extends PureComponent {
                     <Table.Column title="检测年份" dataIndex="year"/>
                     <Table.Column title="检测月份" dataIndex="month"/>
                     <Table.Column title="应检点数" dataIndex="shouldNum"/>
-                    <Table.Column title="实检点数" dataIndex="realNum"/>
-                    <Table.Column title="达标点数" dataIndex="passNum"/>
-                    <Table.Column title="检测率" dataIndex="checkRate"/>
-                    <Table.Column title="达标率" dataIndex="passRate"/>
-                    <Table.Column title="是否包含存在的全部职业病危害因素" dataIndex="isInclude"/>
 
                 </Table>
                 <Pagination/>

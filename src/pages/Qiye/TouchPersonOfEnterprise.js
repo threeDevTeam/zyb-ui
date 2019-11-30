@@ -48,6 +48,7 @@ class TouchPersonOfEnterprise extends PureComponent {
                 enableValidate: true,
                 content: <TouchPersonOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
+                    console.log(values)
                     //提取日期
                     if (values.birthStr) {
                         values.birthStr = values.birthStr.format('YYYY-MM-DD')
@@ -56,7 +57,7 @@ class TouchPersonOfEnterprise extends PureComponent {
                         values.startDateStr = values.startDateStr.format('YYYY-MM-DD')
                     }
                     if (values.leaveDateStr) {
-                        values.leaveDateStr = values.startDateStr.format('YYYY-MM-DD')
+                        values.leaveDateStr = values.leaveDateStr.format('YYYY-MM-DD')
                     }
                     request.post('/zyb/touchPersonOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {

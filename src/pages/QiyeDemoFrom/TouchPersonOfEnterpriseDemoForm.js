@@ -37,19 +37,19 @@ class TouchPersonOfEnterpriseDemoForm extends PureComponent {
             // //提取和删除日期
             let birthStr = record.birthStr
             delete record.birthStr
+            this.core.setValue('birthStr', moment(birthStr, 'YYYY-MM-DD'))
             // //提取和删除日期
             let startDateStr = record.startDateStr
             delete record.startDateStr
+            this.core.setValue('startDateStr', moment(startDateStr, 'YYYY-MM-DD'))
             // //提取和删除日期
             let leaveDateStr = record.leaveDateStr
             delete record.leaveDateStr
+            this.core.setValue('leaveDateStr', moment(leaveDateStr, 'YYYY-MM-DD'))
             //
             this.core.setValues({...record})
             this.core.setGlobalStatus('edit' === type ? type : 'preview')
             //设置日期
-            this.core.setValue('birthStr', moment(birthStr, 'YYYY-MM-DD'))
-            this.core.setValue('startDateStr', moment(startDateStr, 'YYYY-MM-DD'))
-            this.core.setValue('leaveDateStr', moment(leaveDateStr, 'YYYY-MM-DD'))
         }
         request.get('/zyb/touchPersonOfEnterprise/TreeSelcetData').then(res => {
             if (res && res.flag) {
@@ -76,8 +76,8 @@ class TouchPersonOfEnterpriseDemoForm extends PureComponent {
                     </Radio.Group>
                 </FormItem>
                 <FormItem required={true} label="出生日期" name="birthStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择出生日期"/></FormItem>
-                <FormItem required={true} label="上岗时间" name="startDateStr"><DatePicker locale={locale}style={{width: 230}} placeholder="请选择上岗时间"/></FormItem>
-                <FormItem required={true} label="离岗时间" name="leaveDateStr"><DatePicker  locale={locale}style={{width: 230}} placeholder="请选择离岗时间"/></FormItem>
+                <FormItem required={true} label="上岗时间" name="startDateStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择上岗时间"/></FormItem>
+                <FormItem required={true} label="离岗时间" name="leaveDateStr"><DatePicker  locale={locale} style={{width: 230}} placeholder="请选择离岗时间"/></FormItem>
                 <FormItem required={true} label="接害工龄" name="touchYear"><InputNumber style={{width: 230}}/></FormItem>
                 <FormItem required={true} value={"是"} label="是否缴纳工伤保险" name="isBuy">
                     <Radio.Group value={this.state.value} style={{width:200,paddingLeft:10}}>

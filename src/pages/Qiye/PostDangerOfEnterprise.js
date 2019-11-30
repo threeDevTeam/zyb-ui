@@ -49,7 +49,7 @@ class PostDangerOfEnterprise extends PureComponent {
                 content: <PostDangerOfEnterpriseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
                     if (values.upDateeStr) {
-                        values.upDateeStr = values.upDateeStr.format('YYYY-MM-DD')|| values.upDateeStr._i
+                        values.upDateeStr = values.upDateeStr.format('YYYY-MM-DD')
                     }
                     request.post('/zyb/postDangerOfEnterprise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
@@ -81,7 +81,7 @@ class PostDangerOfEnterprise extends PureComponent {
                         content: <PostDangerOfEnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.upDateeStr) {
-                                values.upDateeStr = values.upDateeStr.format('YYYY-MM-DD')|| values.upDateeStr._i
+                                values.upDateeStr = values.upDateeStr._i|| values.upDateeStr.format('YYYY-MM-DD')
                             }
                             request.post('/zyb/postDangerOfEnterprise/edit', {data: {...values}}).then(res => {
                                 if (res && res.flag) {
@@ -176,7 +176,7 @@ class PostDangerOfEnterprise extends PureComponent {
         return (
             <List url='/zyb/postDangerOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
-                    <Filter.Item label="申报时间" name="upDatee"><Input/></Filter.Item>
+                    <Filter.Item label="申报月份" name="upMonth"><Input/></Filter.Item>
                 </Filter>
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
                     {this.isShowAddButton()}

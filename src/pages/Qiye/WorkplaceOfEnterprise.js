@@ -169,7 +169,7 @@ class WorkplaceOfEnterprise extends PureComponent {
         return (
             <List url='/zyb/workplaceOfEnterprise/list' onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
-                    <Filter.Item label="工作场所名称" name="username"><Input/></Filter.Item>
+                    <Filter.Item label="工作场所名称" name="name"><Input/></Filter.Item>
 
                 </Filter>
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>

@@ -170,7 +170,7 @@ class PostOfEnterprise extends PureComponent {
         return (
             <List url='/zyb/postOfEnterprise/list'onError={this.handleError} onMount={this.onMount}>
                 <Filter cols={2}>
-                    <Filter.Item label="岗位的大类名称" name="postSmallName"><Input/></Filter.Item>
+                    <Filter.Item label="岗位的小类名称" name="postSmallName"><Input/></Filter.Item>
 
                 </Filter>
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
