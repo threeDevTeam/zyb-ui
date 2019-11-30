@@ -1,13 +1,12 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Cascader, DatePicker, Input, InputNumber, Radio} from 'nowrapper/lib/antd'
+import {Cascader, DatePicker, Input, InputNumber, Radio, Select} from 'nowrapper/lib/antd'
 import request from "../../utils/request";
 import moment from "moment";
 import locale from 'antd/es/date-picker/locale/zh_CN';
 const validate = {
  checkDate: {type: "number", required: true, message: '诊断时间不能为空'},
  checkYear: {type: "number", required: true, message: '诊断年份不能为空'},
- checkMonth: {type: "number", required: true, message: '诊断月份不能为空'},
  enterpriseName: {type: "string", required: true, message: '企业名称不能为空'},
  enterpriseCode: {type: "string", required: true, message: '统一社会信用代码不能为空'},
  registerAddress: {type: "string", required: true, message: '注册地址不能为空'},
@@ -89,8 +88,24 @@ componentWillMount() {
  <Form core={this.core} layout={{label:8}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem required={true} label="诊断时间" name="checkDateStr"><DatePicker locale={locale} style={{width: 230}}  placeholder="请选择诊断时间"/></FormItem>
- <FormItem required={true} label="诊断年份" vlaue={2019} name="checkYear"><InputNumber style={{width: 230}} /></FormItem>
- <FormItem required={true} label="诊断月份" name="checkMonth"><InputNumber style={{width: 230}} /></FormItem>
+ <FormItem required={true} label="诊断年份" value={2019} name="checkYear"><InputNumber style={{width: 230}} /></FormItem>
+ <FormItem required={true} label="诊断月份" name="checkMonth">
+  <Select style={{width: 230}}>
+
+   <option key={"1"}>{"1"}</option>
+   <option key={"2"}>{"2"}</option>
+   <option key={"3"}>{"3"}</option>
+   <option key={"4"}>{"4"}</option>
+   <option key={"5"}>{"5"}</option>
+   <option key={"6"}>{"6"}</option>
+   <option key={"7"}>{"7"}</option>
+   <option key={"8"}>{"8"}</option>
+   <option key={"9"}>{"9"}</option>
+   <option key={"10"}>{"10"}</option>
+   <option key={"11"}>{"11"}</option>
+   <option key={"12"}>{"12"}</option>
+  </Select>
+ </FormItem>
  <FormItem required={true} label="企业名称" name="enterpriseName"><Input style={{width: 230}} /></FormItem>
  <FormItem required={true} label="统一社会信用代码" name="enterpriseCode"><Input style={{width: 230}} /></FormItem>
   <FormItem required={true} label="省/市/区" name="cascader"><Cascader style={{width: 230}} options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>

@@ -198,7 +198,6 @@ class ZhenduanBasicOfService extends PureComponent {
                     <Table.Column title="市的名称" dataIndex="cityName"/>
                     <Table.Column title="区的名称" dataIndex="districtName"/>
                     <Table.Column title="注册地址" dataIndex="registerAddress"/>
-                    <Table.Column title="登记注册类型的小类名称" dataIndex="registerSmallName"/>
                     <Table.Column title="医院等级" dataIndex="hospitalLevel"/>
 
                 </Table>

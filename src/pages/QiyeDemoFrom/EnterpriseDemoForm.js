@@ -46,8 +46,10 @@ class EnterpriseDemoForm extends PureComponent {
             this.state.Login1 = 'block'
             this.state.Login2 = 'block'
             let registerDateStr = record.registerDateStr
+            console.log(registerDateStr)
             delete record.registerDateStr
             this.core.setValue('registerDateStr', moment(registerDateStr, 'YYYY-MM-DD'))
+
             let startDateStr = record.startDateStr
             delete record.startDateStr
             this.core.setValue('startDateStr', moment(startDateStr, 'YYYY-MM-DD'))

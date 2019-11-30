@@ -1,13 +1,12 @@
 import React, {PureComponent} from 'react'
 import Form, {FormItem, FormCore} from 'noform'
-import {Cascader, DatePicker, Input, InputNumber, Radio} from 'nowrapper/lib/antd'
+import {Cascader, DatePicker, Input, InputNumber, Radio, Select} from 'nowrapper/lib/antd'
 import request from "../../utils/request";
 import moment from "moment";
 import locale from 'antd/es/date-picker/locale/zh_CN';
 const validate = {
  checkDate: {type: "number", required: true, message: '体检时间不能为空'},
  checkYear: {type: "number", required: true, message: '体检年份不能为空'},
- checkMonth: {type: "number", required: true, message: '体检月份不能为空'},
  num: {type: "string", required: true, message: '体检报告编号不能为空'},
  enterpriseName: {type: "string", required: true, message: '企业名称不能为空'},
  enterpriseCode: {type: "string", required: true, message: '统一社会信用代码不能为空'},
@@ -92,8 +91,26 @@ componentWillMount() {
  <Form core={this.core} layout={{label:8}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem required={true} label="体检时间" name="checkDateStr"><DatePicker locale={locale} style={{width: 230}}  placeholder="请选择体检时间"/></FormItem>
- <FormItem required={true} label="体检年份" vlaue={2019} name="checkYear"><InputNumber style={{width: 230}} /></FormItem>
- <FormItem required={true} label="体检月份" name="checkMonth"><InputNumber style={{width: 230}} /></FormItem>
+ <FormItem required={true} label="体检年份" value={2019} name="checkYear">
+  <InputNumber style={{width: 230}} />
+ </FormItem>
+ <FormItem required={true} label="体检月份" name="checkMonth">
+  <Select style={{width: 230}}>
+
+   <option key={"1"}>{"1"}</option>
+   <option key={"2"}>{"2"}</option>
+   <option key={"3"}>{"3"}</option>
+   <option key={"4"}>{"4"}</option>
+   <option key={"5"}>{"5"}</option>
+   <option key={"6"}>{"6"}</option>
+   <option key={"7"}>{"7"}</option>
+   <option key={"8"}>{"8"}</option>
+   <option key={"9"}>{"9"}</option>
+   <option key={"10"}>{"10"}</option>
+   <option key={"11"}>{"11"}</option>
+   <option key={"12"}>{"12"}</option>
+  </Select>
+ </FormItem>
  <FormItem required={true} label="体检报告编号" name="num"><Input style={{width: 230}} /></FormItem>
  <FormItem required={true} label="企业名称" name="enterpriseName"><Input style={{width: 230}} /></FormItem>
  <FormItem required={true} label="统一社会信用代码" name="enterpriseCode"><Input style={{width: 230}} /></FormItem>

@@ -12,7 +12,6 @@ type: {type: "string", required: true, message: '病人类别不能为空'},
 org: {type: "string", required: true, message: '诊断机构不能为空'},
 checkDate: {type: "number", required: true, message: '诊断日期不能为空'},
 checkYear: {type: "number", required: true, message: '诊断年份不能为空'},
-checkMonth: {type: "number", required: true, message: '诊断月份不能为空'},
 sickYear: {type: "number", required: true, message: '发病工龄不能为空'},
 isReport: {type: "string", required: true, message: '是否进行了职业病病人报告不能为空'},
 workDay: {type: "number", required: true, message: '职业病损失工作日不能为空'},
@@ -20,7 +19,7 @@ increase: {type: "string", required: true, message: '新增不能为空'},
 transform: {type: "string", required: true, message: '转归情况不能为空'},
 dieDate: {type: "number", required: true, message: '死亡日期不能为空'},
 dieYear: {type: "number", required: true, message: '死亡年份不能为空'},
-dieMonth: {type: "number", required: true, message: '死亡月份不能为空'},
+
 
 }
 class SickOfEnterpriseDemoForm extends PureComponent {
@@ -78,7 +77,23 @@ componentWillMount() {
  <FormItem required={true} label="诊断机构" name="org"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} label="诊断日期" name="checkDateStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择诊断日期"/></FormItem>
  <FormItem required={true} label="诊断年份" value={2019} name="checkYear"><InputNumber style={{width: 230}}/></FormItem>
- <FormItem required={true} label="诊断月份" name="checkMonth"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="诊断月份" name="checkMonth">
+  <Select style={{width: 230}}>
+
+   <option key={"1"}>{"1"}</option>
+   <option key={"2"}>{"2"}</option>
+   <option key={"3"}>{"3"}</option>
+   <option key={"4"}>{"4"}</option>
+   <option key={"5"}>{"5"}</option>
+   <option key={"6"}>{"6"}</option>
+   <option key={"7"}>{"7"}</option>
+   <option key={"8"}>{"8"}</option>
+   <option key={"9"}>{"9"}</option>
+   <option key={"10"}>{"10"}</option>
+   <option key={"11"}>{"11"}</option>
+   <option key={"12"}>{"12"}</option>
+  </Select>
+ </FormItem>
  <FormItem required={true} label="发病工龄" name="sickYear"><InputNumber style={{width: 230}}/></FormItem>
  <FormItem required={true} value={"是"}  label="是否进行了职业病病人报告" name="isReport">
   <Radio.Group style={{width:200,paddingLeft:10}} >
@@ -97,7 +112,23 @@ componentWillMount() {
  </FormItem>
  <FormItem required={true} label="死亡日期" name="dieDateStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择死亡日期"/></FormItem>
  <FormItem required={true} label="死亡年份" value={2019} name="dieYear"><InputNumber style={{width: 230}}/></FormItem>
- <FormItem required={true} label="死亡月份" name="dieMonth"><InputNumber style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="死亡月份" name="dieMonth">
+  <Select style={{width: 230}}>
+
+   <option key={"1"}>{"1"}</option>
+   <option key={"2"}>{"2"}</option>
+   <option key={"3"}>{"3"}</option>
+   <option key={"4"}>{"4"}</option>
+   <option key={"5"}>{"5"}</option>
+   <option key={"6"}>{"6"}</option>
+   <option key={"7"}>{"7"}</option>
+   <option key={"8"}>{"8"}</option>
+   <option key={"9"}>{"9"}</option>
+   <option key={"10"}>{"10"}</option>
+   <option key={"11"}>{"11"}</option>
+   <option key={"12"}>{"12"}</option>
+  </Select>
+ </FormItem>
  </Form>
  )
  }

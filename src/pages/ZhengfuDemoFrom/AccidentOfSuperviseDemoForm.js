@@ -11,8 +11,6 @@ const validate = {
     dustPersonCount: {type: "number", required: true, message: '尘肺病事故人数不能为空'},
     poisonPersonCount: {type: "number", required: true, message: '中毒事故人数不能为空'},
     otherPersonCount: {type: "number", required: true, message: '其它事故人数不能为空'},
-    dustDieCount: {type: "string", required: true, message: '尘肺病事故死亡人数不能为空'},
-    poisonDieCount: {type: "string", required: true, message: '中毒事故死亡人数不能为空'},
     otherDieCount: {type: "number", required: true, message: '其它事故死亡人数不能为空'},
     loseMoney: {type: "number", required: true, message: '直接经济损失不能为空'},
 
@@ -38,7 +36,7 @@ class AccidentOfSuperviseDemoForm extends PureComponent {
         return (
             <Form core={this.core} layout={{label:8}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem required={true} label="年份" vlaue={2019} name="year"><InputNumber/></FormItem>
+                <FormItem required={true} label="年份" value={2019} name="year"><InputNumber/></FormItem>
                 <FormItem required={true} label="尘肺病事故数" name="dustCount"><InputNumber/></FormItem>
                 <FormItem required={true} label="中毒事故数" name="poisonCount"><InputNumber/></FormItem>
                 <FormItem required={true} label="其它事故数" name="otherCount"><InputNumber/></FormItem>

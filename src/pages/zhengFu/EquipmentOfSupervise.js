@@ -41,7 +41,7 @@ class EquipmentOfSupervise extends PureComponent {
                 content: <EquipmentOfSuperviseDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
                     if (values.buyDateStr) {
-                        values.buyDateStr = values.buyDateStr.format('YYYY-MM-DD')|| values.buyDateStr._i
+                        values.buyDateStr = values.buyDateStr.format('YYYY-MM-DD')
                     }
                     request.post('/zyb/equipmentOfSupervise/add', {data: {...values}}).then(res => {
                         if (res && res.flag) {
@@ -73,7 +73,7 @@ class EquipmentOfSupervise extends PureComponent {
                         content: <EquipmentOfSuperviseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.buyDateStr) {
-                                values.buyDateStr =values.buyDateStr.format('YYYY-MM-DD')|| values.buyDateStr._i
+                                values.buyDateStr =values.buyDateStr._i|| values.buyDateStr.format('YYYY-MM-DD')
                             }
                             request.post('/zyb/equipmentOfSupervise/edit', {data: {...values}}).then(res => {
                                 if (res && res.flag) {

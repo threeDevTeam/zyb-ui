@@ -41,7 +41,7 @@ class JianceDetailOfService extends PureComponent {
                 content: <JianceDetailOfServiceDemoForm option={{type}}/>,
                 onOk: (values, hide) => {
                     if (values.checkDateStr) {
-                        values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD') || values.checkDateStr._i
+                        values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')
                     }
                     console.log(values);
                     request.post('/zyb/jianceDetailOfService/add', {data: {...values}}).then(res => {
@@ -108,7 +108,7 @@ class JianceDetailOfService extends PureComponent {
                         content: <JianceDetailOfServiceDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.checkDateStr) {
-                                values.checkDateStr = values.checkDateStr.format('YYYY-MM-DD')|| values.checkDateStr._i
+                                values.checkDateStr = values.checkDateStr._i ||values.checkDateStr.format('YYYY-MM-DD')
                             }
                             request.post('/zyb/jianceDetailOfService/edit', {data: {...values}}).then(res => {
                                 if (res.flag) {

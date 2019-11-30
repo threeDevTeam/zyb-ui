@@ -9,7 +9,6 @@ let SelectInlineRepeater = Selectify(InlineRepeater)
 const validate = {
  checkDate: {type: "number", required: true, message: '检测时间不能为空'},
  checkYear: {type: "number", required: true, message: '检测年份不能为空'},
- checkMonth: {type: "number", required: true, message: '检测月份不能为空'},
  num: {type: "string", required: true, message: '检测报告编号不能为空'},
  enterpriseName: {type: "string", required: true, message: '企业名称不能为空'},
  enterpriseCode: {type: "string", required: true, message: '统一社会信用代码不能为空'},
@@ -90,7 +89,23 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
                 <FormItem label="检测时间" name="checkDateStr"  required={true}><DatePicker locale={locale} style={{width:230}}
                                                                                            placeholder="请选择检测时间"/></FormItem>
                 <FormItem required={true} label="检测年份" value={2019} name="checkYear"><InputNumber style={{width: 230}}/></FormItem>
-                <FormItem required={true} label="检测月份" name="checkMonth"><InputNumber style={{width: 230}}/></FormItem>
+                <FormItem required={true} label="检测月份" name="checkMonth">
+                    <Select style={{width: 230}}>
+
+                        <option key={"1"}>{"1"}</option>
+                        <option key={"2"}>{"2"}</option>
+                        <option key={"3"}>{"3"}</option>
+                        <option key={"4"}>{"4"}</option>
+                        <option key={"5"}>{"5"}</option>
+                        <option key={"6"}>{"6"}</option>
+                        <option key={"7"}>{"7"}</option>
+                        <option key={"8"}>{"8"}</option>
+                        <option key={"9"}>{"9"}</option>
+                        <option key={"10"}>{"10"}</option>
+                        <option key={"11"}>{"11"}</option>
+                        <option key={"12"}>{"12"}</option>
+                    </Select>
+                </FormItem>
                 <FormItem required={true} label="检测报告编号" name="num"><Input style={{width: 230}}/></FormItem>
                 <FormItem required={true} label="企业名称" name="enterpriseName"><Input style={{width: 230}}/></FormItem>
                 <FormItem required={true} label="统一社会信用代码" name="enterpriseCode"><Input style={{width: 230}}/></FormItem>
