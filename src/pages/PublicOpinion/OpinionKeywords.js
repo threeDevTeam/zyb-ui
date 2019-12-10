@@ -51,7 +51,7 @@ class OpinionKeywords extends PureComponent {
     render() {
         return (
             <Card title="设置关键字">
-                <Form core={this.core}>
+                <Form core={this.core} layout={{label: 2}}>
 
                             <FormItem style={{marginLeft:60}} required={true} label="关键字" name="text"><TextArea placeholder="请输入关键字"  style={{width: 400}} rows={7}/></FormItem>
 
@@ -60,7 +60,7 @@ class OpinionKeywords extends PureComponent {
                             </FormItem>
 
                             <FormItem style={{marginLeft:60}}>
-                                <Button  type="primary" style={{marginLeft: 130, marginTop: 20}}
+                                <Button  type="primary"
                                         onClick={this.handleOperator}>确定</Button>
                             </FormItem>
 
