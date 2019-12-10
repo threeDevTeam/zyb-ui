@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Button, Card, Carousel, Col, message, Row, Table, Tabs, Select, Radio} from 'antd'
+import {Button, Card, Col, Radio, Row, Select, Table} from 'antd'
 import ReactEcharts from 'echarts-for-react'
 import request from "../../../utils/request"
 import _ from 'lodash'
@@ -611,8 +611,8 @@ export default class OtherEnterpriseVisual extends Component {
                 // shape: 'circle',
                 name: {
                     textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
+                        color: '#1890FF',
+                        // backgroundColor: '#999',
                         borderRadius: 3,
                         padding: [3, 5]
                     }

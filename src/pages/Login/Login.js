@@ -25,6 +25,12 @@ class Login extends PureComponent {
                 request.post('/zyb/sysUser/login', {data: this.core.value}).then(res => {
                     if (res && res.flag) {
                         let type = res.data.obj1.type
+                        if("普通用户"===type){
+                            sessionStorage.setItem("loginName", res.data.obj1.loginName)
+                            sessionStorage.setItem("type", type)
+                            router.push('/opinionKeywords')
+                            return
+                        }
                         sessionStorage.setItem("loginName", res.data.obj1.loginName)
                         sessionStorage.setItem("type", type)
                         sessionStorage.setItem("name", res.data.name)
@@ -70,7 +76,7 @@ class Login extends PureComponent {
                                 query: areaQuery
                             })
                         }
-                    } else {
+                    } else{
                         message.error("账号或密码错误")
                     }
                 })

@@ -96,6 +96,8 @@ class AdminLayout extends React.Component {
                     this.setState({openKeys: ['13'], defaultSelectedKeys: ['18']})
                 } else if (type.match('诊断机构')) {
                     this.setState({openKeys: ['13'], defaultSelectedKeys: ['22']})
+                }else if (type.match('普通用户')) {
+                    this.setState({openKeys: ['54'], defaultSelectedKeys: ['55']})
                 }
             } else {
                 router.push('/user/login')
@@ -143,7 +145,7 @@ class AdminLayout extends React.Component {
             let name3 = sessionStorage.getItem('name3')
             let query = 'name=' + name
             if (name1) {
-                query += '&name1=' + name
+                query += '&name1=' + name1
             }
             if (name2) {
                 query += '&name2=' + name2
@@ -166,7 +168,7 @@ class AdminLayout extends React.Component {
             let name3 = sessionStorage.getItem('name3')
             let query = 'name=' + name
             if (name1) {
-                query += '&name1=' + name
+                query += '&name1=' + name1
             }
             if (name2) {
                 query += '&name2=' + name2
@@ -205,7 +207,7 @@ class AdminLayout extends React.Component {
                             </div>
                         </div>
                         <Menu theme="dark" mode="inline"
-                              openKeys={this.state.openKeys} onOpenChange={this.onOpenChange}>
+                              openKeys={this.state.openKeys} defaultSelectedKeys={this.state.defaultSelectedKeys} onOpenChange={this.onOpenChange}>
                             {this.show()}
                             {this.renderMenu(this.state.menus)}
                             {/* <Menu.Item key="1">
