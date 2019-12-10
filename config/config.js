@@ -97,7 +97,8 @@ export default {
                 {path: '/userManagement', component: './Systemsetup/UserManagement'},
                 {path: '/menuManagement', component: './Systemsetup/MenuManagement'},
                 {path: '/roleManagement', component: './Systemsetup/RoleManagement'},
-                {path: '/dataVisualSwitchFlag', component: './Systemsetup/dataVisualSwitchFlag'}
+                {path: '/dataVisualSwitchFlag', component: './Systemsetup/dataVisualSwitchFlag'},
+                {path: '/yuQingVisual', component: './DataVisual/YuQing/YuQingVisual'},
             ]
         }
     ],

@@ -10,7 +10,7 @@ import router from 'umi/router'
 const {Header, Sider, Content} = Layout;
 const {SubMenu} = Menu
 
-let projectName=''
+let projectName = ''
 const menu = (
     <Menu>
         <Menu.Item>
@@ -58,7 +58,7 @@ class AdminLayout extends React.Component {
     }
 
     renderMenu = data => data.map((item) => {
-        console.log(item.id+"="+item.name)
+        console.log(item.id + "=" + item.name)
         if (item.children && item.children.length > 0) {
             return (
                 <Menu.SubMenu key={item.id} title={<span><Icon type={item.icon}/><span>{item.name}</span></span>}>
@@ -71,32 +71,37 @@ class AdminLayout extends React.Component {
     })
 
     componentWillMount() {
-        //获取用户拥有的菜单
-        let loginName = sessionStorage.getItem("loginName")
-        if (loginName) {
-            //ajax,用户名-->角色-->菜单
-            // this.setState({menus: res.data.menus})
-            request.get('/zyb/sysMenu/sysMenulogin?loginName=' + loginName).then(res => {
-                if (res && res.flag) {
-                    this.setState({menus: res.data})
-                }
-            })
+        try {
+            //获取用户拥有的菜单
+            let loginName = sessionStorage.getItem("loginName")
+            if (loginName) {
+                //ajax,用户名-->角色-->菜单
+                // this.setState({menus: res.data.menus})
+                request.get('/zyb/sysMenu/sysMenulogin?loginName=' + loginName).then(res => {
+                    if (res && res.flag) {
+                        this.setState({menus: res.data})
+                    }
+                })
 
-            let type = sessionStorage.getItem('type')
-            if ('管理员' === type) {
-                this.setState({openKeys: ['48'], defaultSelectedKeys: ['50']})
-            } else if ('政府监管部门' === type) {
-                this.setState({openKeys: ['1'], defaultSelectedKeys: ['2']})
-            } else if ('企业' === type) {
-                this.setState({openKeys: ['25'], defaultSelectedKeys: ['26']})
-            } else if (type.match('检测机构')) {
-                this.setState({openKeys: ['13'], defaultSelectedKeys: ['14']})
-            } else if (type.match('体检机构')) {
-                this.setState({openKeys: ['13'], defaultSelectedKeys: ['18']})
-            } else if (type.match('诊断机构')) {
-                this.setState({openKeys: ['13'], defaultSelectedKeys: ['22']})
+                let type = sessionStorage.getItem('type')
+                if ('管理员' === type) {
+                    this.setState({openKeys: ['48'], defaultSelectedKeys: ['50']})
+                } else if ('政府监管部门' === type) {
+                    this.setState({openKeys: ['1'], defaultSelectedKeys: ['2']})
+                } else if ('企业' === type) {
+                    this.setState({openKeys: ['25'], defaultSelectedKeys: ['26']})
+                } else if (type.match('检测机构')) {
+                    this.setState({openKeys: ['13'], defaultSelectedKeys: ['14']})
+                } else if (type.match('体检机构')) {
+                    this.setState({openKeys: ['13'], defaultSelectedKeys: ['18']})
+                } else if (type.match('诊断机构')) {
+                    this.setState({openKeys: ['13'], defaultSelectedKeys: ['22']})
+                }
+            } else {
+                router.push('/user/login')
             }
-        } else {
+        } catch (e) {
+            console.log(e);
             router.push('/user/login')
         }
     }
@@ -106,7 +111,7 @@ class AdminLayout extends React.Component {
         if ('管理员' === type) {
             return (
                 <Menu.Item key='100'>
-                    <a href={projectName+'/visual/NationVisual'}>
+                    <a href={projectName + '/visual/NationVisual'}>
                         <Icon type='area-chart'/>
                         <span>监控可视化</span>
                     </a>
@@ -125,7 +130,7 @@ class AdminLayout extends React.Component {
             }
             return (
                 <Menu.Item key='100'>
-                    <a href={projectName+'/visual/OtherVisual?' + query}>
+                    <a href={projectName + '/visual/OtherVisual?' + query}>
                         <Icon type='area-chart'/>
                         <span>监控可视化</span>
                     </a>
@@ -148,7 +153,7 @@ class AdminLayout extends React.Component {
             }
             return (
                 <Menu.Item key='100'>
-                    <a href={projectName+'/visual/OtherVisual3?' + query}>
+                    <a href={projectName + '/visual/OtherVisual3?' + query}>
                         <Icon type='area-chart'/>
                         <span>监控可视化</span>
                     </a>
@@ -171,7 +176,7 @@ class AdminLayout extends React.Component {
             }
             return (
                 <Menu.Item key='100'>
-                    <a href={projectName+'/visual/OtherVisual4?' + query}>
+                    <a href={projectName + '/visual/OtherVisual4?' + query}>
                         <Icon type='area-chart'/>
                         <span>监控可视化</span>
                     </a>
