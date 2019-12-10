@@ -98,7 +98,9 @@ export default {
                 {path: '/menuManagement', component: './Systemsetup/MenuManagement'},
                 {path: '/roleManagement', component: './Systemsetup/RoleManagement'},
                 {path: '/dataVisualSwitchFlag', component: './Systemsetup/dataVisualSwitchFlag'},
-                {path: '/yuQingVisual', component: './DataVisual/YuQing/YuQingVisual'},
+                {path: '/opinionKeywords', component: './PublicOpinion/OpinionKeywords'},
+                {path: '/opinionAnalysis', component: './PublicOpinion/OpinionAnalysis'},
+
             ]
         }
     ],

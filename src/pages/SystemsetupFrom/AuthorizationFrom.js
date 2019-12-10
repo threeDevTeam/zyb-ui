@@ -24,7 +24,7 @@ class AuthorizationFrom extends PureComponent {
         let {type, record} = this.props.option
         console.log(record);
         if ('authorization' === type || 'view' === type) {
-                this.core.setValues({checkbox: record.supervise, checkbox2: record.service, checkbox3: record.enterprise, checkbox4: record.Management})
+                this.core.setValues({checkbox: record.supervise, checkbox2: record.service, checkbox3: record.enterprise, checkbox4: record.Management,checkbox5: record.opinion})
         }
         request.get('/zyb/sysRole/sysRoleTree').then(res => {
             if (res && res.flag) {
@@ -44,6 +44,11 @@ class AuthorizationFrom extends PureComponent {
         request.get('/zyb/sysRole/sysRoleTree4').then(res => {
             if (res && res.flag) {
                 this.setState({dataSource4: res.data})
+            }
+        })
+        request.get('/zyb/sysRole/sysRoleTree5').then(res => {
+            if (res && res.flag) {
+                this.setState({dataSource5: res.data})
             }
         })
         request.get('/zyb/sysRole/sysRoleTree').then(res => {
@@ -74,6 +79,9 @@ class AuthorizationFrom extends PureComponent {
                 </FormItem>
                 <FormItem label="系统管理" name="checkbox4" className={styles.newLine}>
                     <Checkbox.Group options={this.state.dataSource4} onChange={this.onChange}/>
+                </FormItem>
+                <FormItem label="公众舆情" name="checkbox5" className={styles.newLine}>
+                    <Checkbox.Group options={this.state.dataSource5} onChange={this.onChange}/>
                 </FormItem>
             </Form>
         )
