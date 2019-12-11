@@ -33,6 +33,8 @@ class PostDangerOfEnterpriseDemoForm extends PureComponent {
     }
 
     componentWillMount() {
+        let currentYear=new Date().getFullYear()
+        this.core.setValue('upYear',currentYear)
         let {type, record} = this.props.option
         if ('edit' === type || 'view' === type) {
             this.core.setValues({...record})
@@ -71,7 +73,7 @@ class PostDangerOfEnterpriseDemoForm extends PureComponent {
                 <FormItem required={true} label="申报时间" name="upDateeStr"><DatePicker locale={locale}
                                                                                      style={{width: 230}}
                                                                                      placeholder="请选择申报时间"/></FormItem>
-                <FormItem required={true} label="申报年份" value={new Date().getFullYear()} name="upYear"><InputNumber
+                <FormItem required={true} label="申报年份"  name="upYear"><InputNumber
                     style={{width: 230}}/></FormItem>
                 <FormItem required={true} label="申报月份" name="upMonth">
                     <Select style={{width: 230}} options={this.monthOptions}/>

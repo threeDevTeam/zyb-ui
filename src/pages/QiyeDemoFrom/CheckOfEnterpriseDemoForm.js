@@ -23,6 +23,8 @@ class CheckOfEnterpriseDemoForm extends PureComponent {
 this.core = new FormCore({validateConfig: validate});
  }
 componentWillMount() {
+ let currentYear=new Date().getFullYear()
+ this.core.setValue('year',currentYear)
  let {type, record} = this.props.option
  if ('edit' === type || 'view' === type) {
   this.core.setValues({...record})
@@ -36,7 +38,7 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label: 9}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
- <FormItem required={true} label="年份" value={new Date().getFullYear()} name="year"><InputNumber /></FormItem>
+ <FormItem required={true} label="年份"  name="year"><InputNumber /></FormItem>
  <FormItem required={true}  value={"是"} label="是否受过相关部门检查" name="isAccept">
   <Radio.Group  style={{width:200}} >
    <Radio value={"是"}>是</Radio>

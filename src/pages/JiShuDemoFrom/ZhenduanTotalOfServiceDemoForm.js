@@ -14,6 +14,8 @@ class ZhenduanTotalOfServiceDemoForm extends PureComponent {
 this.core = new FormCore({validateConfig: validate});
  }
 componentWillMount() {
+ let currentYear=new Date().getFullYear()
+ this.core.setValue('year',currentYear)
  let {type, record} = this.props.option
  if ('edit' === type || 'view' === type) {
   this.core.setValues({...record})
@@ -24,7 +26,7 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label:8}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
- <FormItem required={true} label="年份" value={new Date().getFullYear()} name="year"><InputNumber/></FormItem>
+ <FormItem required={true} label="年份"  name="year"><InputNumber/></FormItem>
  <FormItem required={true} label="诊断人数" name="count1"><InputNumber/></FormItem>
  <FormItem required={true} label="诊断职业病企业数" name="count2"><InputNumber/></FormItem>
 

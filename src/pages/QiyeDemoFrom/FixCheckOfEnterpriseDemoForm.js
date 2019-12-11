@@ -34,6 +34,8 @@ class FixCheckOfEnterpriseDemoForm extends PureComponent {
     }
 
     componentWillMount() {
+        let currentYear=new Date().getFullYear()
+        this.core.setValue('checkYear',currentYear)
         let {type, record} = this.props.option
         if ('edit' === type || 'view' === type) {
             this.core.setValues({...record})
@@ -61,7 +63,7 @@ class FixCheckOfEnterpriseDemoForm extends PureComponent {
                 <FormItem required={true} label="检测时间" name="checkDateStr"><DatePicker locale={locale}
                                                                                        style={{width: 230}}
                                                                                        placeholder="请选择检测时间"/></FormItem>
-                <FormItem required={true} label="检测年份" value={new Date().getFullYear()}  name="checkYear"><InputNumber style={{width: 230}}/></FormItem>
+                <FormItem required={true} label="检测年份"   name="checkYear"><InputNumber style={{width: 230}}/></FormItem>
                 <FormItem required={true} label="检测月份" name="checkMonth">
                     <Select style={{width: 230}}>
 

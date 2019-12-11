@@ -30,6 +30,8 @@ class SuperviseDemoForm extends PureComponent {
     }
 
     componentWillMount() {
+        let currentYear=new Date().getFullYear()
+        this.core.setValue('year',currentYear)
         let {type, record} = this.props.option
         if ('edit' === type || 'view' === type) {
           this.state.Login='block'
@@ -48,7 +50,7 @@ class SuperviseDemoForm extends PureComponent {
             <Form core={this.core} layout={{label:10}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
 
-                <FormItem required={true} label="申报年份" value={new Date().getFullYear()} name="year"  ><InputNumber  style={{width: 230}}/></FormItem>
+                <FormItem required={true} label="申报年份"  name="year"  ><InputNumber  style={{width: 230}}/></FormItem>
                 <div style={{display: this.state.Login,marginTop:10}}>
                     <FormItem required={true} label="省/市/区" name="cascader"><Cascader  options={this.state.dataSource} onChange={this.onChange} placeholder="请选择省/市/区" style={{width: 230}}/></FormItem>
                     <FormItem required={true} label="注册地址" name="registerAddress"><Input style={{width: 230}}/></FormItem>

@@ -33,6 +33,8 @@ class JianceBasicOfServiceDemoForm extends PureComponent {
 this.core = new FormCore({validateConfig: validate});
  }
 componentWillMount() {
+ let currentYear=new Date().getFullYear()
+ this.core.setValue('year',currentYear)
  let {type, record} = this.props.option
  if ('edit' === type || 'view' === type) {
   this.state.Login='block'
@@ -60,7 +62,7 @@ componentWillMount() {
   <FormItem required={true} label="社会统一代码" name="code"><Input style={{width:230}}/></FormItem>
  </div>
   <div style={{marginBottom:10}}>
-   <FormItem required={true} label="申报年份"value={new Date().getFullYear()}  name="year"><InputNumber  style={{width:230}}/></FormItem>
+   <FormItem required={true} label="申报年份"  name="year"><InputNumber  style={{width:230}}/></FormItem>
   </div>
   <div style={{display: this.state.Login1,marginTop:10,marginBottom:10}}>
    <FormItem required={true} label="省/市/区" name="cascader"><Cascader  style={{width:230}} options={this.state.dataSource}  onChange={this.onChange} placeholder="请选择省/市/区"/></FormItem>

@@ -21,6 +21,8 @@ class ServiceOfSuperviseDemoForm extends PureComponent {
     }
 
     componentWillMount() {
+        let currentYear=new Date().getFullYear()
+        this.core.setValue('year',currentYear)
         let {type, record} = this.props.option
         if ('edit' === type || 'view' === type) {
             this.core.setValues({...record})
@@ -32,7 +34,7 @@ class ServiceOfSuperviseDemoForm extends PureComponent {
         return (
             <Form core={this.core} layout={{label: 9}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem required={true} label="年份 " value={new Date().getFullYear()}  name="year" ><InputNumber style={{width:230}}/></FormItem>
+                <FormItem required={true} label="年份 "  name="year" ><InputNumber style={{width:230}}/></FormItem>
                 <FormItem required={true} label="检测机构的资质等级" name="jianceLevel">
                     <Select value={this.state.city}  style={{width:230}} onChange={this.getCity}>
 

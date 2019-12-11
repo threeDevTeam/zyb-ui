@@ -22,6 +22,8 @@ class EducationOfSuperviseDemoForm extends PureComponent {
     }
 
     componentWillMount() {
+        let currentYear=new Date().getFullYear()
+        this.core.setValue('year',currentYear)
         let {type, record} = this.props.option
         if ('edit' === type || 'view' === type) {
             this.core.setValues({...record})
@@ -33,7 +35,7 @@ class EducationOfSuperviseDemoForm extends PureComponent {
         return (
             <Form core={this.core} layout={{label: 9}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem required={true} label="年份 " value={new Date().getFullYear()} name="year"><InputNumber /></FormItem>
+                <FormItem required={true} label="年份 "  name="year"><InputNumber /></FormItem>
                 <FormItem required={true} label="培训监管人员数" name="markCount"><InputNumber/></FormItem>
                 <FormItem required={true} label="培训用人单位数" name="personCount"><InputNumber/></FormItem>
                 <FormItem required={true} label="培训用人单位主要负责人数" name="mainCount"><InputNumber/></FormItem>

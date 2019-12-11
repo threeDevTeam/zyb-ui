@@ -36,11 +36,12 @@ class EnterpriseDemoForm extends PureComponent {
     }
 
     componentWillMount() {
+        let currentYear=new Date().getFullYear()
+        this.core.setValue('year',currentYear)
         let {type, record} = this.props.option
         if ('edit' === type || 'view' === type) {
             this.core.setValues({...record})
             this.core.setGlobalStatus('edit' === type ? type : 'preview')
-
 
             this.state.Login = 'block'
             this.state.Login1 = 'block'
@@ -83,7 +84,7 @@ class EnterpriseDemoForm extends PureComponent {
                     <FormItem required={true} label="统一社会信用代码" name="code"><Input style={{width: 230}}/></FormItem>
                 </div>
 
-                <FormItem required={true} label="申报年份" value={new Date().getFullYear()} name="year"><InputNumber
+                <FormItem required={true} label="申报年份"  name="year"><InputNumber
                     style={{width: 230}}/></FormItem>
 
                 <div style={{display: this.state.Login, marginTop: 10, marginBottom: 10}}>

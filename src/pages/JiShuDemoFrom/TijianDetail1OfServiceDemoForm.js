@@ -42,7 +42,10 @@ class TijianDetail1OfServiceDemoForm extends PureComponent {
   super(props);
 this.core = new FormCore({validateConfig: validate});
  }
-componentWillMount() {  let {type, record} = this.props.option
+componentWillMount() {
+ let currentYear=new Date().getFullYear()
+ this.core.setValue('checkYear',currentYear)
+  let {type, record} = this.props.option
  if ('edit' === type || 'view' === type) {
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
@@ -77,7 +80,7 @@ componentWillMount() {  let {type, record} = this.props.option
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem required={true} label="体检时间" name="checkDateStr"><DatePicker locale={locale} style={{width: 230}}  placeholder="请选择体检时间"/></FormItem>
- <FormItem required={true} label="体检年份" value={new Date().getFullYear()} name="checkYear"><InputNumber  style={{width: 230}} /></FormItem>
+ <FormItem required={true} label="体检年份" name="checkYear"><InputNumber  style={{width: 230}} /></FormItem>
  <FormItem required={true} label="体检月份" name="checkMonth">
   <Select style={{width: 230}}>
 

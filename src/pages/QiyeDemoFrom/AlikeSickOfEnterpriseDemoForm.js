@@ -27,6 +27,8 @@ class AlikeSickOfEnterpriseDemoForm extends PureComponent {
 this.core = new FormCore({validateConfig: validate});
  }
 componentWillMount() {
+ let currentYear=new Date().getFullYear()
+ this.core.setValue('checkYear',currentYear)
  let {type, record} = this.props.option
  if ('edit' === type || 'view' === type) {
   this.core.setValues({...record})
@@ -51,7 +53,7 @@ componentWillMount() {
  <FormItem required={true} label="身份证号" name="idNum"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} label="检查机构" name="org"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} label="检查日期" name="checkDateStr"><DatePicker locale={locale} style={{width: 230}} placeholder="请选择检查日期"/></FormItem>
- <FormItem required={true} label="检查年份" value={new Date().getFullYear()} name="checkYear"><InputNumber  style={{width: 230}}/></FormItem>
+ <FormItem required={true} label="检查年份" name="checkYear"><InputNumber  style={{width: 230}}/></FormItem>
  <FormItem required={true} label="检查月份" name="checkMonth">
   <Select style={{width: 230}}>
 

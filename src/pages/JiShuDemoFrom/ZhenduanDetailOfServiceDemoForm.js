@@ -44,6 +44,8 @@ class ZhenduanDetailOfServiceDemoForm extends PureComponent {
 this.core = new FormCore({validateConfig: validate});
  }
 componentWillMount() {
+ let currentYear=new Date().getFullYear()
+ this.core.setValue('checkYear',currentYear)
  let {type, record} = this.props.option
  if ('edit' === type || 'view' === type) {
   this.core.setValues({...record})
@@ -88,7 +90,7 @@ componentWillMount() {
  <Form core={this.core} layout={{label:8}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem required={true} label="诊断时间" name="checkDateStr"><DatePicker locale={locale} style={{width: 230}}  placeholder="请选择诊断时间"/></FormItem>
- <FormItem required={true} label="诊断年份" value={new Date().getFullYear()} name="checkYear" ><InputNumber placeholder="2019" style={{width: 230}} /></FormItem>
+ <FormItem required={true} label="诊断年份"  name="checkYear" ><InputNumber placeholder="2019" style={{width: 230}} /></FormItem>
  <FormItem required={true} label="诊断月份" name="checkMonth">
   <Select style={{width: 230}}>
 
