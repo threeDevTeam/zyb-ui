@@ -75,10 +75,10 @@ class Enterprise extends PureComponent {
                         content: <EnterpriseDemoForm option={{type, record: res.data}}/>,
                         onOk: (values, hide) => {
                             if (values.startDateStr) {
-                                values.startDateStr = values.startDateStr.format('YYYY-MM-DD') || values.startDateStr._i
+                                values.startDateStr =values.startDateStr._i||  values.startDateStr.format('YYYY-MM-DD')
                             }
                             if (values.registerDateStr) {
-                                values.registerDateStr = values.registerDateStr.format('YYYY-MM-DD') || values.registerDateStr._i
+                                values.registerDateStr =  values.registerDateStr._i  || values.registerDateStr.format('YYYY-MM-DD')
                             }
                             request.post('/zyb/enterprise/edit', {data: {...values}}).then(res => {
                                 if (res && res.flag) {
