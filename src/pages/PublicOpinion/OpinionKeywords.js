@@ -31,6 +31,7 @@ class OpinionKeywords extends PureComponent {
 
         request.get('/zyb/publicOpinion/list').then(res => {
             if (res && res.flag) {
+                console.log(res.data);
                 this.core.setValues({...res.data})
             }
         })
