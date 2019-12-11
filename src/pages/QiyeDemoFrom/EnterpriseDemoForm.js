@@ -83,7 +83,7 @@ class EnterpriseDemoForm extends PureComponent {
                     <FormItem required={true} label="统一社会信用代码" name="code"><Input style={{width: 230}}/></FormItem>
                 </div>
 
-                <FormItem required={true} label="申报年份" name="year"><InputNumber placeholder="2019"
+                <FormItem required={true} label="申报年份" value={new Date().getFullYear()} name="year"><InputNumber
                     style={{width: 230}}/></FormItem>
 
                 <div style={{display: this.state.Login, marginTop: 10, marginBottom: 10}}>

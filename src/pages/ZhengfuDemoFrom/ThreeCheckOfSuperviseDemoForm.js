@@ -37,7 +37,7 @@ class ThreeCheckOfSuperviseDemoForm extends PureComponent {
         return (
             <Form core={this.core} layout={{label: 10}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem required={true} label="年份" name="year"><InputNumber placeholder="2019"/></FormItem>
+                <FormItem required={true} label="年份" value={new Date().getFullYear()} name="year"><InputNumber/></FormItem>
                 <FormItem required={true} label="验收方案上报数" name="upCount"><InputNumber/></FormItem>
                 <FormItem required={true} label="职业病危害严重建设项目控制效果评价和防护设施验收工作过程报告数" name="reportCount"><InputNumber style={{marginTop: 10}}/></FormItem>
                 <FormItem required={true} label="检查建设单位数" name="orgCount"><InputNumber/></FormItem>

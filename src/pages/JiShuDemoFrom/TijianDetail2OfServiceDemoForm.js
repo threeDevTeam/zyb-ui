@@ -91,8 +91,8 @@ componentWillMount() {
  <Form core={this.core} layout={{label:8}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem required={true} label="体检时间" name="checkDateStr"><DatePicker locale={locale} style={{width: 230}}  placeholder="请选择体检时间"/></FormItem>
- <FormItem required={true} label="体检年份" name="checkYear">
-  <InputNumber placeholder="2019" style={{width: 230}} />
+ <FormItem required={true} label="体检年份" value={new Date().getFullYear()} name="checkYear">
+  <InputNumber  style={{width: 230}} />
  </FormItem>
  <FormItem required={true} label="体检月份" name="checkMonth">
   <Select style={{width: 230}}>

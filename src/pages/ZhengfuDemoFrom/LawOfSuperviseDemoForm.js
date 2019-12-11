@@ -31,7 +31,7 @@ class LawOfSuperviseDemoForm extends PureComponent {
         return (
             <Form core={this.core} layout={{label: 8}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-               <FormItem required={true} label="年份 "name="year"><InputNumber placeholder="2019"/></FormItem>
+               <FormItem required={true} label="年份 " value={new Date().getFullYear()} name="year"><InputNumber /></FormItem>
                     <FormItem required={true} label="印发法律法规的新增" name="ruleIncrease"><InputNumber/></FormItem>
                 <FormItem required={true} label="印发规范性文件的新增" name="fileIncrease"><InputNumber/></FormItem>
                 <FormItem required={true} label="印发标准的新增" name="startdardIncrease"><InputNumber/></FormItem>

@@ -38,7 +38,7 @@ class ExecuteLawOfSuperviseDemoForm extends PureComponent {
             <Form core={this.core} layout={{label: 9}}>
                 <FormItem style={{display: 'none'}} name="id"><InputNumber/></FormItem>
 
-                <FormItem required={true} label="年份" name="year"><InputNumber placeholder="2019"/></FormItem>
+                <FormItem required={true} label="年份" value={new Date().getFullYear()} name="year"><InputNumber /></FormItem>
 
                 <FormItem required={true} label="检查用人单位数" name="personCount"><InputNumber/></FormItem>
 

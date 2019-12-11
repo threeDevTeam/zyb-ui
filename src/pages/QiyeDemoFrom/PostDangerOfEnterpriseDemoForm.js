@@ -71,7 +71,7 @@ class PostDangerOfEnterpriseDemoForm extends PureComponent {
                 <FormItem required={true} label="申报时间" name="upDateeStr"><DatePicker locale={locale}
                                                                                      style={{width: 230}}
                                                                                      placeholder="请选择申报时间"/></FormItem>
-                <FormItem required={true} label="申报年份" name="upYear"><InputNumber placeholder="2019"
+                <FormItem required={true} label="申报年份" value={new Date().getFullYear()} name="upYear"><InputNumber
                     style={{width: 230}}/></FormItem>
                 <FormItem required={true} label="申报月份" name="upMonth">
                     <Select style={{width: 230}} options={this.monthOptions}/>

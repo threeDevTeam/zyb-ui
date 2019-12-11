@@ -23,7 +23,7 @@ componentWillMount() {
   return (
  <Form core={this.core} layout={{label: 7}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
- <FormItem required={true} label="年份" name="year"><InputNumber   placeholder="2019"/></FormItem>
+ <FormItem required={true} label="年份" value={new Date().getFullYear()} name="year"><InputNumber /></FormItem>
  <FormItem required={true} label="体检人数" name="count2"><InputNumber/></FormItem>
  </Form>
  )

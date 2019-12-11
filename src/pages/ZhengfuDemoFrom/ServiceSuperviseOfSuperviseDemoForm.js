@@ -40,7 +40,7 @@ class ServiceSuperviseOfSuperviseDemoForm extends PureComponent {
         return (
             <Form core={this.core} layout={{label:9}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
-                <FormItem required={true} label="年份" name="year"><InputNumber placeholder="2019"/></FormItem>
+                <FormItem required={true} label="年份" value={new Date().getFullYear()} name="year"><InputNumber /></FormItem>
                 <FormItem required={true} label="检测机构的数量" name="jianceCount"><InputNumber/></FormItem>
                 <FormItem required={true} label="体检机构的数量" name="tijianianceount"><InputNumber/></FormItem>
                 <FormItem required={true} label="诊断机构的数量" name="zhenduanCount"><InputNumber/></FormItem>
