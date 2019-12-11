@@ -113,11 +113,11 @@ class SysUserRegister extends PureComponent {
 
                     //提取日期
                     if (this.core.value.registerDateStr) {
-                        this.core.value.registerDateStr =  values.registerDateStr._i
+                        this.core.value.registerDateStr =  this.core.value.registerDateStr.format('YYYY-MM-DD')
                     }
                     //提取日期
                     if (this.core.value.startDateStr) {
-                        this.core.value.startDateStr =  values.startDateStr._i
+                        this.core.value.startDateStr = this.core.value.startDateStr.format('YYYY-MM-DD')
                     }
                     request.post('/zyb/enterpriseOfRegister/add', {data: this.core.value}).then(res => {
                         console.log(res)
