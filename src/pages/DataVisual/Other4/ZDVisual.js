@@ -184,8 +184,8 @@ export default class ZDVisual extends Component {
                 // shape: 'circle',
                 name: {
                     textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
+                        color: '#1890FF',
+                        // backgroundColor: '#999',
                         borderRadius: 3,
                         padding: [3, 5]
                     }
@@ -212,7 +212,7 @@ export default class ZDVisual extends Component {
         }
 
         let yearSelect = []
-        for (let i = currentYear; i > (currentYear - 3); i--) {
+        for (let i = currentYear; i > (currentYear - 10); i--) {
             yearSelect.push(<Select.Option value={i}>{i}</Select.Option>);
         }
 

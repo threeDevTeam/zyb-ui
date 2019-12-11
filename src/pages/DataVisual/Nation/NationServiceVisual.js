@@ -858,7 +858,7 @@ export default class NationServiceVisual extends Component {
         };
 
         let yearSelect = []
-        for (let i = currentYear; i > (currentYear - 3); i--) {
+        for (let i = currentYear; i > (currentYear - 10); i--) {
             yearSelect.push(<Select.Option value={i}>{i}</Select.Option>);
         }
         return <div>

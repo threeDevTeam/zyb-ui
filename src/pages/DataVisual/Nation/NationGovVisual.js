@@ -828,7 +828,7 @@ export default class NationGovVisual extends Component {
         }
 
         let yearSelect = []
-        for (let i = currentYear; i > (currentYear - 3); i--) {
+        for (let i = currentYear; i > (currentYear - 10); i--) {
             yearSelect.push(<Radio.Button value={i}>{i}</Radio.Button>);
         }
 

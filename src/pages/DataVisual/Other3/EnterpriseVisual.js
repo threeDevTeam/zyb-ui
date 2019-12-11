@@ -219,6 +219,16 @@ export default class enterpriseVisual extends Component {
         this.data1()
     }
 
+    //是否显示规模
+    show = () => {
+        let type = sessionStorage.getItem("type")
+        if ('企业' === type) {
+
+        } else {
+            return <Radio.Button value="企业规模">企业规模</Radio.Button>
+        }
+    }
+
     yearOnChange = year => {
         this.setState({year})
         //
@@ -780,7 +790,7 @@ export default class enterpriseVisual extends Component {
         };
 
         let yearSelect = []
-        for (let i = currentYear; i > (currentYear - 3); i--) {
+        for (let i = currentYear; i > (currentYear - 10); i--) {
             yearSelect.push(<Select.Option value={i}>{i}</Select.Option>);
         }
         return <div>
@@ -794,7 +804,7 @@ export default class enterpriseVisual extends Component {
                         <Radio.Group onChange={this.typeOnChange} defaultValue={this.state.type} size={'large'}>
                             <Radio.Button value="危害因素">危害因素</Radio.Button>
                             {/*<Radio.Button value="行政区划">行政区划</Radio.Button>*/}
-                            <Radio.Button value="企业规模">企业规模</Radio.Button>
+                            {this.show()}
                             {/*<Radio.Button value="登记注册类型">登记注册类型</Radio.Button>*/}
                             {/*<Radio.Button value="所属行业">所属行业</Radio.Button>*/}
                         </Radio.Group>
