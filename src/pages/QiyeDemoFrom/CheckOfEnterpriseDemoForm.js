@@ -25,6 +25,9 @@ this.core = new FormCore({validateConfig: validate});
 componentWillMount() {
  let currentYear=new Date().getFullYear()
  this.core.setValue('year',currentYear)
+ this.core.setValue('isAccept','是')
+ this.core.setValue('isPunish','是')
+ this.core.setValue('isChange','是')
  let {type, record} = this.props.option
  if ('edit' === type || 'view' === type) {
   this.core.setValues({...record})
@@ -39,7 +42,7 @@ componentWillMount() {
  <Form core={this.core} layout={{label: 9}}>
  <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
  <FormItem required={true} label="年份"  name="year"><InputNumber /></FormItem>
- <FormItem required={true}  value={"是"} label="是否受过相关部门检查" name="isAccept">
+ <FormItem required={true}  label="是否受过相关部门检查" name="isAccept">
   <Radio.Group  style={{width:200}} >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
@@ -49,7 +52,7 @@ componentWillMount() {
  <FormItem required={true} label="检查部门" name="org"><Input/></FormItem>
  <FormItem required={true} label="检查内容" name="content"><Input/></FormItem>
  <FormItem required={true} label="发现问题" name="question"><Input/></FormItem>
- <FormItem required={true}  value={"是"} label="是否被行政处罚" name="isPunish">
+ <FormItem required={true}   label="是否被行政处罚" name="isPunish">
   <Radio.Group style={{width:200}}  >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
@@ -57,7 +60,7 @@ componentWillMount() {
  </FormItem>
  <FormItem required={true} label="行政处罚类别" name="type"><Input/></FormItem>
  <FormItem required={true} label="罚款金额" name="money"><InputNumber/></FormItem>
- <FormItem required={true}  value={"是"} label="是否落实整改" name="isChange">
+ <FormItem required={true}  label="是否落实整改" name="isChange">
   <Radio.Group  style={{width:200}} >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>

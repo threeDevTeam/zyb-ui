@@ -28,6 +28,10 @@ this.core = new FormCore({validateConfig: validate});
  }
 componentWillMount() {
  let {type, record} = this.props.option
+ this.core.setValue('isExist','是')
+ this.core.setValue('isFisrt','是')
+ this.core.setValue('isUse','是')
+ this.core.setValue('isHave','是')
  if ('edit' === type || 'view' === type) {
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
@@ -57,25 +61,25 @@ componentWillMount() {
  <FormItem required={true} label="原辅料年用量" name="materialYearNumber"><InputNumber style={{width: 230}}/></FormItem>
  <FormItem required={true} label="用量类型" name="materialType"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} label="主要生产工艺描述" name="describee"><Input style={{width: 230}}/></FormItem>
- <FormItem required={true} value={"是"} label="是否存在职业病危害工艺岗位" name="isExist">
+ <FormItem required={true}  label="是否存在职业病危害工艺岗位" name="isExist">
   <Radio.Group style={{width:200,paddingLeft:10}}>
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem required={true} value={"是"} label="是否优先采用有利于职业病防治和保护劳动者健康的新技术、新工艺和新材料" name="isFisrt">
+ <FormItem required={true}  label="是否优先采用有利于职业病防治和保护劳动者健康的新技术、新工艺和新材料" name="isFisrt">
   <Radio.Group style={{width:200,paddingLeft:10}}>
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem required={true}  value={"是"} label="是否使用国家明令禁止的可能产生职业病危害的设备和材料" name="isUse">
+ <FormItem required={true}   label="是否使用国家明令禁止的可能产生职业病危害的设备和材料" name="isUse">
   <Radio.Group style={{width:200,paddingLeft:10}}>
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>
   </Radio.Group>
  </FormItem>
- <FormItem value={"是"} required={true} label="可能产生职业病危害的设备、化学品是否有中文说明书" name="isHave">
+ <FormItem  required={true} label="可能产生职业病危害的设备、化学品是否有中文说明书" name="isHave">
   <Radio.Group style={{width:200,paddingLeft:10}}>
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>

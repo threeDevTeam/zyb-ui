@@ -31,7 +31,6 @@ class OpinionKeywords extends PureComponent {
 
         request.get('/zyb/publicOpinion/list').then(res => {
             if (res && res.flag) {
-                console.log(res.data);
                 this.core.setValues({...res.data})
             }
         })
@@ -39,14 +38,18 @@ class OpinionKeywords extends PureComponent {
 
     handleOperator = () => {
 
-        console.log(this.core.value)
-        request.post('/zyb/publicOpinion/add', {data: this.core.value}).then(res => {
-            if (res && res.flag) {
-                message.success("设置成功")
-            } else {
-                message.error("设置失败")
+            if(this.core.value.text===""){
+                message.error("请输入关键字")
+                return
+            }else {
+                request.post('/zyb/publicOpinion/add', {data: this.core.value}).then(res => {
+                    if (res && res.flag) {
+                        message.success("设置成功")
+                    } else {
+                        message.error("设置失败")
+                    }
+                })
             }
-        })
     }
 
     render() {

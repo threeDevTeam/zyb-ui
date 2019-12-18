@@ -25,6 +25,9 @@ this.core = new FormCore({validateConfig: validate});
  }
 componentWillMount() {
  let {type, record} = this.props.option
+ this.core.setValue('isSet','是')
+ this.core.setValue('isFix','是')
+
  if ('edit' === type || 'view' === type) {
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
@@ -68,7 +71,7 @@ componentWillMount() {
    <option key={"其他"}>{"其他"}</option>
   </Select>
  </FormItem>
- <FormItem required={true} value={"是"}  label="是否定期进行维护检修保养" name="isFix">
+ <FormItem required={true}  label="是否定期进行维护检修保养" name="isFix">
   <Radio.Group  style={{width:200,paddingLeft:10}}>
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>

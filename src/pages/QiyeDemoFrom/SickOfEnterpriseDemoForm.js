@@ -37,6 +37,7 @@ componentWillMount() {
  let currentYear=new Date().getFullYear()
  this.core.setValue('checkYear',currentYear)
  this.core.setValue('dieYear',currentYear)
+ this.core.setValue('isReport','是')
  let {type, record} = this.props.option
  if ('edit' === type || 'view' === type) {
   this.core.setValues({...record})
@@ -98,7 +99,7 @@ componentWillMount() {
   </Select>
  </FormItem>
  <FormItem required={true} label="发病工龄" name="sickYear"><InputNumber style={{width: 230}}/></FormItem>
- <FormItem required={true} value={"是"}  label="是否进行了职业病病人报告" name="isReport">
+ <FormItem required={true}   label="是否进行了职业病病人报告" name="isReport">
   <Radio.Group style={{width:200,paddingLeft:10}} >
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>

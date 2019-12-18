@@ -36,6 +36,7 @@ class FixCheckOfEnterpriseDemoForm extends PureComponent {
     componentWillMount() {
         let currentYear=new Date().getFullYear()
         this.core.setValue('checkYear',currentYear)
+        this.core.setValue('decideResult','不合格')
         let {type, record} = this.props.option
         if ('edit' === type || 'view' === type) {
             this.core.setValues({...record})
@@ -84,7 +85,7 @@ class FixCheckOfEnterpriseDemoForm extends PureComponent {
                 <FormItem required={true} label="检测机构" name="org"><Input style={{width: 230}}/></FormItem>
                 <FormItem required={true} label="检测机构的社会统一代码" name="code"><Input style={{width: 230}}/></FormItem>
                 <FormItem required={true} label="检测报告编号" name="num"><Input style={{width: 230}}/></FormItem>
-                <FormItem required={true} value={"合格"} label="判定结果" name="decideResult">
+                <FormItem required={true} label="判定结果" name="decideResult">
                     <Radio.Group value={this.state.value}>
                         <Radio value={"合格"}>合格</Radio>
                         <Radio value={"不合格"}>不合格</Radio>

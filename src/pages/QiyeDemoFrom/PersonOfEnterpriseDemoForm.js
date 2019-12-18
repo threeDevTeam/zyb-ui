@@ -23,6 +23,7 @@ this.core = new FormCore({validateConfig: validate});
  }
 componentWillMount() {
  let {type, record} = this.props.option
+ this.core.setValue('gender','男')
  if ('edit' === type || 'view' === type) {
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
@@ -40,7 +41,7 @@ componentWillMount() {
   <FormItem required={true} label="工作场所" name="treeSelect"><TreeSelect notFoundContent={'暂无数据'} style={{width: 230}} placeholder="请选择工作场所"   treeData={this.state.dataSource}  onChange={this.onChange}/></FormItem>
  <FormItem required={true} label="姓名" name="name"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} label="身份证号" name="idNum"><Input style={{width: 230}}/></FormItem>
- <FormItem required={true}  value={"男"} label="性别" name="gender">
+ <FormItem required={true}  label="性别" name="gender">
   <Radio.Group  value={this.state.value} style={{width:200,paddingLeft:10}}>
    <Radio value={"男"}>男</Radio>
    <Radio value={"女"}>女</Radio>

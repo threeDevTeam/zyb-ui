@@ -89,7 +89,7 @@ class OtherOfDic extends PureComponent {
                 footerAlign: 'label',
                 locale: 'zh',
                 style: {width: '400px'},
-                content: `确定要删除username=${this.state.record.username}的数据吗?`,
+                content: `确定要删除  名称=${this.state.record.chineseColumnName} 的数据吗?`,
                 onOk: (values, hide) => {
                     request('/zyb/otherOfDic/delete?id=' + this.state.record.id).then(res => {
                         hide()

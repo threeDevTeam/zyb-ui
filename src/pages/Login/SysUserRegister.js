@@ -10,31 +10,11 @@ import locale from 'antd/es/date-picker/locale/zh_CN';
 
 const validate = {
     loginName: {type: "string", required: true, message: '登录名不能为空'},
-    loginPassword: {type: "string", required: true, message: '登录密码不能为空'},
-
-    ConfirmPassword: (values, context) => { // dynamic validate config
-        const {loginPassword} = values;
-        const {ConfirmPassword} = values;
-        if (ConfirmPassword === null) {
-            return {type: "string", required: true, message: '确认密码不能为空'};
-        } else if (loginPassword !== ConfirmPassword) {
-            message.error("密码不一致");
-            return {type: "string", required: true, message: '密码不一致'};
-
-        }
-    },
-
     email: {type: "string", required: true, message: 'email不能为空或错误'},
     mobile: {type: "string", required: true, message: '手机号码不能为空'},
     type: {type: "string", required: true, message: '用户类型不能为空'},
     companyName: {type: "string", required: true, message: '企业名称不能为空'},
     code: {type: "string", required: true, message: '统一社会信用代码不能为空'},
-    provinceName: {type: "string", required: true, message: '省的名称不能为空'},
-    provinceCode: {type: "string", required: true, message: '省的代码不能为空'},
-    cityName: {type: "string", required: true, message: '市的名称不能为空'},
-    cityCode: {type: "string", required: true, message: '市的代码不能为空'},
-    districtName: {type: "string", required: true, message: '区的名称不能为空'},
-    districtCode: {type: "string", required: true, message: '区的代码不能为空'},
     productionCapacity: {type: "string", required: true, message: '核定生产能力不能为空'},
     unitType: {type: "string", required: true, message: '生产能力单位类型不能为空'},
     regiterMoney: {type: "string", required: true, message: '注册资本不能为空'},
@@ -53,7 +33,9 @@ class SysUserRegister extends PureComponent {
         displayService: 'none',
         primaryreturn: 'none',
         study: 'block',
+        enterprisename:'block',
         handleOperator: 'none'
+
     }
 
     constructor(props) {
@@ -62,6 +44,14 @@ class SysUserRegister extends PureComponent {
     }
 
     study = () => {
+        if (this.core.value.loginPassword === null || this.core.value.ConfirmPassword === null) {
+            message.error("请输入密码");
+            return {type: "string", required: true, message: '确认密码不能为空'};
+        } else if (this.core.value.loginPassword !== this.core.value.ConfirmPassword) {
+            message.error("密码不一致");
+            return {type: "string", required: true, message: '密码不一致'};
+        }
+
         if ("企业" === this.core.value.type) {
             this.setState({
                 Login: 'none',
@@ -70,7 +60,8 @@ class SysUserRegister extends PureComponent {
                 displayService: 'none',
                 primaryreturn: 'inline-block',
                 study: 'none',
-                handleOperator: 'inline-block'
+                handleOperator: 'inline-block',
+                enterprisename:'none'
             })
         }
         if ("政府监管部门" === this.core.value.type) {
@@ -81,7 +72,8 @@ class SysUserRegister extends PureComponent {
                 displayService: 'none',
                 primaryreturn: 'inline-block',
                 study: 'none',
-                handleOperator: 'inline-block'
+                handleOperator: 'inline-block',
+                enterprisename:'none'
             })
         }
         if ("技术服务机构" === this.core.value.type) {
@@ -92,7 +84,8 @@ class SysUserRegister extends PureComponent {
                 displayService: 'block',
                 primaryreturn: 'inline-block',
                 study: 'none',
-                handleOperator: 'inline-block'
+                handleOperator: 'inline-block',
+                enterprisename:'none'
             })
         }
         if ("普通用户" === this.core.value.type) {
@@ -102,7 +95,9 @@ class SysUserRegister extends PureComponent {
                 displayGov: 'none',
                 displayService: 'none',
                 study: 'none',
-                handleOperator: 'inline-block'
+                handleOperator: 'inline-block',
+                enterprisename:'none'
+
             })
         }
     }
@@ -125,7 +120,7 @@ class SysUserRegister extends PureComponent {
                             message.success("操作成功")
                             window.location.href = '/user/login'
                         } else {
-                            message.error("操作失败")
+                            message.error(res.msg || "操作失败")
                         }
                     })
                 }
@@ -136,7 +131,7 @@ class SysUserRegister extends PureComponent {
                         message.success("操作成功")
                         window.location.href = '/user/login'
                     } else {
-                        message.error("操作失败")
+                        message.error(res.msg || "操作失败")
                     }
                 })
             } else if (this.core.value.type === '技术服务机构') {
@@ -145,10 +140,17 @@ class SysUserRegister extends PureComponent {
                         message.success("操作成功")
                         window.location.href = '/user/login'
                     } else {
-                        message.error("操作失败")
+                        message.error(res.msg || "操作失败")
                     }
                 })
             } else if (this.core.value.type === '普通用户') {
+                if (this.core.value.loginPassword === null || this.core.value.ConfirmPassword === null) {
+                    message.error("请输入密码");
+                    return {type: "string", required: true, message: '确认密码不能为空'};
+                } else if (this.core.value.loginPassword !== this.core.value.ConfirmPassword) {
+                    message.error("密码不一致");
+                    return {type: "string", required: true, message: '密码不一致'};
+                }
                 request.post('/zyb/sysUser/add', {data: this.core.value}).then(res => {
                     if (res && res.flag) {
                         message.success("操作成功")
@@ -205,7 +207,8 @@ class SysUserRegister extends PureComponent {
                 displayService: 'none',
                 primaryreturn: 'none',
                 study: 'block',
-                handleOperator: 'none'
+                handleOperator: 'none',
+                enterprisename:'block'
             })
         }
         if ("政府监管部门" === this.core.value.type) {
@@ -216,7 +219,8 @@ class SysUserRegister extends PureComponent {
                 displayService: 'none',
                 primaryreturn: 'none',
                 study: 'block',
-                handleOperator: 'none'
+                handleOperator: 'none',
+                enterprisename:'block'
             })
         }
         if ("技术服务机构" === this.core.value.type) {
@@ -227,7 +231,8 @@ class SysUserRegister extends PureComponent {
                 displayService: 'none',
                 primaryreturn: 'none',
                 study: 'block',
-                handleOperator: 'none'
+                handleOperator: 'none',
+                enterprisename:'block'
             })
         }
         if ("普通用户" === value) {
@@ -237,7 +242,8 @@ class SysUserRegister extends PureComponent {
                 displayGov: 'none',
                 displayService: 'none',
                 study: 'none',
-                handleOperator: 'block'
+                handleOperator: 'block',
+                enterprisename:'none'
             })
         }
     }
@@ -294,6 +300,8 @@ class SysUserRegister extends PureComponent {
                                             <option key={"普通用户"}>{"普通用户"}</option>
                                         </Select>
                                     </FormItem>
+                                </div>
+                                <div style={{display: this.state.enterprisename,marginTop: 15,marginBottom: 15, fontSize: '16px'}}>
                                     <FormItem label="企业名称" name="companyName" required={true}><Input
                                         placeholder="请选择企业名称" style={{width:230}}/></FormItem>
                                 </div>

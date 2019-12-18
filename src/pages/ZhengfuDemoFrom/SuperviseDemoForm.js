@@ -32,6 +32,7 @@ class SuperviseDemoForm extends PureComponent {
     componentWillMount() {
         let currentYear=new Date().getFullYear()
         this.core.setValue('year',currentYear)
+        this.core.setValue('isSet','是')
         let {type, record} = this.props.option
         if ('edit' === type || 'view' === type) {
           this.state.Login='block'
@@ -56,7 +57,7 @@ class SuperviseDemoForm extends PureComponent {
                     <FormItem required={true} label="注册地址" name="registerAddress"><Input style={{width: 230}}/></FormItem>
                 <FormItem required={true} label="单位名称" name="name"><Input style={{width: 230}}/></FormItem>
                 </div>
-                <FormItem required={true}  value={"是"} style={{paddingTop:20}}  label="是否独立设置职业健康监管" name="isSet">
+                <FormItem required={true}   style={{paddingTop:20}}  label="是否独立设置职业健康监管" name="isSet">
                     <Radio.Group  value={this.state.value} style={{width:200}}>
                         <Radio value={"是"}>是</Radio>
                         <Radio value={"否"}>否</Radio>

@@ -47,6 +47,7 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
     componentWillMount() {
         let currentYear=new Date().getFullYear()
         this.core.setValue('checkYear',currentYear)
+        this.core.setValue('decideResult','合格')
         let {type, record} = this.props.option
         if ('edit' === type || 'view' === type) {
             this.core.setValues({...record})
@@ -125,7 +126,7 @@ class JianceDetailOfServiceDemoForm extends PureComponent {
                 <FormItem required={true} label="工作场所编码" name="workplaceCode"><InputNumber style={{width: 230}}/></FormItem>
                 <FormItem required={true} label="岗位名称" name="cascaded3"><Cascader style={{width: 230}} options={this.state.dataSource3}  onChange={this.onChange} placeholder="岗位名称"/></FormItem>
                 <FormItem required={true} label="职业病危害因素名称" name="cascaded4"><Cascader style={{width: 230}} options={this.state.dataSource4}  onChange={this.onChange} placeholder="职业病危害因素名称"/></FormItem>
-                <FormItem required={true} value={"合格"}  label="判定结果" name="decideResult">
+                <FormItem required={true} label="判定结果" name="decideResult">
                     <Radio.Group value={this.state.value} style={{width:200}}>
                         <Radio value={"合格"}>合格</Radio>
                         <Radio value={"不合格"}>不合格</Radio>

@@ -25,6 +25,8 @@ class PersonOfSuperviseDemoForm extends PureComponent {
 
     componentWillMount() {
         let {type, record} = this.props.option
+        this.core.setValue('isGet','是')
+        this.core.setValue('gender','男')
         if ('edit' === type || 'view' === type) {
             this.core.setValues({...record})
             this.core.setGlobalStatus('edit' === type ? type : 'preview')
@@ -39,7 +41,7 @@ class PersonOfSuperviseDemoForm extends PureComponent {
             <Form core={this.core} layout={{label: 9}}>
                 <FormItem style={{display: 'none'}} name="id"><Input/></FormItem>
                 <FormItem required={true} label="姓名" name="name"><Input/></FormItem>
-                   <FormItem required={true} value={"男"}  label="性别" name="gender">
+                   <FormItem required={true}  label="性别" name="gender">
                        <Radio.Group  value={this.state.value} style={{width:200}} >
                            <Radio value={"男"}>男</Radio>
                            <Radio value={"女"}>女</Radio>
@@ -50,7 +52,7 @@ class PersonOfSuperviseDemoForm extends PureComponent {
                    <FormItem required={true} label="职务" name="job"><Input/></FormItem>
                     <FormItem required={true} label="所学专业" name="major"><Input/></FormItem>
 
-                     <FormItem required={true} value={"是"} label="是否取得执法资格证书" name="isGet">
+                     <FormItem required={true} label="是否取得执法资格证书" name="isGet">
                          <Radio.Group  value={this.state.value}style={{width:200}} >
                              <Radio value={"是"}>是</Radio>
                              <Radio value={"否"}>否</Radio>

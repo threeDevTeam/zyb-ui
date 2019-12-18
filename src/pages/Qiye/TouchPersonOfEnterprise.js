@@ -91,6 +91,10 @@ class TouchPersonOfEnterprise extends PureComponent {
                         content: <div><Spin/>正在操作中...</div>,
                         okButtonProps: {disabled: true}
                     })
+                    if( this.state.fileList.length === 0){
+                        modal.update({content: '请添加表格文件！', okButtonProps: {disabled: false}})
+                        return;
+                    }
                     //将表单数据放入formData
                     formData.append("form", JSON.stringify(values))
                     //异步请求

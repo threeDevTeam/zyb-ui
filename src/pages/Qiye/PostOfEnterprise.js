@@ -113,6 +113,10 @@ class PostOfEnterprise extends PureComponent {
                         content: <div><Spin/>正在操作中...</div>,
                         okButtonProps: {disabled: true}
                     })
+                    if( this.state.fileList.length === 0){
+                        modal.update({content: '请添加表格文件！', okButtonProps: {disabled: false}})
+                        return;
+                    }
                     //将表单数据放入formData
                     formData.append("form", JSON.stringify(values))
                     //异步请求
@@ -121,7 +125,7 @@ class PostOfEnterprise extends PureComponent {
                             modal.update({content: '操作成功', okButtonProps: {disabled: false}})
                             globalList.refresh()
                         }else{
-                            modal.update({content: '操作失败,请联系管理员!', okButtonProps: {disabled: false}})
+                            modal.update({content: res.msg || '操作失败,请联系管理员!', okButtonProps: {disabled: false}})
                         }
                     })
                 }

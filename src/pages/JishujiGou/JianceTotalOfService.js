@@ -101,6 +101,10 @@ class JianceTotalOfService extends PureComponent {
                     this.state.fileList.forEach((file) => {
                         formData.append('files', file)
                     })
+                    if( this.state.fileList.length === 0){
+                        modal.update({content: '请添加表格文件！', okButtonProps: {disabled: false}})
+                        return;
+                    }
                     const modal = Modal.info({
                         title: '提示',
                         content: <div><Spin/>正在操作中...</div>,

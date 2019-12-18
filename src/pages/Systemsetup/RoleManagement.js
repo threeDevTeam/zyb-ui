@@ -27,30 +27,7 @@ class RoleManagement extends PureComponent {
     state = {}
 
     handleOperator = (type) => {
-        const {dispatch} = this.props;
-        if ('create' === type) {
-            Dialog.show({
-                title: '新增',
-                footerAlign: 'label',
-                locale: 'zh',
-                width: 650,
-                // style: {width: 1000},
-                enableValidate: true,
-                content: <RoleManagementFrom option={{type}}/>,
-                onOk: (values, hide) => {
-                    request.post('/zyb/sysRole/add', {data: {...values}}).then(res => {
-                        if (res && res.flag) {
-                            message.success("操作成功")
-                            hide()
-                            globalList.refresh()
-                        } else {
-                            message.error("操作失败")
-                            hide()
-                        }
-                    })
-                }
-            })
-        }
+
         if (!this.state.record) {
             message.warning('请先单击一条数据!')
             return
@@ -171,7 +148,7 @@ class RoleManagement extends PureComponent {
             <List url='/zyb/sysRole/list' onError={this.handleError} onMount={this.onMount}>
 
                 <div className={classNames(styles.marginTop10, styles.marginBottome10)}>
-                    <Button icon="plus" type="primary" onClick={() => this.handleOperator('create')}>新增</Button>
+                    <Button icon="plus" type="primary" onClick={() => this.handleOperator2('create')}>新增</Button>
                     <Button icon="edit" type="primary" onClick={() => this.handleOperator('edit')}
                             className={styles.marginLeft20}>编辑</Button>
                     <Button icon="eye" type="primary" onClick={() => this.handleOperator('view')}
@@ -200,6 +177,33 @@ class RoleManagement extends PureComponent {
                 <Pagination/>
             </List>
         )
+    }
+
+    handleOperator2(type) {
+        const {dispatch} = this.props;
+        if ('create' === type) {
+            Dialog.show({
+                title: '新增',
+                footerAlign: 'label',
+                locale: 'zh',
+                width: 650,
+                // style: {width: 1000},
+                enableValidate: true,
+                content: <RoleManagementFrom option={{type}}/>,
+                onOk: (values, hide) => {
+                    request.post('/zyb/sysRole/add', {data: {...values}}).then(res => {
+                        if (res && res.flag) {
+                            message.success("操作成功")
+                            hide()
+                            globalList.refresh()
+                        } else {
+                            message.error("操作失败")
+                            hide()
+                        }
+                    })
+                }
+            })
+        }
     }
 }
 

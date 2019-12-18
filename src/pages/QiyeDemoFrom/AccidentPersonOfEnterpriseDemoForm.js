@@ -28,6 +28,8 @@ this.core = new FormCore({validateConfig: validate});
  }
 componentWillMount() {
  let {type, record} = this.props.option
+ this.core.setValue('gender','男')
+ this.core.setValue('isDie','是')
  if ('edit' === type || 'view' === type) {
   this.core.setValues({...record})
   this.core.setGlobalStatus('edit' === type ? type : 'preview')
@@ -49,14 +51,14 @@ componentWillMount() {
   <FormItem required={true} label="职业病危害事故编号" name="accidentNum"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} label="姓名" name="name"><Input style={{width: 230}}/></FormItem>
  <FormItem required={true} label="身份证号" name="idNum"><Input style={{width: 230}}/></FormItem>
- <FormItem required={true} value={"男"} label="性别" name="gender">
+ <FormItem required={true} label="性别" name="gender">
   <Radio.Group  style={{width:200}}>
    <Radio value={"男"}>男</Radio>
    <Radio value={"女"}>女</Radio>
   </Radio.Group>
  </FormItem>
  <FormItem required={true} label="年龄" name="age"><InputNumber style={{width: 230}}/></FormItem>
- <FormItem required={true} value={"是"} label="是否死亡" name="isDie">
+ <FormItem required={true} label="是否死亡" name="isDie">
   <Radio.Group  style={{width:200}}>
    <Radio value={"是"}>是</Radio>
    <Radio value={"否"}>否</Radio>

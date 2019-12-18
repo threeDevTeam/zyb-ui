@@ -46,6 +46,7 @@ this.core = new FormCore({validateConfig: validate});
 componentWillMount() {
  let currentYear=new Date().getFullYear()
  this.core.setValue('checkYear',currentYear)
+ this.core.setValue('gender','男')
  let {type, record} = this.props.option
  if ('edit' === type || 'view' === type) {
   this.core.setValues({...record})
@@ -123,7 +124,7 @@ componentWillMount() {
 
   <FormItem required={true} label="姓名" name="name"><Input style={{width: 230}} /></FormItem>
  <FormItem required={true} label="身份证号" name="idNum"><Input style={{width: 230}} /></FormItem>
- <FormItem  value={"男"} required={true} label="性别" name="gender">
+ <FormItem  required={true} label="性别" name="gender">
   <Radio.Group  value={this.state.value} style={{width:200}}>
    <Radio value={"男"}>男</Radio>
    <Radio value={"女"}>女</Radio>
