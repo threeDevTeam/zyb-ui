@@ -171,7 +171,8 @@ class SysUserRegister extends PureComponent {
                 displayService: 'none',
                 primaryreturn: 'none',
                 study: 'block',
-                handleOperator: 'none'
+                handleOperator: 'none',
+                enterprisename:'block'
             })
         }
         if ("政府监管部门" === this.core.value.type) {
@@ -182,7 +183,8 @@ class SysUserRegister extends PureComponent {
                 displayService: 'none',
                 primaryreturn: 'none',
                 study: 'block',
-                handleOperator: 'none'
+                handleOperator: 'none',
+                enterprisename:'block'
             })
         }
         if ("技术服务机构" === this.core.value.type) {
@@ -193,7 +195,8 @@ class SysUserRegister extends PureComponent {
                 displayService: 'none',
                 primaryreturn: 'none',
                 study: 'block',
-                handleOperator: 'none'
+                handleOperator: 'none',
+                enterprisename:'block'
             })
         }
     }
