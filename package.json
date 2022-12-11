@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "mockjs": "^1.0.1-beta3",
-    "umi": "^2.8.16",
+    "umi": "^4.0.36",
     "umi-plugin-react": "^1.9.14"
   },
   "dependencies": {
